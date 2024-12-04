@@ -1,0 +1,315 @@
+{
+  "inqrNoReadNtfcCnt": {
+    "rstCd": "200",
+    "dta": {
+      "msg": "알림 미확인 수 조회에 성공하였습니다.",
+      "okHttpResponseCode": "200",
+      "rspMsg": "정상",
+      "noReadNtfcCnt": 2,
+      "rspCd": "0000"
+    },
+    "errMsg": ""
+  },
+  "inqrMbrsMlgAmtCpnCnt": {
+    "rstCd": "200",
+    "dta": {
+      "rspMsg": "정상조회",
+      "GoMlgAmt": 4521,
+      "offwallMlgAmt": 0,
+      "dotDispYn": "N",
+      "rspCd": "0000",
+      "cpnPsnCnt": 1,
+      "tMlgAmt": 1468845,
+      "atncCheckPrcn": "2/30"
+    },
+    "errMsg": ""
+  },
+  "inqrMyStupInfo": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "마이 서비스 설정 정보 가 정상 조회되었습니다.",
+      "myMvmnDist": "320",
+      "myScrnMrkList": [
+        {
+          "svcCd": "U0",
+          "svcNm": "이용횟수",
+          "svcTtlNm": "타기만 했더니 어느새 쌓여버린 나의\r\n티머니GO 마일리지!",
+          "svcTtlNmLrCd": "#222222",
+          "svcTtlTltpCtt": "모빌리티 별 아이콘 크기는\r\n이용 횟수에 따라 커져요!",
+          "svcTtlChcMvmnPath": "",
+          "svcLotPath": "",
+          "svcLotDfltPath": "",
+          "svcLotTllNm": "",
+          "svcLotTllNmLrCd": "",
+          "svcLotCtt": "",
+          "svcLotCttLrCd": "",
+          "dtlMvmnNm": "",
+          "dtlMvmnNmLrCd": "",
+          "dtlMvmnNmBckgLrCd": "",
+          "dtlMvmnNmImgPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/my/U0A2022001/image_U0_B1_D_1X1_20230227140101.png?2",
+          "dtlMvmnNmTltpCtt": "교통카드 등록하고 혜택 받기",
+          "dtlMvmnNmChcMvmnPath": "tmoneytia://reward/transfer/main",
+          "dtlMvmnTitlNm": "",
+          "scrnMrkInfoList": [
+            {
+              "displayYn": "Y",
+              "mlgAcmtAmt": "",
+              "stepDvsCd": "",
+              "stepUseYn": "N",
+              "trtrMlgAmt": "",
+              "utlzSvcDvsCd": "P",
+              "utlzSvcDvsNm": "대중교통",
+              "utlzSvcFcnt": "",
+              "utlzSvcIconLrVal": "#1DA8D1"
+            },
+            {
+              "displayYn": "Y",
+              "mlgAcmtAmt": "0",
+              "stepDvsCd": "1",
+              "stepUseYn": "N",
+              "trtrMlgAmt": "0",
+              "utlzSvcDvsCd": "O",
+              "utlzSvcDvsNm": "온다택시",
+              "utlzSvcFcnt": "1",
+              "utlzSvcIconLrVal": "#A945AD"
+            },
+            {
+              "displayYn": "Y",
+              "mlgAcmtAmt": "",
+              "stepDvsCd": "",
+              "stepUseYn": "N",
+              "trtrMlgAmt": "",
+              "utlzSvcDvsCd": "B",
+              "utlzSvcDvsNm": "고속시외",
+              "utlzSvcFcnt": "",
+              "utlzSvcIconLrVal": "#1881DB"
+            },
+            {
+              "displayYn": "Y",
+              "mlgAcmtAmt": "0",
+              "stepDvsCd": "2",
+              "stepUseYn": "N",
+              "trtrMlgAmt": "0",
+              "utlzSvcDvsCd": "T",
+              "utlzSvcDvsNm": "자전거",
+              "utlzSvcFcnt": "6",
+              "utlzSvcIconLrVal": "#24C169"
+            },
+            {
+              "displayYn": "Y",
+              "mlgAcmtAmt": "0",
+              "stepDvsCd": "4",
+              "stepUseYn": "N",
+              "trtrMlgAmt": "0",
+              "utlzSvcDvsCd": "X",
+              "utlzSvcDvsNm": "킥보드",
+              "utlzSvcFcnt": "11",
+              "utlzSvcIconLrVal": "#FFCA39"
+            }
+          ],
+          "svcTypeInfoList": [],
+          "thmmTrcsInfoList": []
+        },
+        {
+          "svcCd": "D0",
+          "svcNm": "이동거리",
+          "svcTtlNm": "티머니GO와 함께한\r\n나의 총 이동거리는?",
+          "svcTtlNmLrCd": "#222222",
+          "svcTtlTltpCtt": "타기만 했더니 어느새 쌓여버린 나의\r\n티머니GO 마일리지!",
+          "svcTtlChcMvmnPath": "",
+          "svcLotPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/my/D0A2022001/lottie_D0_C1_E_2X4_20221209120101.json",
+          "svcLotDfltPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/my/default/bakimg/mui/my/D0A2022001/lottie_D0_C1_E_2X4_20221209120101.png",
+          "svcLotTllNm": "",
+          "svcLotTllNmLrCd": "",
+          "svcLotCtt": "",
+          "svcLotCttLrCd": "",
+          "dtlMvmnNm": "",
+          "dtlMvmnNmLrCd": "",
+          "dtlMvmnNmBckgLrCd": "",
+          "dtlMvmnNmImgPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/my/D0A2022001/image_D0_B1_E_1X1_20230227140101.png",
+          "dtlMvmnNmTltpCtt": "",
+          "dtlMvmnNmChcMvmnPath": "https://tiaapid.tmoney.co.kr:20328/webview/mui/v2/inqrMvmnDistStupInfo.do",
+          "dtlMvmnTitlNm": "나의 이동거리",
+          "scrnMrkInfoList": [],
+          "svcTypeInfoList": [],
+          "thmmTrcsInfoList": []
+        },
+        {
+          "svcCd": "C0",
+          "svcNm": "교통비",
+          "svcTtlNm": "당월 내가 지출하고 있는\r\n교통비는 총 얼마일까요?",
+          "svcTtlNmLrCd": "#222222",
+          "svcTtlTltpCtt": "당월 내가 지출하고 있는\r\n교통비는 총 얼마일까요?",
+          "svcTtlChcMvmnPath": "",
+          "svcLotPath": "",
+          "svcLotDfltPath": "",
+          "svcLotTllNm": "",
+          "svcLotTllNmLrCd": "",
+          "svcLotCtt": "",
+          "svcLotCttLrCd": "",
+          "dtlMvmnNm": "",
+          "dtlMvmnNmLrCd": "",
+          "dtlMvmnNmBckgLrCd": "",
+          "dtlMvmnNmImgPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/my/C0A2023001/image_C0_B1_E_1X1_20230227140101.png",
+          "dtlMvmnNmTltpCtt": "나의 교통비 자세히 보기",
+          "dtlMvmnNmChcMvmnPath": "https://tiaapid.tmoney.co.kr:20328/webview/mui/v2/inqrMyCostInfo.do",
+          "dtlMvmnTitlNm": "나의 교통비",
+          "scrnMrkInfoList": [],
+          "svcTypeInfoList": [],
+          "thmmTrcsInfoList": [
+            {
+              "utlzSvcMonth": "2024년 04월",
+              "utlzSvcTerm": "04.01 ~ 04.18",
+              "utlzSvcAmt": "0",
+              "utlzSvcRto": "0"
+            },
+            {
+              "utlzSvcMonth": "2024년 03월",
+              "utlzSvcTerm": "03.01 ~ 03.31",
+              "utlzSvcAmt": "0",
+              "utlzSvcRto": "0"
+            }
+          ]
+        },
+        {
+          "svcCd": "T0",
+          "svcNm": "유형카드",
+          "svcTtlNm": "나는 티머니GO의\r\n어떤 유형의 사용자일까요?",
+          "svcTtlNmLrCd": "#222222",
+          "svcTtlTltpCtt": "나는 티머니GO의\r\n어떤 유형의 사용자일까요?",
+          "svcTtlChcMvmnPath": "",
+          "svcLotPath": "",
+          "svcLotDfltPath": "",
+          "svcLotTllNm": "",
+          "svcLotTllNmLrCd": "",
+          "svcLotCtt": "",
+          "svcLotCttLrCd": "",
+          "dtlMvmnNm": "",
+          "dtlMvmnNmLrCd": "",
+          "dtlMvmnNmBckgLrCd": "",
+          "dtlMvmnNmImgPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/my/T0A2023001/image_T0_B1_E_1X1_20230227140101.png",
+          "dtlMvmnNmTltpCtt": "유형 스탬프 자세히 보기",
+          "dtlMvmnNmChcMvmnPath": "https://tiaapid.tmoney.co.kr:20328/webview/mui/v2/inqrMyStampInfo.do",
+          "dtlMvmnTitlNm": "유형카드 상세",
+          "scrnMrkInfoList": [],
+          "svcTypeInfoList": [
+            {
+              "stupSvcDvsCd": "T0",
+              "svcTypCd": "D1",
+              "adptSeqNm": "이불속여행자",
+              "svcTypPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/my/T0A2023001/image_T0_C1_D1_E_6X8_20230316130101.png",
+              "svcTypSrsq": 1
+            }
+          ],
+          "thmmTrcsInfoList": []
+        },
+        {
+          "svcCd": "E0",
+          "svcNm": "ESG",
+          "svcTtlNm": "티머니GO와 함께 탄소를\r\n절감하며 나무를 키워보세요!",
+          "svcTtlNmLrCd": "#222222",
+          "svcTtlTltpCtt": "티머니GO와 함께 탄소를\r\n절감하며 나무를 키워보세요!",
+          "svcTtlChcMvmnPath": "",
+          "svcLotPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/my/E0A2022001/lottie_E0_C1_A_E_4X4_20221205140101.json",
+          "svcLotDfltPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/my/default/bakimg/mui/my/E0A2022001/lottie_E0_C1_A_E_4X4_20221205140101.png",
+          "svcLotTllNm": "씨앗 단계",
+          "svcLotTllNmLrCd": "#0dbc71",
+          "svcLotCtt": "조금 더 이동해서 싹을 키워보세요!",
+          "svcLotCttLrCd": "#000000",
+          "dtlMvmnNm": "",
+          "dtlMvmnNmLrCd": "",
+          "dtlMvmnNmBckgLrCd": "",
+          "dtlMvmnNmImgPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/my/E0A2022001/image_E0_B1_E_1X1_20230227140101.png",
+          "dtlMvmnNmTltpCtt": "",
+          "dtlMvmnNmChcMvmnPath": "https://tiaapid.tmoney.co.kr:20328/webview/mui/v2/inqrEsgCampaignStupInfo.do",
+          "dtlMvmnTitlNm": "티머니GO의 ESG 캠페인",
+          "scrnMrkInfoList": [],
+          "svcTypeInfoList": [],
+          "thmmTrcsInfoList": []
+        }
+      ],
+      "trcrRgtYn": "N",
+      "trcrRgtMvmnPath": "tmoneytia://reward/transfer/main",
+      "actScsYn": "Y"
+    },
+    "errMsg": ""
+  },
+  "inqrBenefitStupInfo": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "혜택 서비스 설정 정보 가 정상 조회되었습니다.",
+      "TGOMileageAmt": "4",
+      "atncCheckPrcn": "2/30",
+      "benefitScrnMrkList": [
+        {
+          "svcImgNm": "출석 체크 이미지",
+          "svcLocDvsCd": "A",
+          "svcImgPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/benefit/B0A2022001/image_B0_T1_D_2X4_202212190101.png",
+          "svcImgTltpCtt": "하루 하루 출석체크로GO마일리지 적립하기",
+          "svcImgChcMvmnPath": "https://tiaapid.tmoney.co.kr:20328/webview/mui/v2/inqrAttendanceStupInfo.do",
+          "svcMvmnTitlNm": "출석 체크"
+        },
+        {
+          "svcImgNm": "교통카드 등록 후 혜택 받기 이미지",
+          "svcLocDvsCd": "C",
+          "svcImgPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/benefit/B0A2022001/image_B0_T2_E_2X4_202307070001.png",
+          "svcImgTltpCtt": "교통카드 등록하고 최대 월 5,000M 받기",
+          "svcImgChcMvmnPath": "tmoneytia://reward/transfer/main",
+          "svcMvmnTitlNm": ""
+        },
+        {
+          "svcImgNm": "마일리지 모으기 이미지",
+          "svcLocDvsCd": "M",
+          "svcImgPath": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/benefit/B0A2022001/image_B0_T3_E_2X4_202212190101.png",
+          "svcImgTltpCtt": "GO마일리지 무료적립 하러가기",
+          "svcImgChcMvmnPath": "tmoneytia://mileage/center",
+          "svcMvmnTitlNm": ""
+        }
+      ],
+      "benefitEvntList": [
+        {
+          "svcImgNm": "[이벤트][렌터카] 티머니GO 렌터카 오픈! 7% 무제한 적립!",
+          "svcImgPath": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntBnft_S_EVNT075_20230324.png",
+          "svcImgTltpCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+          "svcImgChcMvmnPath": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240402001"
+        },
+        {
+          "svcImgNm": "[이벤트] 우정은 온다택시를 타GO",
+          "svcImgPath": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntBnft_S_EVNT081_2024032503.png",
+          "svcImgTltpCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+          "svcImgChcMvmnPath": "tmoneytia://event/detail?sno=20230504000000000087"
+        },
+        {
+          "svcImgNm": "국내선 항공은 티머니GO로 예약!",
+          "svcImgPath": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntBnft_S_EVNT121_2024032503.png",
+          "svcImgTltpCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+          "svcImgChcMvmnPath": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240315001&token=_TOKEN_"
+        }
+      ],
+      "trcrRgtYn": "N",
+      "actScsYn": "Y"
+    },
+    "errMsg": ""
+  },
+  "uptMbrsAuthTknInfo": {
+    "rstCd": "200",
+    "dta": {
+        "msg": "회원인증에 실패하였습니다.",
+        "ageDvsCd": "1",
+        "drmbYn": "N",
+        "authToken": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyMDI0MDUwNzAwMDAwMDAyOTY2NyIsImlhdCI6MTcxNzU4MDcwNSwiZXhwIjoxNzE3NjY3MTA1fQ.apqdJLL-HERJ9bCEOftvuB2rgVVtBIOFPy_BOkkFeXc",
+        "tGo1Yn": "Y",
+        "userPhoneNumber": "01092352224",
+        "userName": "곽현준",
+        "joinYn": "Y",
+        "userBirthDate": "19860111",
+        "moappMbrsSno": "20240507000000029667",
+        "authTkn": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyMDI0MDUwNzAwMDAwMDAyOTY2NyIsImlhdCI6MTcxNzU4MDcwNSwiZXhwIjoxNzE3NjY3MTA1fQ.apqdJLL-HERJ9bCEOftvuB2rgVVtBIOFPy_BOkkFeXc",
+        "frndInvnTgtYn": "N",
+        "prsnAuthSno": "20230824000022530125"
+    },
+    "errMsg": ""
+}
+}

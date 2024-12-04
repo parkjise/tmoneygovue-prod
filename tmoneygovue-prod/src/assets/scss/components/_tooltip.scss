@@ -1,0 +1,140 @@
+@use '../helpers' as *;
+
+.tooltip_wrap {
+  position: relative;
+  display: inline-flex;
+  .tooltip_area {
+    display: inline-block;
+    position: absolute;
+    z-index: 99;
+    min-width: max-content;
+    background-color: $white;
+    border: 0.1rem solid $gray090;
+    padding: 1.2rem;
+    border-radius: 4rem;
+    text-align: center;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      border-width: 0 0.6rem 0.8rem 0.6rem;
+      border-color: $black transparent;
+      border-style: solid;
+      top: -0.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      border-width: 0 0.6rem 0.8rem 0.6rem;
+      border-color: $white transparent;
+      border-style: solid;
+      top: -0.6rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &.tooltip_left {
+      left: -1.2rem;
+    }
+    &.tooltip_center {
+      left: 50%;
+      transform: translateX(-50%);
+      .tooltip_content {
+        &::before {
+          left: calc(50% - 0.7rem);
+        }
+      }
+    }
+    &.tooltip_right {
+      right: -6.2rem;
+      .tooltip_content {
+        &::before {
+          right: 6.2rem;
+        }
+      }
+    }
+    &.tooltip_top {
+      bottom: calc(100% + 1.4rem);
+      .tooltip_content {
+        &::before {
+          top: auto;
+          bottom: -1.4rem;
+          transform: rotate(180deg);
+        }
+      }
+    }
+    &.tooltip_bottom {
+      top: calc(100% + 1.4rem);
+      .tooltip_content {
+        &::before {
+          top: -1.4rem;
+        }
+      }
+    }
+    &.tooltip_white {
+      min-width: 13.3rem;
+      background: $white;
+      .tooltip_content {
+        color: $black;
+        &::before {
+          border-bottom-color: $white;
+        }
+      }
+    }
+    &.tooltip_dark {
+      background: $gray090;
+      border-radius: 0.4rem;
+      .tooltip_content {
+        &::before {
+          border-bottom-color: $gray090;
+        }
+      }
+    }
+    &.tooltip_line {
+      background: $white;
+      border: 0.1rem solid #622cff;
+      border-radius: 1rem;
+      background-color: $white;
+      filter: none;
+      .tooltip_content {
+        color: $black;
+        &::before {
+          width: 0.9rem;
+          height: 0.9rem;
+          margin-top: 0.8rem;
+          border: 0.1rem solid #622cff;
+          background-color: $white;
+          border-bottom: 0;
+          border-right: 0;
+          transform: rotate(45deg);
+        }
+      }
+    }
+    .tooltip_content {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      font-weight: $fontMedium;
+      @include fontHeight(1.2);
+      color: $gray090;
+      box-sizing: border-box;
+    }
+    .btn_close {
+        display: inline-block;
+        width: 1.8rem;
+        height: 1.6rem;
+        padding: 0;
+        @include ic_bg(16, 'tooltipClose');
+    }
+  }
+}
+
+.btn_tooltip {
+  padding: 0;
+  .ic {
+    pointer-events: none;
+  }
+}
+

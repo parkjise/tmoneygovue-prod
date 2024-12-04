@@ -1,0 +1,2849 @@
+@use '../helpers' as *;
+
+// 결제수단 swiper관련 수정
+.credit_slide {
+  .navi_pagination_wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    position: relative;
+    left: 43%;
+    z-index: 1;
+    .swiper-pagination-fraction {
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: auto;
+      left: auto;
+      top: auto;
+      bottom: auto;
+      right: auto;
+
+      .swiper-pagination-current {
+        display: inline-block;
+        color: $white;
+        @include fontHeight(1);
+        line-height: 1rem;
+        font-weight: $fontBold;
+      }
+      .swiper_pagination_separator {
+        display: inline-block;
+        margin: 0 0.4rem;
+        color: $white;
+        @include fontHeight(1);
+        line-height: 1rem;
+        opacity: 0.7;
+      }
+      .swiper-pagination-total {
+        display: inline-block;
+        color: $white;
+        @include fontHeight(1);
+        line-height: 1rem;
+        font-weight: $fontBold;
+        opacity: 0.7;
+      }
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      position: relative;
+      display: block;
+      flex-shrink: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+      z-index: 11;
+      top: 0;
+      &::before {
+        width: 100%;
+        height: 100%;
+        background-image: url('#{$img_path}/ic/ic_12_arrow.png');
+      }
+    }
+
+    .swiper-button-prev {
+      transform: scaleX(-1);
+    }
+
+    .swiper-button-next {
+      transform: none;
+    }
+  }
+  .tmoney_card {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: flex-end; /* Align children to the right */
+    .tmoney_card_logo {
+      align-self: flex-end;
+      width: 5.8rem;
+      height: 1rem;
+    }
+  }
+}
+
+// 결제내역
+.det {
+  .container {
+    // 공통
+    .pay_title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-weight: $fontMedium;
+        @include fontHeight(1.6);
+        .ic_area {
+          display: block;
+          width: 2.2rem;
+          height: 2.2rem;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .status {
+        font-family: $fontNum, sans-serif;
+        font-weight: $fontRegular;
+        color: $gray070;
+        line-height: 1;
+        letter-spacing: 0;
+        &.red {
+          color: $error1;
+        }
+      }
+    }
+    .round_box {
+      box-shadow: 0 0.4rem 2rem 0 rgba(0, 0, 0, 0.1);
+    }
+    .btn_area {
+      .btn_primary {
+        font-weight: $fontMedium;
+      }
+    }
+    // 결제내역
+    .pay_area {
+      padding-bottom: 2rem;
+      .tab {
+        &_link {
+          position: fixed;
+          top: 5.6rem;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+          background-color: $white;
+        }
+      }
+      .fixed_area {
+        position: fixed;
+        top: 11.1rem;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        .notice {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          width: 100%;
+          padding: 1.2rem 2rem;
+          background-color: $gray010;
+          color: $gray070;
+        }
+        .date {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          width: 100%;
+          padding: 1.2rem 2rem;
+          background-color: $white;
+          span {
+            display: block;
+            font-family: $fontNum, sans-serif;
+            font-weight: $fontBold;
+            font-size: 1.6rem;
+            color: $text2;
+            line-height: 1;
+            letter-spacing: 0;
+          }
+          .btn {
+            height: auto;
+            padding: 0;
+            background-color: $white;
+            &:disabled {
+              i {
+                &::before {
+                  @include ic_bg(24, 'arrow_disabled');
+                }
+              }
+            }
+          }
+        }
+      }
+      .pay_btn_area {
+        padding-top: 15.5rem;
+        .btn_pay {
+          display: block;
+          width: 100%;
+          height: auto;
+          padding: 2rem;
+          background-color: $white;
+          border-radius: 0;
+          color: $text2;
+          text-align: left;
+          ~ .btn_pay {
+            margin-top: 0.8rem;
+          }
+          .pay_title {
+            margin-bottom: 2rem;
+            .title {
+              width: 80%;
+              font-family: $fontNum, sans-serif;
+              line-height: 1;
+              letter-spacing: 0;
+              .title_area {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+              .num_area {
+                display: block;
+                min-width: 2rem;
+                width: 2rem;
+                height: 2rem;
+                border: 0.1rem solid $line1;
+                border-radius: 50%;
+                font-weight: $fontBold;
+                @include fontHeight(1.2);
+                color: $primary2;
+                letter-spacing: 0;
+                line-height: 1.8rem;
+                text-align: center;
+              }
+            }
+          }
+          .payment_list {
+            li {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              ~ li {
+                margin-top: 0.8rem;
+              }
+              .sub_title {
+                font-weight: $fontRegular;
+                color: $gray070;
+              }
+              .num {
+                font-family: $fontNum, sans-serif;
+                line-height: 1;
+                letter-spacing: 0;
+                &.payment {
+                  font-weight: $fontRegular;
+                  @include fontHeight(1.6);
+                  line-height: 1;
+                  letter-spacing: 0;
+                  span {
+                    font-weight: $fontBold;
+                  }
+                }
+              }
+              .info {
+                width: 100%;
+                margin-top: 0.8rem;
+                li {
+                  justify-content: space-between;
+                  ~ li {
+                    margin-top: 0.4rem;
+                  }
+                  .tool {
+                    &.has_ic {
+                      display: flex;
+                      align-items: center;
+                      gap: 0.8rem;
+                      &::before {
+                        content: '';
+                        display: block;
+                        width: 0.8rem;
+                        height: 0.8rem;
+                        border-left: 0.1rem solid $gray050;
+                        border-bottom: 0.1rem solid $gray050;
+                        box-sizing: border-box;
+                      }
+                    }
+                  }
+                }
+              }
+              &.info_area {
+                align-items: flex-start;
+              }
+              &.sum_area {
+                justify-content: space-between;
+                position: relative;
+                margin-top: 1.2rem;
+                padding-top: 1.2rem;
+                border-top: 0.1rem solid $line2;
+                .sub_title {
+                  font-weight: $fontMedium;
+                  color: $text2;
+                  letter-spacing: -0.1rem;
+                }
+                .num {
+                  @include fontHeight(1.8);
+                  line-height: 1;
+                }
+              }
+            }
+          }
+        }
+      }
+      .no_data {
+        padding-top: 26.5rem;
+        text-align: center;
+        p {
+          margin-top: 1.2rem;
+          color: $text2;
+        }
+      }
+    }
+
+    // 결제 상세정보
+    .pay_detail_area {
+      .pay_title {
+        .title {
+          font-family: $font;
+          color: $text2;
+        }
+        .status {
+          font-family: $font;
+          font-size: 1.4rem;
+          line-height: 2rem;
+          letter-spacing: -0.05rem;
+          color: #111111;
+          &.red {
+            color: $error1;
+          }
+        }
+      }
+      .round_box {
+        color: $text2;
+        .box_title {
+          justify-content: space-between;
+          .btn_payment {
+            // min-width: 7.3rem;
+            // width: 5.7rem;
+            height: 2.8rem;
+            padding: 0 1.1rem;
+            font-weight: $fontRegular;
+            color: $text2;
+            letter-spacing: -0.1rem;
+          }
+        }
+        .detail_list {
+          li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            ~ li {
+              margin-top: 0.8rem;
+            }
+            .title {
+              flex-shrink: 0;
+              width: 8rem;
+              color: $gray070;
+              &.has_icon {
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                &::before {
+                  content: '';
+                  display: block;
+                  width: 0.8rem;
+                  height: 0.8rem;
+                  border-left: 0.1rem solid $gray050;
+                  border-bottom: 0.1rem solid $gray050;
+                  box-sizing: border-box;
+                }
+              }
+            }
+            .num {
+              text-align: right;
+              font-weight: $fontMedium;
+              font-family: $fontNum, sans-serif;
+              line-height: 1;
+              letter-spacing: 0;
+              &.cancel {
+                color: #e7302f !important;
+              }
+            }
+            .info {
+              width: 80%;
+              li {
+                justify-content: flex-end;
+                font-weight: $fontMedium;
+                .num {
+                  font-size: 1.6rem;
+                  font-weight: $fontRegular;
+                  span {
+                    font-weight: $fontBold;
+                  }
+                }
+              }
+            }
+            strong {
+              font-weight: $fontMedium;
+            }
+          }
+          &.payment {
+            li {
+              justify-content: space-between;
+              .title {
+                width: auto;
+              }
+              .num {
+                font-size: 1.6rem;
+                font-weight: $fontRegular;
+                span {
+                  font-weight: $fontBold;
+                }
+                &.discount {
+                  color: $primary2;
+                }
+                &.red {
+                  color: $error1;
+                }
+              }
+              &.sum_area {
+                position: relative;
+                margin-top: 1.2rem;
+                padding-top: 1.2rem;
+                border-top: 0.1rem solid $line2;
+                .title {
+                  color: $text2;
+                  font-weight: $fontMedium;
+                }
+                .num {
+                  font-size: 1.8rem;
+                }
+              }
+            }
+          }
+          &.between {
+            li {
+              justify-content: space-between;
+            }
+          }
+        }
+      }
+      .ticket_notice {
+        ul {
+          li {
+            &::before {
+              background-color: $gray070;
+            }
+          }
+        }
+      }
+      // 결제 상세정보 (환불)
+      &.refund {
+        .round_box {
+          .detail_list {
+            &.payment {
+              li {
+                .num {
+                  font-size: 1.4rem;
+                  font-weight: $fontMedium;
+                }
+              }
+            }
+          }
+          /*! 계좌 입력 */
+          .input_area {
+            form {
+              .title {
+                margin-bottom: 0.8rem;
+                color: $gray070;
+              }
+              .btn_bank {
+                justify-content: space-between;
+                width: 100%;
+                height: 4.8rem;
+                margin-bottom: 1.6rem;
+                padding: 0 1.2rem;
+                border-radius: 1.2rem;
+                color: $gray050;
+              }
+            }
+          }
+          .refund_area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.6rem;
+            padding-bottom: 1.6rem;
+            border-bottom: 0.1rem solid $line2;
+            .title {
+              font-weight: $fontMedium;
+            }
+            .refund {
+              font-family: $fontNum, sans-serif;
+              font-size: 1.8rem;
+              line-height: 1;
+              letter-spacing: 0;
+              span {
+                font-weight: $fontBold;
+              }
+            }
+          }
+          .ticket_notice {
+            .title {
+              padding-left: 0;
+            }
+          }
+          /*! // 계좌 입력 */
+        }
+        .ticket_notice {
+          .title {
+            display: block;
+            position: relative;
+            padding-left: 2rem;
+            font-weight: $fontRegular;
+            letter-spacing: -0.05rem;
+            word-break: keep-all;
+            .ic_area {
+              position: absolute;
+              top: 0.2rem;
+              left: 0;
+            }
+            .num {
+              font-family: $fontNum, sans-serif;
+              line-height: 1;
+              letter-spacing: 0;
+            }
+          }
+        }
+        .btn {
+          &_refund_detail {
+            display: flex;
+            height: auto;
+            margin-top: 0.8rem;
+            margin-left: auto;
+            padding: 0;
+            font-weight: $fontRegular;
+            color: $text2;
+            img {
+              margin-left: 0.8rem;
+            }
+          }
+        }
+      }
+      // 결제 상세정보 (운송중개)
+      &.travel,
+      &.go_pass {
+        .round_box {
+          .travel_place {
+            margin-bottom: 1.6rem;
+            font-weight: $fontMedium;
+            @include fontHeight(1.8);
+          }
+          .detail_list {
+            li {
+              justify-content: space-between;
+              line-height: 2rem;
+              letter-spacing: -0.05rem;
+              .title {
+                width: auto;
+              }
+              .num {
+                font-family: $font;
+                font-size: 1.4rem;
+                line-height: 2rem;
+                letter-spacing: -0.05rem;
+                color: #111111;
+                text-align: right;
+                span {
+                  font-weight: $fontMedium;
+                }
+                &.discount {
+                  color: $primary2;
+                }
+                &.red {
+                  color: $error1;
+                }
+              }
+              &.sum_area {
+                flex-wrap: wrap;
+                margin-top: 1.2rem;
+                padding-top: 1.2rem;
+                border-top: 0.1rem solid $line2;
+                .num {
+                  @include fontHeight(1.6);
+                  span {
+                    font-weight: $fontMedium;
+                  }
+                }
+                .discount {
+                  width: 100%;
+                  margin-top: 1.2rem;
+                  .title {
+                    position: relative;
+                    width: 14rem;
+                    padding-left: 1.6rem;
+                    &::before {
+                      content: '';
+                      display: block;
+                      position: absolute;
+                      top: 0.6rem;
+                      left: 0;
+                      width: 0.8rem;
+                      height: 0.8rem;
+                      border-left: 0.1rem solid $gray050;
+                      border-bottom: 0.1rem solid $gray050;
+                      box-sizing: border-box;
+                    }
+                  }
+                  .num {
+                    color: $primary2;
+                    &.red {
+                      color: #e7302f;
+                    }
+                  }
+                }
+              }
+            }
+            // 결제금액
+            &.payment {
+              li {
+                font-family: $font !important;
+                justify-content: space-between;
+                line-height: 2rem;
+                letter-spacing: -0.05rem;
+                .title {
+                  width: auto;
+                }
+                .num {
+                  font-size: 1.4rem;
+                  line-height: 2rem;
+                  letter-spacing: -0.05rem;
+                  color: #111111;
+                  text-align: right;
+                  span {
+                    font-weight: $fontMedium;
+                  }
+                  &.discount {
+                    color: $primary2;
+                  }
+                  &.red {
+                    color: $error1;
+                  }
+                }
+                &.sum_area {
+                  .title {
+                    color: #111111;
+                    font-weight: $fontMedium;
+                    line-height: 2rem;
+                    letter-spacing: -0.05rem;
+                    font-size: 1.4rem;
+                    &.cancel {
+                      color: #555;
+                      font-weight: $fontRegular;
+                      &.go_pass {
+                        color: #111111;
+                        font-weight: $fontBold;
+                        font-size: 1.6rem;
+                      }
+                    }
+                  }
+                  .num {
+                    font-size: 1.8rem;
+                    font-weight: $fontBold;
+                    color: #111111;
+                    line-height: 2.4rem;
+                    &.cancel {
+                      color: #111111;
+                      font-weight: $fontRegular;
+                      font-size: 1.6rem;
+                    }
+                  }
+                  .discount {
+                    .title {
+                      color: #555;
+                    }
+                    .num {
+                      font-weight: $fontBold;
+                      font-size: 1.6rem;
+                      line-height: 2.2rem;
+                    }
+                  }
+                }
+              }
+            }
+            // 결제상세
+            &.between {
+              li {
+                justify-content: space-between;
+                .title {
+                  width: auto;
+                  font-weight: $fontRegular;
+                  font-size: 1.4rem;
+                  line-height: 2rem;
+                  letter-spacing: -0.05rem;
+                }
+                .num {
+                  font-family: $font;
+                  font-size: 1.4rem;
+                  line-height: 2rem;
+                  letter-spacing: -0.05rem;
+                  color: #111111;
+                  text-align: right;
+                  span {
+                    font-weight: $fontMedium;
+                  }
+                  &.red {
+                    color: $error1;
+                  }
+                }
+              }
+              .sum_area {
+                .title {
+                  font-size: 1.4rem;
+                  font-weight: $fontRegular;
+                  line-height: 2rem;
+                  letter-spacing: -0.05rem;
+                }
+                .num {
+                  font-size: 1.6rem;
+                  font-weight: $fontBold;
+                  color: #111111;
+                  line-height: 2.2rem;
+                }
+                &.discount {
+                  color: $primary2;
+                  .num {
+                    font-weight: $fontBold;
+                  }
+                }
+              }
+              .info {
+                font-weight: $fontMedium;
+                text-align: right;
+                word-break: keep-all;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 결제하기
+    .payment_area {
+      .round_box {
+        overflow: hidden;
+        form {
+          display: flex;
+          gap: 0.8rem;
+          margin-top: 0.8rem;
+          .form_input {
+            width: 100%;
+            margin-bottom: 0;
+          }
+          .btn_use {
+            width: 9.9rem;
+            height: 4.8rem;
+            border-radius: 999rem;
+            border-color: $gray090;
+            @include fontHeight(1.4);
+            &:disabled {
+              background-color: transparent;
+              border-color: $line2;
+              color: $gray050;
+            }
+          }
+        }
+        .has_mileage {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          margin-top: 0.8rem;
+          font-family: $fontNum, sans-serif;
+          font-weight: $fontMedium;
+          color: $text2;
+          line-height: 1;
+          letter-spacing: 0;
+          .title {
+            font-weight: $fontRegular;
+            color: $gray070;
+            letter-spacing: -0.05rem;
+            span {
+              letter-spacing: 0;
+            }
+          }
+        }
+        .payment_list {
+          li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: $fontMedium;
+            color: $text2;
+            ~ li {
+              margin-top: 1.2rem;
+            }
+            &.sum_amount {
+              margin-top: 1.2rem;
+              padding-top: 1.2rem;
+              border-top: 0.1rem solid $line2;
+            }
+            &:first-child {
+              margin-top: 0;
+              padding-top: 0;
+              border-top: none;
+            }
+            .num {
+              font-family: $fontNum, sans-serif;
+              font-size: 1.8rem;
+              font-weight: $fontRegular;
+              line-height: 1;
+              letter-spacing: 0;
+              &.purple {
+                font-size: 1.6rem;
+                color: $primary2;
+              }
+              .strong {
+                font-weight: $fontBold;
+              }
+            }
+            .title {
+              font-weight: $fontRegular;
+              color: $gray070;
+            }
+            .mileage {
+              display: flex;
+              align-items: center;
+              gap: 0.4rem;
+              // margin-top: 0.8rem;
+              font-family: $fontNum, sans-serif;
+              font-weight: $fontMedium;
+              color: $text2;
+              line-height: 1;
+              letter-spacing: 0;
+              .title {
+                font-weight: $fontRegular;
+                color: $gray070;
+                letter-spacing: -0.05rem;
+                line-height: 2rem;
+                span {
+                  letter-spacing: 0;
+                }
+                &.purple {
+                  color: $primary2;
+                }
+              }
+              &.purple {
+                color: $primary2;
+              }
+            }
+            .mileage_notice {
+              width: 100%;
+              padding: 10px; /* 상하좌우 10px 패딩 */
+              background-color: $gray010; /* 회색 배경 */
+              border-radius: 10px; /* 둥근 모서리 */
+              text-align: center; /* 텍스트 중앙 정렬 */
+              display: flex; /* Flexbox 레이아웃 사용 */
+              align-items: center; /* 세로 방향 중앙 정렬 */
+              justify-content: center; /* 가로 방향 중앙 정렬 */
+              margin-top: 1.2rem;
+              .title {
+                color: $gray070;
+                letter-spacing: -0.07rem;
+                span {
+                  font-weight: $fontBold;
+                }
+              }
+            }
+          }
+        }
+        .coupon_area {
+          .btn_coupon {
+            justify-content: space-between;
+            width: 100%;
+            height: 4.8rem;
+            padding: 0 1.2rem;
+            border-radius: 1.2rem;
+            color: $text2;
+            .coupon_name {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              -webkit-line-clamp: 1;
+            }
+            &:disabled {
+              background-color: $line2;
+              border-color: $line1;
+              color: $gray040;
+              i {
+                &::before {
+                  filter: invert(85%) sepia(0%) saturate(0%) hue-rotate(116deg) brightness(90%)
+                    contrast(89%);
+                }
+              }
+            }
+          }
+        }
+        .radio_area {
+          margin-top: 2.4rem;
+          .radio_box {
+            ~ .radio_box {
+              margin-top: 2.4rem;
+            }
+            .form_radio {
+              margin-bottom: 0;
+            }
+            .logo_area {
+              display: block;
+              height: 1.6rem;
+              img {
+                display: block;
+                height: 100%;
+              }
+            }
+            .noregist_badge {
+              width: 4.5rem;
+              margin-left: 0.8rem;
+              img {
+                display: block;
+                width: 100%;
+              }
+            }
+            .btn_accordion {
+              height: auto;
+              margin-left: auto;
+              padding: 0;
+            }
+            .tmoney_accordion {
+              display: flex;
+              gap: 0.8rem;
+              margin-top: 0.8rem;
+              .btn {
+                flex: 1 1 40%;
+                padding: 0;
+                border-radius: 0.8rem;
+                color: $text2;
+                letter-spacing: -0.1rem;
+              }
+            }
+            .show_area {
+              .desc {
+                margin-top: 0.8rem;
+                padding-left: 3.2rem;
+                color: $gray070;
+                span {
+                  color: $text2;
+                }
+              }
+              .banner {
+                margin-top: 0.8rem;
+                img {
+                  display: block;
+                  width: 100%;
+                }
+              }
+            }
+            .hide_area {
+              .swiper {
+                // width: calc(100% + 4rem);
+                margin-top: 0.8rem;
+                // margin-left: -2rem;
+                // padding: 0 2rem;
+                .swiper-slide {
+                  min-width: 22.4rem;
+                  width: 75.8%;
+                  .card {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 14.6rem;
+                    margin: 0 auto;
+                    padding: 1.6rem;
+                    background-color: $primary2;
+                    color: $white;
+                    border-radius: 1.2rem;
+                    &.one {
+                      width: 22.4rem;
+                    }
+                    &.paygo {
+                      background-color: #35405c;
+                    }
+                    .title {
+                      text-align: right;
+                      font-weight: $fontRegular;
+                    }
+                    .balance_area {
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-top: auto;
+                      .balance_title {
+                        @include fontHeight(1.2);
+                      }
+                      .balance {
+                        font-family: $fontNum, sans-serif;
+                        line-height: 1;
+                        letter-spacing: 0;
+                        span {
+                          font-weight: $fontBold;
+                        }
+                      }
+                    }
+                    &.credit {
+                      margin-top: 0.8rem;
+                      @each $card, $bgcolor in $card-color {
+                        &.#{$card} {
+                          background-color: $bgcolor;
+                        }
+                      }
+                      .title {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .main_badge {
+                          display: block;
+                          width: 4.1rem;
+                          img {
+                            display: block;
+                            width: 100%;
+                          }
+                        }
+                      }
+                      .card_info {
+                        margin-top: auto;
+                        .card_num {
+                          display: flex;
+                          gap: 0.4rem;
+                          align-items: center;
+                          font-family: $fontNum, sans-serif;
+                          line-height: 1;
+                          letter-spacing: 0;
+                          .dot {
+                            font-size: 1rem;
+                          }
+                        }
+                        .card_category {
+                          margin-top: 0.4rem;
+                          @include fontHeight(1.2);
+                          letter-spacing: -0.1rem;
+                          opacity: 0.6;
+                        }
+                      }
+                    }
+                    &.btn {
+                      gap: 0.8rem;
+                      margin-top: 0.8rem;
+                      background-color: transparent;
+                      border: 1px dashed $gray040;
+                      font-weight: $fontRegular;
+                      color: $text1;
+                    }
+                  }
+                }
+                .swiper-pagination {
+                  gap: 0.4rem;
+                  align-items: center;
+                  position: relative;
+                  bottom: 0;
+                  margin-top: 1.6rem;
+                  span {
+                    font-size: 1rem;
+                    font-weight: $fontMedium;
+                    color: $gray050;
+                    &.swiper-pagination-current {
+                      color: $primary2;
+                    }
+                    &.swiper_pagination_separator {
+                      margin: 0;
+                    }
+                  }
+                }
+              }
+              form {
+                margin-top: 1.6rem;
+              }
+              .has_mileage {
+                .desc {
+                  font-weight: $fontRegular;
+                  @include fontHeight(1.2);
+                  color: $gray050;
+                }
+              }
+              .pay_desc {
+                margin-top: 0.4rem;
+                color: $gray070;
+                word-break: keep-all;
+              }
+              .toss_desc {
+                margin-top: 0.4rem;
+                padding-left: 2.8rem;
+                color: $gray070;
+                span {
+                  font-family: $fontNum, sans-serif;
+                  line-height: 1;
+                  letter-spacing: 0;
+                }
+              }
+              .btn_pay {
+                justify-content: space-between;
+                width: 100%;
+                height: 5.2rem;
+                margin-top: 1.2rem;
+                padding: 0 1.6rem;
+                border-color: $line1;
+                border-radius: 1.2rem;
+                @include fontHeight(1.4);
+                ~ .btn_pay {
+                  margin-top: 0.8rem;
+                }
+                &.active {
+                  border-color: $primary2;
+                }
+                .card {
+                  display: block;
+                  height: 2.8rem;
+                  padding: 0 1.2rem;
+                  font-weight: $fontRegular;
+                  font-size: 1.2rem;
+                  letter-spacing: -0.1rem;
+                  &.override-disable {
+                    pointer-events: all;
+                  }
+                }
+                .card_num {
+                  display: block;
+                  color: $primary2;
+                }
+              }
+              .btn_installment {
+                justify-content: space-between;
+                width: 100%;
+                height: 4.8rem;
+                margin-top: 1.6rem;
+                padding: 0 1.2rem;
+                border-radius: 1.2rem;
+                &:disabled {
+                  background-color: $gray010;
+                  border-color: $line1;
+                }
+              }
+              .notice {
+                display: flex;
+                gap: 0.8rem;
+                margin-top: 1.2rem;
+                .badge {
+                  flex-shrink: 0;
+                  width: 3.2rem;
+                  height: 1.9rem;
+                  border: 0.1rem solid $primary2;
+                  border-radius: 99.9rem;
+                  font-size: 1.1rem;
+                  color: $primary2;
+                  ~ p {
+                    color: $gray070;
+                  }
+                }
+              }
+            }
+            &.naverpay {
+              .logo_area {
+                height: auto;
+              }
+            }
+          }
+        }
+        .checkbox_area {
+          color: $text2;
+          .all_checkbox {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 0.1rem solid $line2;
+            .form_checkbox {
+              margin-bottom: 0;
+              &_label {
+                align-items: flex-start;
+                &::before {
+                  background-size: cover;
+                }
+              }
+            }
+            .btn {
+              height: auto;
+              padding: 0;
+              font-weight: $fontRegular;
+              color: $gray070;
+            }
+          }
+          .checkbox_list {
+            li {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              ~ li {
+                margin-top: 0.8rem;
+              }
+              .form_checkbox {
+                margin-bottom: 0;
+                &_label {
+                  align-items: flex-start;
+                  @include fontHeight(1.4);
+                }
+              }
+              .btn {
+                height: auto;
+                padding: 0;
+              }
+            }
+          }
+        }
+        .detail_info {
+          color: $text2;
+          .product {
+            .date {
+              margin-bottom: 0.8rem;
+              font-family: $fontNum, sans-serif;
+              font-weight: $fontMedium;
+              font-size: 1.6rem;
+              line-height: 1;
+              letter-spacing: 0;
+            }
+            .product_name {
+              font-weight: $fontMedium;
+              @include fontHeight(1.8);
+              letter-spacing: -0.1rem;
+            }
+          }
+          .btn {
+            width: 100%;
+            height: auto;
+            margin-top: 1.6rem;
+          }
+          .ticket_info_list {
+            margin-top: 2rem;
+            padding-top: 1.6rem;
+            border-top: 0.1rem dashed $line1;
+            li {
+              display: flex;
+              align-items: center;
+              gap: 0 1.2rem;
+              flex-wrap: wrap;
+              color: $gray070;
+              line-height: 1;
+              ~ li {
+                margin-top: 0.8rem;
+              }
+              .ticket_title {
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+              }
+              .ticket_content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex: 1;
+                font-family: $fontNum, sans-serif;
+                font-weight: $fontMedium;
+                color: $text2;
+                letter-spacing: 0;
+                .price {
+                  font-size: 1.8rem;
+                  color: $primary2;
+                }
+              }
+              .price {
+                font-family: $fontNum, sans-serif;
+                letter-spacing: 0;
+                .medium {
+                  font-weight: $fontMedium;
+                }
+                strong {
+                  font-weight: $fontBold;
+                }
+              }
+              .detail_list {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin-top: 0.8rem;
+                padding-left: 3.6rem;
+                li {
+                  width: 100%;
+                  justify-content: space-between;
+                  .list_tit {
+                    position: relative;
+                    &::before {
+                      content: '';
+                      position: absolute;
+                      left: -1.6rem;
+                      top: 50%;
+                      width: 0.8rem;
+                      height: 0.8rem;
+                      border-bottom: 1px solid #777;
+                      border-left: 1px solid #777;
+                      transform: translateY(-50%);
+                      box-sizing: border-box;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.coupon {
+          .box_title {
+            margin-bottom: 1.2rem;
+          }
+        }
+      }
+      .ticket_notice {
+        margin-top: 1.6rem;
+        .title {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          margin-bottom: 0.4rem;
+          font-weight: $fontMedium;
+          color: $text2;
+          letter-spacing: -0.1rem;
+        }
+        ul {
+          li {
+            position: relative;
+            padding-left: 2rem;
+            color: $gray070;
+            &::before {
+              content: '';
+              display: block;
+              position: absolute;
+              top: 0.8rem;
+              left: 0.8rem;
+              width: 0.4rem;
+              height: 0.4rem;
+              background-color: $gray070;
+              border-radius: 50%;
+            }
+            ~ li {
+              margin-top: 0.4rem;
+            }
+          }
+        }
+      }
+    }
+
+    // 결제수단관리
+    .payment_manage_area {
+      .round_box {
+        .text {
+          color: $gray070;
+          letter-spacing: -0.1rem;
+        }
+        .accordion.tmoney {
+          margin: 2.4rem 0 0.4rem;
+          border: none;
+          border-radius: 0;
+          .accordion_item {
+            .accordion_header {
+              height: auto;
+              .accordion_btn {
+                padding: 0;
+                .accordion_title {
+                  display: flex;
+                  align-items: center;
+                  gap: 0.8rem;
+                  height: 1.8rem;
+                  img {
+                    display: block;
+                    height: 100%;
+                  }
+                  .badge {
+                    display: block;
+                    height: 1.9rem;
+                    img {
+                      height: 100%;
+                    }
+                  }
+                }
+              }
+            }
+            .accordion_body {
+              background-color: transparent;
+              .accordion_content {
+                padding: 0.8rem 0 0.4rem;
+                .regist {
+                  display: flex;
+                  gap: 0.8rem;
+                  &.before {
+                    .btn {
+                      flex: 1 1 40%;
+                      padding: 0;
+                      border-radius: 0.8rem;
+                      color: $text2;
+                      letter-spacing: -0.1rem;
+                    }
+                  }
+                  &.after {
+                    overflow: hidden;
+                    display: block;
+                    border: 0.1rem solid $lightPurple1;
+                    border-radius: 1.2rem;
+                    .regist_list {
+                      padding: 1.2rem;
+                      li {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        color: $text2;
+                        ~ li {
+                          margin-top: 0.8rem;
+                        }
+                        p {
+                          ~ p {
+                            font-weight: $fontMedium;
+                          }
+                        }
+                      }
+                    }
+                    .bottom {
+                      display: flex;
+                      border-top: 0.1rem solid $lightPurple1;
+                      .btn {
+                        flex: 1 1 40%;
+                        background-color: $lightPurple3;
+                        border-radius: 0;
+                        @include fontHeight(1.2);
+                        color: $primary1;
+                        ~ .btn {
+                          border-left: 0.1rem solid $lightPurple1;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .pay {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          .img_area {
+            height: 2.2rem;
+            img {
+              height: 100%;
+            }
+          }
+          .card_info {
+            color: $text2;
+            span {
+              font-family: $fontNum, sans-serif;
+              letter-spacing: 0;
+            }
+          }
+          .btn_easy_regist {
+            padding: 0.8rem 1.2rem;
+            margin-left: auto;
+            letter-spacing: -0.1rem;
+            align-items: center;
+          }
+          &.toss {
+            .img_area {
+              height: 1.8rem;
+            }
+          }
+        }
+        .tab {
+          .tab_content {
+            .card_regist_area {
+              margin-top: 2rem;
+              // .btn_card_regist {
+              //   gap: 0.8rem;
+              //   width: 100%;
+              //   height: 5rem;
+              //   border: 0.1rem dashed $grayaaa;
+              //   border-radius: 1.2rem;
+              //   font-weight: $fontRegular;
+              //   color: $gray070;
+              //   letter-spacing: -0.1rem;
+              // }
+              .btn_card_regist {
+                background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23AAAAAA' stroke-width='1' stroke-dasharray='4 4' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+                border-radius: 1.2rem;
+                width: 100%;
+                height: 5rem;
+
+                font-weight: $fontRegular;
+                color: $gray070;
+                letter-spacing: -0.1rem;
+                .btn_card_text {
+                  display: flex;
+                  align-items: center;
+                  // justify-content: space-between;
+                  // width: 100%; // 내부 div의 너비를 버튼의 너비와 동일하게 설정
+                  gap: 0.8rem;
+                  height: 24px; // 요구된 높이 설정
+                  // padding: 0 1rem; // 좌우 패딩 추가
+                }
+              }
+              .accordion {
+                margin-bottom: 1.2rem;
+                border: none;
+                border-radius: 0;
+                .accordion_item {
+                  overflow: hidden;
+                  border-radius: 1.2rem;
+                  ~ .accordion_item {
+                    margin-top: 1.2rem;
+                  }
+                  .accordion_header {
+                    position: relative;
+                    height: auto;
+                    .accordion_btn {
+                      padding: 1.6rem;
+                      .accordion_title {
+                        width: 100%;
+                        .card {
+                          display: flex;
+                          justify-content: space-between;
+                          align-items: center;
+                          flex-wrap: wrap;
+                          width: 100%;
+                          font-weight: $fontRegular;
+                          @include fontHeight(1.4);
+                          color: $white;
+                          .card_title {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.4rem;
+                            .main_badge {
+                              display: block;
+                              width: 4.1rem;
+                              img {
+                                display: block;
+                                width: 100%;
+                              }
+                            }
+                          }
+                          .card_logo {
+                            display: block;
+                            height: 1.6rem;
+                            img {
+                              display: block;
+                              height: 100%;
+                            }
+                          }
+                          &_update {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 0.4rem;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba(59, 67, 78, 0.78);
+                            font-family: $font, sans-serif;
+                            font-weight: $fontMedium;
+                            @include fontHeight(1.4);
+                            color: $white;
+                            .ic {
+                              margin-left: 0;
+                            }
+                          }
+                          &_badge {
+                            display: flex;
+                            gap: 0.4rem;
+                            flex-wrap: wrap;
+                            width: 100%;
+                            margin-top: 0.4rem;
+                            span {
+                              display: block;
+                              height: 1.9rem;
+                              padding: 0 0.8rem;
+                              border: 0.1rem solid $white;
+                              border-radius: 9.9rem;
+                              font-size: 1.1rem;
+                              font-family: $font, sans-serif;
+                              font-weight: $fontRegular;
+                              color: $white;
+                              line-height: 1.8rem;
+                              letter-spacing: -0.1rem;
+                            }
+                          }
+                        }
+                      }
+                      .ic_20_arrow,
+                      .ic_16_arrow_disabled {
+                        display: none;
+                      }
+                    }
+                  }
+                  .accordion_body {
+                    background-color: transparent;
+                    .accordion_content {
+                      display: flex;
+                      flex-direction: column;
+                      justify-content: flex-end;
+                      height: 10.8rem;
+                      padding: 1.2rem 1.6rem;
+                      .card_info {
+                        .card_num {
+                          display: flex;
+                          align-items: center;
+                          gap: 0.4rem;
+                          font-family: $fontNum, sans-serif;
+                          font-size: 1.6rem;
+                          font-weight: $fontMedium;
+                          line-height: 1;
+                          letter-spacing: 0;
+                          color: $white;
+                          .card_astar_num {
+                            font-family: $font, sans-serif;
+                          }
+                        }
+                        .card_btn_area {
+                          display: flex;
+                          justify-content: space-between;
+                          align-items: center;
+                          width: 100%;
+                          margin-top: 2rem;
+                          padding: 0 1.3rem;
+                          .btn {
+                            position: relative;
+                            height: auto;
+                            padding: 0;
+                            font-weight: $fontRegular;
+                            @include fontHeight(1.2);
+                            color: $white;
+                            ~ .btn {
+                              &::before {
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                left: -2.4rem;
+                                width: 0.1rem;
+                                height: 0.9rem;
+                                background-color: rgba($white, 0.2);
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                  &.has_badge {
+                    .accordion_body {
+                      .accordion_content {
+                        height: 8.5rem;
+                      }
+                    }
+                  }
+                  @each $card, $bgcolor in $card-color {
+                    &.#{$card} {
+                      background-color: $bgcolor;
+                    }
+                  }
+                }
+              }
+            }
+            .notice {
+              display: flex;
+              gap: 0.8rem;
+              margin-top: 2rem;
+              .badge {
+                flex-shrink: 0;
+                width: 3.6rem;
+                height: 1.9rem;
+                border: 0.1rem solid $primary2;
+                border-radius: 99.9rem;
+                color: $primary2;
+                font-size: 1.1rem;
+                letter-spacing: -0.1rem;
+                line-height: 1.9rem;
+              }
+              .text {
+                letter-spacing: -0.05rem;
+                word-break: keep-all;
+              }
+            }
+          }
+        }
+        .password {
+          color: $text2;
+          .form_checkbox {
+            margin-bottom: 1.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 0.1rem solid $line2;
+            &_label {
+              flex-direction: row-reverse;
+              justify-content: space-between;
+              font-size: 1.4rem;
+              font-weight: $fontRegular;
+              &.toggle_switch {
+                &::before {
+                  width: 4.3rem;
+                  height: 2.4rem;
+                  background-color: $gray050;
+                }
+                &::after {
+                  width: 2rem;
+                  height: 2rem;
+                  left: auto;
+                  right: 2.9rem;
+                  box-shadow: 0 0.3rem 0.1rem 0 rgba(0, 0, 0, 0.0588);
+                }
+              }
+            }
+            &_input {
+              &:checked {
+                ~ .form_checkbox_label {
+                  &.toggle_switch {
+                    &::before {
+                      background-color: $primary2;
+                    }
+                    &::after {
+                      left: auto;
+                      right: 1rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .btn_repassword {
+            justify-content: space-between;
+            width: 100%;
+            height: auto;
+            padding: 0;
+            font-weight: $fontRegular;
+            color: $text2;
+          }
+        }
+        &.tmoney {
+          .box_title {
+            margin-bottom: 0.4rem;
+          }
+        }
+        &.card {
+          .box_title {
+            margin-bottom: 1.2rem;
+          }
+        }
+      }
+      .main_card_notice {
+        display: flex;
+        gap: 0.4rem;
+        margin: 1.6rem 0;
+        .badge {
+          width: 4.1rem;
+          height: auto;
+          img {
+            width: 100%;
+          }
+        }
+        .notice {
+          padding-top: 0.1rem;
+          @include fontHeight(1.2);
+          color: $gray070;
+        }
+      }
+    }
+
+    // 카드등록_약관동의
+    .card_agree_area {
+      h4 {
+        margin-bottom: 0.4rem;
+        font-weight: $fontMedium;
+        @include fontHeight(2.4);
+        color: $text2;
+      }
+      .text {
+        margin-bottom: 4rem;
+        color: $gray070;
+        letter-spacing: -0.1rem;
+      }
+      .desc {
+        margin: 1.2rem 1.4rem 3.6rem;
+        @include fontHeight(1.2);
+        color: $gray050;
+        word-break: keep-all;
+      }
+      .form_checkbox {
+        &_input {
+          &:checked {
+            ~ .form_checkbox_label {
+              &::before {
+                @include ic_bg(20, 'checkbox_active');
+                background-size: 2.4rem;
+              }
+            }
+          }
+        }
+        &_label {
+          font-weight: $fontMedium;
+          color: $text2;
+          &::before {
+            @include ic_bg(24, 'checkbox_gray030');
+          }
+        }
+      }
+      .flex_area {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        ~ .flex_area {
+          margin-top: 0.8rem;
+        }
+        .form_checkbox {
+          margin-bottom: 0;
+          &_input {
+            &:checked {
+              ~ .form_checkbox_label {
+                color: $text2;
+                &::before {
+                  @include ic_bg(24, 'checkline_active');
+                }
+              }
+            }
+          }
+          &_label {
+            align-items: flex-start;
+            font-weight: $fontRegular;
+            @include fontHeight(1.4);
+            color: $gray050;
+            &::before {
+              @include ic_bg(24, 'checkline_gray030');
+            }
+          }
+        }
+        .btn {
+          height: auto;
+          padding: 0;
+        }
+      }
+    }
+
+    // 쿠폰 선택
+    .coupon_area {
+      &.has_bottom {
+        padding-bottom: 9.4rem;
+      }
+      &.transit {
+        .form_radio {
+          .form_radio_label {
+            &::before {
+              top: 2.8rem;
+            }
+            &::after {
+              top: 3.6rem;
+            }
+          }
+        }
+      }
+      .form_radio {
+        margin-bottom: 1.2rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        .form_radio_input {
+          &:checked {
+            ~ .form_radio_label {
+              border-color: $primary2;
+              &::before {
+                border-color: $primary2;
+              }
+            }
+          }
+          &:disabled {
+            ~ .form_radio_label {
+              opacity: 0.5;
+              &::before {
+                border-color: $line1;
+              }
+              &::after {
+                background-color: $white;
+              }
+            }
+          }
+        }
+        .form_radio_label {
+          display: block;
+          padding: 2rem 2rem 2rem 5.2rem;
+          background-color: $white;
+          border: 0.1rem solid $white;
+          border-radius: 2rem;
+          box-shadow: 0 0.4rem 2rem 0 rgba(0, 0, 0, 0.1);
+          color: $text2;
+          &::before {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            border-color: $gray050;
+          }
+          &::after {
+            top: 2.8rem;
+            left: 2.8rem;
+            transform: translateY(0);
+          }
+          span {
+            display: block;
+            &.title {
+              padding-bottom: 0.4rem;
+              font-family: $font;
+              font-weight: $fontRegular;
+              font-size: 1.4rem;
+              line-height: 2rem;
+              letter-spacing: -0.05rem;
+            }
+            &.discount {
+              padding-bottom: 0.4rem;
+              font-family: $font;
+              font-weight: $fontMedium;
+              font-size: 1.6rem;
+              line-height: 2.2rem;
+              letter-spacing: -0.05rem;
+            }
+            &.case {
+              @include fontHeight(1.4);
+            }
+            &.date {
+              padding-top: 0.4rem;
+              font-family: $fontNum, sans-serif;
+              font-size: 1.2rem;
+              color: $gray070;
+              // line-height: 1;
+              // letter-spacing: 0;
+            }
+          }
+          .badge_area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.8rem;
+            .badge {
+              display: block;
+              width: max-content;
+              height: auto;
+              padding: 0 0.8rem;
+              background-color: $white;
+              border: 0.1rem solid $gray040;
+              font-weight: $fontRegular;
+              color: $gray050;
+            }
+          }
+          .btn_apply {
+            overflow: hidden;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 0.4rem;
+            padding: 0 1.2rem;
+            border-radius: 1.2rem;
+            border-color: $line1;
+            color: $gray050;
+            &.select {
+              color: $text2;
+            }
+          }
+        }
+        &.no_select {
+          .form_radio_label {
+            padding: 1.6rem 1.6rem 1.6rem 5.2rem;
+            font-family: $font;
+            font-weight: $fontMedium;
+            font-size: 1.6rem;
+            letter-spacing: -0.05rem;
+            &::before {
+              top: 1.6rem;
+            }
+            &::after {
+              top: 2.4rem;
+            }
+          }
+        }
+        &.has_btn {
+          .form_radio_label {
+            span {
+              width: calc(100% - 6.4rem);
+            }
+          }
+          .btn_line {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 6.4rem;
+            padding: 0;
+            border-color: $primary2;
+            color: $primary2;
+          }
+        }
+      }
+      .no_data {
+        position: absolute;
+        top: calc(50% - 4.4rem);
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        text-align: center;
+        p {
+          @include fontHeight(1.6);
+          color: $text2;
+          letter-spacing: -0.1rem;
+        }
+      }
+    }
+  }
+}
+
+// 결제내역 > 팝업
+.modal {
+  // 은행선택
+  .bank_list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem 2.4rem;
+    padding: 0.4rem 2rem 2.4rem;
+    .btn_bank {
+      flex: 1 1 40%;
+      justify-content: flex-start;
+      gap: 0.8rem;
+      height: auto;
+      padding: 0;
+      font-weight: $fontRegular;
+      color: $text2;
+      letter-spacing: -0.1rem;
+      .img_area {
+        display: block;
+        img {
+          display: block;
+        }
+      }
+    }
+  }
+  // 카드별명 입력
+  &.card_nickname_modal {
+    .modal_dialog {
+      .modal_content {
+        .modal_header {
+          padding: 2.4rem 2rem 1.2rem;
+        }
+      }
+    }
+  }
+  .nickname_input {
+    padding: 0rem 2rem 2rem;
+    form {
+      display: flex;
+      gap: 0.8rem;
+      .form_input {
+        width: 100%;
+        margin-bottom: 0;
+      }
+      .btn_line {
+        flex-shrink: 0;
+        width: 9.6rem;
+        height: 4.8rem;
+        padding: 0;
+        font-weight: $fontMedium;
+        font-size: 1.6rem;
+        letter-spacing: -0.01rem;
+        line-height: 2.2rem;
+      }
+    }
+    p {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+    }
+    .form_input {
+      .form_group {
+        .btn_clear {
+          &::after {
+            @include ic_bg(20, 'del');
+          }
+        }
+      }
+    }
+  }
+  // 결제비밀번호입력
+  .payment_password {
+    margin-top: 7.7rem;
+    text-align: center;
+    h4 {
+      margin-bottom: 1.2rem;
+      @include fontHeight(2.4);
+      font-weight: $fontMedium;
+      color: $text2;
+    }
+    .text {
+      height: 4rem;
+      margin-bottom: 2.2rem;
+      &.error {
+        color: $error1;
+      }
+    }
+    .password_mark {
+      margin-bottom: 6rem;
+      input[type='password'] {
+        font: small-caption;
+        font-size: 32px;
+      }
+      .dots {
+        display: flex;
+        // gap: 2.4rem;
+        position: relative;
+        width: 21.6rem;
+        margin: auto;
+        .dot {
+          display: block;
+          width: 1.6rem;
+          height: 1.6rem;
+          background-color: $line1;
+          border-radius: 50%;
+          // ios14버전 gap 미지원이슈
+          margin: 0 1rem 0 1rem;
+        }
+        &_full {
+          position: absolute;
+          display: flex;
+          // gap: 2.4rem;
+          .dot {
+            &.full {
+              background-color: $primary2;
+              .sr_only {
+                // ios14버전 gap 미지원이슈
+                margin: 0 1rem 0 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .btn_forget_password {
+      height: auto;
+      // margin-top: 6.4rem;
+      font-weight: $fontRegular;
+      color: $gray050;
+      letter-spacing: -0.1rem;
+    }
+    .skip_password_txt {
+      margin-top: 2rem;
+      color: $gray050;
+    }
+    .skip_password {
+      margin-top: 0.8rem;
+      .form_checkbox_label {
+        justify-content: center;
+        color: $gray050;
+        &::before {
+          margin-right: 0.4rem;
+        }
+      }
+    }
+  }
+  // 카드 등록
+  &_card_regist.full {
+    .modal_dialog {
+      .modal_content {
+        background-color: $gray010;
+        .modal_header {
+          top: 0;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+          background-color: $white;
+        }
+        .modal_body {
+          min-height: calc(100% - 15.2rem);
+          height: auto;
+          padding-top: 2rem;
+          padding-bottom: 2.4rem;
+          background-color: $gray010;
+          .card {
+            ~ .card {
+              margin-top: 1.6rem;
+            }
+            .form_input {
+              margin-bottom: 0;
+            }
+            &_num {
+              .card_label {
+                margin-bottom: 0.8rem;
+                color: $gray070;
+                &.logo {
+                  display: flex;
+                  align-items: center;
+                  gap: 0.4rem;
+                  font-weight: $fontMedium;
+                  color: $text2;
+                  img {
+                    width: 1.6rem;
+                    height: 1.6rem;
+                  }
+                }
+              }
+              .inline_form_wrap {
+                .form_input {
+                  .form_group {
+                    .form_control {
+                      &::placeholder {
+                        color: $gray050;
+                      }
+                    }
+                  }
+                }
+              }
+              .flex_area {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 0.8rem;
+                .form_checkbox {
+                  margin-bottom: 0;
+                  padding: 0;
+                }
+                .btn {
+                  gap: 0.4rem;
+                  height: auto;
+                  padding: 0;
+                  font-weight: $fontRegular;
+                  font-family: $fontNum, sans-serif;
+                  line-height: 1;
+                  letter-spacing: 0;
+                  color: $primary2;
+                }
+              }
+            }
+            &_info {
+              display: flex;
+              gap: 1rem;
+              flex-wrap: wrap;
+              .form_input {
+                flex: 1 1 40%;
+                min-width: 12.4rem;
+              }
+            }
+            &_resident_num {
+              .label {
+                margin-bottom: 0.8rem;
+              }
+              .inline_form_wrap {
+                gap: 0;
+                .form_input {
+                  .form_group {
+                    .form_control {
+                      &::placeholder {
+                        color: $gray050;
+                      }
+                    }
+                  }
+                  &.first {
+                    position: relative;
+                    width: 50%;
+                    margin-right: 2rem;
+                    margin-left: auto;
+                    ~ .dash {
+                      color: $gray050;
+                      transform: translate(-2rem);
+                    }
+                    // &::after {
+                    //   content: '-';
+                    //   display: block;
+                    //   position: absolute;
+                    //   top: 50%;
+                    //   right: 0;
+                    //   transform: translateY(-50%);
+                    //   color: $gray050;
+                    // }
+                    .form_group {
+                      .form_control {
+                        text-align: left;
+                      }
+                    }
+                  }
+                  &.last {
+                    flex-shrink: 0;
+                    width: 0.8rem;
+                    margin-left: auto;
+                    &::before {
+                      display: none;
+                    }
+                  }
+                }
+                .resident_mark {
+                  display: flex;
+                  gap: 0.8rem;
+                  margin-left: 0.8rem;
+                  margin-right: auto;
+                  p {
+                    width: 0.8rem;
+                    height: 0.8rem;
+                    background-color: $gray050;
+                    border-radius: 50%;
+                  }
+                }
+              }
+            }
+            &_checkbox {
+              margin-top: 1.6rem;
+              .flex_area {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                ~ .flex_area {
+                  margin-top: 0.8rem;
+                }
+                .form_checkbox {
+                  margin-bottom: 0;
+                  padding: 0;
+                  .form_checkbox_label {
+                    letter-spacing: -0.1rem;
+                  }
+                }
+                .btn {
+                  height: auto;
+                  padding: 0;
+                }
+              }
+            }
+            &_ticket_notice {
+              display: flex;
+              gap: 0.4rem;
+              margin-top: 1.2rem;
+              @include fontHeight(1.2);
+            }
+            &_company {
+              position: relative;
+              .label {
+                margin-bottom: 0.8rem;
+              }
+              .inline_form_wrap {
+                .form_input {
+                  .form_group {
+                    .form_control {
+                      &::placeholder {
+                        color: $gray050;
+                      }
+                    }
+                  }
+                }
+              }
+              .hide_input {
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                .form_group {
+                  background-color: transparent;
+                  opacity: 0;
+                }
+              }
+              .desc {
+                margin-top: 0.4rem;
+                @include fontHeight(1.2);
+              }
+            }
+          }
+        }
+        .modal_footer {
+          background-color: $white;
+          border-radius: 2rem 2rem 0 0;
+          box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+    // 카드 정보 업데이트
+    &.update {
+      .modal_dialog {
+        .modal_content {
+          .modal_body {
+            .desc_info {
+              margin-bottom: 1.2rem;
+            }
+            .card_select {
+              margin-top: 1.6rem;
+              .btn {
+                justify-content: flex-start;
+                width: 100%;
+                height: 4.8rem;
+                margin-top: 0.8rem;
+                padding: 0 1.2rem;
+                border-radius: 1.2rem;
+              }
+              .desc {
+                margin-top: 0.4rem;
+                @include fontHeight(1.2);
+              }
+            }
+          }
+        }
+      }
+    }
+    // 신용/체크 일반결제
+    &.credit {
+      .form_input {
+        .form_label {
+          color: $text2;
+        }
+      }
+      .modal_dialog {
+        .modal_content {
+          .modal_body {
+            .card_num {
+              .card_label {
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+                color: $text2;
+              }
+            }
+            .card_installment {
+              .card_label {
+                margin-bottom: 0.8rem;
+                span {
+                  color: $gray050;
+                }
+              }
+              .btn {
+                justify-content: space-between;
+                width: 100%;
+                height: 4.8rem;
+                padding: 0 1.2rem;
+                border-radius: 1.2rem;
+                color: $text2;
+                &:disabled {
+                  background-color: $gray020;
+                  border-color: $line1;
+                  color: $gray050;
+                  i {
+                    &::before {
+                      @include ic_bg(20, 'arrow_gray040');
+                    }
+                  }
+                }
+              }
+            }
+            .price_area {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              font-weight: $fontMedium;
+              color: $text2;
+              .price {
+                font-family: $font, sans-serif;
+                font-weight: $fontRegular;
+                font-size: 1.8rem;
+                letter-spacing: 0;
+                line-height: 1;
+                strong {
+                  font-weight: $fontBold;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // 결제 결과
+  .payment_result {
+    padding: 4rem 0 2.4rem;
+    .result {
+      .img_area {
+        width: 10rem;
+        margin: 0 auto 1.6rem;
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+      p {
+        margin-bottom: 1.6rem;
+        font-weight: $fontMedium;
+        @include fontHeight(1.8);
+        color: $text2;
+        text-align: center;
+      }
+    }
+    .product_name {
+      margin-bottom: 0.8rem;
+      font-weight: $fontMedium;
+      @include fontHeight(1.6);
+      color: $text2;
+    }
+    .fail_desc {
+      margin-bottom: 1.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 0.1rem solid $line2;
+      .error {
+        margin-top: 0.4rem;
+        color: $error1;
+      }
+    }
+    .list {
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        ~ li {
+          margin-top: 0.8rem;
+        }
+        .num {
+          font-family: $fontNum, sans-serif;
+          font-weight: $fontMedium;
+          color: $text2;
+          letter-spacing: 0;
+          line-height: 1;
+          &.card {
+            font-family: $font;
+            @include fontHeight(1.4);
+          }
+          strong {
+            font-weight: $fontBold;
+          }
+        }
+        &.discount {
+          padding-top: 0.8rem;
+          border-top: 0.1rem solid $line2;
+          .num {
+            font-size: 1.6rem;
+          }
+          ul {
+            width: 100%;
+            margin-top: 0.8rem;
+            li {
+              position: relative;
+              padding-left: 1.2rem;
+              &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0.6rem;
+                left: 0;
+                width: 0.8rem;
+                height: 0.8rem;
+                border-left: 0.1rem solid #5f666f;
+                border-bottom: 0.1rem solid #5f666f;
+                box-sizing: border-box;
+              }
+              .num {
+                color: $primary2;
+              }
+            }
+          }
+        }
+        &.sum {
+          margin-top: 1.2rem;
+          padding-top: 1.2rem;
+          border-top: 0.1rem solid $line2;
+          color: $text2;
+          font-weight: $fontMedium;
+          .num {
+            font-weight: $fontRegular;
+            font-size: 1.8rem;
+          }
+        }
+      }
+    }
+    &.success {
+      .list {
+        margin-top: 1.6rem;
+      }
+    }
+  }
+  // 할부 개월 수 선택
+  .installment_month {
+    form {
+      display: flex;
+      > div {
+        flex: 1 1 40%;
+        .form_radio {
+          .form_radio_input {
+            &:checked ~ .form_radio_label {
+              font-weight: $fontMedium;
+              color: $primary2;
+            }
+          }
+          .form_radio_label {
+            color: $text2;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 결제하기 > 헤더 결제수단 버튼
+.btn {
+  &_payment_method {
+    height: auto;
+    margin-right: 0.4rem;
+    padding: 0;
+    color: $primary2;
+    letter-spacing: -0.1rem;
+  }
+}
+
+// 결재수단관리
+.mo_tmoney_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  &_logo {
+    height: 1.8rem;
+    & img {
+      height: 100%;
+    }
+  }
+  &_btn {
+    display: flex;
+    align-items: center;
+    & button {
+      padding: 0;
+      color: $gray050;
+    }
+    & i {
+      color: $gray050;
+    }
+    & .unregister_btn {
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
+      height: 1.9rem;
+      font-size: 1.1rem;
+    }
+  }
+}
+.mo_tmoney_body {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid $line2;
+  & .regist {
+    margin-top: 0.8rem;
+    &.after {
+      overflow: hidden;
+      display: block;
+      border: 0.1rem solid $lightPurple1;
+      border-radius: 1.2rem;
+      margin-bottom: 0.4rem;
+      & .regist_list {
+        padding: 1.2rem;
+        & li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: $gray090;
+        }
+      }
+      & .bottom {
+        display: flex;
+        border-top: 0.1rem solid $lightPurple1;
+        & .btn {
+          flex: 1 1 40%;
+          background-color: $lightPurple3;
+          border-radius: 0;
+          letter-spacing: -0.05rem;
+          font-size: 1.2rem;
+          line-height: 1.6rem;
+          color: $primary1;
+          & ~ .btn {
+            border-left: 0.1rem solid $lightPurple1;
+          }
+        }
+      }
+    }
+  }
+}
+.mo_tmoney_con {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.2rem;
+  &_btn {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      gap: 0.8rem;
+      width: 100%;
+      color: $white;
+      font-size: 1.4rem;
+      font-weight: $fontMedium;
+      z-index: 2;
+      & img {
+        width: 2rem;
+        height: 1.4rem;
+      }
+    }
+    height: 5.2rem;
+    background-color: $primary2;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 7.8rem;
+      background-color: #a41099;
+      width: 6rem;
+      height: 6rem;
+      z-index: 1;
+      transform: skewX(-40deg);
+    }
+    &:after {
+      left: 17rem;
+      background-color: #a41099;
+      width: 3rem;
+    }
+  }
+  &_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1.2rem;
+    border-radius: 0.8rem;
+    background-color: $gray010;
+    height: 7.5rem;
+    font-size: 1.4rem;
+    color: $gray090;
+    text-align: center;
+    font-weight: $fontRegular;
+    overflow: hidden;
+    & img {
+      display: block;
+      width: 100%;
+    }
+    & b {
+      color: $primary2;
+      font-weight: $fontBold;
+      margin-left: 0.5rem;
+    }
+  }
+  &_txt {
+    margin-top: 0.8rem;
+    font-size: 1.2rem;
+    color: $gray070;
+  }
+}
+.mo_notice_area {
+  display: flex;
+  gap: 0.4rem;
+  flex-direction: column;
+  & .notice {
+    display: flex;
+    gap: 0.8rem;
+    & .badge {
+      flex-shrink: 0;
+      width: 3.6rem;
+      height: 1.9rem;
+      border: 0.1rem solid $primary2;
+      border-radius: 99.9rem;
+      color: $primary2;
+      font-size: 1.1rem;
+      letter-spacing: -0.1rem;
+      line-height: 1.9rem;
+      font-weight: $fontRegular;
+    }
+    & .text {
+      letter-spacing: -0.07rem;
+      word-break: keep-all;
+      color: $gray555;
+      font-size: 1.4rem;
+      font-weight: $fontRegular;
+    }
+  }
+}
+.mo_tmoney_paymoney {
+  & .swiper {
+    width: calc(100% + 2rem);
+    // margin-top: 0.8rem;
+    padding-right: 2rem;
+    & .card {
+      display: flex;
+      flex-direction: column;
+      width: 22.4rem;
+      height: 14.6rem;
+      margin: 0 auto;
+      padding: 1.6rem;
+      background-color: $primary2;
+      color: #fff;
+      border-radius: 1.2rem;
+      & .title {
+        text-align: right;
+        font-weight: 400;
+      }
+      & .balance_area {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+        & .balance_title {
+          letter-spacing: -0.05rem;
+          font-size: 1.2rem;
+          line-height: 1.6rem;
+          opacity: 0.6;
+        }
+        & .balance {
+          font-family: 'Spoqa Han Sans Neo', sans-serif;
+          line-height: 1;
+          letter-spacing: 0;
+          opacity: 0.8;
+          & span {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+  & .swiper-pagination {
+    position: relative;
+    padding-top: 1.7rem;
+    font-size: 1.1rem;
+    color: $gray050;
+    & .swiper-pagination-current {
+      color: $primary2;
+    }
+  }
+  & + .mo_tmoney_con_box {
+    margin-top: 0;
+  }
+}
+
+.naver {
+  & .badge {
+    width: 5.5rem;
+    height: 1.9rem;
+    background-color: $white;
+    border: 0.1rem solid $primary2;
+    border-radius: 99.9rem;
+    color: $gray050;
+    @include fontHeight(1.1);
+  }
+}
+
+.pay {
+  & .unregister_btn {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    height: 1.9rem;
+    font-size: 1.1rem;
+    margin-left: auto;
+  }
+}

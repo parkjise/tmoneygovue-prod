@@ -1,0 +1,385 @@
+{
+  "inqrMoappEvntList": {
+    "rstCd": "200",
+    "dta": {
+      "evntList": [
+        {
+          "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/appImg/mui/webview/hanilferi_202404160102.png",
+          "authTknNedYn": "N",
+          "evntUrlAddr": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN202404050101&token=_TOKEN_",
+          "concScrnDvsCd": "1",
+          "evntSno": "20240402000000000133",
+          "evntTtlNm": "한일고속페리",
+          "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+          "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT127_2024040201.png",
+          "evntPrcgCtNote": "listLinkUseYn=Y\r\nauthTknNedYn=N\r\nconcScrnDvsCd=1",
+          "evntScrnId": "S_EVNT127",
+          "evntEndDt": "2024.05.31",
+          "evntSttDt": "2024.03.18",
+          "listLinkUseYn": "Y"
+        },
+        {
+          
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT129_2024042401.png",
+            "authTknNedYn": "Y",
+            "evntUrlAddr": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN202404120101&token=_TOKEN_",
+            "concScrnDvsCd": "1",
+            "evntSno": "20240418000000000138",
+            "evntTtlNm": "쏘카일레클 전기자전거 신규 오픈 이벤트",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT129_2024042401.png",
+            "evntPrcgCtNote": "listLinkUseYn=Y\r\nauthTknNedYn=Y\r\nconcScrnDvsCd=1",
+            "evntScrnId": "S_EVNT129",
+            "evntEndDt": "2024.05.22",
+            "evntSttDt": "2024.04.24",
+            "listLinkUseYn": "Y"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT128_20240412_01.png",
+            "authTknNedYn": "N",
+            "evntUrlAddr": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240315001&token=_TOKEN_",
+            "concScrnDvsCd": "",
+            "evntSno": "20240412000000000137",
+            "evntTtlNm": "[이벤트] 국내선 제주항공 단독 초.특.가 SALE",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntDtl_S_EVNT128_20240418_04.png",
+            "evntPrcgCtNote": null,
+            "evntScrnId": "S_EVNT128",
+            "evntEndDt": "2024.05.31",
+            "evntSttDt": "2023.04.02",
+            "listLinkUseYn": "N"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT125_2024032901.png",
+            "authTknNedYn": "Y",
+            "evntUrlAddr": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240329101&token=_TOKEN_",
+            "concScrnDvsCd": "1",
+            "evntSno": "20240329000000000133",
+            "evntTtlNm": "서울 출근 택시비, 온다택시가 쏜다!",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT125_2024032901.png",
+            "evntPrcgCtNote": "listLinkUseYn=Y\r\nauthTknNedYn=Y\r\nconcScrnDvsCd=1",
+            "evntScrnId": "S_EVNT125",
+            "evntEndDt": "2024.05.31",
+            "evntSttDt": "2024.03.18",
+            "listLinkUseYn": "Y"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT124_2024032901.png",
+            "authTknNedYn": "Y",
+            "evntUrlAddr": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240329001&token=_TOKEN_",
+            "concScrnDvsCd": "1",
+            "evntSno": "20240329000000000132",
+            "evntTtlNm": "티머니GO 이.동.이.득 페스티벌!",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT124_2024032901.png",
+            "evntPrcgCtNote": "listLinkUseYn=Y\r\nauthTknNedYn=Y\r\nconcScrnDvsCd=1",
+            "evntScrnId": "S_EVNT124",
+            "evntEndDt": "2024.05.31",
+            "evntSttDt": "2024.03.18",
+            "listLinkUseYn": "Y"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT39_20220513.jpg",
+            "authTknNedYn": "N",
+            "evntUrlAddr": null,
+            "concScrnDvsCd": "",
+            "evntSno": "20220517000000000039",
+            "evntTtlNm": "티머니페이 PLCC 가입 이벤트",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_eventDtl_S_EVNT039_20220513.jpg",
+            "evntPrcgCtNote": "향후 서비스 오픈시 진행할 계획으로.. 프로그램 적용을 위해 사전 EventID를 선점하기 위해 등록합니다.",
+            "evntScrnId": "S_EVNT040",
+            "evntEndDt": "2024.12.31",
+            "evntSttDt": "2024.03.06",
+            "listLinkUseYn": "N"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT137_20240507_01.png",
+            "authTknNedYn": "N",
+            "evntUrlAddr": "tmoneytia://reward/main",
+            "concScrnDvsCd": "",
+            "evntSno": "20240507000000000145",
+            "evntTtlNm": "기후동행카드 등록만 해도 2천원!?",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntDtl_S_EVNT137_20240507_01.png",
+            "evntPrcgCtNote": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240315001&token=_TOKEN_",
+            "evntScrnId": "S_EVNT137",
+            "evntEndDt": "2024.06.30",
+            "evntSttDt": "2024.04.26",
+            "listLinkUseYn": "N"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT131_2024042601.png",
+            "authTknNedYn": "N",
+            "evntUrlAddr": "tmoneytia://onda/main",
+            "concScrnDvsCd": "",
+            "evntSno": "20240426000000000140",
+            "evntTtlNm": "온다택시 '제주' 지역 오픈 기념 혜택",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntDtl_S_EVNT131_2024042601.png",
+            "evntPrcgCtNote": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240315001&token=_TOKEN_",
+            "evntScrnId": "S_EVNT131",
+            "evntEndDt": "2024.06.30",
+            "evntSttDt": "2024.04.26",
+            "listLinkUseYn": "N"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT127_2024040201.png",
+            "authTknNedYn": "N",
+            "evntUrlAddr": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240402101&token=_TOKEN_",
+            "concScrnDvsCd": "1",
+            "evntSno": "20240402000000000135",
+            "evntTtlNm": "온다택시 인천 상륙! 매~주 기본료 무료 쏜다",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT127_2024040201.png",
+            "evntPrcgCtNote": "listLinkUseYn=Y\r\nauthTknNedYn=N\r\nconcScrnDvsCd=1",
+            "evntScrnId": "S_EVNT127",
+            "evntEndDt": "2024.05.31",
+            "evntSttDt": "2024.03.18",
+            "listLinkUseYn": "Y"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT117_2024013101.jpg",
+            "authTknNedYn": "N",
+            "evntUrlAddr": "tmoneytia://onda/main",
+            "concScrnDvsCd": "",
+            "evntSno": "20240131000000000124",
+            "evntTtlNm": "신규가입 시 기본료 무료 쿠폰 온다",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_eventDtl_S_EVNT117_2024013101.jpg",
+            "evntPrcgCtNote": null,
+            "evntScrnId": "S_EVNT117",
+            "evntEndDt": "2024.06.30",
+            "evntSttDt": "2024.01.31",
+            "listLinkUseYn": "N"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT116_2024012301.png",
+            "authTknNedYn": "Y",
+            "evntUrlAddr": "tmoneytia://web?in=https://tiaapid.tmoney.co.kr:20328/webview/mbrs/inqrMbrsClimeCardInfo.do?token=_TOKEN_",
+            "concScrnDvsCd": "0",
+            "evntSno": "20240123000000000123",
+            "evntTtlNm": "[안내][기후동행카드] 따릉이 이용권 발급",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_eventDtl_S_EVNT116_2024031801.png",
+            "evntPrcgCtNote": "listLinkUseYn=N\r\nauthTknNedYn=Y\r\nconcScrnDvsCd=0",
+            "evntScrnId": "S_EVNT116",
+            "evntEndDt": "2024.06.30",
+            "evntSttDt": "2024.01.23",
+            "listLinkUseYn": "N"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT130_2024042401.jpg",
+            "authTknNedYn": "N",
+            "evntUrlAddr": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240424020101&token=_TOKEN_",
+            "concScrnDvsCd": "1",
+            "evntSno": "20240424000000000139",
+            "evntTtlNm": "무조건 챙겨야 할 온다택시 혜택 모음.ZIP",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT130_2024042401.jpg",
+            "evntPrcgCtNote": "listLinkUseYn=Y\r\nauthTknNedYn=N\r\nconcScrnDvsCd=1",
+            "evntScrnId": "S_EVNT130",
+            "evntEndDt": "2024.05.31",
+            "evntSttDt": "2024.03.18",
+            "listLinkUseYn": "Y"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT075_20230324.png",
+            "authTknNedYn": "Y",
+            "evntUrlAddr": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240402001",
+            "concScrnDvsCd": "1",
+            "evntSno": "20240402000000000134",
+            "evntTtlNm": "[이벤트][렌터카] 티머니GO 렌터카 오픈! 7% 무제한 적립!",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntDtl_S_EVNT075_2024040102.png",
+            "evntPrcgCtNote": "listLinkUseYn=Y\r\nauthTknNedYn=Y\r\nconcScrnDvsCd=1\r\nwebViewTtl=[이벤트][렌터카] 티머니GO 렌터카 오픈! 7% 무제한 적립!",
+            "evntScrnId": "S_EVNT126",
+            "evntEndDt": "2024.05.31",
+            "evntSttDt": "2023.03.24",
+            "listLinkUseYn": "Y"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT119_2024030801.png",
+            "authTknNedYn": "Y",
+            "evntUrlAddr": "tmoneytia://reward/main",
+            "concScrnDvsCd": "1",
+            "evntSno": "20240308000000000127",
+            "evntTtlNm": "더욱 새로워진 대중교통 리워드 이용 방법!",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_eventDtl_S_EVNT119_2024030801.png",
+            "evntPrcgCtNote": "listLinkUseYn=Y\r\nauthTknNedYn=Y\r\nconcScrnDvsCd=1",
+            "evntScrnId": "S_EVNT119",
+            "evntEndDt": "2024.12.31",
+            "evntSttDt": "2024.03.08",
+            "listLinkUseYn": "Y"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT118_2024013101.jpg",
+            "authTknNedYn": "N",
+            "evntUrlAddr": "tmoneytia://onda/main",
+            "concScrnDvsCd": "",
+            "evntSno": "20240131000000000125",
+            "evntTtlNm": "[이벤트][온다택시]탈 때마다 10% 적립 온다",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_eventDtl_S_EVNT118_2024013101.jpg",
+            "evntPrcgCtNote": null,
+            "evntScrnId": "S_EVNT118",
+            "evntEndDt": "2024.12.31",
+            "evntSttDt": "2024.02.01",
+            "listLinkUseYn": "N"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT128_20240412_01.png",
+            "authTknNedYn": "Y",
+            "evntUrlAddr": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240503030101",
+            "concScrnDvsCd": "1",
+            "evntSno": "20240503000000000144",
+            "evntTtlNm": "GO에서만 만나보는 제주항공 특가!",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT128_20240412_01.png",
+            "evntPrcgCtNote": "listLinkUseYn=Y\r\nauthTknNedYn=Y\r\nconcScrnDvsCd=1",
+            "evntScrnId": "S_EVNT136",
+            "evntEndDt": "2024.05.31",
+            "evntSttDt": "2024.05.02",
+            "listLinkUseYn": "Y"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT121_2024031501.png",
+            "authTknNedYn": "Y",
+            "evntUrlAddr": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240503010101",
+            "concScrnDvsCd": "1",
+            "evntSno": "20240503000000000143",
+            "evntTtlNm": "항공권 예약하면서 혜택 놓치지 않으셨죠!?",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT121_2024031501.png",
+            "evntPrcgCtNote": "listLinkUseYn=Y\r\nauthTknNedYn=Y\r\nconcScrnDvsCd=1",
+            "evntScrnId": "S_EVNT134",
+            "evntEndDt": "2024.05.31",
+            "evntSttDt": "2024.05.02",
+            "listLinkUseYn": "Y"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT132_20240430_01.png",
+            "authTknNedYn": "Y",
+            "evntUrlAddr": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240430101",
+            "concScrnDvsCd": "1",
+            "evntSno": "20240430000000000141",
+            "evntTtlNm": "마일리지 적립부터 친환경 매트까지! 따릉GO수 퀘스트!",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT132_20240430_01.png",
+            "evntPrcgCtNote": "listLinkUseYn=Y\r\nauthTknNedYn=Y\r\nconcScrnDvsCd=1",
+            "evntScrnId": "S_EVNT132",
+            "evntEndDt": "2024.05.31",
+            "evntSttDt": "2024.04.26",
+            "listLinkUseYn": "Y"
+        },
+        {
+            "evntMainImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_evntThumb_S_EVNT066_20230922.jpg",
+            "authTknNedYn": "N",
+            "evntUrlAddr": "tmoneytia://onda/main",
+            "concScrnDvsCd": "",
+            "evntSno": "20230926000000000106",
+            "evntTtlNm": "GO마일리지 사용 가이드 총정리",
+            "evntCtt": "서비스 이용 문의 : (주)티머니 고객센터 1644-9255",
+            "evntSubImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_eventDtl_S_EVNT085_20240115.jpg",
+            "evntPrcgCtNote": null,
+            "evntScrnId": "S_EVNT099",
+            "evntEndDt": "2024.07.01",
+            "evntSttDt": "2023.06.28",
+            "listLinkUseYn": "N"
+        }
+      ],
+      "inqrNcnt": 18
+    },
+    "errMsg": ""
+  },
+  "getWebviewInfo": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "화면 정보가 정상 조회되었습니다.",
+      "scrnNm": "한일고속페리",
+      "imgLinkUrl": "https://tiaapid.tmoney.co.kr:20328/resources",
+      "webviewScrnMaster": [
+        {
+            "scrnId": "SCRN202404050101",
+            "hgrnScrnId": null,
+            "scrnNm": "한일고속페리",
+            "imgExpsSeq": 1,
+            "scrnMrkDvsCd": "I",
+            "imgPathVal": "/appImg/mui/webview/hanilferi_202404160102.png",
+            "imgUrlAddr": null,
+            "blthCtt": null
+        }
+      ],
+      "webviewScrnDetail": [
+        {
+            "scrnId": "SCRN202404050201",
+            "hgrnScrnId": "SCRN202404050101",
+            "scrnNm": "한일고속페리",
+            "imgExpsSeq": 2,
+            "scrnMrkDvsCd": "I",
+            "imgPathVal": "/appImg/mui/webview/hanilferi_202404160202.png",
+            "imgUrlAddr": "tmoneytia://web?in=https://tiaapid.tmoney.co.kr:6070/webview/hanil/express/v1/mainView.do?stplYn=Y&stplSno=20240411000000000604|20240411000000000605&token=_TOKEN_",
+            "blthCtt": null
+        },
+        {
+            "scrnId": "SCRN202404050301",
+            "hgrnScrnId": "SCRN202404050101",
+            "scrnNm": "한일고속페리",
+            "imgExpsSeq": 3,
+            "scrnMrkDvsCd": "I",
+            "imgPathVal": "/appImg/mui/webview/hanilferi_202404160302.png",
+            "imgUrlAddr": "tmoneytia://web?in=https://tiaapid.tmoney.co.kr:6070/webview/hanil/express/v1/confirmRsv.do?stplYn=Y&stplSno=20240411000000000604|20240411000000000605&token=_TOKEN_",
+            "blthCtt": null
+        },
+        {
+            "scrnId": "SCRN202404050401",
+            "hgrnScrnId": "SCRN202404050101",
+            "scrnNm": "한일고속페리",
+            "imgExpsSeq": 4,
+            "scrnMrkDvsCd": "I",
+            "imgPathVal": "/appImg/mui/webview/hanilferi_202404160404.png",
+            "imgUrlAddr": null,
+            "blthCtt": null
+        }
+      ]
+    },
+    "errMsg": ""
+  },
+  "getWebviewMbrsStplInfo": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "화면 정보가 정상 조회되었습니다.",
+      "stplList": [
+          {
+            "stplSno": "20240411000000000604",
+            "stplTtlNm": "개인정보 수집 및 이용동의(필수)",
+            "stplMndtYn": "Y",
+            "stplAgrmYn": "Y",
+            "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20240411000000000604.docx",
+            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20240411000000000604.do"
+          },
+          {
+            "stplSno": "20240411000000000605",
+            "stplTtlNm": "개인정보 제3자 제공 동의(필수)",
+            "stplMndtYn": "Y",
+            "stplAgrmYn": "N",
+            "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20240411000000000605.docx",
+            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20240411000000000605.do"
+          }
+      ]
+    },
+    "errMsg": ""
+  },
+  "setWebviewMbrsStpl": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "약관동의 정보 저장 하였습니다."
+    },
+    "errMsg": ""
+  }
+}

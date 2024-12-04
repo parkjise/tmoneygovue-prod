@@ -1,0 +1,93 @@
+@use './value' as *;
+
+@mixin fontHeight($fontSize) {
+  letter-spacing: -0.05rem;
+  font-size: $fontSize + rem;
+  @if $fontSize == 3.2 {
+    line-height: 4rem;
+    letter-spacing: -0.1rem;
+  } @else if $fontSize == 2.8 {
+    line-height: 3.4rem;
+    letter-spacing: -0.1rem;
+  } @else if $fontSize == 2.4 {
+    line-height: 3rem;
+    letter-spacing: -0.1rem;
+  } @else if $fontSize == 2 {
+    line-height: 2.6rem;
+    letter-spacing: -0.1rem;
+  } @else if $fontSize == 1.8 {
+    line-height: 2.4rem;
+  } @else if $fontSize == 1.6 {
+    line-height: 2.2rem;
+  } @else if $fontSize == 1.4 {
+    line-height: 2rem;
+  } @else if $fontSize == 1.2 {
+    line-height: 1.6rem;
+  } @else if $fontSize == 1 {
+    line-height: auto;
+  }
+}
+
+@mixin sr_only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0); /* 구형 브라우저를 위해 사용 */
+  clip-path: polygon(0 0, 0 0, 0 0); /* inset(50%) 와 동일한 표현 */
+  border: 0;
+}
+
+@mixin ellipsis($lines: 1) {
+  @if ($lines == 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@mixin ic($icSize, $icName, $extention: 'png') {
+  display: inline-flex;
+  width: ($icSize * 0.1) + rem;
+  height: ($icSize * 0.1) + rem;
+  &::before {
+    content: '';
+    display: inline-block;
+    width: ($icSize * 0.1) + rem;
+    height: ($icSize * 0.1) + rem;
+    background: url('#{$img_path}/ic/ic_#{$icSize}_#{$icName}.#{$extention}') no-repeat 0 0 /
+      100% auto;
+  }
+}
+
+@mixin ic_bg($icSize, $icName, $extention: 'png') {
+  background: url('#{$img_path}/ic/ic_#{$icSize}_#{$icName}.#{$extention}') no-repeat center
+    center / (($icSize * 0.1) + rem) auto;
+}
+
+// media query
+@mixin mobile($breakpoint_mobile, $breakpoint_tablet) {
+  @media (min-width: #{$breakpoint_mobile}) and (max-width: #{$breakpoint_tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet($breakpoint_tablet, $breakpoint_desktop) {
+  @media (min-width: #{$breakpoint_tablet}) and (max-width: #{$breakpoint_desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop($breakpoint_desktop) {
+  @media (min-width: #{$breakpoint_desktop}) {
+    @content;
+  }
+}

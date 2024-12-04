@@ -1,0 +1,31 @@
+@use '../helpers' as *;
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  .minus_btn {
+    &:disabled {
+      background-color: $gray020;
+    }
+  }
+  .minus_btn,
+  .plus_btn  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border: 1px solid $line2;
+    border-radius: 0.6rem;
+  }
+  .count_num {
+    width: 5rem;
+    color: $text2;
+    font-family: $fontNum;
+    font-weight: $fontBold;
+    @include fontHeight(1.8);
+    line-height: 1;
+    text-align: center;
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "bikeScooterHistory": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상처리되었습니다.",
+      "data": {
+        "inqrNcnt": 2,
+        "totMvmnCnt": 2,
+        "totMvmnDist": 0.0,
+        "totMvmnTime": "00:01",
+        "dtl": [
+          {
+            "utlzSvcDvsCd": "X",
+            "rntHstSno": "20240227000000008306",
+            "rntSctrId": "ACDXRH",
+            "rntDtm": "2024.02.27 18:34:50",
+            "rtrnDtm": "2024.02.27 18:35:36",
+            "mvmnDist": 4,
+            "mvmnTime": "00:00:47",
+            "pymFee": "650",
+            "pymYn": "Y",
+            "useTime": "00:00:47",
+            "pauseTime": "00:00:00",
+            "useFee": "650",
+            "addFee": "0",
+            "pymMnsIdnnVal": "티머니페이",
+            "atlPymAmt": 650,
+            "cpnUseAmt": 0,
+            "tmgMlgUseAmt": 0,
+            "pymDtm": "2024.02.27(화) 18:35"
+          },
+          {
+            "utlzSvcDvsCd": "X",
+            "rntHstSno": "20231101000000007820",
+            "rntSctrId": "ACDXRH",
+            "rntDtm": "2023.11.01 11:19:27",
+            "rtrnDtm": "2023.11.01 11:19:59",
+            "mvmnDist": 0,
+            "mvmnTime": "00:00:33",
+            "pymFee": "650",
+            "pymYn": "Y",
+            "useTime": "00:00:33",
+            "pauseTime": "00:00:00",
+            "useFee": "650",
+            "addFee": "0",
+            "pymMnsIdnnVal": "네이버페이 자동결제",
+            "atlPymAmt": 650,
+            "cpnUseAmt": 0,
+            "tmgMlgUseAmt": 0,
+            "pymDtm": "2023.11.01(수) 11:20"
+          }
+        ]
+      }
+    },
+    "errMsg": ""
+  },
+  "publicBike": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상처리되었습니다.",
+      "data": {
+        "inqrNcnt": 1,
+        "cumUtlzDrtm": 1,
+        "cumMvmnDist": 0.0,
+        "cumCrbnSvng": 0.0,
+        "cumConsumeCal": 0.0,
+        "dtl": [
+          {
+            "utlzSvcDvsCd": "D",
+            "rntHstSno": "1131",
+            "utlzDrtm": 2,
+            "mvmnDist": 0,
+            "crbnSvng": 0,
+            "bcclNo": "TASHU_22B00890",
+            "rntPlc": "1137. 티머니",
+            "rntDtm": "2024.05.07 15:25:57",
+            "rtrnPlc": "1137. 티머니",
+            "rtrnDtm": "2024.05.07 15:27:17",
+            "utlzChnlCd": "CHN_003",
+            "addFeeYn": "N",
+            "consumeCal": 0,
+            "exceDrtm": 0,
+            "addFee": "0",
+            "rntSctrId": "DJ2-0890",
+            "pymDtm": "",
+            "mvmnTime": "00:00:02",
+            "pymFee": "2",
+            "pymYn": "Y",
+            "useTime": "00:00:02",
+            "pauseTime": "00:00:00",
+            "useFee": "0",
+            "pymMnsIdnnVal": "",
+            "atlPymAmt": 0,
+            "cpnUseAmt": 0,
+            "tmgMlgUseAmt": 0
+          },
+          {
+            "utlzSvcDvsCd": "T",
+            "rntHstSno": "30681019",
+            "utlzDrtm": 1,
+            "mvmnDist": 0,
+            "crbnSvng": 0,
+            "bcclNo": "SPB-00060464",
+            "rntPlc": "00379. 서울역9번출구",
+            "rntDtm": "2024.05.07 15:25:04",
+            "rtrnPlc": "00379. 서울역9번출구",
+            "rtrnDtm": "2024.05.07 15:25:36",
+            "utlzChnlCd": "CHN_002",
+            "addFeeYn": "N",
+            "consumeCal": 0,
+            "exceDrtm": 0,
+            "addFee": "0",
+            "rntSctrId": "",
+            "pymDtm": "",
+            "mvmnTime": "",
+            "pymFee": "0",
+            "pymYn": "Y",
+            "useTime": "",
+            "pauseTime": "",
+            "useFee": "",
+            "pymMnsIdnnVal": "",
+            "atlPymAmt": 0,
+            "cpnUseAmt": 0,
+            "tmgMlgUseAmt": 0
+          }
+        ]
+      }
+    },
+    "errMsg": ""
+  },
+  "bikeVoucherHistory": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상처리되었습니다.",
+      "data": {
+        "inqrNcnt": 4,
+        "dtl": [
+          {
+            "pymStaCd": "BIS_001",
+            "rfndSeq": "null",
+            "cpnDvsNm": "정기-7일(1시간권)",
+            "cpnNm": "정기-7일(1시간권)",
+            "pymMnsCd": "BIM_016",
+            "pymSno": "6681941",
+            "useSttDtm": "2024-05-07 15:25:04",
+            "pymAprvDtm": "2024-05-07 15:24:26",
+            "pymChnlCd": "CHN_002",
+            "ryPsbYn": "N",
+            "dcFeeYn": "N",
+            "useEndDtm": "2024-05-14 15:25:04",
+            "cpnDvsCd": "BIL_001",
+            "cpnUseYn": "Y"
+          },
+          {
+            "pymStaCd": "BIS_001",
+            "rfndSeq": "null",
+            "cpnDvsNm": "일일 회원(1시간권)",
+            "cpnNm": "일일 회원(1시간권)",
+            "pymMnsCd": "BIM_023",
+            "pymSno": "6681174",
+            "useSttDtm": "2023-11-14 16:33:36",
+            "pymAprvDtm": "2023-11-01 11:20:43",
+            "pymChnlCd": "CHN_002",
+            "ryPsbYn": "N",
+            "dcFeeYn": "N",
+            "useEndDtm": "2023-11-15 16:33:36",
+            "cpnDvsCd": "BIL_006",
+            "cpnUseYn": "Y"
+          },
+          {
+            "pymStaCd": "BIS_001",
+            "rfndSeq": "null",
+            "cpnDvsNm": "정기-7일(1시간권)",
+            "cpnNm": "정기-7일(1시간권)",
+            "pymMnsCd": "BIM_013",
+            "pymSno": "6680800",
+            "useSttDtm": "2023-07-05 21:09:11",
+            "pymAprvDtm": "2023-07-05 21:08:46",
+            "pymChnlCd": "CHN_002",
+            "ryPsbYn": "N",
+            "dcFeeYn": "N",
+            "useEndDtm": "2023-07-12 21:09:11",
+            "cpnDvsCd": "BIL_001",
+            "cpnUseYn": "Y"
+          },
+          {
+            "pymStaCd": "BIS_001",
+            "rfndSeq": "null",
+            "cpnDvsNm": "일일 회원(1시간권)",
+            "cpnNm": "일일 회원(1시간권)",
+            "pymMnsCd": "BIM_013",
+            "pymSno": "6680776",
+            "useSttDtm": "2023-07-02 14:25:27",
+            "pymAprvDtm": "2023-07-02 14:24:59",
+            "pymChnlCd": "CHN_002",
+            "ryPsbYn": "N",
+            "dcFeeYn": "N",
+            "useEndDtm": "2023-07-03 14:25:27",
+            "cpnDvsCd": "BIL_006",
+            "cpnUseYn": "Y"
+          }
+        ]
+      }
+    },
+    "errMsg": ""
+  },
+  "paymentDetailKick": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상처리되었습니다.",
+      "data": {
+        "utlzSvcDvsCd": "X",
+        "rntHstSno": "20240507000000008578",
+        "rntSctrId": "ACDXRH",
+        "rntDtm": "2024.05.07 15:19:34",
+        "rtrnDtm": "2024.05.07 15:20:12",
+        "mvmnDist": 3,
+        "mvmnTime": "00:00:38",
+        "pymFee": "2100",
+        "pymYn": "Y",
+        "useTime": "00:00:38",
+        "pauseTime": "00:00:00",
+        "useFee": "900",
+        "addFee": "1200",
+        "pymMnsIdnnVal": "신용카드(롯데카드)",
+        "atlPymAmt": 2100,
+        "cpnUseAmt": 0,
+        "tmgMlgUseAmt": 0,
+        "pymDtm": "2024.05.07(화) 15:20"
+      }
+    },
+    "errMsg": ""
+  }
+}

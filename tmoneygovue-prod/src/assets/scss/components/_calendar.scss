@@ -1,0 +1,139 @@
+@use '../helpers' as *;
+
+.cal {
+  & :focus {
+    outline: none;
+  }
+  .dp__menu {
+    border: 0 !important;
+  }
+
+  .dp__menu_inner {
+    padding: 0;
+  }
+
+  .dp__calendar_header_item {
+    font-weight: $fontRegular;
+    color: #757983 !important;
+  }
+  .dp__month_year_wrap {
+    gap: 0.8rem;
+
+    .year_month {
+      @include fontHeight(1.8)
+    }
+
+    .custom_ic {
+      width: 2.4rem;
+      height: 2.4rem;
+      &.ic_left {
+        transform: scaleX(-1);
+      }
+    }
+  }
+
+  .dp__calendar_header {
+    margin: 2rem 0 2.3rem;
+
+    &_item {
+      flex: 1;
+      height: 2rem;
+      padding: 0;
+      font-size: 1.4rem;
+      color: $gray999;
+    }
+  }
+
+  .dp__calendar_header_separator {
+    display: none;
+  }
+
+  .dp__calendar_row {
+    gap: 0 0.3rem;
+    // margin: 0.6rem 0;
+    margin: 0.6rem 0 0 0;
+  }
+
+  .dp__calendar_item {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .dp__cell_inner {
+      width: 4.5rem;
+      height: 4.5rem;
+      padding: 0;
+      color: $gray050;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+    }
+    .day {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-items: center;
+      .date {
+        // @include fontHeight(1.4);
+        letter-spacing: -0.05rem;
+        font-size: 1.4rem;
+        font-weight: $fontRegular;
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
+    .price {
+      // margin-top: -0.5rem;
+      @include fontHeight(1.2);
+      letter-spacing: -0.1rem;
+      color: #555;
+      .no_show {
+        opacity: 0%;
+      }
+    }
+
+    // .dp__date_hover {
+    //   border-radius: 50%;
+    // }
+    
+    .dp__date_hover_end:hover, .dp__date_hover_start:hover, .dp__date_hover:hover {
+      background-color: transparent;
+    }
+  
+    .dp__active_date {
+      background-color: transparent;
+      .date {
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 50%;
+        background-color: $primary2;
+        color: $white;
+        transition: none;
+      }
+      // border-radius: 50%;
+      // background-color: $primary2;
+      // color: $white;
+      // transition: none;
+    }
+
+    .dp__cell_highlight {
+      background-color: transparent;
+      color: $black;
+      .price {
+        color: $gray555;
+      }
+      .holiday {
+        color: rgba(157, 28, 46, 1) !important
+      }
+      .saturday {
+        color: rgba(1, 87, 152, 1)
+      }
+      .sunday {
+        color: rgba(157, 28, 46, 1)
+      }
+    }
+
+    .dp__action_row {
+      display: none;
+    }
+  }
+}

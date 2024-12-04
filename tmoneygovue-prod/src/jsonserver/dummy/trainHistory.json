@@ -1,0 +1,73 @@
+{
+  "trainHistory": {
+    "err_cod": "0000",
+    "rstCd": "200",
+    "dta": {
+      "jrnyList": [
+        {
+          "pnrNo": "320240500688793",
+          "stlbTrnClsfCd1": "17",
+          "stlbTrnClsfNm1": "SRT",
+          "trnGpCd1": "300",
+          "trnGpNm1": "SRT",
+          "trnNo1": "00371",
+          "dptDt1": "20240509",
+          "dptTm1": "202800",
+          "dptRsStnCd1": "0551",
+          "dptRsStnNm1": "수서",
+          "arvRsStnCd1": "0020",
+          "arvRsStnNm1": "부산",
+          "stlPsgNtalCnt1": 0,
+          "stlPsgNtalGrdCnt1": 0,
+          "stlPsgCnt1": 1,
+          "stlPsgCnt3": 0,
+          "stlPsgCnt7": 0,
+          "stlPsgCnt8": 0,
+          "stlMnsCd": "02",
+          "stlMnsNm": "신용카드(롯데카드)",
+          "rsvStsNm": "예약완료",
+          "pymDt": "20240509",
+          "pymTm": "183323",
+          "pymCancDt": null,
+          "pymCancTm": null,
+          "tckSno": null,
+          "tranTckStaCd": "02",
+          "pymCancReqDtm": "00000000000000"
+        },
+        {
+          "pnrNo": "320240500688792",
+          "stlbTrnClsfCd1": "17",
+          "stlbTrnClsfNm1": "SRT",
+          "trnGpCd1": "300",
+          "trnGpNm1": "SRT",
+          "trnNo1": "00361",
+          "dptDt1": "20240509",
+          "dptTm1": "183700",
+          "dptRsStnCd1": "0551",
+          "dptRsStnNm1": "수서",
+          "arvRsStnCd1": "0020",
+          "arvRsStnNm1": "부산",
+          "stlPsgNtalCnt1": 0,
+          "stlPsgNtalGrdCnt1": 0,
+          "stlPsgCnt1": 1,
+          "stlPsgCnt3": 0,
+          "stlPsgCnt7": 0,
+          "stlPsgCnt8": 0,
+          "stlMnsCd": "02",
+          "stlMnsNm": "신용카드(롯데카드)",
+          "rsvStsNm": "예약완료",
+          "pymDt": "20240509",
+          "pymTm": "183256",
+          "pymCancDt": null,
+          "pymCancTm": null,
+          "tckSno": null,
+          "tranTckStaCd": "02",
+          "pymCancReqDtm": "00000000000000"
+        }
+      ],
+      "pageNo": "1",
+      "inqrNcnt": 2
+    },
+    "err_msg": ""
+  }
+}

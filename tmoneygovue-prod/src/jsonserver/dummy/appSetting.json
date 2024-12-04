@@ -1,0 +1,120 @@
+{
+  "inqrMbrsRcvAgrmInfo": {
+    "rstCd": "200",
+    "dta": {
+        "msg": "회원수신동의정보 조회를 성공하였습니다.",
+        "mrkgRcvYn": "Y",
+        "pushRcvYn": "Y",
+        "mailRcvYn": "Y",
+        "mrkgRcvUpdDtm": "20240517135009",
+        "smsRcvYn": "Y"
+    },
+    "errMsg": ""
+  },
+  "uptMbrsRcvAgrmInfo": {
+    "rstCd": "200",
+    "dta": {
+        "msg": "수신동의여부 변경이 성공하였습니다.",
+        "scsYn": "Y"
+    },
+    "errMsg": ""
+  },
+  "inqrStplListCarrierAgreement": {
+    "rstCd": "200",
+    "dta": {
+        "msg": "약관조회에 성공하였습니다.",
+        "stplList": [
+            {
+                "stplGrpDesc": "약관 및 주요 안내, 개인정보 필수 수집, 제공 및 조회, 개인정보 선택 수집 및 제공, 위치기반 서비스 이용약관에 모두 동의합니다.",
+                "stplBtnNm": "운송약관 가입하기",
+                "stplGrpNm": "운송약관",
+                "stplDtlList": [
+                    {
+                        "sno": "20210616000000000234",
+                        "trntYn": "N",
+                        "mndtYn": "Y",
+                        "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20210616000000000234.do",
+                        "ttl": "[고속] 운송약관",
+                        "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000234.docx",
+                        "mrkgYn": "N"
+                    },
+                    {
+                        "sno": "20210616000000000208",
+                        "trntYn": "N",
+                        "mndtYn": "Y",
+                        "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20210616000000000208.do",
+                        "ttl": "[시외] 경기운송약관",
+                        "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000208.docx",
+                        "mrkgYn": "N"
+                    },
+                    {
+                        "sno": "20210616000000000209",
+                        "trntYn": "N",
+                        "mndtYn": "Y",
+                        "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20210616000000000209.do",
+                        "ttl": "[시외] 강원운송약관",
+                        "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000209.docx",
+                        "mrkgYn": "N"
+                    },
+                    {
+                        "sno": "20210616000000000210",
+                        "trntYn": "N",
+                        "mndtYn": "Y",
+                        "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20210616000000000210.do",
+                        "ttl": "[시외] 충북운송약관",
+                        "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000210.docx",
+                        "mrkgYn": "N"
+                    },
+                    {
+                        "sno": "20210616000000000211",
+                        "trntYn": "N",
+                        "mndtYn": "Y",
+                        "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20210616000000000211.do",
+                        "ttl": "[시외] 충남운송약관",
+                        "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000211.docx",
+                        "mrkgYn": "N"
+                    },
+                    {
+                        "sno": "20210616000000000212",
+                        "trntYn": "N",
+                        "mndtYn": "Y",
+                        "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20210616000000000212.do",
+                        "ttl": "[시외] 전북운송약관",
+                        "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000212.docx",
+                        "mrkgYn": "N"
+                    },
+                    {
+                        "sno": "20210616000000000213",
+                        "trntYn": "N",
+                        "mndtYn": "Y",
+                        "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20210616000000000213.do",
+                        "ttl": "[시외] 전남운송약관",
+                        "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000213.docx",
+                        "mrkgYn": "N"
+                    },
+                    {
+                        "sno": "20210616000000000214",
+                        "trntYn": "N",
+                        "mndtYn": "Y",
+                        "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20210616000000000214.do",
+                        "ttl": "[시외] 경북운송약관",
+                        "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000214.docx",
+                        "mrkgYn": "N"
+                    },
+                    {
+                        "sno": "20210616000000000215",
+                        "trntYn": "N",
+                        "mndtYn": "Y",
+                        "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20210616000000000215.do",
+                        "ttl": "[시외] 경남운송약관",
+                        "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000215.docx",
+                        "mrkgYn": "N"
+                    }
+                ],
+                "utlzSvcDvsCd": "BD"
+            }
+        ]
+    },
+    "errMsg": ""
+  }
+}

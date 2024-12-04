@@ -1,0 +1,149 @@
+@use '../helpers' as *;
+
+.tab {
+  border-radius: 1rem;
+  overflow: hidden;
+  .tab_link {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    padding: 0 2rem;
+    border-bottom: 0.1rem solid $line2;
+    &.own_size_tab {
+      .tab_link_btn {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: auto;
+      }
+      &_center {
+        justify-content: center;
+        .tab_link_btn {
+          flex-grow: 0;
+          flex-shrink: 0;
+          width: auto;
+        }
+      }
+    }
+    &_btn {
+      // flex-grow: 1;
+      // flex-shrink: 0;
+      width: 100%;
+      height: 5.4rem;
+      color: $gray050;
+      @include fontHeight(1.6);
+      font-family: $font, sans-serif;
+      letter-spacing: -0.1rem;
+      & ~ .tab_link_btn{
+        margin-left: 2rem;
+      }
+      &.is_active {
+        position: relative;
+        font-weight: $fontMedium;
+        color: $gray090;
+        &::after {
+          position: absolute;
+          left: 0;
+          bottom: 0rem;
+          width: 100%;
+          height: 0.3rem;
+          background-color: $primary2;
+          content: '';
+        }
+      }
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+  }
+  .tab_content {
+    .tab_content_panel {
+      display: none;
+      &.is_active {
+        display: block;
+      }
+    }
+  }
+  // main tab
+  &.main_tab {
+    .tab_link {
+      border-bottom: none;
+      &_btn {
+        flex-grow: 0;
+        width: auto;
+        height: auto;
+        padding-bottom: 0.8rem;
+        font-weight: $fontBold;
+        color: $gray040;
+        &.is_active {
+          color: $gray090;
+          &::after {
+            height: 0.2rem;
+            background-color: $gray090;
+          }
+        }
+      }
+    }
+  }
+  // 2depth tab
+  &.depth2_tab {
+    .tab_link {
+      border-bottom: none;
+      &_btn {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: auto;
+        height: 3rem;
+        padding: 0 1.2rem;
+        border: 0.1rem solid $line2;
+        border-radius: 99.9rem;
+        background-color: $white;
+        font-weight: $fontMedium;
+        @include fontHeight(1.4);
+        color: $gray070;
+        & ~ .tab_link_btn{
+          margin-left: 1.2rem;
+        }
+        &.is_active {
+          border-color: $black;
+          background-color: $black;
+          color: $white;
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  // segment_tab
+  &.segment_tab {
+    .tab_link {
+      height: 5rem;
+      padding: 0;
+      background-color: $lightPurple3;
+      border: 0.1rem solid $lightPurple1;
+      border-radius: 99.9rem;
+      &_btn {
+        flex-grow: 1;
+        width: auto;
+        height: 100%;
+        font-weight: $fontMedium;
+        @include fontHeight(1.4);
+        color: $primary1;
+        opacity: 0.8;
+        & ~ .tab_link_btn{
+          margin-left: 0.4rem;
+        }
+        &.is_active {
+          border-radius: 99.9rem;
+          background-color: $white;
+          opacity: 1;
+          box-shadow: 0 0 0.4rem 0 rgba(0, 0, 0, 0.2);
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

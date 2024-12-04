@@ -1,0 +1,8 @@
+{
+  "okText": "성공",
+  "closeText": "닫기",
+  "welcomeMessageAndName": "환영합니다, {name}님!",
+  "retryText": "재시도",
+  "terminateText": "종료",
+  "goBackText": "뒤로가기"
+}

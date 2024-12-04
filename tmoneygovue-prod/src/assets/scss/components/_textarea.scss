@@ -1,0 +1,47 @@
+@use '../helpers' as *;
+
+// textarea
+.form_textarea {
+  position: relative;
+  & + .form_textarea {
+    margin-top: 2rem;
+  }
+  &.is_error {
+    .form_control {
+      border-color: $error1;
+    }
+    .form_valid {
+      display: block;
+    }
+  }
+  .form_label {
+    display: block;
+    margin-bottom: 1rem;
+    @include fontHeight(1.6);
+  }
+  .form_control {
+    width: 100%;
+    height: 8.8rem;
+    padding: 1.2rem;
+    background-color: $white;
+    border: 1px solid $line1;
+    border-radius: 1.2rem;
+    @include fontHeight(1.4);
+    color: $gray090;
+    box-sizing: border-box;
+    resize: none;
+    &.is_error {
+      border-color: $error1;
+    }
+    &::placeholder {
+      color: $gray050;
+    }
+  }
+  .form_length {
+    position: absolute;
+    right: 2rem;
+    bottom: 1.8rem;
+    @include fontHeight(1.2);
+    color: $gray050;
+  }
+}

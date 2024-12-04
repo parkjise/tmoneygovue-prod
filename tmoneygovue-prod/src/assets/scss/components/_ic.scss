@@ -1,0 +1,223 @@
+@use '../helpers' as *;
+
+// ic
+$ics: (
+  // 12
+  12 'arrow',
+  12 'arrow' 'gray',
+  12 'arrow' 'gray2',
+  12 'arrow' 'white',
+  12 'phone',
+  // 14
+  14 'download',
+  // 16
+  16 'arrow',
+  16 'arrow2',
+  16 'arrow' 'right',
+  16 'arrow' 'right' 'gray',
+  16 'arrow' 'right' 'gray070',
+  16 'arrow' 'right' 'white',
+  16 'arrow' 'right' 'green',
+  16 'arrow' 'active',
+  16 'arrow' 'disabled',
+  16 'arrow' 'primary',
+  16 'clear' 'gray',
+  16 'exclamation',
+  16 'exclamation' 'gray070',
+  16 'exclamation' 'gray090',
+  16 'reload',
+  16 'close',
+  16 'close' 'gray',
+  16 'plus',
+  16 'plus' 'gray090',
+  16 'minus',
+  16 'location',
+  16 'fare',
+  16 'discount',
+  16 'ticket',
+  16 'calender',
+  16 'person',
+  16 'camera',
+  16 'mileage',
+  16 'more',
+  16 'question',
+  16 'phone',
+  16 'phone' 'gray',
+  16 'recent',
+  16 'notification_dot',
+  16 'del',
+  16 'notice_new',
+  16 'alert',
+  16 'alert' 'white',
+  //18
+  18 'star',
+  // 20
+  20 'checkbox',
+  20 'checkbox' 'active',
+  20 'checkline',
+  20 'checkline' 'active',
+  20 'arrow',
+  20 'arrow' 'gray',
+  20 'arrow' 'gray040',
+  20 'location',
+  20 'calender',
+  20 'calender' 'disabled',
+  20 'search',
+  20 'search' 'primary',
+  20 'suitcase',
+  20 'filter',
+  20 'coupon',
+  20 'people',
+  20 'people' 'gray040',
+  20 'tmoney',
+  20 'mileage',
+  20 'menu_down',
+  20 'plus',
+  20 'exclamation',
+  20 'card',
+  20 'bookmark',
+  20 'bookmark' 'active',
+  20 'reload',
+  20 'chat',
+  20 'alert',
+  20 'del',
+  // 24
+  24 'menu' 'white',
+  24 'checkline',
+  24 'checkline' 'active',
+  24 'back',
+  24 'back' 'white',
+  24 'close',
+  24 'close' 'white',
+  24 'mileage',
+  24 'navi_right',
+  24 'setting',
+  24 'search',
+  24 'arrow',
+  24 'arrow' 'white',
+  24 'arrow' 'left',
+  24 'arrow' 'right',
+  24 'arrow' 'down',
+  24 'arrow' 'disabled',
+  24 'reload',
+  24 'coin',
+  24 'share',
+  24 'share' 'blue',
+  24 'share' 'white',
+  24 'thickarrow',
+  24 'ticket',
+  24 'checkbox' 'gray030',
+  24 'checkline' 'gray030',
+  24 'qr',
+  24 'call',
+  24 'chat',
+  24 'warning',
+  24 'trafficard',
+  // 28
+  28 'close',
+  28 'close' 'white',
+  // 30
+  30 'arrowTop',
+  // 32
+  32 'alarm',
+  32 'event',
+  32 'notice',
+  32 'support',
+  32 'ticket',
+  // 40
+  40 'float' 'prev',
+  40 'plus',
+  // 44
+  44 'timer',
+  // 48
+  48 'exclamation',
+);
+
+.ic {
+  &.right {
+    transform: rotate(90deg);
+  }
+
+  &.down {
+    transform: rotate(180deg);
+  }
+
+  &.left {
+    transform: rotate(-90deg);
+  }
+
+  @each $size, $name, $color, $status in $ics {
+    &_#{$size} {
+      &_#{$name} {
+        @if $color {
+          &_#{$color} {
+            @include ic($size, #{$name}_#{$color});
+
+            @if $color =='active' {
+              &_active {
+                @include ic($size, #{$name}_active);
+              }
+            }
+
+            @else if $color =='disabled' {
+              &_disabled {
+                @include ic($size, #{$name}_disabled);
+              }
+            }
+
+            @if $status {
+              &_#{$status} {
+                @include ic($size, #{$name}_#{$color}_#{$status});
+              }
+            }
+          }
+        }
+
+        @else {
+          @include ic($size, #{$name});
+        }
+      }
+    }
+  }
+  svg {
+    display: block;
+  }
+}
+
+.ic_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  > div {
+    display: inline-flex;
+    flex-direction: column-reverse;
+    min-width: 10rem;
+    min-height: 10rem;
+    border: 0.1rem dotted $line4;
+    &.bg {
+      dd {
+        .ic {
+          background-color: $black;
+          border: 0 none;
+        }
+      }
+    }
+    dt {
+      width: 100%;
+      padding: 0.2rem 0.4rem;
+      border-top: 0.1rem dotted $line4;
+      @include fontHeight(1.2);
+      text-align: center;
+    }
+    dd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      .ic {
+        border: 0.1rem dotted $line4;
+      }
+    }
+  }
+}

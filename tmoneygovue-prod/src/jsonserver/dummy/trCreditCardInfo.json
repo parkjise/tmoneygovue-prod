@@ -1,0 +1,203 @@
+{
+  "inqrPageInfoSS": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspTtl": "성공",
+      "rspMsg": "정상처리되었습니다.",
+      "data": {
+        "rollingBnrList": [
+          {
+            "bnrImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/bnr/img_bnr_rolling_S_EVNT131_20240426_01.png",
+            "bnrUrlVal": "tmoneytia://event/detail?sno=20240426000000000140",
+            "bnrSrsq": 101,
+            "bnrTtlNm": "온다택시 '제주' 지역 오픈 기념 혜택",
+            "mbltTypCd": null,
+            "bnrNo": "20240426000000000243"
+          },
+          {
+            "bnrImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/bnr/img_bnr_rolling_S_EVNT124_2024032901.png",
+            "webViewTtl": "티머니GO 이.동.이.득 페스티벌!",
+            "authTknNedYn": "Y",
+            "bnrUrlVal": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240329001&token=_TOKEN_",
+            "bnrSrsq": 102,
+            "concScrnDvsCd": "1",
+            "bnrTtlNm": "티머니GO 이.동.이.득 페스티벌!",
+            "mbltTypCd": null,
+            "bnrNo": "20240329000000000234"
+          },
+          {
+            "bnrImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/bnr/img_bnr_rolling_S_EVNT120_2024032001.png",
+            "webViewTtl": "벚꽃 여행은 티머니GO 고속버스로!",
+            "authTknNedYn": "Y",
+            "bnrUrlVal": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240320001",
+            "bnrSrsq": 103,
+            "concScrnDvsCd": "0",
+            "bnrTtlNm": "벚꽃 여행은 티머니GO 고속버스로!",
+            "mbltTypCd": null,
+            "bnrNo": "20240314000000000227"
+          },
+          {
+            "bnrImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/bnr/img_bnr_rolling_S_EVNT127_2024040201.png",
+            "webViewTtl": "온다택시 인천 상륙! 매~주 기본료 무료 쏜다",
+            "authTknNedYn": "Y",
+            "bnrUrlVal": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240402101&token=_TOKEN_",
+            "bnrSrsq": 104,
+            "concScrnDvsCd": "1",
+            "bnrTtlNm": "온다택시 인천 상륙! 매~주 기본료 무료 쏜다",
+            "mbltTypCd": null,
+            "bnrNo": "20240402000000000237"
+          },
+          {
+            "bnrImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/bnr/img_bnr_rolling_S_EVNT125_2024032901.png",
+            "webViewTtl": "서울 출근 택시비, 온다택시가 쏜다!",
+            "authTknNedYn": "Y",
+            "bnrUrlVal": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240329101&token=_TOKEN_",
+            "bnrSrsq": 105,
+            "concScrnDvsCd": "0",
+            "bnrTtlNm": "서울 출근 택시비, 온다택시가 쏜다!",
+            "mbltTypCd": null,
+            "bnrNo": "20240329000000000236"
+          },
+          {
+            "bnrImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/bnr/img_bnr_rolling_S_EVNT121_2024031501.jpg",
+            "webViewTtl": "국내선 항공은 티머니GO로 예약!",
+            "authTknNedYn": "Y",
+            "bnrUrlVal": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240315001&token=_TOKEN_",
+            "bnrSrsq": 106,
+            "concScrnDvsCd": "1",
+            "bnrTtlNm": "국내선 항공은 티머니GO로 예약!",
+            "mbltTypCd": null,
+            "bnrNo": "20240315000000000230"
+          },
+          {
+            "bnrImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/bnr/img_bnr_rolling_S_EVNT075_2024040101.png",
+            "webViewTtl": "T[이벤트][렌터카] 티머니GO 렌터카 오픈! 7% 무제한 적립!",
+            "authTknNedYn": "N",
+            "bnrUrlVal": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20240402001",
+            "bnrSrsq": 107,
+            "concScrnDvsCd": "1",
+            "bnrTtlNm": "[이벤트][렌터카] 티머니GO 렌터카 오픈! 7% 무제한 적립!",
+            "mbltTypCd": null,
+            "bnrNo": "20230324000000000120"
+          },
+          {
+            "bnrImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/bnr/img_bnr_rolling_S_EVNT119_2024032501.png",
+            "bnrUrlVal": "tmoneytia://event/detail?sno=20240308000000000127",
+            "bnrSrsq": 108,
+            "bnrTtlNm": "더욱 새로워진 대중교통 리워드 이용 방법!",
+            "mbltTypCd": null,
+            "bnrNo": "20240308000000000226"
+          },
+          {
+            "bnrImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/bnr/img_bnr_rolling_AR_EVNT002_2024021401.jpg",
+            "webViewTtl": "[이벤트]천만회원달성 이벤트",
+            "authTknNedYn": "Y",
+            "bnrUrlVal": "https://tiaapid.tmoney.co.kr:20328/webview/evnt/v2/inqrEventMember10m2401.do?token=_TOKEN_",
+            "bnrSrsq": 109,
+            "concScrnDvsCd": "1",
+            "bnrTtlNm": "천만회원 이벤트",
+            "mbltTypCd": null,
+            "bnrNo": "20240214000000000224"
+          },
+          {
+            "bnrImgPathVal": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/bnr/img_bnr_rolling_S_EVNT040_2024041601.jpg",
+            "webViewTtl": "티머니Pay&Go 신용카드 출시",
+            "authTknNedYn": "N",
+            "bnrUrlVal": "https://tiaapid.tmoney.co.kr:20318/webview/tmpy/reqPlccIssu.do?token=_TOKEN_",
+            "bnrSrsq": 110,
+            "concScrnDvsCd": "1",
+            "bnrTtlNm": "PLCC 출시 안내",
+            "mbltTypCd": null,
+            "bnrNo": "20220620000000000055"
+          }
+        ],
+        "stplList": [
+          {
+            "stplSno": "20230602174818086000",
+            "stplTtlNm": "개인정보 수집 및 이용동의(필수)",
+            "stplMndtYn": "Y",
+            "stplAgrmYn": "N",
+            "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20230602174818086000.docx",
+            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20230602174818086000.do"
+          },
+          {
+            "stplSno": "20230602174818086001",
+            "stplTtlNm": "타인의 카드를 도용하여 등록 시 법적 처벌을 받을 수 있습니다.(필수)",
+            "stplMndtYn": "Y",
+            "stplAgrmYn": "N",
+            "stplUrl": null,
+            "extlUrl": null
+          },
+          {
+            "stplSno": "20230602174818086002",
+            "stplTtlNm": "교통카드 정보를 부정확하게 입력한 경우 등록 혜택을 받으실 수 없습니다.(필수)",
+            "stplMndtYn": "Y",
+            "stplAgrmYn": "N",
+            "stplUrl": null,
+            "extlUrl": null
+          }
+        ],
+        "unslMttr": "· 본인 명의의 개인 신용카드 또는 체크카드만 등록이 가능합니다.\r\n· 입력하신 카드번호에 따라 카드사 정보가 표출되며, 일부 카드는 카드 운영대행사가 표출될 수 있습니다.\r\n· 타인의 카드를 무단으로 등록하신 경우, 등록된 카드가 별도 통보 없이 삭제 처리 될 수 있습니다."
+      }
+    },
+    "errMsg": ""
+  },
+  "inqrCardBinInfo": {
+    "rstCd": "200",
+    "dta": {
+        "issurCd": "BCC",
+        "rspMsg": "정상승인",
+        "cardName": "BC체크카드",
+        "cardImgPath": "/resources/images/cardLogo/card_logo_bc.png",
+        "cprtCardYN": "N",
+        "path2": "/resources/images/ci/img_bccard_logo_wh.png",
+        "crpcId": "361",
+        "checkCardYN": "Y",
+        "crpcNm": "비씨카드",
+        "rspCd": "0000",
+        "crcmCd": "11",
+        "approvalOrgCd": "BCC"
+    },
+    "errMsg": ""
+  },
+  "crtnMbrsTrcrNoInfo": {
+    "rstCd": "200",
+    "dta": {
+      "msg": "교통카드번호 등록에 성공하였습니다.",
+      "encDtm": "20240417161821",
+      "encScsYn": "ZvZJ1m1eqNqjSahYK+LHcfHcfXOxTm8nTzJ1p8I=",
+      "scsYn": "Y"
+    },
+    "errMsg": ""
+  },
+  "inqrMbrsTrcrCntInfo": {
+    "rstCd": "200",
+    "dta": {
+      "msg": "등록된 교통카드 정보 조회에 성공하였습니다.",
+      "scsYn": "Y",
+      "prcrCnt": 2,
+      "dpcCnt": 0
+    },
+    "errMsg": ""
+  },
+  "inqrMbrsStatInfo": {
+    "rstCd": "200",
+    "dta": {
+      "msg": "회원상태 조회에 성공하였습니다.",
+      "drmbYn": "N",
+      "prsnAuthFnYn": "Y",
+      "trcrRgtYn": "Y",
+      "drvLcnsRgtYn": "N",
+      "joinYn": "Y",
+      "mlgRfndTgtYn": "N",
+      "dcDvsNm": "미등록",
+      "gndrCd": "F",
+      "dcDvsCd": "0",
+      "trtdTgtYn": "Y",
+      "tmpyRgtYn": "N",
+      "rfndAcntRgtYn": "N"
+    },
+    "errMsg": ""
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "api": {
+    "notifyTitleMsg": "notification",
+    "errorMsg": "server error",
+    "timeoutMsg": "Login timed out, please log in again!",
+    "networkExceptionMsg": "network anomaly",
+    "duplcateLoginMsg": "This account is logged in and in use by another account. Clicking the OK button will log you out."
+  }
+}

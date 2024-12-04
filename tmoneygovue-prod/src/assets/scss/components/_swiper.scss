@@ -1,0 +1,126 @@
+@use '../helpers' as *;
+
+.swiper_wrap {
+  .swiper_inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .swiper-button-pause,
+  .swiper-button-resume {
+    position: absolute;
+    width: 3.6rem;
+    height: 4rem;
+    margin-top: 0;
+    font-size: 0;
+    &::before {
+      position: absolute;
+      width: 2.4rem;
+      height: 2.4rem;
+      content: '';
+    }
+    &::after {
+      display: none;
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    width: 3.6rem;
+    height: 4rem;
+    margin-top: 0;
+    font-size: 0;
+    &::before {
+      position: absolute;
+      width: 2.4rem;
+      height: 2.4rem;
+      content: '';
+      background: url('#{$img_path}/ic/ic_24_thickarrow.png') no-repeat 0 0 / cover;
+    }
+    &::after {
+      display: none;
+    }
+  }
+
+  .swiper-button-prev {
+    left: 0;
+    transform: translateY(-50%) scaleX(-1);
+  }
+  .swiper-button-pause,
+  .swiper-button-resume,
+  .swiper-button-next {
+    right: 0;
+    transform: translateY(-50%);
+  }
+  .swiper-button-disabled {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .swiper-pagination-horizontal {
+    &.swiper-pagination-bullets {
+      bottom: 0.7rem;
+      .swiper-pagination-bullet {
+        width: auto;
+        height: 1rem;
+        margin: 0 0.8rem;
+        background-color: transparent;
+        color: $gray040;
+        @include fontHeight(1);
+        font-weight: $fontMedium;
+        font-family: $fontNum;
+        letter-spacing: 0;
+        line-height: 1;
+        span {
+          display: block;
+          height: 1rem;
+        }
+        &.swiper-pagination-bullet-active {
+          color: $primary2;
+        }
+      }
+    }
+  }
+  .swiper-pagination-fraction {
+    display: flex;
+    justify-content: center;
+    @include fontHeight(1.2);
+    .swiper-pagination-current {
+      color: #2e353d;
+      font-family: $fontNum;
+      font-weight: $fontMedium;
+      @include fontHeight(1.2);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    .swiper-pagination-total {
+      color: $gray050;
+      font-family: $fontNum;
+      @include fontHeight(1.2);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    .swiper_pagination_separator {
+      margin: 0 0.2rem;
+      color: $gray050;
+      font-family: $fontNum;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+  }
+}
+
+.swiper-pagination-current {
+  &.primary {
+    color: $primary2 !important;
+  }
+}
+.swiper_pagination_separator {
+  &.gray {
+    color: $gray040 !important;
+  }
+}
+.swiper-pagination-total {
+  &.gray {
+    color: $gray040 !important;
+  }
+}

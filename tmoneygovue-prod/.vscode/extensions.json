@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "vue.volar",
+    "hollowtree.vue-snippets",
+    "dbaeumer.vscode-eslint",
+    "sdras.vue-vscode-snippets",
+    "formulahendry.auto-close-tag",
+    "donjayamanne.githisto",
+    "ritwickdey.liveserver",
+    "esbenp.prettier-vscode",
+    "mikestead.dotenv",
+  ]
+}

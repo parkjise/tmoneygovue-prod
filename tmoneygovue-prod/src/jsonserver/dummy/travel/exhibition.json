@@ -1,0 +1,73 @@
+{
+  "exhibitionList":{
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": {
+      "totalItems": 3,
+      "totalPages": 1,
+      "planList": [{
+        "planId": "1",
+        "title":"반려견과 함께하는 이색 여행1",
+        "startDate":"20240210",
+        "endDate": "20240225",
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/images/temp/exhibition_ex.png"
+      },{
+        "planId": "1",
+        "title":"반려견과 함께하는 이색 여행2",
+        "startDate":"20240310",
+        "endDate": "20240325",
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/exhibition_ex.png"
+      },{
+        "planId": "1",
+        "title":"반려견과 함께하는 이색 여행3",
+        "startDate":"20240410",
+        "endDate": "20240425",
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/exhibition_ex.png"
+      }]
+    }
+  },
+  "exhibitionDtl": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": {
+      "planId": "1",
+      "title":"반려견과 함께하는 이색 여행1",
+      "startDate":"20240210",
+      "endDate": "20240225",
+      "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/exhibition_ex.png",
+      "totalItems": 3,
+      "totalPages": 1,
+      "prdList": [
+        {
+          "trvlPrdId": "1",
+          "trvlPrdNm":"반려견과 함께하는 이색 여행1",
+          "areaId":"1",
+          "areaName": "서울",
+          "prdPrice": 10000,
+          "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/exhibition_ex2.png",
+          "dcAcmtPhrsCtt": "",
+          "categoryList": [{
+            "categoryId":"TAA",
+            "categoryName": "당일여행",
+            "categoryDepth": "2"
+          }]
+        },{
+          "trvlPrdId": "2",
+          "trvlPrdNm":"반려견과 함께하는 이색 여행2",
+          "areaId":"2",
+          "areaName": "셩기",
+          "prdPrice": 10000,
+          "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/exhibition_ex2.png",
+          "dcAcmtPhrsCtt": "",
+          "categoryList": [{
+            "categoryId":"TAA",
+            "categoryName": "당일여행",
+            "categoryDepth": "2"
+          }]
+        }
+      ]
+    }
+  }
+}

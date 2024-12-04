@@ -1,0 +1,9 @@
+{
+  "api": {
+    "notifyTitleMsg": "알림",
+    "errorMsg": "서버애러",
+    "timeoutMsg": "네트워크가 원활하지 않습니다.<br/>연결 상태 확인 후 다시 시도해주세요.",
+    "networkExceptionMsg": "네트워크가 원활하지 않습니다.<br/>연결 상태 확인 후 다시 시도해주세요.",
+    "duplcateLoginMsg": "이 계정은 다른 기기에 로그인되어 사용중입니다. 확인 버튼을 누르시면 로그아웃됩니다."
+  }
+}

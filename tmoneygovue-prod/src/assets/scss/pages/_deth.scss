@@ -1,0 +1,733 @@
+@use '../helpers' as *;
+
+.det {
+  .container {
+    // 공통
+    .usage_info {
+      display: flex;
+      align-items: center;
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        color: $text2;
+        @include fontHeight(1.6);
+        font-weight: $fontMedium;
+        &.num {
+          font-family: $fontNum;
+          line-height: 1;
+          letter-spacing: 0;
+        }
+        img {
+          display: block;
+          width: 2.2rem;
+        }
+      }
+    }
+    // 이용 내역
+    .usage_list_area {
+      .usage_list {
+        background-color: $white;
+        > li {
+          border-bottom: 0.1rem solid $line2;
+          .usage_btn {
+            width: 100%;
+            padding: 1.6rem 2rem;
+            font-family: $font;
+            text-align: left;
+            .title_area {
+              &.ellipsis {
+                width: 50vw;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    .tab {
+      overflow: initial;
+      .usage_area {
+        .usage_btn {
+          .normal_list {
+            li {
+              justify-content: space-between;
+            }
+          }
+        }
+        .no_service {
+          // padding-top: 16.5rem;
+          padding-top: 16.7rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          &.statics{
+            // padding-top: 0;
+            padding-bottom: 100px;
+            // transform: translateY(50%);
+            background-color: $gray010;
+          }
+          .no_servie_txt {
+            margin: 1.2rem 0 2rem;
+            color: $text2;
+            @include fontHeight(1.6);
+            text-align: center;
+            white-space:pre-line;
+          }
+          .btn_wrap {
+            button {
+              gap: 0.4rem;
+              border-color: #111111;
+              height: 4.4rem;
+            }
+            &.public,
+            &.bicycle{
+              button {
+                width: 22.6rem;
+              }
+            }
+            &.bus {
+              button {
+                width: 17.4rem;
+              }
+            }
+            .btn {
+              color: $text2;
+              .ic {
+                margin-left: 0.4rem;
+              }
+            }
+          }
+        }
+        .notice_wrap {
+          display: flex;
+          flex-direction: column;
+          gap: 0.4rem;
+          width: 100%;
+          padding: 1.2rem 2rem 1.2rem;
+          background-color: $gray010;
+          color: $gray070;
+          p {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            letter-spacing: -0.1rem;
+          }
+          &.fixed {
+            position: fixed;
+            top: 11.1rem;
+            z-index: 1;
+            & + .usage_list_area {
+            padding-top: 4.4rem;
+            }
+          }
+        }
+        .setting_area {
+          position: fixed;
+          top: 15.5rem;
+          width: 100%;
+          padding: 1.2rem 2rem;
+          background-color: $white;
+          &.public,
+          &.bike{
+            top: 11.1rem;
+            position: sticky;
+          }
+          .set_date {
+            position: sticky;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            button {
+              height: 2.4rem;
+              .ic_left {
+                transform: scaleX(-1);
+              }
+            }
+            .date {
+              color: $text2;
+              font-weight: $fontBold;
+              @include fontHeight(1.6);
+              line-height: 1;
+              letter-spacing: 0;
+            }
+          }
+          .card_select_wrap {
+            display: flex;
+            align-items: center;
+            margin-top: 0.4rem;
+            .card_select_btn {
+              display: flex;
+              align-items: center;
+              flex: 1;
+              color: $text2;
+              @include fontHeight(1.4);
+              span {
+                width: 100%;
+                margin-left: 0.4rem;
+                font-family: $fontNum;
+                text-align: left;
+              }
+            }
+            .card_register_btn {
+              display: flex;
+              align-items: center;
+              height: 2.8rem;
+              margin-left: 1.2rem;
+              padding: 0 1rem;
+              border: 0.1rem solid $line1;
+              border-radius: 0.8rem;
+              font-family: $fontNum;
+              color: #48004A;
+              @include fontHeight(1.2);
+            }
+          }
+        }
+        // 대중교통
+        &.public {
+          .usage_list_area {
+            .usage_list {
+              li {
+                .usage_btn {
+                  .usage_info {
+                    .usage_assort {
+                      margin-left: auto;
+                      color: $gray050;
+                      @include fontHeight(1.4);
+                      &.primary {
+                        color: $primary2;
+                      }
+                    }
+                    .date {
+                      margin-left: 2rem;
+                      font-family: $fontNum;
+                      color: $text2;
+                      @include fontHeight(1.4);
+                      line-height: 1;
+                      letter-spacing: 0;
+                    }
+                  }
+                  .price_wrap {
+                    color: $text2;
+                    @include fontHeight(1.8);
+                    text-align: right;
+                    .price {
+                      font-weight: $fontBold;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .no_result {
+            padding-top: 12rem;
+            height: auto;
+          }
+        }
+        // 버스, 여행, 기차, 항공, 렌트카
+        &.bus,
+        &.travel,
+        &.train,
+        &.airplane,
+        &.rentercar {
+          .usage_list_area {
+            padding-top: 9.3rem;
+            .usage_list {
+              .usage_btn {
+                .usage_info {
+                  justify-content: space-between;
+                  margin-bottom: 2rem;
+                  .title {
+                    .num_area {
+                      display: block;
+                      width: 2rem;
+                      height: 2rem;
+                      border: 0.1rem solid $line1;
+                      border-radius: 50%;
+                      font-weight: $fontBold;
+                      @include fontHeight(1.2);
+                      color: $primary2;
+                      letter-spacing: 0;
+                      line-height: 1.8rem;
+                      text-align: center;
+                    }
+                    .ic_area{
+                      display: flex;
+                      align-items: center;
+                      width: 2.2rem;
+                      height: 2.2rem;
+                    }
+                  }
+                  .status {
+                    font-family: $font;
+                    color: $gray070;
+                    @include fontHeight(1.4);
+                    &.red {
+                      color: $error1;
+                    }
+                  }
+                }
+                .normal_list {
+                  li {
+                    align-items: flex-start;
+                    justify-content: space-between;
+                  }
+                }
+              }
+            }
+          }
+          .no_result {
+            padding-top: 17rem;
+            height: auto;
+          }
+        }
+        // 택시
+        &.taxi {
+          .usage_list_area{
+            padding-top: 9.3rem;
+          }
+          .usage_btn {
+            .usage_info {
+              justify-content: space-between;
+              margin-bottom: 2rem;
+            }
+            .normal_list {
+              li {
+                align-items: flex-start;
+                justify-content: space-between;
+                .list_txt {
+                  text-align: right;
+                  address,
+                  .taxi_info {
+                    font-weight: $fontRegular;
+                  }
+                  .taxi_info {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.8rem;
+                  }
+                  &.split {
+                    span {
+                      & ~ span {
+                        &::after {
+                          height: 1.2rem;
+                          background-color: $line1;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .btn_area {
+              margin-top: 1.6rem;
+            }
+          }
+          .no_result {
+            padding-top: 17.8rem;
+            height: auto;
+          }
+        }
+        // 자전거, 킥보드
+        &.bike,
+        &.kickboard {
+          .round_box {
+            margin: 0 2rem 2rem;
+            .tab {
+              .tab_link {
+                position: static;
+                background-color: $lightPurple3;
+                &::before,
+                &::after {
+                  flex: 0;
+                }
+              }
+            }
+            .normal_list {
+              margin-top: 2rem;
+              li {
+                justify-content: space-between;
+                & ~ li {
+                  margin-top: 1.2rem;
+                }
+                .list_tit,
+                .list_txt {
+                  font-family: $fontNum;
+                  line-height: 1;
+                  letter-spacing: 0;
+                }
+              }
+            }
+          }
+
+          .use_ticket_list_btn_wrap {
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            margin: -0.8rem 0 1.2rem;
+            .use_ticket_list_btn {
+              display: flex;
+              align-items: center;
+              height: 2.8rem;
+              margin-left: auto;
+              padding: 0 1rem;
+              border: 0.1rem solid $line1;
+              border-radius: 0.8rem;
+              background-color: $white;
+              color: $primary1;
+              @include fontHeight(1.2);
+            }
+          }
+
+          .usage_list_area {
+            padding-top: 0.1rem;
+            .usage_list {
+              .usage_info {
+                justify-content: space-between;
+                margin-bottom: 2rem;
+                .use_time {
+                  color: $gray070;
+                  @include fontHeight(1.4);
+                  &.red_font {
+                    color: $error1;
+                  }
+                }
+              }
+              .normal_list {
+                li {
+                  .list_txt {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 0.4rem;
+                    font-family: $fontNum;
+                    line-height: 1;
+                    letter-spacing: 0;
+                    .location {
+                      font-family: $font;
+                      letter-spacing: -0.05rem;
+                    }
+                  }
+                }
+              }
+            }
+            .load_more_btn_wrap {
+              display: flex;
+              justify-content: center;
+              width: 100%;
+              padding: 1.6rem 0;
+              .load_more_btn {
+                width: 2.8rem;
+                border-radius: 99.9rem;
+                background-color: rgba($gray050,0.6);
+                img {
+                  display: block;
+                  width: 100%;
+                }
+              }
+            }
+          }
+          .no_result {
+            padding-top: 6rem;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+  &.usage_detail_page {
+    .container {
+      > .title {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin: -0.8rem 0 1.2rem;
+        color: $text2;
+        @include fontHeight(1.6);
+        font-weight: $fontMedium;
+        &.num {
+          font-family: $fontNum;
+          line-height: 1;
+          letter-spacing: 0;
+        }
+        img {
+          display: block;
+          width: 2.2rem;
+        }
+      }
+
+      .normal_list {
+        .list_txt {
+          font-family: $fontNum;
+          line-height: 1;
+          letter-spacing: 0;
+          .location {
+            font-family: $font;
+            letter-spacing: -0.05rem;
+          }
+        }
+      }
+      
+      .has_detail_list {
+        dt,
+        dd {
+          justify-content: flex-start;
+          & ~ dt,
+          & ~ dd {
+            margin-top: 0.8rem;
+          }
+        }
+        dt {
+          margin-bottom: 0;
+          .list_tit {
+            min-width: 8rem;
+            color: $gray070;
+          }
+          .list_txt {
+            @include fontHeight(1.4);
+            font-weight: $fontMedium;
+          }
+        }
+        dd {
+          .list_tit {
+            min-width: 6.4rem;
+            color: $gray050;
+          }
+          .list_txt {
+            color: $gray050;
+            @include fontHeight(1.4);
+          }
+        }
+      }
+
+      .ticket_list {
+        > li {
+          padding: 1.6rem 2rem;
+          background-color: $white;
+          .ticket_title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: $text2;
+            @include fontHeight(1.6);
+            font-weight: $fontMedium;
+            .status {
+              color: $gray070;
+              @include fontHeight(1.4);
+              font-weight: $fontRegular;
+              &.primary {
+                color: $primary2;
+              }
+              &.red {
+                color: $error1;
+              }
+            }
+          }
+          .normal_list {
+            li {
+              justify-content: space-between;
+            }
+          }
+          & ~ li {
+            border-top: 0.1rem solid $line2;
+          }
+        }
+      }
+      .payment_info {
+        .normal_list {
+          li {
+            justify-content: space-between;
+            align-items: center;
+            .list_txt {
+              font-family: $fontNum;
+              @include fontHeight(1.6);
+              line-height: 1;
+              letter-spacing: 0;
+              .price_wrap {
+                font-weight: $fontRegular;
+                .price {
+                  font-weight: $fontBold;
+                }
+                &.primary {
+                  color: $primary2;
+                }
+                &.red {
+                  color: $error1;
+                }
+              }
+            }
+          }
+        }
+        .total_payment_wrap {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 1.2rem;
+          padding-top: 1.2rem;
+          border-top: 0.1rem solid $line2;
+          color: $text2;
+          font-weight: $fontMedium;
+          .price_wrap {
+            @include fontHeight(1.8);
+            font-weight: $fontRegular;
+            .price {
+              font-weight: $fontBold;
+            }
+          }
+        }
+      }
+      .payment_detail {
+        .normal_list {
+          li {
+            .list_txt {
+              display: flex;
+              align-items: center;
+              flex: 1;
+              .price_wrap {
+                display: inline-block;
+                margin-left: auto;
+                @include fontHeight(1.6);
+                font-weight: $fontRegular;
+                .price {
+                  font-weight: $fontBold;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// .card_select_bottom_sheet {
+//   .modal_body {
+//     fieldset {
+//       legend {
+//         margin-left: 2rem;
+//       }
+//     }
+//   }
+// }
+
+.pay_history_btn {
+  height: auto;
+  color: $primary2;
+  @include fontHeight(1.4);
+  font-weight: $fontMedium;
+  outline: none;
+}
+
+// 택시
+// 이용정보 상세 풀 팝업
+.taxi_detail_popup {
+  
+  .modal_dialog {
+    .modal_content {
+      .modal_body {
+        .title {
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+          margin-bottom: 1.2rem;
+          color: $text2;
+          @include fontHeight(1.6);
+          font-weight: $fontMedium;
+          img {
+            display: block;
+            width: 2.2rem;
+          }
+        }
+        .taxi_notice {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          margin-top: 1.2rem;
+          color: $gray070;
+          @include fontHeight(1.2);
+        }
+        .normal_list {
+          li {
+            align-items: flex-start;
+            .list_txt {
+              word-break: keep-all;
+            }
+          }
+        }
+        .payment_info {
+          .normal_list {
+            li {
+              justify-content: space-between;
+              align-items: center;
+              .list_txt {
+                font-family: $fontNum;
+                @include fontHeight(1.6);
+                line-height: 1;
+                letter-spacing: 0;
+                .price_wrap {
+                  font-weight: $fontRegular;
+                  .price {
+                    font-weight: $fontBold;
+                  }
+                  &.primary {
+                    color: $primary2;
+                  }
+                }
+              }
+            }
+          }
+          .total_payment_wrap {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 0.1rem solid $line2;
+            color: $text2;
+            font-weight: $fontMedium;
+            .price_wrap {
+              @include fontHeight(1.8);
+              font-weight: $fontRegular;
+              .price {
+                font-weight: $fontBold;
+              }
+            }
+          }
+        }
+        .payment_detail {
+          .normal_list {
+            li {
+              .list_txt {
+                display: flex;
+                align-items: center;
+                flex: 1;
+                .price_wrap {
+                  display: inline-block;
+                  margin-left: auto;
+                  @include fontHeight(1.6);
+                  font-weight: $fontRegular;
+                  .price {
+                    font-weight: $fontBold;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .modal_footer {
+        background-color: $gray010;
+        .btn_area {
+          .btn {
+            & ~ .btn {
+              margin-left: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

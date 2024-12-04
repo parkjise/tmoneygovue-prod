@@ -1,0 +1,230 @@
+@use '../helpers' as *;
+
+// radio
+.form_radio {
+  position: relative;
+  margin-bottom: 1rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &.form_inline {
+    display: inline-block;
+    margin-right: 4rem;
+    margin-bottom: 0;
+    &:last-child {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  }
+  .form_radio_input {
+    // @include sr_only;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 5px);
+    margin-bottom: 10px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: polygon(0 0, 0 0, 0 0);
+    &:checked {
+      ~ .form_radio_label {
+        &::before {
+          border-color: $primary2;
+          background-color: $primary2;
+        }
+        &::after {
+          background-color: $white;
+        }
+      }
+    }
+    &:disabled {
+      ~ .form_radio_label {
+        color: $disabled3;
+        &::before {
+          border-color: $disabled3;
+        }
+        &::after {
+          background-color: $disabled3;
+        }
+      }
+    }
+  }
+  .form_radio_label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include fontHeight(1.6);
+    cursor: pointer;
+    &::before {
+      content: '';
+      display: inline-flex;
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-right: 0.8rem;
+      background-color: $white;
+      border: 0.1rem solid $grayddd;
+      border-radius: 50%;
+      box-sizing: border-box;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0.8rem;
+      width: 0.8rem;
+      height: 0.8rem;
+      background-color: $white;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.form_dropdown {
+    width: 100%;
+    margin-bottom: 0;
+    .form_radio_label {
+      flex-wrap: wrap;
+    }
+    .form_radio_input:checked {
+      & + label {
+        background-color: #FFF8FE;
+        .option_tit {
+          color: $primary2;
+          font-weight: $fontMedium;
+        }
+        .option_txt {
+          color: $primary2;
+          font-weight: $fontMedium;
+          &.usage {
+            font-weight: $fontRegular;
+          }
+        }
+        &::after {
+          display: block;
+          width: 2.4rem;
+          height: 2.4rem;
+          left: auto;
+          right: 2rem;
+          background-color: #FFF8FE;
+          @include ic_bg(24, 'checkline_active');
+        }
+      }
+    }
+    label {
+      width: 100%;
+      padding: 1.2rem 6.4rem 1.2rem 2rem;
+      box-sizing: border-box;
+      &::before,
+      &::after {
+        display: none;
+      }
+      .option_tit {
+        flex-shrink: 0;
+        overflow: hidden;
+        display: block;
+        min-width: 12rem;
+        // color: $text2;
+        color: #555555;
+        @include fontHeight(1.6);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .option_txt {
+        overflow: hidden;
+        display: block;
+        flex: 1;
+        @include fontHeight(1.4);
+        color: $text2;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &.num {
+          font-family: $fontNum;
+          line-height: 1;
+          letter-spacing: 0;
+        }
+      }
+    } 
+  }
+  &.apply {
+    .form_radio_label {
+      justify-content: space-between;
+      padding: 1.2rem 1.8rem 1.2rem 2rem;
+      .badge {
+        width: 6em;
+        height: 2rem;
+        background-color: $white;
+        border: 0.1rem solid $primary2;
+        border-radius: 99.9rem;
+        color: $primary2;
+        @include fontHeight(1.2);
+      }
+      .option_num {
+        color: $primary2;
+        span {
+          font-family: $fontNum, sans-serif;
+          font-weight: $fontBold;
+          letter-spacing: 0;
+          line-height: 1;
+        }
+      }
+    }
+    .form_radio_input {
+      &:checked {
+        & + label {
+          &::after {
+            display: none;
+          }
+        }
+      }
+      &:disabled {
+        ~ .form_radio_label {
+          .badge {
+            border-color: $line2;
+            color: $gray040;
+          }
+          .option_num {
+            color: $gray040;
+          }
+        }
+      }
+    }
+  }
+}
+.form_radio_btn_wrap {
+  display: flex;
+  gap: 0.8rem;
+  .form_radio {
+    width: 100%;
+    margin: 0;
+    &_input {
+      &:checked {
+        + .form_radio_label {
+          border-color: $primary2;
+        }
+      }
+    }
+  }
+  .form_radio_label {
+    display: block;
+    padding: 1rem;
+    border: 0.1rem solid transparent;
+    border-radius: 0.4rem;
+    text-align: center;
+    box-shadow: 0 0.4rem 1rem 0 rgba($black, 0.04);
+    &::before,
+    &::after {
+      display: none;
+    }
+    .label {
+      display: block;
+      color: $text2;
+      @include fontHeight(1.6);
+    }
+    .text {
+      display: block;
+      @include fontHeight(1.4);
+      color: $text2;
+    }
+  }
+}

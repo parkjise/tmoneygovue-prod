@@ -1,0 +1,181 @@
+@use '../helpers' as *;
+
+// Textfield
+.form_input {
+  margin-bottom: 1.6rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .form_label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: $gray070;
+    @include fontHeight(1.4);
+  }
+  .form_group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+    padding: 0 1.2rem;
+    border: 1px solid $line1;
+    border-radius: 1.2rem;
+    background-color: $white;
+    &.disabled {
+      background-color: $gray010;
+    }
+    &.readonly {
+      background-color: $gray020;
+    }
+    &.is_clear {
+      .form-control {
+        padding-right: 4.8rem;
+      }
+    }
+    &.is_error {
+      border-color: $error1;
+      &:focus-within {
+        border-color: $error1;
+      }
+    }
+    &:focus-within {
+      border-color: $primary2;
+    }
+  }
+  .form_control {
+    width: 100%;
+    padding: 0;
+    border: none;
+    border-radius: 0.4rem;
+    border-radius: 1.2rem;
+    font-weight: $fontMedium;
+    @include fontHeight(1.4);
+    font-family: $font, sans-serif;
+    color: $gray090;
+    box-sizing: border-box;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: $gray050;
+    }
+    &:disabled {
+      color: $gray050;
+    }
+    &:read-only {
+      background-color: $gray020;
+    }
+    &[type=number]:not(.driver_num input) {
+      font-family: $fontNum;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    $input_size: ("xs":"3rem","sm":"4.2rem", "md":"4.6rem", "lg":"5.2rem");
+    @each $name, $size in $input_size {
+      &.size_#{$name} {
+        height: #{$size};
+      }
+    }
+  }
+  .btn_clear {
+    display: none;
+    flex-shrink: 0;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2rem;
+      height: 2rem;
+      transform: translate(-50%, -50%);
+      @include ic_bg(20, 'del');
+    }
+    &.is_show {
+      display: block;
+    }
+    & ~ .btn_ic {
+      margin-right: 0.6rem;
+    }
+  }
+  .btn_ic {
+    width: auto;
+    height: 2.4rem;
+  }
+  .form_valid {
+    display: none;
+    margin-top: 0.8rem;
+    @include fontHeight(1.2);
+    color: $gray070;
+    &.is_show {
+      display: block;
+    }
+    &.error {
+      color: $error1;
+    }
+  }
+  .form_length {
+    margin-top: 0.8rem;
+    @include fontHeight(1.2);
+    color: $gray050;
+    text-align: right;
+  }
+  &.price {
+    .form_control {
+      font-weight: $fontBold;
+      @include fontHeight(1.8);
+      text-align: right;
+    }
+  }
+}
+
+//inline_form
+.inline_form_wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  position: relative;
+  height: 4.8rem;
+  padding: 0 1.2rem;
+  background-color: $white;
+  border: 0.1rem solid $gray030;
+  border-radius: 1.2rem;
+  .form_input {
+    position: relative;
+    margin-bottom: 0;
+    .form_group {
+      padding: 0;
+      border: none;
+      .form_control {
+        height: auto;
+        padding: 0;
+        border: none;
+        text-align: center;
+        &::placeholder {
+          color: $gray070;
+        }
+        &:focus {
+          border-color: $black;
+        }
+      }
+    }
+  }
+}
+
+// number 화살표 제거
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox  */
+input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}

@@ -1,0 +1,534 @@
+@use '../helpers' as *;
+
+*:focus{
+  outline: none;
+}
+
+/* 웹 접근성 */ 
+// 본문 바로가기
+#skip{
+  position: fixed;
+  left: 40px;
+  top: -35px;
+  z-index: 99;
+  height: 30px;
+  line-height: 30px;
+  color: transparent;
+  text-align: center;
+  display:inline-block;
+  text-decoration: none;
+  background-color: transparent;
+  transition: .1s ease-in-out;
+}
+#skip:focus{top:0;}
+
+.blind {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+/* layout */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  width: 100%;
+  height: 5.6rem;
+  background-color: $white;
+  &.main_header {
+    padding: 0.6rem 2rem;
+    .header_left {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      .header_member {
+        height: 100%;
+        padding: 0;
+        h1 {
+          padding: 1rem 0rem;
+          font-weight: $fontBold;
+          @include fontHeight(1.8);
+          color: $text2;
+          letter-spacing: -0.1rem;
+        }
+      }
+    }
+    .header_right {
+      .btn {
+        padding: 0;
+      }
+    }
+  }
+  &.sub_header {
+    padding: 1.6rem 1.2rem;
+    .header_inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      // & :focus {
+      //   outline: none;
+      // }
+      .header_center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-width: calc(100% - 8.4rem);
+        width: 100%;
+        transform: translate(-50%, -50%);
+        &.is_hide {
+          display: none;
+        }
+        .header_title {
+          width: 100%;
+          font-weight: $fontMedium;
+          @include fontHeight(1.8);
+          // @include ellipsis;
+          color: $gray090;
+          text-align: center;
+          &.sr_only {
+            @include sr_only;
+            display: none;
+          }
+        }
+      }
+      .header_right {
+        margin-left: auto;
+        .header_right_btn {
+          display: flex;
+          align-items: baseline;
+          height: auto;
+          color:$primary2;
+          @include fontHeight(1.4);
+          line-height: 1;
+          font-weight: $fontMedium;
+          .num {
+            font-weight: $fontRegular;
+          }
+        }
+      }
+    }
+    &.bg_transparent {
+      background-color: transparent;
+      .header_inner {
+        .header_left {
+          button {
+            i {
+              &::before {
+                filter: invert(1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .header_left,
+  .header_center,
+  .header_right {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.main {
+  padding: 5.6rem 0 0;
+  &.no_padding {
+    padding: 0;
+    .container {
+      min-height: 100vh;
+    }
+  }
+  &.tabs {
+    padding-top: 11.1rem;
+    .container {
+      min-height: calc(100vh - 11.1rem);
+      > .tab {
+        > .tab_link {
+          position: fixed;
+          width: 100%;
+          top: 5.6rem;
+          left: 0;
+          background-color: $white;
+          z-index: 1;
+        }
+      }
+    }
+  }
+  // 시스템 작업 안내 페이지
+  &.system_work {
+    padding-top: 0;
+    min-height: 100vh;
+    background: url('#{$img_path}/img_notice_transfer_idc_241018.png') no-repeat 0 0/100% auto;
+  }
+  .container {
+    min-height: calc(100vh - 5.6rem);
+    padding: 2rem;
+    background-color: $gray010;
+    // & :focus {
+    //   outline: none;
+    // }
+    &.no_padding {
+      padding: 0;
+    }
+    &.usage,
+    &.payment,
+    &.search_page{
+      .tab {
+        .tab_link {
+          padding: 0;
+          &::before,
+          &::after {
+            flex: 0 0 2rem;
+            width: 100%;
+            content: "";
+          }
+        }
+      }
+    }
+    &.bottom_btns {
+      padding-bottom: 11.6rem;
+      > .btn_area {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        padding: 2rem;
+        background-color: $gray010;
+        &.has_bg {
+          flex-wrap: wrap;
+          border-radius: 2rem 2rem 0 0;
+          background-color: $white;
+          box-shadow: 0px 0px 20px 0px #0000001A;
+          // (결제)쿠폰선택 > 예상금액
+          .expected_amount {
+            flex-shrink: 0;
+            width: 100%;
+            margin-bottom: 2rem;
+            li {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              color: $gray070;
+              ~ li {
+                margin-top: 0.4rem;
+              }
+              p {
+                &:last-child {
+                  font-family: $fontNum, sans-serif;
+                  font-size: 1.6rem;
+                  line-height: 1;
+                  letter-spacing: 0;
+                  &.primary {
+                    color: $primary2;
+                  }
+                  strong {
+                    font-weight: $fontBold;
+                  }
+                }
+                
+              }
+              .title {
+                position: relative;
+                padding-left: 1.6rem;
+                &::before {
+                  content: '';
+                  display: block;
+                  position: absolute;
+                  top: 0.6rem;
+                  left: 0;
+                  width: 0.8rem;
+                  height: 0.8rem;
+                  border-left: 0.1rem solid $gray050;
+                  border-bottom: 0.1rem solid $gray050;
+                  box-sizing: border-box;
+                }
+
+              }
+              &:last-child {
+                margin-top: 0.8rem;
+                font-weight: $fontMedium;
+                color: $text2;
+                p {
+                  &:last-child {
+                    font-size: 2rem;
+                    font-weight: $fontRegular;
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.has_info {
+          flex-direction: column;
+          gap: 1.6rem;
+          .info {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            @include fontHeight(1.2);
+            color: $gray070;
+            letter-spacing: -0.1rem;
+          }
+        }
+      }
+    }
+    &.bg_white {
+      background-color: $white;
+    }
+    &.pt12 {
+      padding-top: 1.2rem;
+    }
+  }
+}
+
+// 이용권 사용 안내
+.ticket_notice {
+  margin-top: 1.6rem;
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: $fontMedium;
+    color: $text2;
+    letter-spacing: -0.1rem;
+    button {
+      display: flex;
+      align-items: center;
+      font-family: $font;
+      color: $text2;
+      font-weight: $fontMedium;
+      @include fontHeight(1.4);
+    }
+  }
+  .desc {
+    margin-top: 0.4rem;
+    padding-left: 2rem;
+    color: $gray070;
+  }
+  ul {
+    li {
+      position: relative;
+      margin-top: 0.4rem;
+      padding-left: 2rem;
+      color: $gray070;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0.8rem;
+        left: 0.8rem;
+        width: 0.4rem;
+        height: 0.4rem;
+        background-color: $gray090;
+        border-radius: 50%;
+      }
+    }
+    &.no_dots {
+      li {
+        //padding-left: 1.4rem;
+        text-indent: -1.2rem;
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// 리스트
+.normal_list {
+  li {
+    display: flex;
+    align-items: center;
+    .list_tit {
+      min-width: 8rem;
+      flex-shrink: 0;
+      color: $gray070;
+      @include fontHeight(1.4);
+    }
+    .list_txt {
+      color: $text2;
+      @include fontHeight(1.4);
+      font-weight: $fontMedium;
+      &.right_align {
+        margin-left: auto; // .list_txt를 오른쪽으로 밀어냄
+        text-align: right; // 텍스트를 오른쪽으로 정렬
+      }
+    }
+    & ~ li {
+      margin-top: 0.8rem;
+    }
+  }
+  &.between {
+    li {
+      justify-content: space-between;
+    }
+  }
+}
+
+// 상세 리스트
+.has_detail_list {
+  flex: 1;
+  dt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    .list_tit {
+      color: $text1;
+      @include fontHeight(1.4);
+      }
+      .list_txt {
+        color: $text2;
+        @include fontHeight(1.6);
+        &.cancel {
+          color: #E7302F;
+        }
+    }
+  }
+  dd {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1.6rem;
+    .list_tit {
+      color: $gray070;
+      @include fontHeight(1.4);
+    }
+    .list_txt {
+      display: inline-block;
+      color: $text2;
+      @include fontHeight(1.6);
+      line-height: 1;
+    }
+    & ~ dd {
+      margin-top: 0.4rem;
+    }
+    &::after {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-bottom: 1px solid #777;
+      border-left: 1px solid #777;
+      transform: translateY(-50%);
+      box-sizing: border-box;
+      content: '';
+    }
+  }
+}
+
+// x 스크롤 리스트
+.xscroll_list {
+  overflow-x: scroll;
+  display: flex;
+  margin: 0 -2rem;
+  padding: 0 2rem;
+  li {
+    flex-shrink: 0;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// 숫자 폰트 형식
+.price,
+.num {
+  font-family: $fontNum;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+// 가운데 구분 선
+.split {
+  display: inline-block;
+  > span {
+    position: relative;
+    & ~ span {
+      margin-left: 1.7rem;
+      &::after {
+        position: absolute;
+        left: -0.9rem;
+        top: 50%;
+        width: 0.1rem;
+        height: 1rem;
+        transform: translateY(-50%);
+        background-color: rgba($black, 0.1);
+        content: '';
+      }
+    }
+  }
+}
+
+// 상단 고정 영역
+.top_fixed_area {
+  position: fixed;
+  top: 5.6rem;
+  left: 0;
+  width: 100%;
+  padding: 1.2rem 2rem;
+  background-color: $gray010;
+  z-index: 1;
+}
+
+// 탭 상단 고정 영역
+.tabs {
+  .container {
+    .top_fixed_area {
+      top: 11.1rem;
+    }
+  }
+}
+
+// 에러 페이지
+.modal {
+  .error_area {
+    .img_area {
+      width: 10rem;
+      margin: 4rem auto 1.6rem;
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+    .desc_area {
+      text-align: center;
+      .title {
+        margin-bottom: 0.4rem;
+        font-weight: $fontMedium;
+        @include fontHeight(1.8);
+        color: $text2;
+      }
+    }
+    .round_box {
+      margin-top: 2rem;
+      .error_result {
+        .error_code {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          margin-bottom: 0.8rem;
+          @include fontHeight(1.6);
+          color: $text2;
+        }
+        .error_title {
+          margin-bottom: 0.4rem;
+          color: $error1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "publicTransportHistory":{
+    "rstCd": "200",
+    "dta": {
+      "msg": "대중교통이용내역 조회에 성공하였습니다.",
+      "pbtrList" : [
+        {
+          "mntnCd": "1",
+          "mntnNm": "버스",
+          "rotNm": "219",
+          "raaDvsCd": "1",
+          "raaDvsNm": "승차",
+          "trdDtm": "2024 04 11",
+          "trdAmt": "1234"
+        },
+        {
+          "mntnCd": "2",
+          "mntnNm": "지하철",
+          "rotNm": "5호선",
+          "raaDvsCd": "2",
+          "raaDvsNm": "하차",
+          "trdDtm": "2024 04 12",
+          "trdAmt": "5678"
+        },
+        {
+          "mntnCd": "1",
+          "mntnNm": "버스",
+          "rotNm": "1234",
+          "raaDvsCd": "1",
+          "raaDvsNm": "승차",
+          "trdDtm": "2024 04 13",
+          "trdAmt": "9012"
+        },
+        {
+          "mntnCd": "2",
+          "mntnNm": "지하철",
+          "rotNm": "2호선",
+          "raaDvsCd": "2",
+          "raaDvsNm": "하차",
+          "trdDtm": "2024 04 14",
+          "trdAmt": "3456"
+        },
+        {
+          "mntnCd": "1",
+          "mntnNm": "지하철",
+          "rotNm": "8호선",
+          "raaDvsCd": "1",
+          "raaDvsNm": "승차",
+          "trdDtm": "2024 04 15",
+          "trdAmt": "7890"
+        },
+        {
+          "mntnCd": "2",
+          "mntnNm": "버스",
+          "rotNm": "567",
+          "raaDvsCd": "2",
+          "raaDvsNm": "하차",
+          "trdDtm": "2024 04 16",
+          "trdAmt": "3456"
+        },
+        {
+          "mntnCd": "1",
+          "mntnNm": "버스",
+          "rotNm": "7890",
+          "raaDvsCd": "1",
+          "raaDvsNm": "승차",
+          "trdDtm": "2024 04 17",
+          "trdAmt": "7890"
+        },
+        {
+          "mntnCd": "2",
+          "mntnNm": "지하철",
+          "rotNm": "4호선",
+          "raaDvsCd": "2",
+          "raaDvsNm": "하차",
+          "trdDtm": "2024 04 18",
+          "trdAmt": "2345"
+        },
+        {
+          "mntnCd": "1",
+          "mntnNm": "지하철",
+          "rotNm": "9호선",
+          "raaDvsCd": "1",
+          "raaDvsNm": "승차",
+          "trdDtm": "2024 04 19",
+          "trdAmt": "6789"
+        },
+        {
+          "mntnCd": "2",
+          "mntnNm": "버스",
+          "rotNm": "4567",
+          "raaDvsCd": "2",
+          "raaDvsNm": "하차",
+          "trdDtm": "2024 04 20",
+          "trdAmt": "0123"
+        }
+      ]
+    },
+    "errMsg": ""
+  }
+}

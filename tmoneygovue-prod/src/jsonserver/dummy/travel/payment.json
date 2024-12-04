@@ -1,0 +1,12 @@
+{
+  "requestTrvlPym":{
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_msg": "",
+    "dta": {
+      "areaThruTrmlYn": "Y",
+      "deprTrmlNm": "",
+      "deprTrmlCd": ""
+    }
+  }
+}

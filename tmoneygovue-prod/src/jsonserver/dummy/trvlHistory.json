@@ -1,0 +1,37 @@
+{
+    "trvlHistory": {
+      "err_cod": "0000",
+      "rstCd": "200",
+      "dta": [{
+        "trvlMrnpSno": "TISSUID00001",
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "가평군 남이섬 일일투어",
+        "mrnpDt": "20240610",
+        "deprDt": "20240630",
+        "deprTime": "080000",
+        "deprTrmlCd": "T001",
+        "deprTrmlNm": "광화문",
+        "trvlMrsStaCd": "1",
+        "trvlMrsStaNm": "예매완료",
+        "tissuNcnt": "2",
+        "pymDtm": "20240530153000",
+        "trvlMrnpCancSqno": ""
+      },
+      {
+        "trvlMrnpSno": "TISSUID00002",
+        "trvlPrdId": "TP002",
+        "trvlPrdNm": "남이섬 일일투어",
+        "mrnpDt": "20240510",
+        "deprDt": "20240711",
+        "deprTime": "100000",
+        "deprTrmlCd": "T002",
+        "deprTrmlNm": "서울역",
+        "trvlMrsStaCd": "2",
+        "trvlMrsStaNm": "예매취소",
+        "tissuNcnt": "3",
+        "pymDtm": "20240530153000",
+        "trvlMrnpCancSqno": "1"
+      }
+    ]
+    }
+  }

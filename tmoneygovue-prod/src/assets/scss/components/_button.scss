@@ -1,0 +1,280 @@
+@use '../helpers' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  white-space: nowrap;
+  font-family: $font;
+  // ~ .btn {
+  //   margin-left: 0.8rem;
+  // }
+  > span {
+    pointer-events: none;
+  }
+  &:disabled,
+  &.is_disabled {
+    background-color: $bg2;
+    pointer-events: none;
+  }
+  &_area {
+    display: flex;
+    width: 100%;
+    .btn {
+      width: 100%;
+      ~ .btn {
+        margin-left: 0.8rem;
+      }
+    }
+  }
+  &_ic {
+    width: 3.8rem;
+    height: 3.8rem;
+    ~ .btn_ic {
+      margin-left: 0;
+    }
+    &.is_new {
+      position: relative;
+      &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0.4rem;
+        right: 0.4rem;
+        width: 0.4rem;
+        height: 0.4rem;
+        background-color: $primary2;
+        border-radius: 50%;
+      }
+    }
+  }
+  &_bottom {
+    width: 100%;
+    padding: 1.4rem 2rem 2.4rem;
+  }
+  &_fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 80;
+    background-color: $white;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1rem;
+      left: 0;
+      width: 100%;
+      height: 1rem;
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    }
+  }
+  &_scroll {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .btn {
+      width: auto;
+    }
+    &.tab_style {
+      gap: 2rem;
+      .btn {
+        @include fontHeight(1.6);
+        ~ .btn {
+          margin-left: 0;
+        }
+        &_lg {
+          height: 5.6rem;
+        }
+        &.is_active {
+          position: relative;
+          font-weight: $fontBold;
+          color: $black;
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0.2rem;
+            background-color: $gray090;
+          }
+        }
+      }
+    }
+    &.filter_style {
+      align-items: center;
+      gap: 0.8rem;
+      height: 6rem;
+      .btn {
+        ~ .btn {
+          margin-left: 0;
+        }
+        &_ic {
+          width: 3.6rem;
+          height: 3.6rem;
+        }
+        &_arrow {
+          position: relative;
+          &.btn_primary {
+            &::after {
+              @include ic_bg(16, 'arrow_primary');
+            }
+          }
+        }
+      }
+    }
+  }
+  $btnColor: (
+    'transparent': transparent,
+    'primary': $black,
+    'secondary': $lightPurple3,
+  );
+  $btnStyle: 'none', 'line', 'text';
+  $btnSize: (
+    'xs': 2.8,
+    'sm': 3.6,
+    'md': 4,
+    'lg':4.4,
+    'xl': 5.6
+  );
+
+  $btnHeight: 5.6;
+  @each $color, $bgColor in $btnColor {
+    &_#{$color} {
+      padding: 0 2rem;
+      border-radius: 99rem;
+      background-color: $bgColor;
+      color: $black;
+      @if $color == 'primary' {
+        color: $white;
+        // &:focus {
+        //   background-color: $gray070;
+        // }
+        &:disabled {
+          background-color: $gray030;
+        }
+      } @else if $color == 'secondary' {
+        color: $primary1;
+        border: 0.1rem solid $lightPurple1;
+        // &:focus {
+        //   background-color: $lightPurple2;
+        // }
+        &:disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  @each $type in $btnStyle {
+    &_#{$type} {
+      @if $type == 'none' {
+        &.btn-line {
+            background-color: transparent;
+          &.btn-transparent {
+            border: 0.1rem solid transparent;
+            color: $black;
+          }
+          &.btn-primary {
+            border: 0.1rem solid $primary2;
+            color: $primary2;
+          }
+          &.btn-black {
+            border: 0.1rem solid $primary2;
+            color: $gray090;
+          }
+        }
+      }
+      @else if $type == 'line' {
+        border: 0.1rem solid $line1;
+        color: $gray555;
+        background-color: $white;
+        // &:focus {
+        //   border-color: $gray050;
+        // }
+        &:disabled {
+          border-color: $gray010;
+          background-color: $white;
+          color: $gray050;
+        }
+        // size
+        &.btn_lg,
+        &.btn_xl {
+          border-color: $gray090;
+          color: $gray090;
+          // &:focus {
+          //   border-color: $primary2;
+          // }
+          &:disabled {
+            border-color: $gray020;
+            color: $gray040;
+          }
+        }
+      }
+      @else if $type == 'text' {
+        padding: 0;
+        background-color: transparent;
+        border: 0;
+        text-decoration: underline;
+        color: $gray090;
+        @include fontHeight(1.2);
+      }
+    }
+  }
+  @each $size, $number in $btnSize {
+    &_#{$size} {
+      height: $number + rem;
+      font-weight: $fontMedium;
+      @if $size == 'xl' {
+        @include fontHeight(1.6);
+      }  @else if $size == 'xs' {
+        @include fontHeight(1.2);
+        font-weight: $fontRegular;
+      } @else {
+        @include fontHeight(1.4);
+      }
+    }
+  }
+  &.calender_btn {
+    justify-content: flex-start;
+    gap: 0.8rem;
+    width: 100%;
+    height: 4.8rem;
+    padding: 0 1.2rem;
+    border: 0.1rem solid $gray030;
+    border-radius: 1.2rem;
+    font-weight: $fontMedium;
+    @include fontHeight(1.4);
+    span {
+      display: block;
+      color: $gray050;
+      &.filled {
+        color: $gray090;
+      }
+      &.label_second {
+        position: relative;
+        margin-left: 0.8rem;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0.3rem;
+          left: -0.8rem;
+          width: 0.1rem;
+          height: 1.4rem;
+          background-color: $gray030;
+        }
+      }
+    }
+    // &:focus {
+    //   border-color: $primary2;
+    // }
+    &:disabled {
+      background-color: $gray020;
+    }
+  }
+}

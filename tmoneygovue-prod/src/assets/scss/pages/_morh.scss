@@ -1,0 +1,812 @@
+@use '../helpers' as *;
+
+// 더보기
+.mor {
+  // 이용가이드
+  .guide_banner_btn {
+    width: 100%;
+    margin-bottom: 1.6rem;
+    border-radius: 1.2rem;
+    background-color: #EEFCFF;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+  .guide_list {
+    li {
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        color: $text2;
+        font-family: $font;
+        @include fontHeight(1.6);
+        &:disabled {
+          color: $gray050;
+          i {
+            &::before {
+              @include ic_bg(24, 'arrow_disabled');
+            }
+          }
+        }
+      }
+      & ~ li {
+        margin-top: 2rem;
+      }
+    }
+  }
+  .category_tit {
+    margin: 3.6rem 0 2rem;
+    color: $gray050;
+    @include fontHeight(1.4);
+    font-weight: $fontMedium;
+  }
+
+  .guide_tab {
+    overflow: visible;
+    > .tab_link {
+      position: fixed;
+      top: 5.6rem;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      background-color: $white;
+    }
+    &.bg_gray {
+      > .tab_link {
+        background-color: $gray010;
+        padding: 1.2rem 1.6rem;
+      }
+      > .tab_content {
+        padding-top: 7.4rem;
+      }
+    }
+    .depth2_tab {
+      border-radius: 0;
+      background-color: $gray010;
+      .tab_link {
+        position: fixed;
+        top: 11.1rem;
+        left: 0;
+        width: 100%;
+        padding: 1.2rem 1.6rem;
+        background-color: $gray010;
+        .tab_link_btn {
+          & ~ .tab_link_btn {
+            margin-left: 0.8rem;
+          }
+        }
+      }
+      .tab_content {
+        padding-top: 5.4rem;
+        background-color: $white;
+      }
+      &.use_tab {
+        .tab_content {
+          padding-top: 3.2rem;
+        }
+      }
+    }
+    > .tab_content {
+      text-align: center;
+      padding: 9.5rem 2rem 4rem;
+      .guide_title {
+        color: $text2;
+        @include fontHeight(2);
+        font-weight: $fontMedium;
+        & + .tip_wrap {
+          .tip_badge {
+            margin-top: 2rem;
+          }
+          .tip_txt {
+            margin-top: 0.8rem;
+          }
+        }
+      }
+      .sub_title {
+        color: $gray070;
+        margin: 0.8rem 0 2rem;
+      }
+      .tip_wrap {
+        .tip_badge {
+          display: inline-flex;
+          align-items: center;
+          height: 3rem;
+          padding: 0 2rem;
+          border: 0.1rem solid $primary2;
+          border-radius: 1.5rem;
+          span {
+            color: $primary2;
+            @include fontHeight(1.6);
+            font-weight: $fontBold;
+          }
+          & + .tip_txt {
+            margin-top: 1.2rem;
+          }
+        }
+        .tip_txt {
+          color: $gray070;
+          @include fontHeight(1.4);
+          .txt_bold {
+            color: $text2;
+            font-weight: $fontMedium;
+          }
+        }
+        .tip_sub_txt {
+          margin-top: 0.8rem;
+          color: $gray050;
+          @include fontHeight(1.2);
+        }
+        .img_wrap {
+          max-width: 100%;
+          width: 28.8rem;
+          margin: 1.2rem auto 0;
+          img {
+            display: block;
+            width: 100%;
+          }
+          &.wide {
+            width: 33.6rem;
+            max-width: 100%;
+          }
+        }
+        .ic_tip {
+          display: flex;
+          justify-content: center;
+          gap: 0.4rem;
+          margin-top: 1.2rem;
+          color: $gray070;
+          font-family: Noto Sans KR Regular;
+          font-size: 1.4rem;
+          line-height: 2rem;
+          letter-spacing: -0.05rem;
+          @include fontHeight(1.2);
+          .txt_bold {
+            color: $text2;
+            font-weight: $fontMedium;
+          }
+        }
+        & ~ .tip_wrap {
+          margin-top: 4rem;
+          padding-top: 4rem;
+          border-top: 0.1rem solid $line2;
+        }
+      }
+    }
+    &.tab_hide {
+      > .tab_content {
+        padding-top: 3rem;
+      }
+    }
+  }
+  .support_tab {
+    overflow: visible;
+    .tab_link {
+      background-color: $white;
+    }
+    .tab_content {
+      padding: 0 2rem;
+      .select_btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 4.8rem;
+        margin: 2rem 0 1.6rem;
+        padding: 0 1.2rem;
+        border: 0.1rem solid $line1;
+        border-radius: 1.2rem;
+        background-color: $white;
+        font-family: $font;
+        @include fontHeight(1.4);
+        font-weight: $fontMedium;
+        letter-spacing: -0.05rem;
+        .placeholder {
+          color: $gray050;
+        }
+        .value {
+          overflow: hidden;
+          max-width: calc(100% - 2rem);
+          color: $text2;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          span {
+            vertical-align: middle;
+          }
+          .ic {
+            display: inline-flex;
+            margin: 0 0.2rem;
+            vertical-align: middle;
+          }
+        }
+      }
+
+      .form_textarea {
+        textarea {
+          height: 25rem;
+          caret-color: $primary2;
+        }
+      }
+
+      .support_info {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-top: 1.6rem;
+        color: $gray070;
+        letter-spacing: -0.1rem;
+      }
+
+      .call_center_btn {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        position: fixed;
+        left: 50%;
+        bottom: 10rem;
+        height: 3.2rem;
+        padding: 0 1.2rem;
+        border: 0.1rem solid $line1;
+        border-radius: 99.9rem;
+        background-color: $white;
+        font-family: $font;
+        color: $text2;
+        @include fontHeight(1.4);
+        letter-spacing: -0.1rem;
+        transform: translateX(-50%);
+      }
+
+      .inquiry_list {
+        margin-top: 2rem;
+      }
+    }
+    .no_result {
+      padding-top: 21rem;
+    }
+  }
+  .inquiry_list {
+    li {
+      > button {
+        position: relative;
+        border-radius: 2rem;
+        width: 100%;
+        padding: 2rem;
+        background-color: $white;
+        box-shadow: 0px 4px 10px 0px rgba($black, 0.1);
+        text-align: left;
+        .ic {
+          position: absolute;
+          top: 50%;
+          right: 2rem;
+          transform: translateY(-50%);
+        }
+      }
+      & ~ li {
+        margin-top: 1.6rem;
+      }
+    }
+  }
+
+  .inquiry_title_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    .inquiry_title {
+      overflow: hidden;
+      max-width: calc(100% - 2.6rem);
+      color: $text2;
+      font-family: $fontNum;
+      @include fontHeight(1.6);
+      font-weight: $fontMedium;
+      letter-spacing: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .del_btn {
+      flex-shrink: 0;
+      color: $gray070;
+      font-family: $fontNum;
+      @include fontHeight(1.4);
+      letter-spacing: 0;
+    }
+  }
+  .inquiry_txt {
+    margin: 0.4rem 0 0.8rem;
+  }
+  .inquiry_detail {
+    &.split {
+      span {
+        & ~ span {
+          &::after {
+            height: 0.8rem;
+            background-color: $line1;
+          }
+        }
+      }
+      .date {
+        color: $gray070;
+        font-family: $fontNum;
+        @include fontHeight(1.2);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+      .inquiry_status {
+        display: inline-flex;
+        align-items: center;
+        height: 1.9rem;
+        padding: 0 0.8rem;
+        border: 0.1rem solid $gray040;
+        border-radius: 99.9rem;
+        color: $gray050;
+        font-family: $font;
+        @include fontHeight(1.1);
+        line-height: 1;
+        letter-spacing: -0.1rem;
+        &.done {
+          border: 0.1rem solid $primary2;
+          background-color: $white;
+          color: $primary2;
+        }
+      }
+    }
+  }
+  
+  .inquiry_detail_tit {
+    padding: 2rem;
+    background-color: $gray010;
+  }
+
+  .inquiry_answer {
+    padding: 2rem;
+    .inquiry_answer_tit {
+      position: relative;
+      padding-left: 1.8rem;
+      color: $gray050;
+      &::after {
+        position: absolute;
+        left: 0;
+        top: 0.2rem;
+        color: $primary2;
+        font-family: $fontNum;
+        @include fontHeight(1.6);
+        font-weight: $fontMedium;
+        line-height: 1;
+        content: 'A';
+      }
+    }
+    .inquiry_answer_txt {
+      padding: 0.8rem 0 0 1.8rem;
+      color: $gray070;
+      white-space: pre-line;
+    }
+  }
+
+  // 자주하는 질문
+  .faq_category{
+    display: flex;
+    justify-content: center;
+    .faq_category_list {
+      display: flex;
+      align-items: center;
+      width: 30rem;
+      flex-wrap: wrap;
+      gap: 3rem 0;
+      margin-top: 2rem;
+      li {
+        display: flex;
+        @media screen and (min-width: 30rem){
+          width: 10rem;
+        }
+        @media screen and (max-width: 29.9rem) {
+          width: 33.3%;
+        }
+        justify-content: center;
+        button {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          [class^=img_wrap] {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 6rem;
+            height: 6rem;
+            margin-bottom: 0.8rem;
+            border-radius: 2rem;
+            background-color: $white;
+            box-shadow: 0 0.4rem 2rem 0 rgba($black,0.1);
+            img {
+              display: block;
+            }
+          }
+          .img_wrap {
+            & {
+              img {
+                width: 4rem;
+                height: 4rem;
+              }
+            }
+            &2 {
+              img {
+                width: 3rem;
+                height: 3rem;
+              }
+            }
+            &3 {
+              img {
+                width: 3rem;
+                height: 3.2rem;
+              }
+            }
+          }
+          .category_txt {
+            color: $text2;
+            font-family: $font;
+            @include fontHeight(1.4);
+            letter-spacing: -0.05rem;
+          }
+        }
+      }
+    }
+  }
+
+  .faq_datail_tab {
+    padding-top: 15.8rem;
+    .selected_faq_detail {
+      padding: 1.2rem 2rem 0;
+      color: $gray070;
+      @include fontHeight(1.2);
+
+    }
+    .tab_link {
+      position: fixed;
+      top: 17.2rem;
+      width: 100%;
+      padding: 0 2rem 1.2rem;
+      background-color: $gray010;
+      z-index: 1;
+    }
+    .tab_content {
+      background-color: $white;
+      min-height: calc(100vh - 21.4rem);
+      .faq_list {
+        border-top: 0;
+        .question {
+          font-family: $fontNum;
+        }
+        .accordion_header {
+          height: auto;
+          .accordion_btn {
+            align-items: flex-start;
+            padding: 1.6rem 2rem;
+            .accordion_title {
+              flex: 1;
+              position: relative;
+              padding-left: 1.8rem;
+              .faq_question {
+                font-family: $font;
+                color: $text2;
+                @include fontHeight(1.4);
+                font-weight: $fontRegular;
+                text-align: left;
+              }
+              &::after {
+                position: absolute;
+                left: 0;
+                top: 0.2rem;
+                color: $primary2;
+                font-family: $fontNum;
+                @include fontHeight(1.6);
+                font-weight: $fontMedium;
+                line-height: 1;
+                content: 'Q';
+              }
+            }
+            .ic {
+              margin-left: 1.2rem;
+            }
+          }
+        }
+        .accordion_content {
+          padding: 1.2rem 2rem;
+          background-color: $gray010;
+          .faq_answer_title {
+            position: relative;
+            padding-left: 1.8rem;
+            font-family: $font;
+            color: $text2;
+            @include fontHeight(1.4);
+            font-weight: $fontRegular;
+            &::before {
+              position: absolute;
+              left: 0;
+              top: 0.2rem;
+              color: $primary2;
+              font-family: $fontNum;
+              @include fontHeight(1.6);
+              font-weight: $fontMedium;
+              line-height: 1;
+              content: 'A';
+            }
+          }
+          .faq_answer_list {
+            margin-top: 0.8rem;
+            padding-left: 1.8rem;
+            li {
+              color: $gray070;
+              @include fontHeight(1.2);
+              & ~ li {
+                margin-top: 0.4rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 고속·시외 터미널 안내
+  .terminal_tab {
+    border-radius: 0;
+    .no_result {
+      position: absolute;
+      top: 45%;
+      width: 100%;
+    }
+  }
+  
+  .top_fixed_area {
+    .form_input {
+      margin-bottom: 0;
+    }
+  }
+
+  .notice_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+    margin-top: 1.2rem;
+    background-color: $gray010;
+    color: $gray070;
+    .ic {
+      margin-top: 0.2rem;
+    }
+    p {
+      display: flex;
+      gap: 0.4rem;
+      letter-spacing: -0.1rem;
+    }
+  }
+
+  .terminal_center_list,
+  .terminal_list {
+    li {
+      > button {
+        justify-content: space-between;
+        width: 100%;
+        padding: 1.6rem 2rem;
+        border-bottom: 0.1rem solid $line2;
+        text-align: left;
+        .terminal_info {
+          .terminal_tit {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.4rem;
+            font-family: $font;
+            color: $text2;
+            @include fontHeight(1.6);
+            font-weight: $fontMedium;
+            line-height: 1;
+            img {
+              display: block;
+              width: 7rem;
+            }
+          }
+          .terminal_address,
+          .terminal_num {
+            color: $gray070;
+            @include fontHeight(1.2);
+          }
+          .terminal_num {
+            margin-top: 0.4rem;
+            font-family: $fontNum;
+            line-height: 1;
+            letter-spacing: 0;
+          }
+        }
+        .terminal_link {
+          display: block;
+          margin-top: 0.4rem;
+          font-family: $font;
+          color: $text2;
+          @include fontHeight(1.2);
+          text-decoration: underline;
+        }
+      }
+      button {
+        display: flex;
+      }
+    }
+  }
+  .terminal_list {
+    padding-top: 7.2rem;
+  }
+  .terminal_center_list {
+    padding-top: 12.4rem;
+  }
+  
+  .center_notice_box {
+    text-align: center;
+    img {
+      display: inline-block;
+      width: 7.2rem;
+      margin-bottom: 2rem;
+    }
+    .txt {
+      color: $text2;
+      @include fontHeight(1.6);
+    }
+  }
+
+  .info_txt {
+    margin-top: 1.2rem;
+    color: $gray070;
+    @include fontHeight(1.4);
+    text-align: center;
+  }
+
+  .call_center_list {
+    margin-top: 2.4rem;
+    li {
+      background-color: $white;
+      border-radius: 2rem;
+      box-shadow: 0 0.4rem 2rem 0 rgba($black, 0.1);
+      a,
+      button {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 1.2rem;
+        text-align: left;
+        img {
+          width: 4rem;
+          margin-right: 1.6rem;
+        }
+        object {
+          width: 4rem;
+          margin-right: 1.6rem;
+        }
+        .brand {
+          margin-bottom: 0.4rem;
+          font-family: $font;
+          color: $text2;
+          @include fontHeight(1.6);
+          font-weight: $fontMedium;
+        }
+        .center_info {
+          font-family: $fontNum;
+          color: $gray070;
+          @include fontHeight(1.4);
+          line-height: 1;
+        }
+        .ic {
+          margin-left: auto;
+        }
+      }
+      & ~ li {
+      margin-top: 1.2rem;
+      }
+    }
+  }
+}
+
+// 문의 유형 선택
+.inquiry_type_select {
+  .form_radio {
+    &.form_dropdown {
+      .form_radio_input {
+        & + label {
+          color: $text2;
+          padding: 1.3rem 6.4rem 1.3rem 2rem;
+        }
+        &:checked {
+          & + label {
+            color: $primary2;
+            font-weight: $fontMedium;
+          }
+        } 
+      }
+    }
+  }
+}
+
+.inquiry_type_detail {
+  .modal_header {
+    .btn_back {
+      height: 2.4rem;
+    }
+    .modal_title {
+      margin-left: 1.2rem;
+    }
+  }
+}
+
+// 자주하는 질문 상세
+.faq_detail {
+  .top_fixed_area {
+    .faq_select_btn {
+      display: flex;
+      align-items: center;
+      margin: 0.4rem 0 1.6rem;
+      font-family: $font;
+      color: $text2;
+      @include fontHeight(1.8);
+      font-weight: $fontBold;
+      letter-spacing: -0.1rem;
+    }
+  }
+  .form_input {
+    .form_group {
+      .btn_clear {
+        &::after {
+          @include ic_bg(20, 'del');
+        }
+      }
+    }
+  }
+}
+
+// 고속시외 터미널 정보 바텀시트
+.modal {
+  &.terminal_btm_sheet {
+    .modal_dialog {
+      .modal_content {
+        .modal_header {
+          align-items: flex-start;
+        }
+        .modal_body {
+          position: relative;
+          .terminal_info {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 0 2rem;
+            .teminal_info_cont {
+              display: flex;
+              align-items: center;
+              gap: 0.8rem;
+              color: $text2;
+              @include fontHeight(1.4);
+              & ~ .teminal_info_cont {
+                margin-top: 0.8rem;
+              }
+            }
+          }
+          .map_area {
+            position: relative;
+            padding-top: 6rem;
+            iframe {
+              display: block;
+            }
+            .mark {
+              position: absolute;
+              width: 5rem;
+              height: 6.6rem;
+              transform: translate(-50%, -50%);
+              background: url('#{$img_path}/ic_map_place.svg') no-repeat 0 0/cover;
+              z-index: 10;
+              &.fav {
+                background: url('#{$img_path}/ic_map_place_fav.svg') no-repeat 0 0/cover;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

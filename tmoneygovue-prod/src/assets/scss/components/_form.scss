@@ -1,0 +1,15 @@
+@use '../helpers' as *;
+@forward './input';
+@forward './textarea';
+@forward './checkbox';
+@forward './radio';
+@forward './select';
+@forward './switch';
+
+fieldset {
+  legend {
+    margin-bottom: 0.8rem;
+    color: $gray070;
+    @include fontHeight(1.4);
+  }
+}

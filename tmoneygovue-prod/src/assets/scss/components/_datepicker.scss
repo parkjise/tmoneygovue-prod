@@ -1,0 +1,50 @@
+@use '../helpers' as *;
+
+.date_picker {
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  max-width: 60%;
+  min-width: 23rem;
+  height: 18.4rem;
+  margin: auto;
+  padding: 1rem 0;
+
+  .flicking-viewport {
+    overflow: hidden;
+    position: relative;
+    flex: 1;
+    .date_panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 3.6rem;
+      font-size: 1.8rem;
+      color: #E6E6E6;
+      line-height: 1;
+      text-align: center;
+      transition: color 0.2s;
+      &.active {
+        font-size: 2.4rem;
+        font-weight: $fontBold;
+        color: $text2;
+        transform: translateY(0);
+      }
+    }
+    .shadow {
+      position: absolute;
+      width: 100%;
+      height: 2rem;
+
+      &_top {
+        top: 0;
+        background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      &_bottom {
+        bottom: 0;
+        background: linear-gradient(0deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+      }
+    }
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "inqrMbrsMlgList": {
+    "rstCd": "200",
+    "dta": {
+      "nxtMonExpiSchdAmt": 4510,
+      "msg": "회원 마일리지 내역 조회에 성공하였습니다.",
+      "mlgAcmtSchdAmt": 0,
+      "mlgList": [
+        {
+          "mlgAmt": 987600,
+          "mlgUtlzNm": "유효기간 만료",
+          "mlgUtlzDtm": "2024-04-17 00:00",
+          "mlgUseTypCd": "04"
+        },
+        {
+          "mlgAmt": 500,
+          "mlgUtlzNm": "이벤트 적립 소멸(온다택시 이용리워드)",
+          "mlgUtlzDtm": "2024-04-17 00:00",
+          "mlgUseTypCd": "04"
+        },
+        {
+          "mlgAmt": 500,
+          "mlgUtlzNm": "이벤트 적립(온다 택시)",
+          "mlgUtlzDtm": "2024-04-11 22:23",
+          "mlgUseTypCd": "01"
+        },
+        {
+          "mlgAmt": 500,
+          "mlgUtlzNm": "이벤트 적립(온다 택시)",
+          "mlgUtlzDtm": "2024-04-11 22:22",
+          "mlgUseTypCd": "01"
+        },
+        {
+          "mlgAmt": 500,
+          "mlgUtlzNm": "이벤트 적립(온다 택시)",
+          "mlgUtlzDtm": "2024-04-11 22:03",
+          "mlgUseTypCd": "01"
+        },
+        {
+          "mlgAmt": 500,
+          "mlgUtlzNm": "이벤트 적립(온다 택시)",
+          "mlgUtlzDtm": "2024-04-11 21:57",
+          "mlgUseTypCd": "01"
+        },
+        {
+          "mlgAmt": 500,
+          "mlgUtlzNm": "이벤트 적립(온다 택시)",
+          "mlgUtlzDtm": "2024-04-11 21:47",
+          "mlgUseTypCd": "01"
+        },
+        {
+          "mlgAmt": 500,
+          "mlgUtlzNm": "이벤트 적립(온다 택시)",
+          "mlgUtlzDtm": "2024-04-11 21:40",
+          "mlgUseTypCd": "01"
+        },
+        {
+          "mlgAmt": 500,
+          "mlgUtlzNm": "이벤트 적립(온다 택시)",
+          "mlgUtlzDtm": "2024-04-11 21:17",
+          "mlgUseTypCd": "01"
+        },
+        {
+          "mlgAmt": 10600,
+          "mlgUtlzNm": "사용(IM 택시)",
+          "mlgUtlzDtm": "2024-04-10 19:44",
+          "mlgUseTypCd": "02"
+        },
+        {
+          "mlgAmt": 500,
+          "mlgUtlzNm": "이벤트 적립(온다 택시)",
+          "mlgUtlzDtm": "2024-04-10 19:15",
+          "mlgUseTypCd": "01"
+        },
+        {
+          "mlgAmt": 10,
+          "mlgUtlzNm": "이벤트 적립(온다 택시)",
+          "mlgUtlzDtm": "2024-04-10 17:25",
+          "mlgUseTypCd": "01"
+        },
+        {
+          "mlgAmt": 500,
+          "mlgUtlzNm": "이벤트 적립(온다 택시)",
+          "mlgUtlzDtm": "2024-04-04 16:40",
+          "mlgUseTypCd": "01"
+        }
+      ],
+      "mbrsMlgAmt": 4521,
+      "monExpiSchdAmt": 10,
+      "mlgUseAmt": 10600,
+      "scsYn": "Y",
+      "aftNxtMonExpiSchdAmt": 0
+    },
+    "errMsg": ""
+  },
+  "inqrSpfStplAgrmYN": {
+    "rstCd": "200",
+    "dta": {
+      "rspMsg": "약관 동의여부 정상 조회",
+      "stplList": [
+        {
+          "stplSno": "20240507000000000621",
+          "stplTtlNm": "개인정보 수집 및 이용 동의(필수)",
+          "stplMndtYn": "Y",
+          "stplAgrmYn": "N",
+          "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20240507000000000621.docx",
+          "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20240507000000000621.do"
+        },
+        {
+          "stplSno": "20240325000000000591",
+          "stplTtlNm": "개인정보 제3자 제공 동의(필수)",
+          "stplMndtYn": "Y",
+          "stplAgrmYn": "N",
+          "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20240325000000000591.docx",
+          "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20240325000000000591.do"
+        }
+      ],
+      "rspCd": "0000"
+    },
+    "errMsg": ""
+  },
+  "crtnSpfStplAgrmInfo": {
+    "rstCd": "200",
+    "dta": {
+        "rspMsg": "약관 동의정보가 정상 등록되었습니다.",
+        "stplList": [
+            {
+                "stplAgrmYn": "Y",
+                "stplSno": "20240507000000000621",
+                "moappMbrsSno": "20240507000000029667",
+                "apiId": "144"
+            },
+            {
+                "stplAgrmYn": "Y",
+                "stplSno": "20240325000000000591",
+                "moappMbrsSno": "20240507000000029667",
+                "apiId": "144"
+            }
+        ],
+        "rspCd": "0000"
+    },
+    "errMsg": ""
+  },
+  "inqrGTTMlgSwtcBfrsInf": {
+    "rstCd": "200",
+    "dta": {
+      "infoImgPath": "/resources/images/img_GTT_mlg_swtc_info5.png",
+      "allStplAgrmYn": "N",
+      "rspMsg": "필수 약관 미동의",
+      "mlgSwtcUGD": [
+        "<font color='red'>T마일리지 전환 완료 후 취소 불가 합니다.</font>",
+        "GO마일리지는 10M 단위로 전환합니다.<br/>(GO마일리지 10M → T마일리지 10M)",
+        "전환할 GO마일리지는 보유한 GO마일리지 금액을 초과할 수 없습니다."
+      ],
+      "stplList": [
+        {
+          "stplSno": "20220627000000000281",
+          "stplTtlNm": "개인정보 수집/이용 동의(필수)",
+          "stplMndtYn": "Y",
+          "stplAgrmYn": "N",
+          "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20220627000000000281.docx",
+          "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20220627000000000281.do"
+        }
+      ],
+      "popMsgCtt": "",
+      "TMlgAmt": 0,
+      "popMsgTtl": "",
+      "rspCd": "0010",
+      "GOMlgAmt": 2000,
+      "tmnyIntgMbrsYn": ""
+    },
+    "errMsg": ""
+  },
+  "requestSearchTMlg": {
+    "rstCd": "200",
+    "dta": {
+      "infoImgPath": "/resources/images/img_GTT_mlg_swtc_info5.png",
+      "allStplAgrmYn": "Y",
+      "rspMsg": "정상조회",
+      "mlgSwtcUGD": [
+        "<font color='red'>T마일리지 전환 완료 후 취소 불가 합니다.</font>",
+        "GO마일리지는 10M 단위로 전환합니다.<br/>(GO마일리지 10M → T마일리지 10M)",
+        "전환할 GO마일리지는 보유한 GO마일리지 금액을 초과할 수 없습니다."
+      ],
+      "stplList": [
+        {
+          "stplSno": "20220627000000000281",
+          "stplTtlNm": "개인정보 수집/이용 동의(필수)",
+          "stplMndtYn": "Y",
+          "stplAgrmYn": "Y",
+          "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20220627000000000281.docx",
+          "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20220627000000000281.do"
+        }
+      ],
+      "popMsgCtt": "",
+      "TMlgAmt": 1435895,
+      "popMsgTtl": "",
+      "rspCd": "0000",
+      "GOMlgAmt": 825420,
+      "tmnyIntgMbrsYn": "Y"
+    },
+    "errMsg": ""
+  },
+  "reqGTTMlgSwtc": {
+    "rstCd": "200",
+    "dta": {
+      "rmnTmnyMlgAmt": 1435905,
+      "mlgSwtcDtm": "2024.05.09 10:56",
+      "rspMsg": "정상처리",
+      "popMsgCtt": "",
+      "popMsgTtl": "",
+      "swtcMlgScsYn": "Y",
+      "rspCd": "0000",
+      "rmnTmgMlgAmt": 825410,
+      "mlgSwtcAmt": 10
+    },
+    "errMsg": ""
+  },
+  "inqrWebViewStupInfo": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상 처리 되었습니다.",
+      "data": [
+        {
+            "scrnId": "SCRN20230605001",
+            "hgrnScrnId": null,
+            "scrnNm": "GO마일리지 적립 및 사용안내",
+            "imgSeq": 1,
+            "scrnDvsCd": "I",
+            "imgUrl": "https://tiaapid.tmoney.co.kr:20328/resources/upload/img/evnt/img_eventDtl_S_EVNT085_20240115.jpg",
+            "imgLnkUrl": null,
+            "scrnCtt": null,
+            "staCd": "2",
+            "webViewUrl": "https://tiaapid.tmoney.co.kr:20328/webview/app/v2/TGOWebView.do?scrnId=SCRN20230605001&moappMbrsSno="
+        }
+      ]
+    },
+    "errMsg": ""
+  }
+}

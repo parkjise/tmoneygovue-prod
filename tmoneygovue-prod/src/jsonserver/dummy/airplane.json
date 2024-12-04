@@ -1,0 +1,11 @@
+{
+  "airplaneHistory": {
+    "err_cod": "0000",
+    "rstCd": "200",
+    "dta": {
+      "jrnyList": [],
+      "inqrNcnt": 0
+    },
+    "err_msg": ""
+  }
+}

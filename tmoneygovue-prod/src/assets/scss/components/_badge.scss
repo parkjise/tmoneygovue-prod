@@ -1,0 +1,54 @@
+@use '../helpers' as *;
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  font-family: $font;
+  white-space: nowrap;
+  
+  $badgeColor: (
+    'transparent': transparent,
+    'primary': $primary2,
+    'secondary': #F08300,
+    'white': $white,
+    'black': $black,
+  );
+  $badgeSize: (
+    'sm': 1.8,
+    'md': 2.5,
+    // 'lg': 5.2
+  );
+
+  @each $color, $bgColor in $badgeColor {
+    &_#{$color} {
+      padding: 0 1.2rem;
+      border-radius: 99.9rem;
+      background-color: $primary2;
+      color: $white;
+      @include fontHeight(1.2);
+      font-weight: $fontMedium;
+      @if $color == 'secondary' {
+        background-color: #F08300;
+        color: $white;
+      }
+      @if $color == 'white' {
+        border: 0.1rem solid $primary2;
+        background-color: $white;
+        color: $primary2;
+      }
+      @if $color == 'black' {
+        background-color: $black;
+        color: $white;
+      }
+    }
+  }
+  @each $size, $number in $badgeSize {
+    &_#{$size} {
+      height: $number + rem;
+      @if $size == 'sm' {
+        @include fontHeight(1.1);
+      }
+    }
+  }
+}

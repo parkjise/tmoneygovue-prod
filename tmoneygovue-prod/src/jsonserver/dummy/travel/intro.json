@@ -1,0 +1,570 @@
+{
+  "categoryList": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_msg": null,
+    "dta": [
+      {
+            "categoryId": "ALL",
+            "categoryName": "전체",
+            "imageUrl": null,
+            "categoryDepth": null,
+            "subCategories": [
+                {
+                    "categoryId": "001",
+                    "categoryName": "일반 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "002",
+                    "categoryName": "트래킹,등산 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "003",
+                    "categoryName": "지자체 지원 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "004",
+                    "categoryName": "반려동물동반 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "005",
+                    "categoryName": "이색 테마 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "006",
+                    "categoryName": "프리미엄 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "007",
+                    "categoryName": "힐링 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "008",
+                    "categoryName": "바다,섬 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "009",
+                    "categoryName": "먹거리 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "010",
+                    "categoryName": "골프 패키지",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                }
+            ]
+        },
+        {
+            "categoryId": "TAA",
+            "categoryName": "당일여행",
+            "imageUrl": "https://dev-image.shinsegaego.com/category/2024/05/21/1-154848782.jpg",
+            "categoryDepth": null,
+            "subCategories": [
+                {
+                    "categoryId": "001",
+                    "categoryName": "일반 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "002",
+                    "categoryName": "트래킹,등산 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "003",
+                    "categoryName": "지자체 지원 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "004",
+                    "categoryName": "반려동물동반 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "005",
+                    "categoryName": "이색 테마 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "006",
+                    "categoryName": "프리미엄 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "007",
+                    "categoryName": "힐링 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "008",
+                    "categoryName": "바다,섬 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "009",
+                    "categoryName": "먹거리 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "010",
+                    "categoryName": "골프 패키지",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                }
+            ]
+        },
+        {
+            "categoryId": "TAB",
+            "categoryName": "숙박여행",
+            "imageUrl": "https://dev-image.shinsegaego.com/category/2024/05/21/1-154912908.jpg",
+            "categoryDepth": null,
+            "subCategories": [
+                {
+                    "categoryId": "001",
+                    "categoryName": "일반 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "002",
+                    "categoryName": "트래킹,등산 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "003",
+                    "categoryName": "지자체 지원 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "004",
+                    "categoryName": "반려동물동반 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "005",
+                    "categoryName": "이색 테마 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "006",
+                    "categoryName": "프리미엄 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "007",
+                    "categoryName": "힐링 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "008",
+                    "categoryName": "바다,섬 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "009",
+                    "categoryName": "먹거리 여행",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "010",
+                    "categoryName": "골프 패키지",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                }
+            ]
+        },
+        {
+            "categoryId": "TBA",
+            "categoryName": "시티투어",
+            "imageUrl": "https://dev-image.shinsegaego.com/category/2024/05/21/1-154938917.jpg",
+            "categoryDepth": null,
+            "subCategories": [
+                {
+                    "categoryId": "011",
+                    "categoryName": "코스형",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "012",
+                    "categoryName": "순환형",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                }
+            ]
+        },
+        {
+            "categoryId": "TDA",
+            "categoryName": "레져/체험/ticket",
+            "imageUrl": "https://dev-image.shinsegaego.com/category/2024/05/21/1-155030016.jpg",
+            "categoryDepth": null,
+            "subCategories": [
+                {
+                    "categoryId": "013",
+                    "categoryName": "입장권",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "014",
+                    "categoryName": "교환권",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                },
+                {
+                    "categoryId": "015",
+                    "categoryName": "렌탈권",
+                    "imageUrl": null,
+                    "categoryDepth": null,
+                    "subCategories": null
+                }
+            ]
+        }
+    ]
+  },
+  "areaList": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_msg": null,
+    "dta": [
+      {
+          "areaId": "10",
+          "areaName": "서울",
+          "imageUrl": null,
+          "linkUrl": null
+      },
+      {
+          "areaId": "20",
+          "areaName": "경기",
+          "imageUrl": null,
+          "linkUrl": null
+      },
+      {
+          "areaId": "30",
+          "areaName": "강원",
+          "imageUrl": null,
+          "linkUrl": null
+      },
+      {
+          "areaId": "40",
+          "areaName": "충청",
+          "imageUrl": null,
+          "linkUrl": null
+      },
+      {
+          "areaId": "50",
+          "areaName": "전라",
+          "imageUrl": null,
+          "linkUrl": null
+      },
+      {
+          "areaId": "60",
+          "areaName": "경상",
+          "imageUrl": null,
+          "linkUrl": null
+      },
+      {
+          "areaId": "70",
+          "areaName": "제주",
+          "imageUrl": null,
+          "linkUrl": null
+      },
+      {
+          "areaId": "90",
+          "areaName": "해외",
+          "imageUrl": null,
+          "linkUrl": null
+      }
+    ]
+  },
+  "popularAreaList": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_msg": null,
+    "dta": [
+      {
+          "areaId": "10",
+          "areaName": "서울",
+          "imageUrl": "https://dev-image.shinsegaego.com/area/2024/05/27/1-163250558.jpg",
+          "linkUrl": ""
+      },
+      {
+          "areaId": "60",
+          "areaName": "경상",
+          "imageUrl": "https://dev-image.shinsegaego.com/area/2024/05/27/1-164023619.jpg",
+          "linkUrl": ""
+      }
+  ]
+  },
+  "bestPrdList": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_msg": null,
+    "dta": [
+        {
+            "trvlPrdId": "T9140001",
+            "trvlPrdNm": "이달의 상품",
+            "prdPrice": 42900,
+            "imageUrl": "https://dev-image.shinsegaego.com/best/2024/05/27/1-164317148.jpg",
+            "linkUrl": ""
+        }
+    ]
+  },
+  "bannerList": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": [{
+      "bannerId": "1",
+      "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/event_banner_ex.png",
+      "linkUrl": "tmoneytia://{내부 또는 외부Scheme}"
+    },
+    {
+      "bannerId": "2",
+      "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/event_banner_ex.png",
+      "linkUrl": "tmoneytia://{내부 또는 외부Scheme}"
+    }]
+  },
+  "trvlMrnpList": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": [{
+      "trvlMrnpSno": "20240429000000000001",
+      "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 당일여행(지원특가)",
+      "trvlPrdId": "TP001",
+      "mmpDt": "20240429",
+      "deprDt": "20240501",
+      "deprTime": "080000",
+      "trvlMrsStaCd": "1",
+      "trvlMrsStaNm": "예매완료",
+      "busTckKndNm": "일반 2 아동 3",
+      "tissuNcnt": 5
+    },{
+      "trvlMrnpSno": "20240429000000000002",
+      "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 당일여행(지원특가)",
+      "trvlPrdId": "TP001",
+      "mmpDt": "20240429",
+      "deprDt": "20240501",
+      "deprTime": "080000",
+      "trvlMrsStaCd": "1",
+      "trvlMrsStaNm": "예매완료",
+      "busTckKndNm": "일반 4",
+      "tissuNcnt": 4
+    }]
+  },
+  "introPopup":{
+    "rstCd":"200",
+    "errMsg": "",
+    "dta": {
+      "rspCd": "0002",
+      "rspMsg": "광고 서비스 설정 정보가 정상 조회되었습니다.",
+      "actScsTyp": "A",
+      "ntcMttrList": [{
+        "ntcType:": "I",
+        "advrStupSno": "DAA02023000000000030",
+        "sortSeq": 1,
+        "ntcMttrTtlNm": "긴급공지 제목",
+        "ntcMttrCtt": "긴급공지 내용"
+      },{
+        "ntcType:": "I",
+        "advrStupSno": "DAA02023000000000031",
+        "sortSeq": 2,
+        "ntcMttrTtlNm": "긴급공지2 제목",
+        "ntcMttrCtt": "긴급공지2 내용"
+      }],
+      "advrList": [{
+        "sortSeq": 3,
+        "advrAreaDvsCd": "01",
+        "advrStupSno": "DAA02023000000000057",
+        "advrStupNm": "렌터카-결제완료_이벤트팝업",
+        "useYn": "Y",
+        "advrBltnTypCd": "I",
+        "advrExpaTypCd": "F",
+        "advrImgPathVal": "/assets/images/temp/event_silde_ex.png",
+        "advrBltnDrtmVal": "",
+        "mvmnPathTypCd": "I",
+        "mvmnPathVal": "https://m.blog.naver.com/PstView.naver?blogId=2seoulbike&logNo=223167492444&proxyReferer=",
+        "mvmnPathTtlNm": "",
+        "mvmnPathGbcIconTypCd": "",
+        "authTknNedYn": "N"
+      }, {
+        "sortSeq": 2,
+        "advrAreaDvsCd": "01",
+        "advrStupSno": "DAA02023000000000058",
+        "advrStupNm": "렌터카-결제완료_배너2",
+        "useYn": "Y",
+        "advrBltnTypCd": "B",
+        "advrExpaTypCd": "F",
+        "advrImgPathVal": "/assets/images/temp/banner_ex.png",
+        "advrBltnDrtmVal": "",
+        "mvmnPathTypCd": "I",
+        "mvmnPathVal": "https://m.blog.naver.com/PstView.naver?blogId=2seoulbike&logNo=223167492444&proxyReferer=",
+        "mvmnPathTtlNm": "",
+        "mvmnPathGbcIconTypCd": "",
+        "authTknNedYn": "N"
+      },  {
+        "sortSeq": 1,
+        "advrAreaDvsCd": "01",
+        "advrStupSno": "DAA02023000000000056",
+        "advrStupNm": "렌터카-결제완료_배너1",
+        "useYn": "Y",
+        "advrBltnTypCd": "B",
+        "advrExpaTypCd": "F",
+        "advrImgPathVal": "/assets/images/temp/banner_ex.png",
+        "advrBltnDrtmVal": "",
+        "mvmnPathTypCd": "I",
+        "mvmnPathVal": "https://m.blog.naver.com/PstView.naver?blogId=2seoulbike&logNo=223167492444&proxyReferer=",
+        "mvmnPathTtlNm": "",
+        "mvmnPathGbcIconTypCd": "",
+        "authTknNedYn": "N"
+      }]
+    }
+  },
+  "trvlMrnpSync": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta":[{
+      "trvlMrnpSno": "20240429000000000001",
+      "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 당일여행(지원특가)",
+      "trvlPrdId": "TP001",
+      "mmpDt": "20240429",
+      "deprDt": "20240501",
+      "deprTime": "080000",
+      "trvlMrsStaCd": "1",
+      "trvlMrsStaNm": "예매완료",
+      "busTckKndNm": "일반 2 아동 3",
+      "tissuNcnt": 5
+    },{
+      "trvlMrnpSno": "20240429000000000002",
+      "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 당일여행(지원특가)",
+      "trvlPrdId": "TP001",
+      "mmpDt": "20240429",
+      "deprDt": "20240501",
+      "deprTime": "080000",
+      "trvlMrsStaCd": "1",
+      "trvlMrsStaNm": "예매완료",
+      "busTckKndNm": "일반 4",
+      "tissuNcnt": 4
+    }]
+  },
+  "keywords":{
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": ["고성","아야진","해변","버스"]
+  },
+  "prdPlanList": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": [{
+      "planId": "1",
+      "title": "반려견과 함께하는 이색 여행"
+    }]
+  },
+  "prdBannerList": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": [{
+      "bannerId": "1",
+      "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/bottom_event_banner_ex.png",
+      "linkUrl": "tmoneytia://{내부 또는 외부Scheme}"
+    },{
+      "bannerId": "2",
+      "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/bottom_event_banner_ex.png",
+      "linkUrl": "tmoneytia://{내부 또는 외부Scheme}"
+    },{
+      "bannerId": "3",
+      "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/bottom_event_banner_ex.png",
+      "linkUrl": "tmoneytia://{내부 또는 외부Scheme}"
+    }]
+  },
+  "associateSrch": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": {
+      "keywords": ["고성","아야진","해변","버스"],
+      "areaList": [{
+        "areaId": "10",
+        "areaName": "서울"
+      }],
+      "prdList": [{
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 당일여행(지원특가)"
+      }]
+    }
+  }
+}

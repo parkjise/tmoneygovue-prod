@@ -1,0 +1,8 @@
+{
+  "okText": "OK",
+  "closeText": "Close",
+  "welcomeMessageAndName": "Welcome, {name}!",
+  "retryText": "Retry",
+  "terminateText": "Terminate",
+  "goBackText": "GoBack"
+}

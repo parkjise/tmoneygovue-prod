@@ -1,0 +1,527 @@
+@use '../helpers' as *;
+.card_agree_area {
+  & .item_check {
+    padding: 0.5rem 2rem 0.5rem 2rem !important;
+  }
+  & .box_title {
+    display: none;
+  }
+  & .form_checkbox_label {
+    & .choice {
+      color: $gray050 !important;
+    }
+    &::before {
+      background-image: url(/assets/images/ic/ic_20_checkbox.png) !important;
+      background-size: 2.4rem;
+    }
+  }
+  & .form_checkbox_input {
+    &:checked {
+      & ~ .form_checkbox_label {
+        & > div {
+          color: $gray090;
+        }
+        &::before {
+          background-image: url(/assets/images/ic/ic_20_checkbox_active.png) !important;
+          background-size: 2.4rem;
+        }
+      }
+    }
+  }
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & .accordion {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+  }
+  & .accordion_header {
+    // height: 6.3rem !important;
+    & .accordion_title {
+      & span {
+        color: $gray050;
+        font-size: 1.4rem;
+        font-weight: $fontRegular;
+        margin-left: 0.4rem;
+      }
+    }
+    & .accordion_btn {
+      padding: 0 !important;
+      & .ic_20_arrow {
+        width: auto;
+        height: auto;
+        &::before {
+          width: auto;
+          height: auto;
+          background: none;
+          content: '항목보기';
+          text-decoration: underline;
+          font-size: 1.2rem;
+          color: $gray050;
+          font-weight: $fontRegular;
+        }
+      }
+      &[aria-expanded='true'] {
+        & .ic {
+          transform: rotate(0deg) !important;
+        }
+        & .ic_20_arrow {
+          width: auto;
+          height: auto;
+          &::before {
+            content: '닫기';
+          }
+        }
+      }
+    }
+  }
+  & .accordion_item {
+    border-bottom: 1px solid $gray020;
+    // &.is_active {
+    //   & .accordion_header {
+    //     height: 4.3rem !important;
+    //   }
+    // }
+  }
+  & .accordion_body {
+    transition: none !important;
+  }
+
+  & .accordion_content {
+    background-color: $white;
+    padding: 0rem !important;
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &:last-child {
+        padding-bottom: 2rem;
+      }
+      & + div {
+        margin-top: 0.8rem;
+      }
+      & .btn {
+        padding: 0;
+        height: auto;
+      }
+      & .form_checkbox {
+        margin-bottom: 0;
+        & span {
+          color: $primary2;
+          margin-left: 0.4rem;
+        }
+        &_input {
+          & + .form_checkbox_label {
+            color: $gray050;
+            font-size: 1.4rem;
+            font-weight: $fontRegular;
+            > div {
+              font-size: 1.4rem;
+              color: $gray050;
+              font-weight: $fontRegular;
+            }
+            &::before {
+              @include ic(20, 'ic_20_checkbox');
+              width: 2rem;
+              height: 2rem;
+              background-size: 100% !important;
+            }
+          }
+          &:checked {
+            & ~ .form_checkbox_label {
+              & > div {
+                color: $gray090;
+              }
+              &::before {
+                background-size: 100% !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &:last-child {
+    & .accordion_item {
+      border-bottom: none;
+    }
+  }
+}
+.check_type_header {
+  & .accordion_title {
+    margin-left: 0 !important;
+  }
+}
+.verification {
+  position: relative;
+  & .img_area {
+    & + .verification_txt {
+      padding: 1.6rem 0;
+    }
+  }
+  & .btn_area {
+    background-color: transparent !important;
+  }
+}
+
+.verification_txt {
+  & .b_txt {
+    font-size: 2.4rem;
+    color: $gray090;
+    font-weight: $fontMedium;
+    line-height: 3rem;
+    letter-spacing: -1px;
+  }
+  & .s_txt {
+    padding-top: 0.4rem;
+    font-size: 1.4rem;
+    color: $gray070;
+    font-weight: $fontRegular;
+    line-height: 2rem;
+    letter-spacing: -0.5px;
+    &.gray090 {
+      color: $gray090;
+    }
+  }
+  & .point_txt {
+    padding-top: 1.6rem;
+    font-size: 1.4rem;
+    color: $primary2;
+    font-weight: $fontRegular;
+    line-height: 2rem;
+  }
+}
+
+.verification_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding-bottom: 10rem !important;
+  & .btn {
+    background-color: $white;
+    font-weight: $fontMedium;
+    letter-spacing: -0.08px;
+    color: $gray090;
+    border: 1px solid $gray030;
+    & ~ .btn {
+      margin-left: 0;
+    }
+    &.toss,
+    &.kakao,
+    &.pass {
+      background-image: url('#{$img_path}/verification/toss_ico.svg');
+      background-repeat: no-repeat;
+      background-size: 4rem;
+      background-position: 0.8rem center;
+    }
+    &.kakao {
+      background-image: url('#{$img_path}/verification/kakao_ico.svg');
+    }
+    &.pass {
+      background-image: url('#{$img_path}/verification/pass_ico.svg');
+    }
+  }
+}
+.verification_message {
+  position: relative;
+  background-color: $gray090;
+  padding: 1rem 0;
+  width: 18.4rem;
+  font-size: 1.2rem;
+  font-weight: $fontMedium;
+  color: $white;
+  letter-spacing: -0.06rem;
+  border-radius: 4rem;
+  text-align: center;
+  margin: 0 auto;
+  &::after {
+    position: absolute;
+    left: 50%;
+    bottom: -0.8rem;
+    transform: translateX(-50%);
+    content: ' ';
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: 0.8rem solid transparent;
+    border-bottom-width: 0;
+    border-top-color: $gray090;
+  }
+}
+.verification_box {
+  margin-top: 1.6rem;
+  & .verification_list {
+    & li {
+      display: flex;
+      font-size: 1.4rem;
+      font-weight: $fontRegular;
+      line-height: 2rem;
+      letter-spacing: -0.07rem;
+      color: $gray070;
+      & i.circle {
+        width: 1.2rem;
+        margin-top: 0.8rem;
+        &::before {
+          content: '';
+          display: block;
+          width: 0.4rem;
+          height: 0.4rem;
+          background-color: $gray555;
+          border-radius: 50%;
+        }
+      }
+      & span {
+        flex: 1;
+      }
+      & + li {
+        margin-top: 0.8rem;
+      }
+    }
+  }
+  & .veri_member_list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    & .veri_title {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      font-weight: 400;
+      color: $gray555;
+    }
+    & .veri_info_area {
+      padding-top: 0.8rem;
+    }
+    & .veri_num {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      font-weight: 500;
+      color: $gray090;
+    }
+  }
+  &.box_title_none {
+    & .box_title {
+      display: none;
+    }
+  }
+}
+
+.agree_check {
+  border-bottom: 1px solid $gray020;
+  padding-bottom: 2rem;
+  & + .agree_check {
+    padding-top: 2rem;
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+  & .form_checkbox_label {
+    & > div {
+      & .choice {
+        font-size: 1.4rem;
+        font-weight: $fontRegular;
+        color: $gray050;
+        margin-left: 0.4rem;
+      }
+    }
+  }
+}
+
+.agree_check_detail {
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // &:last-child {
+    //   padding-bottom: 2rem;
+    // }
+    & + div {
+      margin-top: 0.8rem;
+    }
+    & .btn {
+      padding: 0;
+      height: auto;
+    }
+    & .form_checkbox {
+      margin-bottom: 0;
+      & span {
+        color: $primary2;
+        margin-left: 0.4rem;
+      }
+      &_input {
+        & + .form_checkbox_label {
+          color: $gray050;
+          font-size: 1.4rem;
+          font-weight: $fontRegular;
+          > div {
+            font-size: 1.4rem;
+            color: $gray050;
+            font-weight: $fontRegular;
+          }
+          &::before {
+            @include ic(20, 'ic_20_checkbox');
+            width: 2rem;
+            height: 2rem;
+            background-size: 100% !important;
+          }
+        }
+        &:checked {
+          & .form_checkbox_label {
+            &::before {
+              background-size: 100% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.check_none {
+  span {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    color: $gray050;
+    font-weight: $fontRegular;
+    padding-left: 2.8rem;
+  }
+}
+
+.invite_friends {
+  position: relative;
+  // margin-top: 12.9rem;
+  & .round_box {
+    & .box_title {
+      display: none;
+    }
+    & label {
+      color: $primary2;
+    }
+  }
+  &::before {
+    content: '';
+    width: 10.9rem;
+    height: 8rem;
+    position: absolute;
+    top: -7rem;
+    background-image: url(/assets/images/invite_friends/invite_img_01.svg);
+    background-size: 100% 100%;
+  }
+  width: calc(100% - 4rem);
+  position: absolute;
+  bottom: 10.4rem;
+  & .invite_message {
+    position: absolute;
+    left: 9rem;
+    top: -7rem;
+    width: 16.1rem;
+    height: 3.6rem;
+    background-color: $gray090;
+    border-radius: 3.6rem;
+    color: $white;
+    line-height: 3.6rem;
+    text-align: center;
+    font-size: 1.2rem;
+    &::before {
+      content: '';
+      position: absolute;
+      left: -0.1rem;
+      bottom: 0.1rem;
+      width: 1.445rem;
+      height: 0.9rem;
+      background-image: url(/assets/images/invite_friends/invite_img_03.svg);
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.all_agree {
+  margin-top: 2rem;
+  border-top: 1px solid $gray020;
+  &_check {
+    padding-top: 2rem;
+    & .form_checkbox_label {
+      & div {
+        font-size: 1.4rem;
+        font-weight: $fontRegular;
+        color: $gray090;
+        & span {
+          color: $primary2;
+        }
+      }
+    }
+    & .form_checkbox {
+      margin-bottom: 0;
+    }
+    & .agree_discription {
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      font-weight: $fontRegular;
+      color: $gray070;
+      padding-top: 0.4rem;
+    }
+  }
+}
+.join_success {
+  text-align: center;
+  & .img_area {
+    padding-top: 4rem;
+  }
+  & .verification_txt {
+    padding-top: 2.4rem !important;
+    & .s_txt {
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+      font-weight: $fontMedium;
+      color: $gray090;
+      padding-top: 2.4rem;
+    }
+    & .s_txt_02 {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      font-weight: $fontRegular;
+      color: $gray070;
+      padding-top: 0.8rem;
+    }
+  }
+}
+.join_fail {
+  text-align: center;
+  & .img_area {
+    padding-top: 4rem;
+  }
+  & .verification_txt {
+    padding-top: 2.4rem !important;
+    & .b_txt {
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+    }
+    & .s_txt {
+      line-height: 2rem;
+      color: $gray070;
+      padding-top: 0.8rem;
+    }
+  }
+}
+.modal_body {
+  & .toss_terms_popup {
+    & .form_checkbox {
+      margin-bottom: 2rem;
+      & + .btn {
+        margin-bottom: 2rem;
+      }
+      &_label {
+        font-size: 1.6rem;
+        font-weight: $fontMedium;
+      }
+    }
+  }
+}

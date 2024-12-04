@@ -1,0 +1,268 @@
+{
+    "inqrStplList": {
+        "rstCd": "200",
+        "dta": {
+            "msg": "약관조회에 성공하였습니다.",
+            "stplList": [
+                {
+                    "stplGrpDesc": "약관 및 주요 안내, 개인정보 필수 수집, 제공 및 조회, 개인정보 선택 수집 및 제공, 위치기반 서비스 이용약관에 모두 동의합니다.",
+                    "stplBtnNm": "티머니GO 가입하기",
+                    "stplGrpNm": "티머니GO",
+                    "stplDtlList": [
+                        {
+                            "sno": "20211228000000000142",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://maas.tmoney.co.kr/terms/",
+                            "ttl": "서비스 이용약관",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20211228000000000142.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20221205000000000301",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://maas.tmoney.co.kr/terms/?loc",
+                            "ttl": "위치기반 서비스 이용 약관",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20221205000000000301.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20221205000000000302",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://maas.tmoney.co.kr/terms/?collect",
+                            "ttl": "개인(신용)정보 수집, 이용 동의",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20221205000000000302.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20211228000000000145",
+                            "trntYn": "N",
+                            "mndtYn": "N",
+                            "extlUrl": "https://maas.tmoney.co.kr/terms/?third",
+                            "ttl": "개인(신용)정보의 제3자 제공동의",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20211228000000000145.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20210616000000000228",
+                            "trntYn": "N",
+                            "mndtYn": "N",
+                            "extlUrl": "https://maas.tmoney.co.kr/terms/?marketing",
+                            "ttl": "마케팅정보 수신 동의",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000228.docx",
+                            "mrkgYn": "Y"
+                        }
+                    ],
+                    "utlzSvcDvsCd": "S"
+                },
+                {
+                    "stplGrpDesc": "약관 및 주요 안내, 개인정보 필수 수집, 제공 및 조회, 개인정보 선택 수집 및 제공, 위치기반 서비스 이용약관에 모두 동의합니다.",
+                    "stplBtnNm": "택시 가입하기",
+                    "stplGrpNm": "택시",
+                    "stplDtlList": [
+                        {
+                            "sno": "20211228000000000147",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20211228000000000147.do",
+                            "ttl": "[onda] 티머니GO 이용을 위한 개인정보 수집 및 활용 동의",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20211228000000000147.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20240419000000000613",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20240419000000000613.do",
+                            "ttl": "[onda] 서비스 이용약관",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20240419000000000613.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20211109000000000124",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://ondataxi.s3.ap-northeast-2.amazonaws.com/paxTerms/p4_20240213.html",
+                            "ttl": "[onda] 개인정보 수집, 이용 동의",
+                            "url": "https://ondataxi.s3.ap-northeast-2.amazonaws.com/paxTerms/p4_20240213.html",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20211109000000000125",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20211109000000000125.do",
+                            "ttl": "[onda] 개인정보 제3자 제공 동의",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20211109000000000125.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20230410000000000001",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://ondataxi.s3.ap-northeast-2.amazonaws.com/paxTerms/p3_20240213.html",
+                            "ttl": "[onda] 위치기반서비스 이용약관",
+                            "url": "https://ondataxi.s3.ap-northeast-2.amazonaws.com/paxTerms/p3_20240213.html",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20240408000000000601",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://support.imforyou.co.kr/terms/detail?terms_code=1&platform=rider",
+                            "ttl": "[i.M] 서비스 이용약관",
+                            "url": "https://support.imforyou.co.kr/terms/detail?terms_code=1&platform=rider",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20240416000000000612",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20240416000000000612.do",
+                            "ttl": "[i.M] 티머니GO 이용을 위한 개인정보 수집 및 활용 동의",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20240416000000000612.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20240408000000000602",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20240408000000000602.do",
+                            "ttl": "[i.M] 개인정보 제3자 제공 동의",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20240408000000000602.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20240408000000000603",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://help.tadatada.com/hc/ko/articles/13883469901849-%ED%83%80%EB%8B%A4-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80",
+                            "ttl": "[타다] 서비스 이용약관",
+                            "url": "https://help.tadatada.com/hc/ko/articles/13883469901849-%ED%83%80%EB%8B%A4-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20211109000000000122",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20211109000000000122.do",
+                            "ttl": "[타다] 티머니GO 이용을 위한 개인정보 수집 및 활용 동의",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20211109000000000122.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20211109000000000126",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20211109000000000126.do",
+                            "ttl": "[타다] 개인정보 제3자 제공 동의",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20211109000000000126.docx",
+                            "mrkgYn": "N"
+                        }
+                    ],
+                    "utlzSvcDvsCd": "O"
+                },
+                {
+                    "stplGrpDesc": "약관 및 주요 안내, 개인정보 필수 수집, 제공 및 조회, 개인정보 선택 수집 및 제공, 위치기반 서비스 이용약관에 모두 동의합니다.",
+                    "stplBtnNm": "고속/시외 가입하기",
+                    "stplGrpNm": "고속/시외",
+                    "stplDtlList": [
+                        {
+                            "sno": "20211228000000000146",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20211228000000000146.do",
+                            "ttl": "티머니GO 고속시외서비스 이용 등을 위한 개인정보 수집 및 활용",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20211228000000000146.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20210616000000000216",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20210616000000000216.do",
+                            "ttl": "개인정보 수집, 이용 동의",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000216.docx",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20210616000000000217",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://exp.tmoney.co.kr/app/user/viewArticleMblSvc.do",
+                            "ttl": "서비스 이용약관 동의",
+                            "url": "https://exp.tmoney.co.kr/app/user/viewArticleMblSvc.do",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20210616000000000218",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://exp.tmoney.co.kr/app/user/stgTerms.do",
+                            "ttl": "위치기반 서비스 이용약관 동의",
+                            "url": "https://exp.tmoney.co.kr/app/user/stgTerms.do",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20210616000000000222",
+                            "trntYn": "Y",
+                            "mndtYn": "Y",
+                            "extlUrl": "",
+                            "ttl": "운송약관",
+                            "url": "",
+                            "mrkgYn": "N"
+                        },
+                        {
+                            "sno": "20210616000000000219",
+                            "trntYn": "N",
+                            "mndtYn": "Y",
+                            "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20210616000000000219.do",
+                            "ttl": "제3자 정보제공 동의",
+                            "url": "/data001/midsvc01/online/stpl/tmoneygoV2/20210616000000000219.docx",
+                            "mrkgYn": "N"
+                        }
+                    ],
+                    "utlzSvcDvsCd": "B"
+                }
+            ]
+        },
+        "errMsg": ""
+    },
+    "inqrPrpmAutPymStplAgrmYN" : {
+        "rstCd": "200",
+        "dta": {
+            "rspMsg": "약관 동의여부 정상 조회",
+            "stplList": [
+            {
+                "stplSno": "20220117000000000261",
+                "stplTtlNm": "개인정보 수집 동의(필수)",
+                "stplMndtYn": "Y",
+                "stplAgrmYn": "N",
+                "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20220117000000000261.docx",
+                "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20220117000000000261.do"
+            },
+            {
+                "stplSno": "20220117000000000262",
+                "stplTtlNm": "전자금융거래 이용약관 동의(필수)",
+                "stplMndtYn": "Y",
+                "stplAgrmYn": "N",
+                "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20220117000000000262.docx",
+                "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20220117000000000262.do"
+            }
+            ],
+            "rspCd": "0000"
+        },
+        "errMsg": ""
+    },
+    "crtnMbrsLnkgSvcInfo" : {
+        "rstCd": "200",
+        "dta": {
+            "scsYn": "Y",
+            "msg": "회원 서비스 연동 요청을 성공하였습니다."
+        },
+        "errMsg": ""
+    }
+
+}

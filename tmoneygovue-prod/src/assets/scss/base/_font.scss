@@ -1,0 +1,57 @@
+@use '../helpers' as *;
+
+/* font */
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$font_path}/NotoSansKR-Regular.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 500;
+  src: url('#{$font_path}/NotoSansKR-Medium.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 700;
+  src: url('#{$font_path}/NotoSansKR-Bold.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$font_path}/SpoqaHanSansNeo-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  font-weight: 500;
+  src: url('#{$font_path}/SpoqaHanSansNeo-Medium.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
+  font-weight: 700;
+  src: url('#{$font_path}/SpoqaHanSansNeo-Bold.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TmoneyRoundWind';
+  src: url('#{$font_path}/TmoneyRoundWindRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'TmoneyRoundWind';
+  src: url('#{$font_path}/TmoneyRoundWindExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}

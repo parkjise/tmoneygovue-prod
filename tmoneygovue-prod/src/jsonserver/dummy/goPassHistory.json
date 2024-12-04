@@ -1,0 +1,40 @@
+{
+  "goPassHistory": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상 처리되었습니다.",
+      "data": {
+        "sortSeq": 1,
+        "passPrchSno": "PP202407081629183603",
+        "cpnSno": "CS202406121041010002",
+        "cpnNm": "60분권",
+        "moappMbrsSno": "4e6f26c9-86d4-4519-8eae-7b48bbad046d",
+        "passPrchDtm": "20240814162920",
+        "passPrgsStaCd": "UW",
+        "passPrgsStaNm": "대기",
+        "passDvsCd": "UP",
+        "passDvsNm": "구입",
+        "cpnMrkAmt": "12000",
+        "cpnDiscAmt": "9000",
+        "cpnInprAmt": "160",
+        "passPrchAmt": "9000",
+        "passUseAmt": "0",
+        "passUseDdctAmt": "0",
+        "passRyDtm": "",
+        "passStaMrkVal": "",
+        "svcPymSno": "SP202408080000060759",
+        "ttutAmt": "5400",
+        "atlPymAmt": "5400",
+        "cpnUseAmt": "0",
+        "tmgMlgUseAmt": "0",
+        "pymMnsNm": "신용카드(BC카드)",
+        "pymPrcgStaCd": "P",
+        "pymCancAmt": "4900",
+        "cpnUseCancAmt": "0",
+        "mlgUseCancAmt": "0",
+        "addInprAmt": "200"
+      }
+    }
+  }
+}

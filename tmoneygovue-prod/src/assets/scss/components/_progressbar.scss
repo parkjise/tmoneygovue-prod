@@ -1,0 +1,81 @@
+@use '../helpers' as *;
+
+.progressbar_wrap {
+  display: flex;
+  align-items: center;
+
+  .progressbar {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    &::-webkit-progress-bar {
+      width: 100%; 
+      height: 1.04rem;
+      border-radius: 2rem;
+      background-color: $bg5;
+    }
+    &::-webkit-progress-value {
+      background: linear-gradient(to right,$primary2, #6E6BFF);
+      border-radius: 2rem;
+      transition: all 0.4s ease;
+    }
+    &_value_txt {
+      flex-shrink: 0;
+      width: 2.5rem;
+      margin-left: 1.2rem;
+      @include fontHeight(1.2);
+      color: $primary2;
+    }
+  }
+}
+
+.step_progressbar_wrap {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .step {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    .step_num {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 10rem;
+      background-color: #D9DBFB;
+      color: $white;
+      @include fontHeight(1.2);
+      line-height: 1.8rem;
+      text-align: center;
+    }
+    &.done {
+      .step_num {
+        background-color: $primary2;
+        font-weight: $fontBold;
+      }
+    }
+    &.active {
+      .step_num {
+        width: 2.4rem;
+        height: 2.4rem;
+        border: 0.2rem solid $primary2;
+        background-color: $white;
+        color: $primary2;
+        font-weight: 800;
+      }
+    }
+  }
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0.2rem;
+    width: calc(100% - 0.4rem);
+    height: 0.1rem;
+    border-top: 0.1rem dashed#D9DBFB;
+    transform: translateY(-50%);
+    content: '';
+  }
+}

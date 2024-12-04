@@ -1,0 +1,143 @@
+@use '../helpers' as *;
+
+// checkbox
+.form_checkbox {
+  position: relative;
+  margin-bottom: 1rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &.form_inline {
+    display: inline-block;
+    margin-right: 2rem;
+    &:last-child {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  }
+  .form_checkbox_input {
+    // @include sr_only;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    clip: rect(0, 0, 0, 0); /* 구형 브라우저를 위해 사용 */
+    clip-path: polygon(0 0, 0 0, 0 0); /* inset(50%) 와 동일한 표현 */
+    &:checked {
+      ~ .form_checkbox_label {
+        &::before {
+          @include ic_bg(20, 'checkbox_active');
+        }
+        &.checkline {
+          &::before {
+            @include ic_bg(24, 'checkline_active');
+            background-size: cover;
+          }
+        }
+        &.toggle_switch {
+          &::before {
+            background-color: $primary2;
+            background-image: none;
+          }
+          &::after {
+            left: 1.8rem;
+          }
+        }
+      }
+    }
+  }
+  .form_checkbox_label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include fontHeight(1.6);
+    &::before {
+      content: '';
+      display: inline-flex;
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-right: 0.8rem;
+      @include ic_bg(20, 'checkbox');
+      box-sizing: border-box;
+    }
+    &.checkline {
+      &::before {
+        @include ic_bg(24, 'checkline');
+        background-size: cover;
+      }
+    }
+    &.toggle_switch {
+      &::before {
+        width: 3.6rem;
+        height: 2rem;
+        border-radius: 3rem;
+        background-color: $gray999;
+        background-image: none;
+      }
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0.2rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-color: $white;
+        border-radius: 50%;
+      }
+    }
+  }
+  &.right_checkbox {
+    .form_checkbox_input {
+      &:checked {
+        & + .form_checkbox_label {
+          &::after {
+            @include ic_bg(20, 'checkbox_active');
+          }
+        }
+      }
+    }
+    .form_checkbox_label {
+      &::before {
+        display: none;
+      }
+      &::after {
+        content: '';
+        display: inline-flex;
+        width: 2.4rem;
+        height: 2.4rem;
+        margin-left: auto;
+        @include ic_bg(20, 'checkbox');
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+// checkbox btn
+.form_check_btn_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  .form_check_btn {
+    margin-bottom: 0;
+    .form_checkbox_input {
+      &:checked {
+        ~ .form_checkbox_label {
+          border-color: $primary2;
+          color: $primary2;
+        }
+      }
+    }
+    .form_checkbox_label {
+      height: 4rem;
+      padding: 1rem 2rem;
+      border: 0.1rem solid #ededed;
+      border-radius: 0.4rem;
+      @include fontHeight(1.4);
+      color: $gray333;
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

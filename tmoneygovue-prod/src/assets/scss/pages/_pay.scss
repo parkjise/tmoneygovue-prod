@@ -1,0 +1,33 @@
+.form_radio_label {
+  width: 100%;
+}
+.mo_tmoney_pay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 2.4rem);
+}
+.mo_tmoney_left {
+  display: flex;
+  align-items: center;
+}
+.noregist_badge {
+  width: 4.5rem !important;
+}
+.mo_tmoney_con_btn {
+  width: 100%;
+}
+.mo_tomey_slide {
+  position: relative;
+  padding-bottom: 21px;
+  & .navi_pagination_wrap {
+    position: absolute;
+    bottom: 0;
+  }
+}
+.mo_tmoney_con_box {
+  & .px0 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

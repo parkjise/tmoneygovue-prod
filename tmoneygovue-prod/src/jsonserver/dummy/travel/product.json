@@ -1,0 +1,51 @@
+{
+  "productDtl": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": {
+      "trvlPrdId": "TP001",
+      "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 당일여행(지원특가)",
+      "prdStaCd": "Ready",
+      "prdStaNm": "예약가능",
+      "startDate": "20240210",
+      "endDate": "20240215",
+      "prdPrice": 35900,
+      "deprTrmlCd": "59723A1",
+      "deprTrmlNm": "광화문 5호선 1번출구",
+      "trvlRotId": "TR2024240000071",
+      "description": "<img src='https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_detail_info_ex.png' alt=''> <img src='https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_detail_info_ex.png' alt=''> <img src='https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_detail_info_ex.png' alt=''>",
+      "scheduleContent": "<ul class='detail_content_schedule_list'> <li>06:50 시청역 3번출구 출발</li> <li>07:20 교대역 8번출구 경유 및 출발</li>  <li>07:40 죽전간이정류장 경유 및 출발</li> <li>07:40~11:30 하동 쌍계사 이동 및 도착</li> <li>11:30~14:30 쌍계사&화개장터 자유시간 (개별중식)</li> <li>14:30~15:00 최참판댁 이동 및 도착</li> <li>15:00~16:30 최참판댁 자유시간</li> <li>16:30~20:30 서울 이동 및 도착</li> </ul>",
+      "alertContent": "여행 경고 내용입니다.",
+      "refundContent": "여행 환불 내용입니다.",
+      "name": "노랑이",
+      "phone": "02-4442-0123",
+      "busCacmCd": "T010",
+      "busCacmNm": "노랑풍선",
+      "busCacmTelNo": "010-2222-5555",
+      "busCacmAddr": "서울 종로구 후암로110",
+      "dcAcmtSno": "",
+      "dcAcmtNm": "",
+      "dcAcmtDvsCd": "",
+      "dcAcmtDvsNm": "",
+      "famtFxrtDvsCd": "",
+      "famtFxrtDvsNm": "",
+      "ctAmt": 0,
+      "ctRt": 0,
+      "adptCtDvsCd": "",
+      "adptCtDvsNm": "",
+      "dcAcmtPhrsCtt": "GO마일리지 5%적립",
+      "images": ["https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_detail_ex.png", "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_detail_ex.png"],
+      "keywords": ["고성","아야진","해변","버스"],
+      "categoryList":[{
+        "categoryId": "TAA",
+        "categoryName":"티켓",
+        "categoryDepth": "1"
+      }, {
+        "categoryId": "001",
+        "categoryName":"트래킹",
+        "categoryDepth": "2"
+      }]
+    }
+  }
+}

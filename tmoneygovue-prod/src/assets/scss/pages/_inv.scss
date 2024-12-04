@@ -1,0 +1,576 @@
+@use '../helpers' as *;
+
+// 친구초대 프로모션
+.invite_container {
+  font-family: 'TmoneyRoundWind';
+  font-size: 1.4rem;
+  color: #111111;
+  font-weight: 400;
+  width: 100vw;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding-top: 5.6rem;
+  .invite_intro {
+    padding-top: 5rem;
+    background: url('/assets/images/invite_promotion/img_intro_deco_back_cloud.svg') no-repeat center 15%, linear-gradient(180deg, #FBA44B 0%, $deco_yellow1 100%);
+    background-size: 100%;
+    display: block;
+    outline: none;
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      outline: none;
+      li {
+        list-style: none;
+        display: flex;
+        width: 100%;
+        img {
+          width: 100%;
+          height: auto;
+        }
+        &.title_text {
+          width: 80%;
+        }
+        &.title_deco_float {
+          margin-top: -15%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          padding-right: 17.5%;
+          box-sizing: border-box;
+          img {
+            width: 30%;
+          }
+        }
+        &.title_deco_img {
+          margin-top: -3%;
+          img {
+            margin-bottom: -0.1rem;
+          }
+        }
+      }
+    }
+  }
+  .invite_content {
+    background-color: $main_orange;
+    padding: 0 2rem 4rem;
+    display: block;
+    outline: none;
+    margin: 0;
+    border: 0;
+    word-break: keep-all;
+    // vertical-align: baseline;
+    line-height: 100%;
+    letter-spacing: -0.1rem;
+    // -webkit-tab-highlight-color: transparent !important;
+    > div:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+    
+    // 혜택 모아보기
+    .benefit_warp {
+      margin-top: -2rem;
+      .deco_top {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        background: url('/assets/images/invite_promotion/icon_benefit_deco_top_present.svg') no-repeat center bottom;
+        background-size: contain;
+        margin-bottom: -0.5rem;
+        img {
+          width: 35%;
+          height: auto;
+          z-index: 1;
+        }
+      }
+      .deco_bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        border-radius: 2rem;
+        border: 0.1rem solid #EFB540;
+        box-shadow: 0 0.4rem 2rem 0 rgba($color: #000000, $alpha: 0.2);
+        backdrop-filter: blur(1rem);
+        .title {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          text-align: center;
+          h5 {
+            color: $white;
+            margin-bottom: 0.6rem;
+            &.tmoney {
+              font-family: 'TmoneyRoundWind';
+            }
+          }
+          h3 {
+            display: flex;
+            color: $white;
+            font-size: 2.4rem;
+            font-weight: 800;
+            height: 3.5rem;
+            svg {
+              white-space: nowrap;
+              word-break: keep-all;
+              vertical-align: baseline;
+              line-height: 100%;
+              outline: none;
+              letter-spacing: -0.1rem;
+              overflow: visible;
+              text {
+                font-family: 'TmoneyRoundWind';
+                font-size: 2.4rem;
+                font-weight: 800;
+                fill: #FFFFFF;
+                text-anchor: start; // 텍스트 정렬 설정
+                &.title_bottom {
+                  stroke-width: 6;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke: $deco_yellow1;
+                }
+                &.title_mid {
+                  stroke-width: 6;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke: $deep_orange1;
+                }
+              }
+            }
+          }
+        }
+        .benefit_list {
+          width: 100%;
+          margin-top: 2rem;
+          box-sizing: border-box;
+          .benefit {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            outline: none;
+            letter-spacing: -0.1rem;
+            &.middle {
+              padding: 2rem 0;
+              margin: 2rem 0;
+              border-top: 0.1rem solid $deco_yellow1;
+              border-bottom: 0.1rem solid $deco_yellow1;
+            }
+            .tmoney {
+              color: $deco_yellow2;
+              font-size: 1.2rem;
+              font-weight: 800;
+              margin-bottom: 0.8rem;
+              text-shadow: -0.1rem -0.1rem 0 $deep_orange1, 0.1rem -0.1rem 0 $deep_orange1, -0.1rem 0.1rem 0 $deep_orange1, 0.1rem 0.1rem 0 $deep_orange1;
+            }
+            .benefit_disc {
+              display: flex;
+              width: 100%;
+              .left_icon {
+                margin-right: 0.6rem;
+                img {
+                  width: 4.8rem;
+                }
+              }
+              .right_text {
+                width: calc(100% - 4.6rem);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                color: $white;
+                h3 {
+                  font-size: 1.6rem;
+                  font-weight: 700;
+                  line-height: 1.4;
+                  .big_text {
+                    font-size: 1.8rem;
+                    margin: 0 -0.5rem;
+                    font-weight: 800;
+                    svg {
+                      line-height: 1.4;
+                      font-weight: 700;
+                      margin-bottom: -2%;
+                      height: 3rem;
+                      width: 6rem;
+                      &.view_box {
+                        width: 8rem;
+                      }
+                      text {
+                        font-family: 'TmoneyRoundWind';
+                        stroke-width: 5px;
+                        text-anchor: middle;
+                        word-break: keep-all;
+                        vertical-align: baseline;
+                        line-height: 100%;
+                        &.text_bottom {
+                          fill: white;
+                          stroke: $deep_orange1;
+                        }
+                        &.text_mid {
+                          fill: white;
+                          stroke: white;
+                        }
+                        &.text_top {
+                          fill: $deep_orange1;
+                        }
+                      }
+                    }
+                  }
+                }
+                p {
+                  line-height: 1.3;
+                  font-size: 1.4rem;
+                  font-family: $font;
+                  font-weight: 400; 
+                  &.note {
+                    margin-top: 0; /* 기본 마진 제거 */
+                  }
+                }
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+    // 획득 마일리지
+    .round_box {
+      display: block;
+      border-radius: 2rem;
+      background-color: $white;
+      box-shadow: 0 0.4rem 2rem 0 rgba($color: #000000, $alpha: 0.2);
+      & >div:not(:last-child) {
+        margin-bottom: 2rem;
+      } 
+      .mileage_top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        border-bottom: 0.1rem solid $deep_orange2;
+        li {
+          &.left_name {
+            width: 100%;
+            color: $deep_orange2;
+          }
+          &.right_num {
+            h3 {
+              display: flex;
+              justify-content: flex-end;
+              align-items: flex-end;
+              color: $white;
+              font-size: 2.4rem;
+              font-weight: 800;
+              svg {
+                width: 11rem;
+                height: 3.3rem;
+                word-break: keep-all;
+                vertical-align: baseline;
+                line-height: 100%;
+                outline: none;
+                letter-spacing: -0.1rem;
+                text {
+                  font-family: 'TmoneyRoundWind';
+                  fill: $white;
+                  stroke-width: 5;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  text-anchor: end;
+                  &.text_bottom {
+                    stroke: $deep_orange2;
+                  }
+                }
+              }
+              .num_m {
+                font-size: 1.6rem;
+                color: $white;
+                font-weight: 400;
+                margin-left: -0.5rem;
+                margin-bottom: 0.3rem;
+                svg {
+                  width: 2rem;
+                  height: 2rem;
+                  text {
+                    font-family: 'TmoneyRoundWind';
+                    fill: $white;
+                    stroke-width: 3;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    text-anchor: middle;
+                    &.text_bottom {
+                      stroke: $deep_orange2;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          p {
+            margin-bottom: 0.2rem;
+          }
+          h4 {
+            line-height: 1.4;
+            span {
+              font-size: 1.6rem;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+      .check_bottom {
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          &:not(:last-child) {
+            margin-bottom: 0.4rem;
+          }
+          .count_badge {
+            font-size: 1rem;
+            color: $deep_orange1;
+            padding: 0.8rem 1.2rem;
+            border: 0.1rem solid $light_orange;
+            border-radius: 9.9rem;
+          }
+        }
+      }
+    }
+
+    // 친구초대방법
+    .inv_guide_wrap {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      border-radius: 2rem;
+      border: 0.1rem solid $main_orange;
+      background-color: $deep_orange2;
+      .inv_guide {
+        width: 100%;
+        .title {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          h5 {
+            color: $white;
+            margin-bottom: 0.6rem;
+          }
+          h3 {
+            display: flex;
+            color: $white;
+            font-size: 2.4rem;
+            font-weight: 800;
+            svg {
+              width: 15rem;
+              height: 3.5rem;
+              text {
+                font-family: 'TmoneyRoundWind';
+                fill: white;
+                stroke-width: 6;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                text-anchor: middle;
+                // alignment-baseline: middle;
+                &.text_bottom {
+                  stroke: $deco_yellow1;
+                }
+                &.text_mid {
+                  stroke: $deep_orange1;
+                }
+              }
+            }
+          }
+        }
+        .invitation_step_list {
+          display: flex;
+          flex-direction: column;
+          margin-top: 2rem;
+          li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: $white;
+            &:not(:last-child) {
+              margin-bottom: 20px;
+            }
+            .step {
+              color: $white;
+              font-size: 1rem;
+              font-weight: 800;
+              line-height: 100%;
+              padding: 0.6rem 0.8rem;
+              border-radius: 5rem;
+              border: 0.1rem solid $deco_yellow1;
+              background: $deep_orange2;
+            }
+            h4 {
+              font-size: 1.6rem;
+              font-weight: 500;
+              line-height: 1.3;
+              margin-top: 1rem;
+              text-align: center;
+            }
+            .add_info {
+              display: flex;
+              align-items: center;
+              margin-top: 0.8rem;
+              padding: 0.6rem 0.8rem;
+              background-color: $deep_orange1;
+              border-radius: 0.4rem;
+              font-weight: 400;
+              text-align: center;
+              p {
+                line-height: 1.3;
+                img {
+                  margin-bottom: -0.2rem;
+                }
+                span {
+                  color: $deco_yellow2;
+                  font-weight: 700;
+                  padding-left: 0.2rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 초대코드
+    .inv_code_wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      border-radius: 2rem;
+      background-color: $light_orange;
+      ul {
+        width: 100%;
+        display: flex;
+        box-sizing: border-box;
+        &.code_top {
+          justify-content: space-between;
+          align-items: center;
+          padding: 1.6rem 2rem;
+          border-radius: 1rem;
+          background-color: $white;
+          .left_text {
+            font-weight: 500;
+            color: $main_orange
+          }
+          .right_code {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: $deep_orange2;
+          }
+        }
+        &.link_bottom {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 2rem;
+          cursor: pointer;
+          &::before {
+            content: "";
+            display: block;
+            width: 0.1rem;
+            height: 100%;
+            position: absolute;
+            left: calc(50% - 0.1rem);
+            top: 0;
+            background-color: $white
+          }
+          li {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            p {
+              margin-top: 0.8rem;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+      .snack_bar {
+        position: fixed;
+        left: 50%;
+        bottom: 2rem;
+        z-index: 999;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 95%;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        p {
+          width: fit-content;
+          margin: 0 auto;
+          padding: 1rem 2rem;
+          border-radius: 9.9rem;
+          font-size: 1.2rem;
+          color: var(--white);
+          text-align: center;
+          line-height: 1.4;
+          background-color: $black;
+        }
+      }
+    }
+  }
+  // 유의사항
+  .inv_info_wrap {
+    padding: 3.5rem 0;
+    .center {
+      width: 90%;
+      max-width: 70rem;
+      margin: 0 auto;
+      h4 {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: #888888;
+        font-weight: 500;
+      }
+      .info_list_wrap {
+        margin-top: 1rem;
+        ul {
+          li {
+            position: relative;
+            font-size: 1.2rem;
+            color: #888888;
+            line-height: 1.3;
+            word-break: normal;
+            padding-left: 0.6rem;
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              left: 0;
+              top: 0.8rem;
+              width: 0.2rem;
+              height: 0.2rem;
+              background-color: #888888;
+              border-radius: 50%;
+            }
+            &:not(:last-child) {
+              padding-bottom: 0.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

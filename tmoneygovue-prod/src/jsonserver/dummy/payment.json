@@ -1,0 +1,1045 @@
+{
+  "rprnPymMnsInfo" : {
+    "rstCd": "200",
+    "dta": {
+        "rspMsg": "등록된 정보가 없습니다.",
+        "rspCd": "0010"
+    },
+    "errMsg": ""
+  },
+  "pymMnsListAtMng" : {
+    "rstCd": "200",
+    "dta": {
+        "bizPayInfo": {
+            "pblcPhrsTtlNm": [
+                "[#1]티머니비즈페이 홍보문구",
+                "[#2]티머니비즈페이 홍보문구"
+            ],
+            "pblcPhrsCtt": [
+                "[#1]티머니비즈페이 홍보문구",
+                "[#2]티머니비즈페이 홍보문구"
+            ],
+            "displayYn": "Y",
+            "intgMbrsId": "",
+            "pymMnsNM": "",
+            "mbrsUseYn": "N",
+            "rprnPymMnsYn": "N",
+            "pymMnsNm": "",
+            "pymMnsId": "BZPY",
+            "order": "2",
+            "pmsRgtDtm": ""
+        },
+        "smpcPymInfo":{
+            "smpcPymList":[
+                {
+                    "issuerCd":"LTC",
+                    "cardName":"롯데일반신용",
+                    "maskCardNo":"5137****1011",
+                    "paymentKey":"1010990000125409",
+                    "serviceGrpCd":"002",
+                    "checkCardYN":"N",
+                    "rprnCardYn":"N",
+                    "crpcId":"368",
+                    "path1":"/resources/images/ci/img_lottecard_logo_org.png",
+                    "path2":"/resources/images/ci/img_lottecard_logo_wh.png",
+                    "usePsbSvc":"BHCTXO"
+                },
+                {
+                    "issuerCd":"BCC",
+                    "cardName":"BC플래티늄신용",
+                    "maskCardNo":"4110****8165",
+                    "paymentKey":"1010990000125565",
+                    "serviceGrpCd":"002",
+                    "checkCardYN":"N",
+                    "rprnCardYn":"N",
+                    "cardAliasName":"ㅗ",
+                    "crpcId":"361",
+                    "path1":"/resources/images/ci/img_bccard_logo_org.png",
+                    "path2":"/resources/images/ci/img_bccard_logo_wh.png",
+                    "usePsbSvc":"BHCOTX"
+                }
+            ],
+            "pblcPhrsTtlNm":["[#1]사전등록 홍보문구","[#2]사전등록 홍보문구"],
+            "pblcPhrsCtt":["[#1]사전등록 홍보문구","[#2]사전등록홍보문구"],
+            "displayYn":"Y",
+            "pymMnsNM":"",
+            "mbrsUseYn":"Y",
+            "rprnPymMnsYn":"N",
+            "pymMnsNm":null,
+            "pymMnsId":"PRPM",
+            "order":"5",
+            "dataCount":"2",
+            "pmsRgtDtm":"N"
+        },
+        "rprnPymMnsId": "",
+        "tmoneyPayInfo": {
+            "pblcPhrsTtlNm": [
+                "#1_티머니페이 홍보문구",
+                "#2_티머니페이 홍보문구"
+            ],
+            "pblcPhrsCtt": [
+                "#1_티머니페이 홍보문구",
+                "#2_티머니페이 홍보문구"
+            ],
+            "displayYn": "Y",
+            "elwlProdList": [],
+            "intgMbrsId": "",
+            "pymMnsNM": "",
+            "mbrsUseYn": "N",
+            "rprnPymMnsYn": "N",
+            "pymMnsNm": "",
+            "pymMnsId": "TMPY",
+            "order": "1",
+            "pmsRgtDtm": ""
+        },
+        "tspyPymInfo": {
+            "pblcPhrsTtlNm": [],
+            "pblcPhrsCtt": [
+                "토스페이자동결제 홍보문구 #1",
+                "토스페이자동결제 홍보문구 #2"
+            ],
+            "cardCpNm": "",
+            "bankName": "",
+            "pymMnsNM": "",
+            "pymMnsNm": "",
+            "pymMnsId": "TSPYA",
+            "processedTs": "",
+            "cardNum4th": "",
+            "displayYn": "Y",
+            "payMethod": "",
+            "mbrsUseYn": "N",
+            "rprnPymMnsYn": "N",
+            "billingKey": "",
+            "order": "3",
+            "pmsRgtDtm": "N"
+        },
+        "respMsg": "조회성공",
+        "npayPymInfo": {
+            "subMerchantId": "",
+            "pblcPhrsTtlNm": [],
+            "pblcPhrsCtt": [
+                "네이버페이자동결제 홍보문구 #1",
+                "네이버페이자동결제 홍보문구 #2"
+            ],
+            "cardCpNm": "",
+            "pymMnsNM": "",
+            "pymMnsNm": "",
+            "subMerchantName": "",
+            "pymMnsId": "NPAYA",
+            "cardNum4th": "",
+            "displayYn": "Y",
+            "maskedCardNo": "",
+            "registrationDate": "",
+            "automaticPayId": "",
+            "mbrsUseYn": "N",
+            "rprnPymMnsYn": "N",
+            "merchantUserId": "",
+            "order": "5",
+            "pmsRgtDtm": "N"
+        },
+        "respCd": "0000"
+    },
+    "errMsg": ""
+  },
+  "inqrPymStatusInfo" :{
+    "rstCd": "200",
+    "dta": {
+        "rspMsg": "결제비밀번호 상태 조회에 성공하였습니다.",
+        "pwdLockYn": "N",
+        "pwdExistingYn": "Y",
+        "pwdUseYn": "Y"
+    },
+    "errMsg": ""
+  },
+  "dltMbrsTmpyPymMns" : {
+    "rstCd": "200",
+    "dta": {
+        "dltYn" : "Y"
+    },
+    "errMsg": ""
+  },
+  "reqBzpyLnkgCanc" : {
+    "rstCd": "200",
+    "dta": {
+        "rspMsg": "정상처리되었습니다.",
+        "rspCd": "0000"
+    },
+    "errMsg": ""
+  },
+  "naverPayAutoCancel" : {
+    "rstCd": "200",
+    "dta": {
+        "rspMsg": "정상처리되었습니다.",
+        "rspCd": "0000"
+    },
+    "errMsg": ""
+  },
+  "billingKey" : {
+    "rstCd": "200",
+    "dta": {
+        "rspCd": "0000",
+        "rspMsg": "정상 처리 되었습니다.",
+        "oderSno": "20220902175442045000",
+        "payToken": "OkMaSGMX8qKIr0M5G5wo8f",
+        "checkoutPageAndroid": "intent://pay/billingKey?billingKey=qVK0SKrYqx4UPYXa9PO969&_minVerAos=4.64.0&_minVerIos=4.51.0#Intent;scheme=supertoss;package=viva.republica.toss.alpha;end",
+        "checkoutPageIos": "https://ul.toss.im?scheme=supertoss%3A%2F%2Fpay%2FbillingKey%3FbillingKey%3DqVK0SKrYqx4UPYXa9PO969%26_minVerAos%3D4.64.0%26_minVerIos%3D4.51.0",
+        "checkoutPage": "https://alpha-pay.toss.im/payfront/web/billing?billingKey=qVK0SKrYqx4UPYXa9PO969"
+    },
+    "errMsg": ""
+  },
+  "billingKeyRemove" : {
+    "rstCd": "200",
+    "dta": {
+        "rspCd": "0000",
+        "rspMsg": "정상 처리 되었습니다."
+    },
+    "errMsg": ""
+  },
+  "cardPymKeyRgt" : {
+    "rstCd": "200",
+    "dta": {
+        "tranDvs": "01",
+        "telegramDvs": "U2",
+        "tranSerialNo": "21153311",
+        "requestDate": "20210821",
+        "respMsg": "정상",
+        "terminalId": "7807000000",
+        "respCd": "0000"
+    },
+    "errMsg": ""
+  },
+  "cardSmpcPymCncn" : {
+    "rstCd": "200",
+    "dta": {
+        "terminalId": "1200000111",
+		"tranDvs": "01",
+		"telegramDvs": "39",
+		"requestDate": "20210305",
+		"tranSerialNo": "00012345",
+		"mchtTranSerialNo": "AAAA00001111",
+		"processDate": "20210305",
+		"processTime": "144302",
+		"cardNo4thArea": "1234",
+		"issuerCd": "BCC",
+		"cardName": "BC카드",
+		"mchtNo": "123456789012345",
+		"approvalNo": "11112222",
+		"respCd": "0000",
+		"respMsg": "정상승인"
+    },
+    "errMsg": ""
+  },
+  "cardSmpcPymAlsMod" : {
+    "rstCd": "200",
+    "dta": {
+        "tranDvs": "00",
+        "telegramDvs": "U1",
+        "tranSerialNo": "21153311",
+        "requestDate": "20210821",
+        "respMsg": "정상",
+        "terminalId": "7807000000",
+        "respCd": "0000"
+    },
+    "errMsg": ""
+  },
+  "deleteMemberTMoneyPay" : {
+    "rstCd": "200",
+    "dta": {
+        "dltYn" : "Y"
+    },
+    "errMsg": ""
+  },
+  "deleteMemberBizPay" : {
+    "rstCd": "200",
+    "dta": {
+        "rspMsg": "정상처리되었습니다.",
+        "rspCd": "0000"
+    },
+    "errMsg": ""
+  },
+  "naverPayAutoRegReserve" : {
+    "rstCd": "200",
+    "dta": {
+        "rspCd":"0000",
+        "rspMsg":"정상 처리 되었습니다.",
+        "orderNo": "20230925154242065000",
+        "reserveId": "20230925NG8wREpOTEtVMEhHNDhRMFkzanlGaUdFbFhZPQ==",
+        "checkoutPage": "https://test-m.pay.naver.com/payments/auth-pay/automatic-payments/20230925NG8wREpOTEtVMEhHNDhRMFkzanlGaUdFbFhZPQ=="
+    },
+    "errMsg": ""
+  },
+  "reqPymPwdUseYnInfo" : {
+    "rstCd": "200",
+    "dta": {
+        "rspMsg": "결제비밀번호 사용여부 등록 요청에 성공하였습니다." ,
+        "scsYn":"Y"
+    },
+    "errMsg": ""
+  },
+  "reqPymPwdRgtInfo" : {
+    "rstCd": "200",
+    "dta": {
+        "rspMsg": " 결제비밀번호 등록 요청에 성공하였습니다." ,
+        "scsYn":"Y"
+    },
+    "errMsg": ""
+  },
+  "reqPymPwdAuthInfo" : {
+    "rstCd": "200",
+    "dta": {
+        "rspMsg": "결제비밀번호 인증 요청에 성공하였습니다." ,
+        "scsYn": "Y",
+        "encPwd": "eec82bf49c4dc…."
+    },
+    "errMsg": ""
+  },
+  "reqPymPwdLockInfo" : {
+    "rstCd": "200",
+    "dta": {
+        "rspMsg": "결제비밀번호 잠금 요청에 성공하였습니다.",
+        "scsYn":"Y"
+    },
+    "errMsg": ""
+  },
+  "pymMnsListAtPym" : {
+    "rstCd": "200",
+    "dta": {
+      "bizPayInfo": {
+        "pblcPhrsTtlNm": [
+          "[#2]티머니비즈페이 홍보문구",
+          "[#1]티머니비즈페이 홍보문구"
+        ],
+        "pblcPhrsCtt": [
+          "[#2]티머니비즈페이 홍보문구",
+          "[#1]티머니비즈페이 홍보문구"
+        ],
+        "displayYn": "Y",
+        "intgMbrsId": "53135",
+        "pymMnsNM": "티머니비즈페이",
+        "mbrsUseYn": "Y",
+        "rprnPymMnsYn": "N",
+        "pymMnsId": "BZPY",
+        "order": "2",
+        "pmsRgtDtm": "2024-03-28"
+      },
+      "otherPayInfo": {
+        "PAYCO": {
+          "displayYn": "Y",
+          "pymMnsNm": "PAYCO",
+          "dpyCrcmList": [
+            {
+              "crpcId": "374",
+              "imgPath": "/resources/images/ci/img_hanacard_logo_org_noti.png",
+              "dpyCrcmNm": "하나SK카드"
+            },
+            {
+              "crpcId": "368",
+              "imgPath": "",
+              "dpyCrcmNm": "롯데카드"
+            },
+            {
+              "crpcId": "366",
+              "imgPath": "/resources/images/ci/img_shinhancard_logo_org_noti.png",
+              "dpyCrcmNm": "신한카드"
+            },
+            {
+              "crpcId": "365",
+              "imgPath": "/resources/images/ci/img_samsungcard_logo_org_noti_1013.png",
+              "dpyCrcmNm": "삼성카드"
+            }
+          ],
+          "pymMnsId": "PAYCO"
+        },
+        "TMPYPLC": {
+          "displayYn": "N",
+          "pymMnsNm": "티머니Pay&GO",
+          "pymMnsId": "TMPYPLC"
+        },
+        "ZRP": {
+          "displayYn": "N",
+          "pymMnsNm": "제로페이",
+          "pymMnsId": "ZRP"
+        },
+        "PRSP": {
+          "displayYn": "Y",
+          "pymMnsNm": "현장결제",
+          "pymMnsId": "PRSP"
+        },
+        "order": "4"
+      },
+      "rprnPymMnsNm": "티머니페이(페이머니)",
+      "rprnElwlProdCd": "1000100002",
+      "tspyautPymInfo": {
+        "pblcPhrsTtlNm": [
+          "토스페이(자동결제) 홍보문구 #1",
+          "토스페이(자동결제) 홍보문구 #2"
+        ],
+        "pblcPhrsCtt": [
+          "토스페이자동결제 홍보문구 #1",
+          "토스페이자동결제 홍보문구 #2"
+        ],
+        "cardCpNm": "",
+        "bankName": "",
+        "pymMnsNM": "토스페이 자동결제",
+        "pymMnsId": "TSPYA",
+        "processedTs": "",
+        "cardNum4th": "",
+        "displayYn": "Y",
+        "payMethod": "",
+        "mbrsUseYn": "N",
+        "rprnPymMnsYn": "N",
+        "billingKey": "",
+        "order": "4",
+        "pmsRgtDtm": "N"
+      },
+      "rollingBnrList": [],
+      "rprnPymMnsId": "TMPY",
+      "tmoneyPayInfo": {
+        "pblcPhrsTtlNm": [
+          "#1_티머니페이 홍보문구",
+          "#2_티머니페이 홍보문구"
+        ],
+        "pblcPhrsCtt": [
+          "#1_티머니페이 홍보문구",
+          "#2_티머니페이 홍보문구"
+        ],
+        "displayYn": "Y",
+        "elwlProdList": [
+          {
+            "seqNo": "1",
+            "tmcrNo": "1015040000062562",
+            "pptDpyDvsCd": "1",
+            "elwlPrdCd": "1000100002",
+            "virtCardRfrnId": "11100010000217789012898331606561",
+            "rtnAmt": 9280
+          }
+        ],
+        "intgMbrsId": " ",
+        "pymMnsNM": "티머니페이",
+        "mbrsUseYn": "N",
+        "rprnPymMnsYn": "N",
+        "pymMnsId": "TMPY",
+        "order": "1",
+        "pmsRgtDtm": "2024-04-15"
+      },
+      "tspyPymInfo": {
+        "pblcPhrsTtlNm": [
+          "토스페이(일반) 홍보문구 #2",
+          "토스페이(일반) 홍보문구 #1"
+        ],
+        "pblcPhrsCtt": [
+          "토스페이(일반) 홍보문구 #2",
+          "토스페이(일반) 홍보문구 #1"
+        ],
+        "cardCpNm": "",
+        "bankName": "",
+        "pymMnsNM": "토스페이",
+        "pymMnsId": "TSPY",
+        "processedTs": "",
+        "cardNum4th": "",
+        "displayYn": "Y",
+        "payMethod": "",
+        "mbrsUseYn": "N",
+        "rprnPymMnsYn": "N",
+        "billingKey": "",
+        "order": "3",
+        "pmsRgtDtm": "N"
+      },
+      "npayPymInfo": {
+        "subMerchantId": "",
+        "pblcPhrsTtlNm": [
+          "네이버페이(일반) 홍보문구 #1",
+          "네이버페이(일반) 홍보문구 #2"
+        ],
+        "pblcPhrsCtt": [
+          "네이버페이(일반) 홍보문구 #1",
+          "네이버페이(일반) 홍보문구 #2"
+        ],
+        "cardCpNm": "",
+        "pymMnsNM": "네이버페이",
+        "subMerchantName": "",
+        "pymMnsId": "NPAY",
+        "cardNum4th": "",
+        "displayYn": "Y",
+        "maskedCardNo": "",
+        "registrationDate": "",
+        "automaticPayId": "",
+        "mbrsUseYn": "N",
+        "rprnPymMnsYn": "N",
+        "merchantUserId": "",
+        "order": "5",
+        "pmsRgtDtm": "N"
+      },
+      "smpcPymInfo": {
+        "smpcPymList":[
+            {
+                "issuerCd":"LTC",
+                "cardName":"롯데일반신용",
+                "maskCardNo":"5137****1011",
+                "paymentKey":"1010990000125409",
+                "serviceGrpCd":"002",
+                "checkCardYN":"N",
+                "rprnCardYn":"Y",
+                "crpcId":"368",
+                "path1":"/resources/images/ci/img_lottecard_logo_org.png",
+                "path2":"/resources/images/ci/img_lottecard_logo_wh.png",
+                "usePsbSvc":"BHCTXO"
+            },
+            {
+                "issuerCd":"BCC",
+                "cardName":"BC플래티늄신용",
+                "maskCardNo":"4110****8165",
+                "paymentKey":"1010990000125565",
+                "serviceGrpCd":"002",
+                "checkCardYN":"N",
+                "rprnCardYn":"N",
+                "cardAliasName":"ㅗ",
+                "crpcId":"361",
+                "path1":"/resources/images/ci/img_bccard_logo_org.png",
+                "path2":"/resources/images/ci/img_bccard_logo_wh.png",
+                "usePsbSvc":"BHCOTX"
+            }
+        ],
+        "pblcPhrsTtlNm":["[#1]사전등록 홍보문구","[#2]사전등록 홍보문구"],
+        "pblcPhrsCtt":["[#1]사전등록 홍보문구","[#2]사전등록홍보문구"],
+        "displayYn":"Y",
+        "pymMnsNM":"",
+        "mbrsUseYn":"Y",
+        "rprnPymMnsYn":"N",
+        "pymMnsNm":null,
+        "pymMnsId":"PRPM",
+        "order":"5",
+        "dataCount":"2",
+        "pmsRgtDtm":"N"
+    },
+      "npayautPymInfo": {
+        "subMerchantId": "",
+        "pblcPhrsTtlNm": [
+          "네이버페이(자동결제) 홍보문구 #2",
+          "네이버페이(자동결제) 홍보문구 #1"
+        ],
+        "pblcPhrsCtt": [
+          "네이버페이자동결제 홍보문구 #2",
+          "네이버페이자동결제 홍보문구 #1"
+        ],
+        "cardCpNm": "",
+        "pymMnsNM": "네이버페이 자동결제",
+        "subMerchantName": "",
+        "pymMnsId": "NPAYA",
+        "cardNum4th": "",
+        "displayYn": "Y",
+        "maskedCardNo": "",
+        "registrationDate": "",
+        "automaticPayId": "",
+        "mbrsUseYn": "N",
+        "rprnPymMnsYn": "N",
+        "merchantUserId": "",
+        "order": "6",
+        "pmsRgtDtm": "N"
+      },
+      "rprnPaymentKey": "",
+      "respMsg": "조회성공",
+      "respCd": "0000",
+      "issuerCd": ""
+    },
+    "errMsg": ""
+  },
+  "paymentHistory":{
+    "rstCd": "200",
+    "dta": {
+      "pymList": [
+        {
+          "svcNm": "티머니onda(중형)",
+          "utlzSvcNm": "2024년 05월 16일 13시 58분 승차",
+          "utlzSvcDvsCd": "O",
+          "utlzSvcDvsNm": "온다",
+          "ognPymKeyVal": "20077198",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "5,000",
+          "pymAmt": "5,000",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "0",
+          "pymMnsNm": "신용카드(현대신용카드)",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.16 13:58",
+          "pymDtmOgn": "20240516135840"
+        },
+        {
+          "svcNm": "i.M 화이트",
+          "utlzSvcNm": "택시요금",
+          "utlzSvcDvsCd": "FC",
+          "utlzSvcDvsNm": "IM",
+          "ognPymKeyVal": "I00000002140",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "12,600",
+          "pymAmt": "12,350",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "250",
+          "mlgUseAmt": "0",
+          "pymMnsNm": "비즈페이",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.16 13:44",
+          "pymDtmOgn": "20240516134423"
+        },
+        {
+          "svcNm": "수서 - 부산",
+          "utlzSvcNm": "320240500688793",
+          "utlzSvcDvsCd": "R",
+          "utlzSvcDvsNm": "SRT",
+          "ognPymKeyVal": "320240500688793",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "54,900",
+          "pymAmt": "54,900",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "0",
+          "pymMnsNm": "신용카드(롯데카드)",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.09 18:33",
+          "pymDtmOgn": "20240509183323"
+        },
+        {
+          "svcNm": "수서 - 부산",
+          "utlzSvcNm": "320240500688792",
+          "utlzSvcDvsCd": "R",
+          "utlzSvcDvsNm": "SRT",
+          "ognPymKeyVal": "320240500688792",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "53,600",
+          "pymAmt": "53,600",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "0",
+          "pymMnsNm": "신용카드(롯데카드)",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.09 18:32",
+          "pymDtmOgn": "20240509183256"
+        },
+        {
+          "svcNm": "동서울-광주(유ㆍ스퀘어)",
+          "utlzSvcNm": "1",
+          "utlzSvcDvsCd": "H",
+          "utlzSvcDvsNm": "고속버스",
+          "ognPymKeyVal": "J844848181j103737185",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "33,300",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "33,300",
+          "pymMnsNm": "GO마일리지",
+          "pymPrcgStaNm": "결제취소",
+          "pymDtm": "2024.05.09 18:14",
+          "pymDtmOgn": "20240509181417"
+        },
+        {
+          "svcNm": "센트럴시티(서울)-유성고속",
+          "utlzSvcNm": "1",
+          "utlzSvcDvsCd": "H",
+          "utlzSvcDvsNm": "고속버스",
+          "ognPymKeyVal": "J835541788j748138175",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "16,900",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "16,900",
+          "pymMnsNm": "GO마일리지",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.09 18:12",
+          "pymDtmOgn": "20240509181229"
+        },
+        {
+          "svcNm": "인천-원주",
+          "utlzSvcNm": "1",
+          "utlzSvcDvsCd": "C",
+          "utlzSvcDvsNm": "시외버스",
+          "ognPymKeyVal": "L240509181209087124E0009518s2x69ugndtCm60U59f7M5hq",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "13,500",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "13,500",
+          "pymMnsNm": "GO마일리지",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.09 18:12",
+          "pymDtmOgn": "20240509181209"
+        },
+        {
+          "svcNm": "인천-동대구",
+          "utlzSvcNm": "1",
+          "utlzSvcDvsCd": "H",
+          "utlzSvcDvsNm": "고속버스",
+          "ognPymKeyVal": "J053330064j118653718",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "32,100",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "32,100",
+          "pymMnsNm": "GO마일리지",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.09 18:11",
+          "pymDtmOgn": "20240509181150"
+        },
+        {
+          "svcNm": "대전복합-광주(유ㆍ스퀘어)",
+          "utlzSvcNm": "1",
+          "utlzSvcDvsCd": "H",
+          "utlzSvcDvsNm": "고속버스",
+          "ognPymKeyVal": "J254121848j240631377",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "19,400",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "19,400",
+          "pymMnsNm": "GO마일리지",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.09 18:11",
+          "pymDtmOgn": "20240509181129"
+        },
+        {
+          "svcNm": "서울경부-동대구",
+          "utlzSvcNm": "1",
+          "utlzSvcDvsCd": "H",
+          "utlzSvcDvsNm": "고속버스",
+          "ognPymKeyVal": "J242717881j151605074",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "30,000",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "30,000",
+          "pymMnsNm": "GO마일리지",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.09 18:09",
+          "pymDtmOgn": "20240509180943"
+        },
+        {
+          "svcNm": "서울남부-서산",
+          "utlzSvcNm": "2",
+          "utlzSvcDvsCd": "C",
+          "utlzSvcDvsNm": "시외버스",
+          "ognPymKeyVal": "L240509180917068124E0009518n1N8PWL6u4eO7t7D7tdp647",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "17,200",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "17,200",
+          "pymMnsNm": "GO마일리지",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.09 18:09",
+          "pymDtmOgn": "20240509180916"
+        },
+        {
+          "svcNm": "서울남부-천안",
+          "utlzSvcNm": "1",
+          "utlzSvcDvsCd": "C",
+          "utlzSvcDvsNm": "시외버스",
+          "ognPymKeyVal": "L240509180815801124E0009518su0wC1gVZ6rJE6Y9KyLZrMR",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "8,000",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "8,000",
+          "pymMnsNm": "GO마일리지",
+          "pymPrcgStaNm": "결제취소",
+          "pymDtm": "2024.05.09 18:08",
+          "pymDtmOgn": "20240509180815"
+        },
+        {
+          "svcNm": "동서울-원주",
+          "utlzSvcNm": "1",
+          "utlzSvcDvsCd": "C",
+          "utlzSvcDvsNm": "시외버스",
+          "ognPymKeyVal": "L240509180750670124E0009518Hfs03Ow0A4SGg4n2m56EwWq",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "7,700",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "250",
+          "mlgUseAmt": "7,450",
+          "pymMnsNm": "복합결제",
+          "pymPrcgStaNm": "결제취소",
+          "pymDtm": "2024.05.09 18:07",
+          "pymDtmOgn": "20240509180750"
+        },
+        {
+          "svcNm": "레니게이드",
+          "utlzSvcNm": "24.05.08(수) 20:00~24.05.09(목) 20:00",
+          "utlzSvcDvsCd": "L",
+          "utlzSvcDvsNm": "렌터카",
+          "ognPymKeyVal": "20240508000000998067",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "111,070",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "111,070",
+          "pymMnsNm": "GO마일리지",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.08 17:51",
+          "pymDtmOgn": "20240508175102"
+        },
+        {
+          "svcNm": "서울경부-부산",
+          "utlzSvcNm": "1",
+          "utlzSvcDvsCd": "H",
+          "utlzSvcDvsNm": "고속버스",
+          "ognPymKeyVal": "J351052723j348470025",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "52,600",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "52,600",
+          "pymMnsNm": "GO마일리지",
+          "pymPrcgStaNm": "결제취소",
+          "pymDtm": "2024.05.08 17:47",
+          "pymDtmOgn": "20240508174757"
+        },
+        {
+          "svcNm": "동서울-서산",
+          "utlzSvcNm": "1",
+          "utlzSvcDvsCd": "C",
+          "utlzSvcDvsNm": "시외버스",
+          "ognPymKeyVal": "L240508174704964124E0009518eJ5CP3397kSOCrcu1j3LpP7",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "11,200",
+          "pymAmt": "0",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "250",
+          "mlgUseAmt": "10,950",
+          "pymMnsNm": "복합결제",
+          "pymPrcgStaNm": "결제취소",
+          "pymDtm": "2024.05.08 17:47",
+          "pymDtmOgn": "20240508174704"
+        },
+        {
+          "svcNm": "따릉이이용권결제",
+          "utlzSvcNm": "정기-7일(1시간권)",
+          "utlzSvcDvsCd": "T",
+          "utlzSvcDvsNm": "따릉이",
+          "ognPymKeyVal": "20240507000000006944",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "3,000",
+          "pymAmt": "3,000",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "0",
+          "pymMnsNm": "신용카드(롯데카드)",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.07 15:24",
+          "pymDtmOgn": "20240507152427"
+        },
+        {
+          "svcNm": "씽씽요금결제",
+          "utlzSvcNm": "00분38초",
+          "utlzSvcDvsCd": "X",
+          "utlzSvcDvsNm": "씽씽",
+          "ognPymKeyVal": "20240507000000008578",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "2,100",
+          "pymAmt": "2,100",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "0",
+          "pymMnsNm": "신용카드(롯데카드)",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.07 15:20",
+          "pymDtmOgn": "20240507152012"
+        },
+        {
+          "svcNm": "여행",
+          "utlzSvcNm": "00분38초",
+          "utlzSvcDvsCd": "FG",
+          "utlzSvcDvsNm": "여행",
+          "ognPymKeyVal": "20240507000000008578",
+          "dtlPymKeyVal": "",
+          "ttutAmt": "2,100",
+          "pymAmt": "2,100",
+          "cumCancAmt": "0",
+          "cpnUseAmt": "0",
+          "mlgUseAmt": "0",
+          "pymMnsNm": "신용카드(롯데카드)",
+          "pymPrcgStaNm": "결제완료",
+          "pymDtm": "2024.05.07 15:20",
+          "pymDtmOgn": "20240507152012"
+        }
+
+      ],
+      "actScsYn": "Y",
+      "rstMsg": "서비스이용 결제내역이 정상 조회되었습니다."
+    },
+    "errMsg": ""
+  },
+  "bikePaymentHistory": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상처리되었습니다.",
+      "data": {
+        "pymMnsIdnnVal": "신용카드(롯데카드)",
+        "pymStaNm": "승인",
+        "pymMnsCd": "BIM_016",
+        "totUtlzAmt": 3000,
+        "pymRyAmt": null,
+        "pymMnsId": "PRPM",
+        "moappMlgCtSno": null,
+        "useEndDtm": "2024-05-14 15:25:04",
+        "pymAmt": 3000,
+        "cpnRyAmt": null,
+        "pymStaCd": "BIS_001",
+        "totRyAmt": null,
+        "cpnDvsNm": "정기-7일(1시간권)",
+        "pymSno": "6681941",
+        "tmgMlgUseAmt": 0,
+        "pymMnsNm": "신용/체크",
+        "atlPymAmt": 3000,
+        "useSttDtm": "2024-05-07 15:25:04",
+        "tmgMlgRyAmt": null,
+        "ryPsbYn": "N",
+        "cpnUseAmt": 0,
+        "pymCancPsbYn": "N",
+        "pymAprvDt": "2024.05.07(화) 15:24",
+        "cpnDvsCd": "BIL_001",
+        "ryAmt": 0
+      }
+    },
+    "errMsg": ""
+  },
+  "rentCarPaymentHistory": {
+    "err_cod": "0000",
+    "rstCd": "200",
+    "dta": {
+      "rncrMrnpSno": "20240508000000961867",
+      "mrnpStaCd": "all_done",
+      "rncrEntrId": 7973,
+      "rncrEntrNm": "제주렌트업체01",
+      "rncrEntrTelNo": "0216008348",
+      "rncrEntrAddr": "제주특별자치도 제주시 공항로 2 (제주국제공항)",
+      "paidInfo": {
+        "totPymAmt": 111070,
+        "tmgMlgPymAmt": 111070,
+        "evcpUseAmt": 0,
+        "pymDtm": "20240508175103",
+        "pymMnsCd": "ZERO",
+        "pymMnsNm": "GO마일리지",
+        "pmmtPymAmt": 0,
+        "pymCancDtm": null,
+        "totCancAmt": 0,
+        "tmgMlgCancAmt": 0,
+        "evcpUseCancAmt": 0,
+        "pmmtCancAmt": 0,
+        "pymCancCmm": 0,
+        "issurCd": null,
+        "crdNo": null,
+        "crdtAprvNo": null,
+        "mipTerm": null
+      }
+    },
+    "err_msg": ""
+  },
+  "cardSmpcPymRgt":{
+    "rstCd": "200",
+    "dta": {
+      "approvalNo": "",
+      "mchtTranSerialNo": "",
+      "fnlRstTtl": "등록하신 카드는 고속,시외버스 결제 가능 카드입니다.",
+      "cardName": "",
+      "tranSerialNo": "",
+      "terminalId": "",
+      "maskCardNo": "",
+      "processTime": "",
+      "tranDvs": "",
+      "requestDate": "",
+      "paymentKey": "",
+      "respCd": "7099",
+      "issuerCd": "",
+      "swtcMsg": "",
+      "telegramDvs": "37",
+      "fnlScsYn": "Y",
+      "mchtNo": "",
+      "fnlRstMsg": "등록하신 카드는 고속,시외버스 결제 가능한 카드로 해당 탭에서 카드 확인 및 결제가 가능합니다.",
+      "stplPrcsCd": "S",
+      "hspdErrCod": "00000",
+      "processDate": "",
+      "respMsg": "서비스 준비 중",
+      "hspdResultStatus": "Y",
+      "checkCardYN": "",
+      "hspdErrMsg": "",
+      "cardRespCd": ""
+    },
+    "errMsg": ""
+  },
+  "naverPayBillCreate" : {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상 처리 되었습니다.",
+      "oderSno": "20220902175442045000",
+      "reserveId": "OkMaSGMX8qKIr0M5G5wo8f",
+      "checkoutPage":"https://m.pay.naver.com/payments/auth-pay/20221114NlVDSzBEZ2ZuZ1d3dkhaYVFKUjk2bFVJanNBPQ=="
+      },
+    "errMsg": ""
+  },
+  "naverPayAutoReserve" : {
+    "rstCd": "200",
+    "dta": {
+        "rspCd":"0000",
+        "rspMsg":"정상 처리 되었습니다.",
+        "oderSno": "20220902175442045000",
+        "moappMbrsSno": "20230504000000017754",
+        "automaticPayId": "20231019AT0000002304",
+        "authDataCard": "0000000000000000=0000",
+        "authDataAuth": "28AAABABZleCAXBikSA2V4AAAAMRc=28MjAxNzA2MjkxMjAyNTAxMzYwNjA=",
+        "atlPymAmt": 5000,
+        "spreadOut": 0,
+        "pymCmpyCd":"CH",
+        "issurerCd":"HDC"
+      },
+    "errMsg": ""
+  },
+  "tossPayBillCreate" : {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상 처리 되었습니다.",
+      "oderSno": "20220902175442045000",
+      "payToken": "OkMaSGMX8qKIr0M5G5wo8f",
+      "checkoutPage": "https://alpha.toss.im/payfront/auth?payToken=OkMaSGMX8qKIr0M5G5wo8f"
+    },
+    "errMsg": ""
+  },
+  "tossPayAutoReserve" : {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상 처리 되었습니다.",
+      "moappMbrsSno":"20210818000000005922",
+      "oderSno": "20220902175442045000",
+      "billingKey": "nm39taNM43Yf58Y9Mq04fb",
+      "payToken": "OkMaSGMX8qKIr0M5G5wo8f",
+      "authDataCard": "5531772199970287=8911",
+      "authDataAuth": "",
+      "spreadOut": "0",
+      "noInterest": false,
+      "cardCompCd":"1",
+      "issuerCd":"SHC"
+    },
+    "errMsg": ""
+  },
+  "reqPymPwdCfrm" : {
+    "rstCd": "200",
+    "dta": {
+      "rspMsg": "결제비밀번호 확인 요청에 성공하였습니다." ,
+      "scsYn":"Y"
+    },
+    "errMsg": ""
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "carRentHistory": {
+    "err_cod": "0000",
+    "rstCd": "200",
+    "dta": {
+      "inqrNcnt": 1,
+      "resevList": [
+        {
+          "rncrMrnpSno": "20240508000000961867",
+          "mrnpStaNm": "반납 완료",
+          "pickupAt": "20240508200027",
+          "dropoffAt": "20240509200027",
+          "pickupPoi": "제주국제공항",
+          "dropoffPoi": "제주국제공항",
+          "subMdlNm": "레니게이드",
+          "rncrEntrNm": "제주렌트업체01"
+        }
+      ]
+    },
+    "err_msg": ""
+  }
+}

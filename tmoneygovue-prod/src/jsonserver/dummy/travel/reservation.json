@@ -1,0 +1,126 @@
+{
+  "monthlyAlcn": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": [{
+      "alcnDt": "20240629",
+      "adltFee": 49900
+    },{
+      "alcnDt": "20240630",
+      "adltFee": 59900
+    },
+    {
+      "alcnDt": "20240710",
+      "adltFee": 29900
+    }]
+  },
+  "dailyAlcn": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": [
+      {
+        "trvlRotId": "TR2024042400000071",
+        "rotSqno": 1,
+        "deprTrmlCd": "59723A1",
+        "deprTrmlNm": "광화문 5호선 1번출구",
+        "alcnDt": "20240530",
+        "alcnSqno": 1,
+        "stptTrmlCd": "59723A1",
+        "endTrmlCd": "59723A1",
+        "atlDeprDt": "20240530",
+        "atlDeprTime": "080000",
+        "allSatsNum": "50",
+        "rmnSatsNum": "5",
+        "mrsPsbYn": "Y",
+        "mvmnDrtm": "4",
+        "thruTrmlYn": "N",
+        "alcnStaCd": "R",
+        "adltFee": 49900,
+        "chldFee": 29900
+      },
+      {
+        "trvlRotId": "TR2024042400000071",
+        "rotSqno": 2,
+        "deprTrmlCd": "59723A1",
+        "deprTrmlNm": "서울역 4호선 1번출구",
+        "alcnDt": "20240629",
+        "alcnSqno": 1,
+        "stptTrmlCd": "59723A1",
+        "endTrmlCd": "59723A1",
+        "atlDeprDt": "20240629",
+        "atlDeprTime": "080000",
+        "allSatsNum": "50",
+        "rmnSatsNum": "2",
+        "mrsPsbYn": "Y",
+        "mvmnDrtm": "4",
+        "thruTrmlYn": "N",
+        "alcnStaCd": "R",
+        "adltFee": 59900,
+        "chldFee": 39900
+      },
+      {
+        "trvlRotId": "TR2024042400000071",
+        "rotSqno": 3,
+        "deprTrmlCd": "59723A1",
+        "deprTrmlNm": "서울역 4호선 12번출구",
+        "alcnDt": "20240630",
+        "alcnSqno": 2,
+        "stptTrmlCd": "59723A1",
+        "endTrmlCd": "59723A1",
+        "atlDeprDt": "20240630",
+        "atlDeprTime": "080000",
+        "allSatsNum": "50",
+        "rmnSatsNum": "0",
+        "mrsPsbYn": "Y",
+        "mvmnDrtm": "4",
+        "thruTrmlYn": "N",
+        "alcnStaCd": "R",
+        "adltFee": 25000,
+        "chldFee": 15000
+      },
+      {
+        "trvlRotId": "TR2024042400000071",
+        "rotSqno": 4,
+        "deprTrmlCd": "59723A1",
+        "deprTrmlNm": "공덕역 5호선 1번출구",
+        "alcnDt": "20240710",
+        "alcnSqno": 1,
+        "stptTrmlCd": "59723A1",
+        "endTrmlCd": "59723A1",
+        "atlDeprDt": "20240710",
+        "atlDeprTime": "080000",
+        "allSatsNum": "50",
+        "rmnSatsNum": "5",
+        "mrsPsbYn": "Y",
+        "mvmnDrtm": "4",
+        "thruTrmlYn": "N",
+        "alcnStaCd": "R",
+        "adltFee": 29900,
+        "chldFee": 19900
+      }
+    ]
+  },
+  "sats": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": {
+      "dist": 4,
+      "mvmnDrtm": "1",
+      "sellPsbSatsNum": 5,
+      "satiUseYn": "N",
+      "busTckKndNum": 2,
+      "busTckList": [{
+        "busTckKndCd": "1",
+        "busTckKndNm": "일반",
+        "fee": 10000
+      },{
+        "busTckKndCd": "2",
+        "busTckKndNm": "아동",
+        "fee": 5000
+      }]
+    }
+  }
+}

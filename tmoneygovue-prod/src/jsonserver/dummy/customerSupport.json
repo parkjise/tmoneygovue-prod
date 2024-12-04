@@ -1,0 +1,433 @@
+{
+  "inqrMbrsCvcpList": {
+    "rstCd": "200",
+    "dta": {
+      "msg": "1:1민원 조회에 성공하였습니다.",
+      "inqrCnt": 1,
+      "cvcpList": [
+        {
+          "cvcpSno": "1",
+          "rgtDtm": "2019-07-17 05:43:09",
+          "cvcpTypCd": "00",
+          "cvcpTypNm": "따릉이 대여 및 반납",
+          "cvcpTtlNm": "따릉이 대여 및 반납",
+          "cvcpCtt": "안녕하세요.",
+          "answYn": "Y",
+          "answCtt": "고객님, 안녕하세요.",
+          "answDtm" : "2019-07-18 00:19:47"
+        },
+        {
+          "answDtm": null,
+          "cvcpTtlNm": "기타",
+          "rgtDtm": "2024-05-17 13:33:36",
+          "cvcpSno": "20240517000000000608",
+          "cvcpCtt": "1",
+          "answTtlNm": null,
+          "cvcpTypNm": "기타",
+          "answYn": "N",
+          "cvcpTypCd": "27",
+          "answCtt": null
+        }
+      ]
+    },
+    "errMsg":""
+  },
+  "crtnMbrsCvcpInfo": {
+    "rstCd": "200",
+    "dta": {
+        "msg": "1:1 민원 등록에 성공하였습니다.",
+        "scsYn": "Y"
+    },
+    "errMsg": ""
+  },
+  "delMbrsCvcpInfo": {
+    "rstCd": "200",
+    "dta": {
+        "msg": "1:1 민원 삭제에 성공하였습니다.",
+        "scsYn": "Y"
+    },
+    "errMsg": ""
+  },
+  "inqrCvcpTypList": {
+    "rstCd": "200",
+    "dta": {
+        "msg": "민원유형리스트 조회에 성공하였습니다.",
+        "cvcpTypGrpList": [
+            {
+                "cvcpTypGrpCd": "1",
+                "cvcpTypGrpNm": "고속.시외버스",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "노선 조회 및 선택",
+                        "cvcpTypDtlCd": "01"
+                    },
+                    {
+                        "cvcpTypDtlNm": "승차권 취소/환불",
+                        "cvcpTypDtlCd": "02"
+                    },
+                    {
+                        "cvcpTypDtlNm": "승차권 조회/변경",
+                        "cvcpTypDtlCd": "03"
+                    },
+                    {
+                        "cvcpTypDtlNm": "할인요금 적용",
+                        "cvcpTypDtlCd": "04"
+                    },
+                    {
+                        "cvcpTypDtlNm": "승차권 선물/사용(타인사용)",
+                        "cvcpTypDtlCd": "05"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "2",
+                "cvcpTypGrpNm": "택시",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "이용 문의",
+                        "cvcpTypDtlCd": "06"
+                    },
+                    {
+                        "cvcpTypDtlNm": "택시 분실물",
+                        "cvcpTypDtlCd": "07"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "3",
+                "cvcpTypGrpNm": "자전거",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "대여 및 반납",
+                        "cvcpTypDtlCd": "08"
+                    },
+                    {
+                        "cvcpTypDtlNm": "이용권 구매 및 환불",
+                        "cvcpTypDtlCd": "09"
+                    },
+                    {
+                        "cvcpTypDtlNm": "자전거 고장/사고",
+                        "cvcpTypDtlCd": "10"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "4",
+                "cvcpTypGrpNm": "킥보드",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "대여 및 반납",
+                        "cvcpTypDtlCd": "11"
+                    },
+                    {
+                        "cvcpTypDtlNm": "킥보드 기능/고장",
+                        "cvcpTypDtlCd": "12"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "5",
+                "cvcpTypGrpNm": "교통정보",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "길찾기",
+                        "cvcpTypDtlCd": "13"
+                    },
+                    {
+                        "cvcpTypDtlNm": "지하철 노선",
+                        "cvcpTypDtlCd": "14"
+                    },
+                    {
+                        "cvcpTypDtlNm": "버스 정보",
+                        "cvcpTypDtlCd": "15"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "6",
+                "cvcpTypGrpNm": "앱 이용",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "네트워크 및 시스템 장애",
+                        "cvcpTypDtlCd": "16"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "7",
+                "cvcpTypGrpNm": "회원정보",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "회원 가입 및 탈퇴",
+                        "cvcpTypDtlCd": "17"
+                    },
+                    {
+                        "cvcpTypDtlNm": "계정",
+                        "cvcpTypDtlCd": "18"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "8",
+                "cvcpTypGrpNm": "결제",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "결제 및 환불",
+                        "cvcpTypDtlCd": "20"
+                    },
+                    {
+                        "cvcpTypDtlNm": "카드등록",
+                        "cvcpTypDtlCd": "21"
+                    },
+                    {
+                        "cvcpTypDtlNm": "자동결제",
+                        "cvcpTypDtlCd": "22"
+                    },
+                    {
+                        "cvcpTypDtlNm": "이용내역/결제내역",
+                        "cvcpTypDtlCd": "23"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "9",
+                "cvcpTypGrpNm": "GO마일리지",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "GO마일리지 적립",
+                        "cvcpTypDtlCd": "24"
+                    },
+                    {
+                        "cvcpTypDtlNm": "GO마일리지 사용/내역조회",
+                        "cvcpTypDtlCd": "25"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "10",
+                "cvcpTypGrpNm": "이벤트",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "이벤트",
+                        "cvcpTypDtlCd": "26"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "11",
+                "cvcpTypGrpNm": "기타",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "기타",
+                        "cvcpTypDtlCd": "27"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "12",
+                "cvcpTypGrpNm": "SRT",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "SRT",
+                        "cvcpTypDtlCd": "28"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "13",
+                "cvcpTypGrpNm": "항공",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "예매 결제",
+                        "cvcpTypDtlCd": "31"
+                    },
+                    {
+                        "cvcpTypDtlNm": "예매 조회",
+                        "cvcpTypDtlCd": "32"
+                    },
+                    {
+                        "cvcpTypDtlNm": "일반 예매 취소",
+                        "cvcpTypDtlCd": "33"
+                    },
+                    {
+                        "cvcpTypDtlNm": "결항 및 지연 취소",
+                        "cvcpTypDtlCd": "34"
+                    }
+                ]
+            },
+            {
+                "cvcpTypGrpCd": "14",
+                "cvcpTypGrpNm": "렌터카",
+                "cvcpTypDtlList": [
+                    {
+                        "cvcpTypDtlNm": "예약 조회",
+                        "cvcpTypDtlCd": "35"
+                    },
+                    {
+                        "cvcpTypDtlNm": "예약 결제",
+                        "cvcpTypDtlCd": "36"
+                    },
+                    {
+                        "cvcpTypDtlNm": "예약 취소/환불",
+                        "cvcpTypDtlCd": "37"
+                    },
+                    {
+                        "cvcpTypDtlNm": "할인/마일리지",
+                        "cvcpTypDtlCd": "38"
+                    }
+                ]
+            }
+        ]
+    },
+    "errMsg": ""
+  },
+  "inqrTrblDsblDclrDtlInf": {
+    "rstCd": "200",
+    "dta": {
+        "data": {
+            "dtl": [
+                {
+                    "utlzSvcDvsCd": "D",
+                    "dclrSno": "D159",
+                    "dclrCtt": "타슈 한건 더 신고",
+                    "bcclNo": "22B00862",
+                    "dclrDvsMltpVal": [
+                        "ELB_006"
+                    ],
+                    "rgtDtm": "2024-05-20 10:50:04"
+                },
+                {
+                    "utlzSvcDvsCd": "D",
+                    "dclrSno": "D158",
+                    "dclrCtt": "타슈는 사진 필수",
+                    "bcclNo": "22B00861",
+                    "dclrDvsMltpVal": [
+                        "ELB_001",
+                        "ELB_006"
+                    ],
+                    "rgtDtm": "2024-05-20 10:48:21"
+                },
+                {
+                    "utlzSvcDvsCd": "T",
+                    "dclrSno": "T79998",
+                    "dclrCtt": "사진포함",
+                    "bcclNo": "SPB-30023",
+                    "dclrDvsMltpVal": [
+                        "ELB_004"
+                    ],
+                    "rgtDtm": "2024-05-20 10:43:56"
+                },
+                {
+                    "utlzSvcDvsCd": "T",
+                    "dclrSno": "T79997",
+                    "dclrCtt": "신고1",
+                    "bcclNo": "SPB-30022",
+                    "dclrDvsMltpVal": [
+                        "ELB_005"
+                    ],
+                    "rgtDtm": "2024-05-20 10:43:26"
+                }
+            ]
+        }
+    },
+    "errMsg": ""
+  },
+  "saveTrblDsblDclrInf": {
+    "rstCd": "200",
+    "dta" : {
+        "data" : {
+            "ctrnYn" : "N",
+            "msg" : "고장 등록이 접수 되어 있습니다."
+        },
+        "rspCd" : "0000",
+        "rspMsg" : "정상처리되었습니다."
+    },
+    "errMsg": ""
+  },
+  "saveTrblDsblDclrDelInf": {
+    "rstCd": "200",
+    "dta": {
+        "rspCd": "0000",
+        "rspMsg": "정상처리되었습니다.",
+        "data": {
+            "scsYn": "Y"
+        }
+    },
+    "errMsg": ""
+  },
+  "inqrPmRntHstInf": {
+    "rstCd": "200",
+    "dta": {
+        "rspCd": "0000",
+        "rspMsg": "정상처리되었습니다.",
+        "data": {
+            "inqrNcnt": 2,
+            "cumUtlzDrtm": 3,
+            "cumMvmnDist": 0.0,
+            "cumCrbnSvng": 0.0,
+            "cumConsumeCal": 0.0,
+            "dtl": [
+                {
+                    "utlzSvcDvsCd": "D",
+                    "rntHstSno": "1131",
+                    "utlzDrtm": 2,
+                    "mvmnDist": 0,
+                    "crbnSvng": 0,
+                    "bcclNo": "TASHU_22B00890",
+                    "rntPlc": "1137. 티머니",
+                    "rntDtm": "2024.05.07 15:25:57",
+                    "rtrnPlc": "1137. 티머니",
+                    "rtrnDtm": "2024.05.07 15:27:17",
+                    "utlzChnlCd": "CHN_003",
+                    "addFeeYn": "N",
+                    "consumeCal": 0,
+                    "exceDrtm": 0,
+                    "addFee": "0",
+                    "rntSctrId": "DJ2-0890",
+                    "pymDtm": "",
+                    "mvmnTime": "00:00:02",
+                    "pymFee": "2",
+                    "pymYn": "Y",
+                    "useTime": "00:00:02",
+                    "pauseTime": "00:00:00",
+                    "useFee": "0",
+                    "pymMnsIdnnVal": "",
+                    "atlPymAmt": 0,
+                    "cpnUseAmt": 0,
+                    "tmgMlgUseAmt": 0
+                },
+                {
+                    "utlzSvcDvsCd": "T",
+                    "rntHstSno": "30681019",
+                    "utlzDrtm": 1,
+                    "mvmnDist": 0,
+                    "crbnSvng": 0,
+                    "bcclNo": "SPB-00060464",
+                    "rntPlc": "00379. 서울역9번출구",
+                    "rntDtm": "2024.05.07 15:25:04",
+                    "rtrnPlc": "00379. 서울역9번출구",
+                    "rtrnDtm": "2024.05.07 15:25:36",
+                    "utlzChnlCd": "CHN_002",
+                    "addFeeYn": "N",
+                    "consumeCal": 0,
+                    "exceDrtm": 0,
+                    "addFee": "0",
+                    "rntSctrId": "",
+                    "pymDtm": "",
+                    "mvmnTime": "",
+                    "pymFee": "0",
+                    "pymYn": "Y",
+                    "useTime": "",
+                    "pauseTime": "",
+                    "useFee": "",
+                    "pymMnsIdnnVal": "",
+                    "atlPymAmt": 0,
+                    "cpnUseAmt": 0,
+                    "tmgMlgUseAmt": 0
+                }
+            ]
+        }
+    },
+    "errMsg": ""
+  }
+}

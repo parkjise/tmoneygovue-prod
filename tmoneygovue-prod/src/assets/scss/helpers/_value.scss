@@ -1,0 +1,111 @@
+// images
+$img_path: '/assets/images';
+// font
+$font: 'Noto Sans KR';
+$fontNum: 'Spoqa Han Sans Neo';
+$font_path: '../fonts';
+$fontLight: 300;
+$fontRegular: 400;
+$fontMedium: 500;
+$fontBold: 700;
+
+// card color
+$card-color: (
+  shinhan: #2D55BB,
+  hyundai: #7B7B7B,
+  lotte: #585858,
+  bc: #E73D44,
+  samsung: #0A6AFF,
+  kb: #7A7267,
+  nh: #489CE5,
+  woori: #258ED5,
+  hana: #3BAF9B,
+  mg: #0D56AF,
+  shinhyup: #02326D,
+  suhyup: #0B66B3,
+  gwangju: #1A3583,
+  jeonbuk: #0081C8,
+  post: #EA3D09,
+  citi: #12509A,
+  tmoney: #8E0D80
+);
+
+// color
+// grayscale
+$white: #fff;
+$grayeee: #eee;
+$grayddd: #ddd;
+$grayccc: #ccc;
+$graybbb: #bbb;
+$grayaaa: #aaa;
+$gray999: #999;
+$gray666: #666;
+$gray555: #555;
+$gray333: #333;
+$gray222: #222;
+
+// Design Grayscale
+$gray010: #F4F4F4;
+$gray020: #EEE;
+$gray030: #DDD;
+$gray040: #BBB;
+$gray050: #888;
+$gray060: #767676;
+$gray070: #555;
+$gray090: #111;
+$black: #000;
+
+// primary
+$primary1: #48004A;
+$primary2: #8E0D80;
+
+// sub
+$secondary1: #E66000;
+$lightPurple1: #E2CDDF;
+$lightPurple2: #FFEBFD;
+$lightPurple3: #FFF8FE;
+
+// background
+$bg1: #f8f8f8; // bg_warm gray
+$bg2: #f5f5f5; // bg_light gray
+$bg3: #eff0ff; // bg_light blue
+$bg4: #f7f7f7;
+$bg5: #ededf3;
+
+// line
+$line1: #ddd;
+$line2: #eee;
+$line3: #d3d3d3;
+$line4: #f6f6f6;
+$line5: #ccc;
+
+// text
+$text1: $black;
+$text2: $gray090;
+
+// status
+$active1: #2e4295;
+$active2: #6b737d;
+$active3: #eaeeff;
+
+$disabled1: $bg2;
+$disabled2: #d2d8e0;
+$disabled3: $grayccc;
+
+$error1: #E7302F;
+
+// dimed
+$dim1: rgba($black, 0.7);
+
+// media query
+$breakpoint_mobile: 480px;
+$breakpoint_tablet: 1024px;
+$breakpoint_desktop: 1200px;
+
+// invite
+$main_orange: #FF740C;
+$deep_orange1: #E6460A;
+$deep_orange2: #FF5C00;
+$light_orange: #FFEFE5;
+$deco_yellow1: #FECF4B;
+$deco_yellow2: #FEE97F;

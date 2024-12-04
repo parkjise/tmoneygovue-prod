@@ -1,0 +1,610 @@
+{  
+  "productList": {
+    "rstCd": 200,
+    "err_cod": "00000",
+    "err_mgs": "",
+    "dta": {
+      "totalItems": 24,
+      "totalPages": 2,
+      "prdList": [{
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 당일여행(지원특가)1",
+        "areaId": "10",
+        "areaName": "고성",
+        "rotId": "TAA001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAA000",
+          "categoryName": "당일여행",
+          "subCategoryList": [{
+            "categoryId": "TAA001",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          }, {
+            "categoryId": "TAA002",
+            "categoryName": "지자체지원",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP002",
+        "trvlPrdNm": "제주올패스여행1",
+        "areaId": "13",
+        "areaName": "제주", 
+        "rotId": "TAB001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_allpass.png",
+        "dcAcmtPhrsCtt": "GO마일리지 5%적립",
+        "categoryList": [{
+          "categoryId" :"TAB000",
+          "categoryName": "숙박여행",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA003",
+            "categoryName": "먹거리여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP004",
+        "trvlPrdNm": "제주올패스여행2",
+        "areaId": "13",
+        "areaName": "제주", 
+        "rotId": "TAB001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_allpass.png",
+        "dcAcmtPhrsCtt": "GO마일리지 5%적립",
+        "categoryList": [{
+          "categoryId" :"TAB000",
+          "categoryName": "숙박여행",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA003",
+            "categoryName": "먹거리여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP003",
+        "trvlPrdNm": "올래길투어",
+        "areaId": "12",
+        "areaName": "강원",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_olle.jpg",
+        "dcAcmtPhrsCtt": "GO마일리지 10%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      },
+      {
+        "trvlPrdId": "TP001",
+        "trvlPrdNm": "[연합] 고성 해파랑길/화진포/능파대/아야진 해변 버스 레저/체험(지원특가)1",
+        "areaId": "1",
+        "areaName": "서울",
+        "rotId": "TAC001",
+        "prdPrice": 100000,
+        "imageUrl": "https://tiaapid.tmoney.co.kr:20328/tgospa/assets/images/temp/product_img_ex.png",
+        "dcAcmtPhrsCtt": "GO마일리지 3%적립",
+        "categoryList": [{
+          "categoryId" :"TAC000",
+          "categoryName": "레저/체험",
+          "subCategoryList": [{
+            "categoryId": "TAA002",
+            "categoryName": "트래킹",
+            "categoryDepth": "1"
+          },
+          {
+            "categoryId": "TAA004",
+            "categoryName": "바다여행",
+            "categoryDepth": "1"
+          }]
+        }]
+      }
+    ]}
+  }
+}

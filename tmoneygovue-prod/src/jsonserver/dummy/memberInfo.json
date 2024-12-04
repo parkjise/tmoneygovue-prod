@@ -1,0 +1,266 @@
+{
+  "inqrMbrsPageInfo": {
+    "rstCd": "200",
+    "dta": {
+      "msg": "회원 프로필 정보 조회에 성공하였습니다.",
+      "mbrsNm" : "홍길동",
+      "mbrsClsVal" : "1",
+      "mbrsClsNm" : "우리동내여행자",
+      "mbrsMbphNo" : "010****1234",
+      "rgtTrcrCnt" : "티머니 1 개|신용/체크 0 개",
+      "mbrsBnkCd" : "011",
+      "mbrsBnkNm" : "농협",
+      "rfndAcntNo" : "***1234",
+      "trtdTgtYn" : "Y",
+      "drvLcnsRgtYn" : "Y",
+      "bcclMbrsId" : "3456789",
+      "prntMbphNo" : "010****789",
+      "email" : "hoo****@gmail.com",
+      "weight" : "65",
+      "chldBcclYn" : "N"
+    },
+    "errMsg":""
+  },
+  "crtnMbrsScsnInfo": {
+    "rstCd": "200",
+    "dta": {
+      "scsYn" : "Y",
+      "msg": "회원탈퇴에 성공하였습니다.",
+      "scsnStatCd": "07"
+    },
+    "errMsg":""
+  },
+  "crtnVrfcDrvLcnsInfo": {
+    "rstCd": "200",
+    "dta": {
+      "scsYn" : "Y",
+      "msg": ""
+    },
+    "errMsg":""
+  },
+  "inqrMbrsLnkgSvcList": {
+    "rstCd": "200",
+    "dta": {
+      "lnkgSvcList":
+      [
+        {
+          "lnkgSvcCd": "T",
+          "lnkgYn": "Y"
+        },
+        {
+          "lnkgSvcCd": "X",
+          "lnkgYn": "N"
+        }
+      ],
+      "msg": ""
+    },
+    "errMsg":""
+  },
+  "saveSctrDrvLcnsDelInf": {
+    "rstCd": "200",
+    "dta": {
+      "rstCd": "200",
+      "rspMsg": "정상처리되었습니다.",
+      "data": {
+        "scsYn": "Y",
+        "msg": ""
+      }
+    },
+    "errMsg":""
+  },
+  "inqrBlackListYn": {
+    "rstCd": "200",
+    "dta": {
+      "blYn": "Y",
+      "msg" : ""
+    },
+    "errMsg":""
+  },
+  "inqrCmnCdInfo": {
+    "rstCd": "200",
+    "dta": {
+        "rspMsg": "정상조회",
+        "cmnCdNm": "운전면허종별코드",
+        "cmnCdId": "M90",
+        "codeList": [
+            {
+                "code": "11",
+                "name": "1종대형",
+                "srsq": 1,
+                "selected": "N"
+            },
+            {
+                "code": "12",
+                "name": "1종보통",
+                "srsq": 2,
+                "selected": "N"
+            },
+            {
+                "code": "13",
+                "name": "1종소형",
+                "srsq": 3,
+                "selected": "N"
+            },
+            {
+                "code": "14",
+                "name": "대형견인차",
+                "srsq": 4,
+                "selected": "N"
+            },
+            {
+                "code": "15",
+                "name": "구난차",
+                "srsq": 5,
+                "selected": "N"
+            },
+            {
+                "code": "16",
+                "name": "소형견인차",
+                "srsq": 6,
+                "selected": "N"
+            },
+            {
+                "code": "32",
+                "name": "2종보통",
+                "srsq": 7,
+                "selected": "Y"
+            },
+            {
+                "code": "33",
+                "name": "2종소형",
+                "srsq": 8,
+                "selected": "N"
+            },
+            {
+                "code": "38",
+                "name": "2종원자",
+                "srsq": 9,
+                "selected": "N"
+            }
+        ],
+        "rspCd": "0000"
+    },
+    "errMsg": ""
+  },
+  "inqrPageInfoS-driverLicense": {
+    "rstCd": "200",
+    "dta": {
+        "rspCd": "0000",
+        "rspTtl": "성공",
+        "rspMsg": "정상처리되었습니다.",
+        "data": {
+            "stplList": [
+                {
+                    "stplSno": "20231130174818086001",
+                    "stplTtlNm": "개인정보 수집 및 이용동의(필수)",
+                    "stplMndtYn": "Y",
+                    "stplAgrmYn": "N",
+                    "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20231130174818086001.docx",
+                    "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20231130174818086001.do"
+                },
+                {
+                    "stplSno": "20240207000000000571",
+                    "stplTtlNm": "고유식별정보 수집 및 이용 동의(필수)",
+                    "stplMndtYn": "Y",
+                    "stplAgrmYn": "N",
+                    "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20240207000000000571.docx",
+                    "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20240207000000000571.do"
+                },
+                {
+                    "stplSno": "20231205000000000535",
+                    "stplTtlNm": "개인(신용)정보 제3자 제공 동의(필수)",
+                    "stplMndtYn": "Y",
+                    "stplAgrmYn": "N",
+                    "stplUrl": "/data001/midsvc01/online/stpl/tmoneygoV2/20231205000000000535.docx",
+                    "extlUrl": "https://tiaapid.tmoney.co.kr:20328/webview/mbrs/stpl/v2/20231205000000000535.do"
+                },
+                {
+                    "stplSno": "20231205000000000538",
+                    "stplTtlNm": "타인의 운전면허증 도용 시 법적 처벌을 받을 수 있습니다.(필수)",
+                    "stplMndtYn": "Y",
+                    "stplAgrmYn": "N",
+                    "stplUrl": null,
+                    "extlUrl": null
+                },
+                {
+                    "stplSno": "20231130174818086002",
+                    "stplTtlNm": "본인의 정보를 부정확하게 입력 시, 킥보드 보험 혜택을 받을 수 없습니다.(필수)",
+                    "stplMndtYn": "Y",
+                    "stplAgrmYn": "N",
+                    "stplUrl": null,
+                    "extlUrl": null
+                }
+            ],
+            "unslMttr": null
+        }
+    },
+    "errMsg": ""
+  },
+  "crtnMbrsLgtInfo": {
+    "rstCd": "200",
+    "dta": {
+      "scsYn": "Y",
+      "msg" : "로그아웃에 성공하였습니다."
+    },
+    "errMsg":""
+  },
+  "crtnSpfStplAgrmInfo": {
+    "rstCd": "200",
+    "dta": {
+      "rspMsg": "약관 동의정보가 정상 등록되었습니다.",
+      "stplList": [
+        {
+          "stplAgrmYn": "Y",
+          "stplSno": "20230417000000000331",
+          "moappMbrsSno": "20240509000000029784",
+          "apiId": "144"
+        }
+      ],
+      "rspCd": "0000"
+    },
+    "errMsg": ""
+  },
+  "savePmUserLnkgClrInf": {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상처리되었습니다.",
+      "data":
+      {
+        "lnkgClrYn" : "Y",
+        "lnkgRsn" : "따릉이 반납 후 이용해주세요."
+      }
+    },
+    "errMsg":""
+  },
+  "reqWeightMod": {
+    "rstCd": "200",
+    "dta": {
+      "scsYn": "Y",
+      "msg" : ""
+    },
+    "errMsg":""
+  },
+  "reqPwdMod": {
+    "rstCd": "200",
+    "dta": {
+      "scsYn": "N",
+      "msg" : "현재 비밀번호 정보가 일치하지 않습니다."
+    },
+    "errMsg":""
+  },
+  "reqMailMod": {
+    "rstCd": "200",
+    "dta": {
+      "scsYn": "Y"
+    },
+    "errMsg":""
+  },
+  "reqPrntMbphNoMod": {
+    "rstCd": "200",
+    "dta": {
+      "scsYn": "Y"
+    },
+    "errMsg":""
+  }
+}

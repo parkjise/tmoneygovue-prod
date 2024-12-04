@@ -1,0 +1,48 @@
+{
+  "publicBicycleHistory" : {
+    "rstCd": "200",
+    "dta": {
+      "rspCd": "0000",
+      "rspMsg": "정상처리되었습니다.",
+      "data": {
+        "inqrNcnt": 1,
+        "cumUtlzDrtm": 1,
+        "cumMvmnDist": 0.0,
+        "cumCrbnSvng": 0.0,
+        "cumConsumeCal": 0.0,
+        "dtl": [
+          {
+            "utlzSvcDvsCd": "T",
+            "rntHstSno": "30680629",
+            "utlzDrtm": 1,
+            "mvmnDist": 0,
+            "crbnSvng": 0,
+            "bcclNo": "SPB-00030059",
+            "rntPlc": "00379. 서울역9번출구",
+            "rntDtm": "2023.11.14 16:33:36",
+            "rtrnPlc": "00379. 서울역9번출구",
+            "rtrnDtm": "2023.11.14 16:34:16",
+            "utlzChnlCd": "CHN_002",
+            "addFeeYn": "N",
+            "consumeCal": 0,
+            "exceDrtm": 0,
+            "addFee": "0",
+            "rntSctrId": "",
+            "pymDtm": "",
+            "mvmnTime": "",
+            "pymFee": "0",
+            "pymYn": "Y",
+            "useTime": "",
+            "pauseTime": "",
+            "useFee": "",
+            "pymMnsIdnnVal": "",
+            "atlPymAmt": 0,
+            "cpnUseAmt": 0,
+            "tmgMlgUseAmt": 0
+          }
+        ]
+      }
+    },
+    "errMsg": ""
+  }
+}
