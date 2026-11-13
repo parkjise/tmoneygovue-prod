@@ -1,0 +1,30 @@
+// [Practice] 토큰·함수·믹스인을 하나의 경로로 공개하는 Sass 모듈 진입점입니다.
+// 가져오기: @use '@/assets/styles/practice' as ui;
+// 폴더 경로를 가져오면 Sass가 이 _index.scss 파일을 진입점으로 사용합니다.
+//
+// 사용 예:
+// .card {
+//   @include ui.surface($padding: ui.space(6)); // 패딩 24px인 카드
+//   @include ui.stack(ui.space(4));            // 자식 간 세로 간격 16px
+//   border-radius: ui.$radius;                // 공통 반경 12px
+//   font-size: ui.rem(18px);                  // 1.125rem
+//   @include ui.respond(md) { max-width: 640px; } // 뷰포트 768px 이상
+// }
+//
+// @forward는 다른 파일의 공개 멤버를 이 진입점의 API로 재공개합니다.
+// 사용처는 @use로 가져온 ui 네임스페이스를 통해 멤버에 접근합니다.
+// @forward만으로 이 파일 내부에서 멤버를 직접 사용할 수 있는 것은 아닙니다.
+// 진입점 내부에서도 계산·호출하려면 해당 모듈을 별도로 @use해야 합니다.
+//
+// 설정 변경 예: 첫 @use 시 with ($unit: 5px, $radius: 16px)를 추가합니다.
+// 이미 로드된 모듈은 다시 설정할 수 없으므로 프로젝트의 최초 로드 지점에서 설정하세요.
+// 여러 전역 이름을 섞는 as * 대신 as ui를 사용하면 공통 mixins와 이름 충돌을 줄일 수 있습니다.
+// 스타일이 CSS 변수를 참조하므로 앱 진입점의 전역 main.scss도 함께 불러오세요.
+
+// 기본값 공개: $unit, $radius, $breakpoints, $tones.
+@forward 'tokens';
+// 값 계산 공개: space($step), rem($pixels, $base).
+@forward 'functions';
+// 스타일 묶음 공개: stack, cluster, surface, respond, container-up,
+// truncate, focus-visible, auto-grid. 이름 있는 인자와 @content 사용법은 원본 주석을 참고하세요.
+@forward 'mixins';

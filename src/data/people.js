@@ -1,0 +1,75 @@
+export const people = [
+  {
+    id: 1,
+    name: 'Jise Park',
+    email: 'jise.park@example.com',
+    role: 'Developer',
+    status: 'Pending'
+  },
+  {
+    id: 2,
+    name: 'Emma Wilson',
+    email: 'emma.wilson@example.com',
+    role: 'Designer',
+    status: 'Active'
+  },
+  { id: 3, name: 'Alex Kim', email: 'alex.kim@example.com', role: 'Manager', status: 'Active' },
+  {
+    id: 4,
+    name: 'Olivia Chen',
+    email: 'olivia.chen@example.com',
+    role: 'Developer',
+    status: 'Active'
+  },
+  {
+    id: 5,
+    name: 'Noah Brown',
+    email: 'noah.brown@example.com',
+    role: 'Designer',
+    status: 'Pending'
+  },
+  { id: 6, name: 'Mia Lee', email: 'mia.lee@example.com', role: 'Manager', status: 'Active' },
+  {
+    id: 7,
+    name: 'Lucas Martin',
+    email: 'lucas.martin@example.com',
+    role: 'Developer',
+    status: 'Active'
+  },
+  { id: 8, name: 'Ava Davis', email: 'ava.davis@example.com', role: 'Designer', status: 'Active' },
+  {
+    id: 9,
+    name: 'Ethan Garcia',
+    email: 'ethan.garcia@example.com',
+    role: 'Manager',
+    status: 'Pending'
+  },
+  {
+    id: 10,
+    name: 'Sophia Clark',
+    email: 'sophia.clark@example.com',
+    role: 'Developer',
+    status: 'Active'
+  },
+  {
+    id: 11,
+    name: 'Liam Moore',
+    email: 'liam.moore@example.com',
+    role: 'Designer',
+    status: 'Active'
+  },
+  {
+    id: 12,
+    name: 'Isabella Kim',
+    email: 'isabella.kim@example.com',
+    role: 'Manager',
+    status: 'Active'
+  },
+  {
+    id: 13,
+    name: 'James Taylor',
+    email: 'james.taylor@example.com',
+    role: 'Developer',
+    status: 'Pending'
+  }
+];

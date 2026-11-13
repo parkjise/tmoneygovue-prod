@@ -1,0 +1,35 @@
+// [Functions] CSS 선언을 출력하지 않고 계산한 값을 반환하는 공통 함수입니다.
+// 가져오기: @use '@/assets/styles/practice/functions' as fn;
+// 사용 예: .panel { padding: fn.space(6); font-size: fn.rem(18px); }
+// 여러 선언을 한 번에 적용하려면 @function 대신 @mixin / @include를 사용하세요.
+
+// math.div(): 나눗셈, math.is-unitless(): 단위 검사, math.compatible(): 호환 단위 검사.
+@use 'sass:math';
+// meta.type-of(): 입력값이 숫자인지 검사합니다.
+@use 'sass:meta';
+// 기본 간격 단위 tokens.$unit를 참조합니다.
+@use 'tokens';
+
+// space($step): 기준 간격에 배수를 곱한 길이를 반환합니다.
+// $step: 0 이상의 단위 없는 숫자. 소수도 허용하며 음수·문자열·px 값은 거부합니다.
+// 예: padding: fn.space(4); → 16px, gap: fn.space(1.5); → 6px (기본 $unit 기준).
+// 사용처: 카드 패딩, 요소 간격, 섹션 여백을 같은 간격 스케일로 유지할 때.
+@function space($step) {
+  @if meta.type-of($step) != 'number' or not math.is-unitless($step) or $step < 0 {
+    @error 'space() expects a non-negative, unitless number.';
+  }
+  @return tokens.$unit * $step;
+}
+
+// rem($pixels, $base): 디자인 길이를 기준 글자 크기에 대한 rem 값으로 변환합니다.
+// $pixels: 변환할 길이(보통 px), $base: 양수 기준 길이(기본 16px).
+// Sass에서 px와 호환되는 절대 길이도 계산할 수 있으나 %, em, rem은 허용하지 않습니다.
+// 예: font-size: fn.rem(24px); → 1.5rem, fn.rem(24px, 12px) → 2rem.
+// $base는 계산 기준이며 실제 html 글자 크기를 바꾸지는 않습니다.
+// 브라우저의 글자 크기 설정을 따르는 타이포그래피·간격에 사용하세요.
+@function rem($pixels, $base: 16px) {
+  @if not math.compatible($pixels, 1px) or not math.compatible($base, 1px) or $base <= 0px {
+    @error 'rem() expects pixel lengths and a positive base.';
+  }
+  @return math.div($pixels, $base) * 1rem;
+}

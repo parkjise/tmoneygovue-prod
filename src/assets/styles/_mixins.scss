@@ -1,0 +1,83 @@
+// [Common Mixins] 앱 전체의 레이아웃·카드·접근성 스타일을 공유합니다.
+// 가져오기: @use '@/assets/styles/mixins' as *;
+// Vue에서는 <style lang="scss" scoped>의 첫 부분에서 가져온 뒤 @include로 사용합니다.
+// 배경·색상·반경은 CSS 변수이므로 전역 main.scss를 앱 진입점에서 함께 불러오세요.
+// practice/mixins는 인자와 모듈 기반의 실무 예제이고, 이 파일은 현재 앱의 공통 스타일입니다.
+
+// flex-center: 자식 요소들을 가로·세로 중앙에 배치합니다.
+// 예: .avatar { width: 48px; height: 48px; @include flex-center; }
+// 세로 중앙 배치를 확인하려면 부모에 높이나 최소 높이를 지정하세요.
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// flex-between: 양 끝 정렬과 세로 중앙 정렬, 최소 12px 간격을 적용합니다.
+// 예: .toolbar { @include flex-between; }
+// 사용처: 제목과 액션 버튼, 카드 헤더. 좁은 화면에서는 flex-wrap 또는 세로 전환을 추가하세요.
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+// responsive($breakpoint): 지정한 너비 이하(max-width)에 @content를 적용합니다.
+// mobile = 760px 이하, tablet = 1100px 이하. 900px 같은 직접 길이도 전달할 수 있습니다.
+// 예: .grid { grid-template-columns: 1fr 1fr; @include responsive(mobile) { grid-template-columns: 1fr; } }
+// 알 수 없는 문자열 대신 mobile / tablet 또는 유효한 CSS 너비를 사용하세요.
+// Practice의 respond(sm/md/lg)는 min-width 방식이므로 적용 방향을 구분하세요.
+@mixin responsive($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (max-width: 1100px) {
+      @content;
+    }
+  } @else if $breakpoint == mobile {
+    @media (max-width: 760px) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// card-surface: 앱 테마의 배경·테두리·반경·그림자를 적용합니다.
+// 예: .card { @include card-surface; padding: 24px; }
+// 패딩은 포함하지 않으므로 사용처에서 지정합니다. CSS 변수 변경 시 다크 모드도 반영됩니다.
+@mixin card-surface {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+// text-ellipsis: 한 줄을 유지하고 넘치는 텍스트 끝을 말줄임표로 표시합니다.
+// 예: .title { max-width: 220px; @include text-ellipsis; }
+// 요소 너비를 제한해야 동작하며, flex 자식에는 min-width: 0이 필요할 수 있습니다.
+@mixin text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// custom-scrollbar: 스크롤바를 가늘게 하고 테마에 맞는 색상을 지정합니다.
+// 예: .list { max-height: 320px; overflow: auto; @include custom-scrollbar; }
+// 이 믹스인은 스크롤 영역을 만들지 않으므로 높이 제한과 overflow는 별도로 지정하세요.
+// 실제 표시 모양은 브라우저·운영체제의 스크롤바 설정에 따라 달라질 수 있습니다.
+@mixin custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+// focus-ring: :focus-visible 상태의 외곽선을 통일합니다.
+// 예: .button { @include focus-ring; } → .button:focus-visible 규칙 생성.
+// 버튼·링크·입력처럼 포커스 가능한 요소에 사용하며 기본 포커스 표시를 무조건 제거하지 마세요.
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+  }
+}

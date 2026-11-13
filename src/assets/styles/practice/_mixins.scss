@@ -1,0 +1,106 @@
+// [Practice Mixins] 실무 컴포넌트의 반복되는 CSS 선언을 묶은 모듈입니다.
+// 가져오기: @use '@/assets/styles/practice/mixins' as mix;
+// 사용 예: .panel { @include mix.surface; @include mix.stack(16px); }
+// Practice 전체를 가져온 경우에는 ui.stack(), ui.surface()처럼 같은 이름으로 사용합니다.
+// 기본 간격·반경은 tokens, 간격 계산은 functions 모듈에서 가져옵니다.
+@use 'sass:map';
+@use 'tokens';
+@use 'functions' as fn;
+
+// stack($gap): 자식 요소를 세로로 배치합니다. 기본 간격은 16px입니다.
+// 예: .form { @include mix.stack(24px); }
+// 사용처: 폼 필드 묶음, 세로 카드 콘텐츠. 자식 margin 대신 gap으로 간격을 통일합니다.
+@mixin stack($gap: fn.space(4)) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+// cluster($gap, $align): 가로 배치하며 공간이 부족하면 다음 줄로 넘깁니다.
+// 기본값: $gap = 12px, $align = center. align-items에 유효한 정렬 값을 전달하세요.
+// 예: .toolbar { @include mix.cluster($gap: 8px, $align: flex-start); }
+// 사용처: 툴바, 필터, 태그 그룹. 한 줄 고정이 필요한 레이아웃에는 별도 설정이 필요합니다.
+@mixin cluster($gap: fn.space(3), $align: center) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: $align;
+  gap: $gap;
+}
+
+// surface($padding, $radius): 공통 카드의 패딩·배경·테두리·반경·그림자입니다.
+// 기본값: 패딩 20px, 반경 12px. 이름 있는 인자로 필요한 값만 바꿀 수 있습니다.
+// 예: .card { @include mix.surface($padding: 24px) { border-left: 3px solid var(--primary); } }
+// @content: 호출하는 쪽의 추가 스타일을 이 위치에 삽입합니다. 블록 없이 호출해도 됩니다.
+// CSS 변수는 전역 main.scss에서 정의하므로 앱 진입점에서 main.scss를 불러오세요.
+@mixin surface($padding: fn.space(5), $radius: tokens.$radius) {
+  padding: $padding;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: $radius;
+  box-shadow: var(--shadow);
+  @content;
+}
+
+// respond($name): 뷰포트 너비를 기준으로 모바일 우선 미디어 쿼리를 만듭니다.
+// $name: tokens.$breakpoints의 키(sm / md / lg). 알 수 없는 이름은 빌드 오류로 알립니다.
+// 예: .layout { grid-template-columns: 1fr; @include mix.respond(md) { grid-template-columns: 1fr 1fr; } }
+// md는 768px 이상입니다. 공통 mixins의 max-width 기반 responsive()와 방향이 다릅니다.
+@mixin respond($name) {
+  @if not map.has-key(tokens.$breakpoints, $name) {
+    @error 'Unknown breakpoint: #{$name}';
+  }
+  @media (min-width: map.get(tokens.$breakpoints, $name)) {
+    @content;
+  }
+}
+
+// container-up($width): 뷰포트가 아닌 이름이 recipe인 조상 컨테이너의 너비를 검사합니다.
+// 준비: 부모에 container-type: inline-size; container-name: recipe; 를 선언하세요.
+// 예: .child { @include mix.container-up(480px) { display: grid; grid-template-columns: 1fr 1fr; } }
+// 컨테이너 자신의 크기를 검사해 자신을 바꾸는 용도가 아니라, 자손 스타일을 바꿀 때 사용합니다.
+// 사용처: 사이드 패널·대시보드 카드처럼 배치 위치마다 사용 가능한 너비가 다른 컴포넌트.
+@mixin container-up($width) {
+  @container recipe (min-width: #{$width}) {
+    @content;
+  }
+}
+
+// truncate($lines): 긴 텍스트를 지정한 줄 수에서 시각적으로 자릅니다.
+// $lines: 1 이상의 정수. 1줄이면 ellipsis, 2줄 이상이면 line-clamp 패턴을 사용합니다.
+// 예: .title { max-width: 240px; @include mix.truncate; }
+// 예: .description { @include mix.truncate(3); }
+// 너비 제한이 있어야 줄바꿈·말줄임을 확인할 수 있습니다. flex 자식은 min-width: 0도 검토하세요.
+// 원문은 DOM에 남습니다. 중요한 내용은 펼치기 등 별도로 읽을 수 있는 방법을 제공하세요.
+@mixin truncate($lines: 1) {
+  overflow: hidden;
+  @if $lines == 1 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+  }
+}
+
+// focus-visible: 브라우저가 포커스 표시가 필요하다고 판단할 때 외곽선을 제공합니다.
+// 예: .button { @include mix.focus-visible; } → .button:focus-visible 규칙 생성.
+// 사용처: 버튼·링크·입력 컨트롤. 주로 키보드 탐색 시 표시되며 마우스에도 표시될 수 있습니다.
+// 적용 대상이 실제로 포커스 가능해야 하며, 부모의 overflow에 외곽선이 잘리지 않게 확인하세요.
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+  }
+}
+
+// auto-grid($min, $gap): 카드 최소 너비와 공간에 따라 열 수가 자동으로 바뀌는 그리드입니다.
+// 기본값: 최소 너비 180px, 간격 16px. $min에는 px/rem 같은 길이를 전달하세요.
+// 예: .products { @include mix.auto-grid($min: 220px, $gap: 24px); }
+// auto-fit은 빈 열을 접고, min(100%, $min)은 부모가 더 좁을 때 최소 너비를 제한합니다.
+// 사용처: 상품 목록·KPI 카드·갤러리. 긴 자식 콘텐츠에는 min-width: 0도 함께 적용하세요.
+@mixin auto-grid($min: 180px, $gap: fn.space(4)) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, $min), 1fr));
+  gap: $gap;
+}
