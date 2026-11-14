@@ -35,7 +35,7 @@ const descriptions = {
         </CodeExampleCard>
       </details>
     </template>
-    <template v-else-if="route.meta.folder === 'vue-practice' || route.meta.folder === 'html5'">
+    <template v-else-if="['vue-practice', 'html5', 'css3'].includes(route.meta.folder)">
       <component :is="props.example" />
     </template>
     <template v-else>

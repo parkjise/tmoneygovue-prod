@@ -10,6 +10,9 @@ const sources = import.meta.glob(
     '!/src/data/vuePracticeQuestions.json',
     '!/src/data/htmlSemanticPatterns.json',
     '!/src/views/html5/**/*.vue',
+    '!/src/views/css3/**/*.vue',
+    '!/src/data/css3Patterns.json',
+    '!/src/data/css3Tips.json',
     '!/src/components/practice/**/*.vue',
     '!/src/views/vue-practice/**/*.vue'
   ],

@@ -22,7 +22,7 @@ npx playwright test
 
 ## 구성
 
-- 기본 문법 6종, 실무 패턴 6종, 대시보드·위젯 5종, 앱 17종, UI Kit·Bonus UI 25종, Forms·Tables 5종, SCSS 실무 가이드 8종, SCSS 원본 소스 5종: BEM Generator와 AI Q&A, Vue 실무예제, HTML5 메뉴를 포함해 총 81개 경로
+- 기본 문법 6종, 실무 패턴 6종, 대시보드·위젯 5종, 앱 17종, UI Kit·Bonus UI 25종, Forms·Tables 5종, SCSS 실무 가이드 8종, SCSS 원본 소스 5종: BEM Generator와 AI Q&A, Vue 실무예제, HTML5, CSS3 메뉴를 포함해 총 82개 경로
 - `src/data/menuData.js`를 기준으로 사이드바와 라우터를 함께 생성합니다.
 - `src/views`의 실제 SFC를 `?raw`로 읽어 코드 뷰어에 표시합니다. 필요한 공통 컴포넌트와 Composable, 공통 Sass 파일도 파일 선택에서 볼 수 있습니다.
 - 코드 탭을 선택하면 해당 블록을 복사합니다. 처음에는 전체 `.vue` 코드가 선택됩니다.
@@ -57,6 +57,14 @@ npm run build
 ```
 
 Sass 정의는 빌드 시점, CSS 변수는 브라우저 실행 시점에 동작합니다. 원본 파일을 복사할 때 디렉터리 구조와 의존 경로를 유지하고, 테마를 쓰는 컴포넌트에는 전역 `src/assets/styles/main.scss`의 CSS 변수도 제공하세요. 레시피의 `sample-*` 클래스는 프로젝트 BEM 이름으로 바꿔 적용할 수 있습니다.
+
+## CSS3 패턴과 실무 팁
+
+사이드바 **CSS3** (`/css3/patterns`)에서 **패턴 48개**와 **실무 팁 20개**를 버튼으로 선택합니다. Flex/Grid, 위치·스크롤, 반응형, 텍스트, 이미지·장식, 상태·접근성, 현대 CSS를 다룹니다. 실무 팁에는 넘침, min-width/min-height, 우선순위·레이어, z-index, sticky, 이미지 크기, 포커스, disabled, 모바일 높이, 성능·DevTools 확인 순서가 있습니다.
+
+각 항목은 순수 CSS와 정적 HTML을 제공합니다. CSS 패턴·HTML·공통 기본 CSS·완성 HTML 문서를 선택해 복사할 수 있고, 전체 CSS와 스타일을 포함한 HTML 예제를 다운로드할 수 있습니다. 화면보기는 샌드박스에서 너비와 테마를 바꿔 실제 CSS를 확인하며 스크립트·서버 제출은 실행하지 않습니다.
+
+일부 CSS 패턴은 검증된 SCSS 레시피의 컴파일 결과를 공유합니다. 브라우저에서 Sass가 필요한 것은 아니며, 빌드에서 SCSS 결과가 갱신되면 CSS3 화면도 함께 반영됩니다. 이 프로젝트 밖에서는 CSS 변수와 기본 스타일이 포함된 **전체 CSS 복사** 또는 완성 HTML 문서를 사용하세요.
 
 ## 개인 Gemini / OpenAI BEM Generator
 

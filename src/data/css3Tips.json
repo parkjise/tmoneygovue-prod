@@ -1,0 +1,344 @@
+[
+  {
+    "id": "tip-box",
+    "title": "width:100%인데 가로 스크롤이 생겨요",
+    "category": "넘침 · 레이아웃",
+    "properties": [
+      "box-sizing",
+      "padding",
+      "border"
+    ],
+    "description": "너비에 패딩과 테두리가 더해져 부모를 넘는 경우입니다.",
+    "steps": [
+      "content-box의 width는 콘텐츠 너비만 뜻합니다. 100% 너비에 좌우 padding이 붙으면 전체 박스는 더 커질 수 있습니다.",
+      "border-box를 사용하면 지정 너비 안에 padding과 border를 포함합니다. 단, 긴 콘텐츠나 고정 최소 너비처럼 다른 원인도 있으므로 실제 계산된 크기를 함께 확인하세요."
+    ],
+    "pitfall": "overflow-x:hidden으로 먼저 덮어버리면 필요한 콘텐츠까지 잘릴 수 있습니다. 넘치는 요소의 원인을 먼저 찾으세요.",
+    "html": "<section class=\"recipe-demo\">\n  <div class=\"box-parent\">\n    <article class=\"box-child\">100% 너비 + 24px 패딩</article>\n  </div>\n</section>",
+    "css": ".recipe-demo {\n  display: grid;\n  gap: 16px;\n  min-width: 0;\n}\n.box-parent {\n  max-width: 480px;\n  border: 2px dashed var(--primary);\n}\n.box-child {\n  box-sizing: border-box;\n  width: 100%;\n  padding: 24px;\n  border: 8px solid var(--border);\n}"
+  },
+  {
+    "id": "tip-flexmin",
+    "title": "Flex 자식이 줄어들지 않아요",
+    "category": "넘침 · 레이아웃",
+    "properties": [
+      "min-width: 0",
+      "flex-basis",
+      "overflow-wrap"
+    ],
+    "description": "긴 문자열이 Flex의 기본 최소 크기를 밀어냅니다.",
+    "steps": [
+      "flex:1만으로 긴 콘텐츠가 항상 줄어드는 것은 아닙니다. 자식의 자동 최소 크기가 내용 폭을 기준으로 잡힐 수 있습니다.",
+      "줄어들어야 하는 자식에 min-width:0을 적용하고, 텍스트는 줄바꿈 또는 말줄임 정책을 별도로 선택하세요. 옆 액션은 고정할지 줄바꿈할지도 결정해야 합니다."
+    ],
+    "pitfall": "모든 자식에 임의의 고정 너비를 주기보다 가변 영역과 고정 영역의 역할을 구분하세요.",
+    "patternId": "layout-minwidth"
+  },
+  {
+    "id": "tip-gridmin",
+    "title": "1fr 그리드가 화면 밖으로 나가요",
+    "category": "넘침 · 레이아웃",
+    "properties": [
+      "minmax(0, 1fr)",
+      "min-width"
+    ],
+    "description": "가변 열도 내용의 최소 크기에 영향을 받습니다.",
+    "steps": [
+      "1fr은 남은 공간을 나누지만 최소 크기 문제까지 모두 해결하지는 않습니다. 긴 표나 URL이 열을 밀어낼 수 있습니다.",
+      "열에 minmax(0,1fr)를 사용하고 실제 자식에 min-width:0이나 적절한 overflow를 설정하세요. 바깥 Grid와 안쪽 콘텐츠를 따로 확인해야 합니다."
+    ],
+    "pitfall": "중요한 테이블 데이터를 잘라 숨기지 말고 필요하면 내부 가로 스크롤을 제공하세요.",
+    "patternId": "layout-fixed"
+  },
+  {
+    "id": "tip-minheight",
+    "title": "세로 Flex 안의 목록이 스크롤되지 않아요",
+    "category": "넘침 · 레이아웃",
+    "properties": [
+      "min-height: 0",
+      "overflow",
+      "flex"
+    ],
+    "description": "가변 자식의 자동 최소 높이 때문에 스크롤 영역이 늘어나는 경우입니다.",
+    "steps": [
+      "column Flex에서 자식이 내용 높이보다 작아지지 않으면 overflow:auto를 줘도 부모를 밀어낼 수 있습니다. 먼저 부모의 제한된 높이가 있는지 확인하세요.",
+      "가변 자식에 min-height:0과 flex:1을 주고 그 자식에 overflow:auto를 적용합니다. 스크롤이 어느 요소에서 발생해야 하는지도 명확히 정하세요."
+    ],
+    "pitfall": "부모 높이가 제한되지 않으면 내용만큼 늘어나는 것이 정상입니다. overflow 속성만 바꿔서는 해결되지 않습니다.",
+    "html": "<section class=\"recipe-demo\">\n  <div class=\"height-shell\">\n    <header>고정 헤더</header>\n    <div class=\"height-list\" tabindex=\"0\" aria-label=\"세로 목록\">\n      <p>목록 항목 1</p>\n      <p>목록 항목 2</p>\n      <p>목록 항목 3</p>\n      <p>목록 항목 4</p>\n      <p>목록 항목 5</p>\n      <p>목록 항목 6</p>\n      <p>목록 항목 7</p>\n      <p>목록 항목 8</p>\n      <p>목록 항목 9</p>\n      <p>목록 항목 10</p>\n      <p>목록 항목 11</p>\n      <p>목록 항목 12</p>\n      <p>목록 항목 13</p>\n    </div>\n  </div>\n</section>",
+    "css": ".recipe-demo {\n  display: grid;\n  gap: 16px;\n  min-width: 0;\n}\n.height-shell {\n  display: flex;\n  flex-direction: column;\n  height: 240px;\n  border: 1px solid var(--border);\n}\n.height-shell header {\n  flex: 0 0 auto;\n  padding: 16px;\n  background: var(--soft);\n}\n.height-list {\n  flex: 1;\n  min-height: 0;\n  overflow: auto;\n  padding: 16px;\n}"
+  },
+  {
+    "id": "tip-specificity",
+    "title": "선택자를 길게 써야만 덮어써져요",
+    "category": "우선순위 · 구조",
+    "properties": [
+      ":where",
+      "specificity",
+      "class"
+    ],
+    "description": "선택자 경쟁이 계속 커지고 있을 수 있습니다.",
+    "steps": [
+      "먼저 같은 속성의 origin, 중요도, 레이어, 우선순위, 선언 순서를 확인하세요. 선택자를 길게 만드는 것만으로 해결하려 하면 나중에 더 긴 선택자가 필요해집니다.",
+      ":where 안의 선택자는 우선순위가 0입니다. 기본 스타일을 낮은 우선순위로 제공하고 컴포넌트 클래스에서 명시적으로 바꾸는 데 사용할 수 있습니다."
+    ],
+    "pitfall": ":is와 :where는 우선순위 규칙이 다릅니다. 같은 묶음 선택자라고 무조건 바꿔 쓰지 마세요.",
+    "html": "<section class=\"recipe-demo\">\n  <div class=\"specificity-parent\">\n    <article class=\"specificity-card\">컴포넌트 스타일로 쉽게 덮어쓰기</article>\n  </div>\n</section>",
+    "css": ".recipe-demo {\n  display: grid;\n  gap: 16px;\n  min-width: 0;\n}\n:where(.specificity-parent) :where(article) {\n  border: 1px solid var(--border);\n  padding: 24px;\n}\n.specificity-card {\n  border-color: var(--primary);\n  border-width: 3px;\n  border-radius: 12px;\n}"
+  },
+  {
+    "id": "tip-important",
+    "title": "!important를 계속 추가하고 있어요",
+    "category": "우선순위 · 구조",
+    "properties": [
+      "@layer",
+      "cascade",
+      "!important"
+    ],
+    "description": "스타일 소유권과 적용 계층을 먼저 정리할 필요가 있습니다.",
+    "steps": [
+      "DevTools에서 실제 승리한 선언을 확인하고 인라인 스타일, 외부 CSS, 레이어 밖 선언이 있는지 살펴보세요. 수정한 파일이 로딩되었는지도 먼저 확인합니다.",
+      "기본형·컴포넌트·유틸리티의 순서를 @layer로 정리할 수 있습니다. 다만 레이어 밖의 일반 선언은 레이어 안보다 우선하며 !important는 별도 규칙을 따릅니다."
+    ],
+    "pitfall": "!important가 필요한 제한된 상황도 있지만, 해결 이유를 모른 채 쌓으면 이후 수정 비용이 커집니다.",
+    "patternId": "css-layers"
+  },
+  {
+    "id": "tip-zindex",
+    "title": "z-index를 99999로 올려도 뒤에 있어요",
+    "category": "위치 · 스크롤",
+    "properties": [
+      "stacking context",
+      "isolation",
+      "transform"
+    ],
+    "description": "부모의 쌓임 맥락에 갇혔을 가능성이 있습니다.",
+    "steps": [
+      "z-index는 모든 요소를 하나의 숫자 줄로 정렬하는 방식이 아닙니다. transform, opacity, isolation, positioned 요소 등이 만든 조상 쌓임 맥락을 확인하세요.",
+      "각 레이어를 같은 맥락에서 비교하거나 모달을 적절한 최상위 위치로 옮깁니다. dialog.showModal 같은 네이티브 top layer 사용도 요구에 따라 고려할 수 있습니다."
+    ],
+    "pitfall": "숫자를 키우기 전에 부모를 확인하세요. 이 예제는 로컬 오버레이 구조이며 실제 모달 동작은 별도입니다.",
+    "patternId": "layout-overlay"
+  },
+  {
+    "id": "tip-sticky",
+    "title": "sticky가 고정되지 않아요",
+    "category": "위치 · 스크롤",
+    "properties": [
+      "position: sticky",
+      "inset",
+      "overflow"
+    ],
+    "description": "스크롤 조상, 기준 위치, 움직일 공간을 확인해야 합니다.",
+    "steps": [
+      "top 또는 inset-block-start 같은 기준값이 있는지, 가까운 조상이 overflow를 갖는지 확인합니다. 예상과 다른 요소가 스크롤 기준이 될 수 있습니다.",
+      "sticky 요소가 부모보다 움직일 공간이 없는 경우나 늘어난 높이 때문에 스크롤이 생기지 않는 경우도 있습니다. 스크롤 영역과 높이를 DevTools에서 직접 확인하세요."
+    ],
+    "pitfall": "overflow를 무조건 제거하기보다 그 스크롤 영역이 제품에서 필요한 구조인지부터 확인하세요.",
+    "patternId": "layout-sticky"
+  },
+  {
+    "id": "tip-image-cls",
+    "title": "이미지가 로딩되면 화면이 밀려요",
+    "category": "이미지 · 텍스트",
+    "properties": [
+      "width",
+      "height",
+      "aspect-ratio"
+    ],
+    "description": "로딩 전 이미지 공간이 확보되지 않은 경우입니다.",
+    "steps": [
+      "이미지의 width와 height를 지정하거나 컨테이너의 aspect-ratio로 공간을 예약합니다. 화면에 보이는 CSS 크기와 원본 비율을 함께 고려하세요.",
+      "고정 높이와 object-fit을 쓰면 레이아웃은 안정적이지만 이미지가 잘릴 수 있습니다. 주요 피사체와 대체 텍스트도 함께 검토해야 합니다."
+    ],
+    "pitfall": "이미지 경로가 잘못된 문제를 CSS로 감추지 말고 실제 응답과 크기를 확인하세요.",
+    "patternId": "layout-media"
+  },
+  {
+    "id": "tip-objectfit",
+    "title": "object-fit:cover를 줬는데 변화가 없어요",
+    "category": "이미지 · 텍스트",
+    "properties": [
+      "object-fit",
+      "width",
+      "height"
+    ],
+    "description": "이미지 요소의 실제 너비·높이가 정해져 있는지 확인하세요.",
+    "steps": [
+      "object-fit은 img 같은 대체 요소가 자신의 박스 안에서 콘텐츠를 어떻게 맞출지 정합니다. 부모에만 cover를 줘서는 적용되지 않습니다.",
+      "img의 박스 크기와 부모의 비율을 함께 지정하세요. 전체 이미지를 보여줄지 영역을 채울지 목적에 따라 contain과 cover를 선택합니다."
+    ],
+    "pitfall": "잘린 위치는 object-position으로 조절할 수 있습니다. 모든 이미지를 같은 중앙 크롭으로 처리해도 괜찮은지 확인하세요.",
+    "patternId": "layout-media"
+  },
+  {
+    "id": "tip-query",
+    "title": "Media Query와 Container Query 중 뭘 쓸까요",
+    "category": "반응형 · 환경",
+    "properties": [
+      "@media",
+      "@container",
+      "container-type"
+    ],
+    "description": "페이지 전체와 재사용 컴포넌트의 기준을 구분합니다.",
+    "steps": [
+      "사이트 내비게이션처럼 뷰포트 전체 구성은 미디어 쿼리가 자연스럽습니다. 같은 카드가 여러 영역에 들어간다면 부모 폭에 반응하는 컨테이너 쿼리를 검토하세요.",
+      "컨테이너 쿼리에는 조회할 조상의 container-type과 이름이 필요합니다. 이름이 다르거나 기준 부모가 없으면 적용되지 않습니다."
+    ],
+    "pitfall": "화면 크기만으로 입력 장치나 사용자의 접근성 설정을 추정하지 마세요.",
+    "patternId": "responsive-container"
+  },
+  {
+    "id": "tip-hover",
+    "title": "모바일에서 hover 모양이 남아요",
+    "category": "반응형 · 환경",
+    "properties": [
+      "hover",
+      "pointer",
+      "focus-visible"
+    ],
+    "description": "터치와 마우스의 상태가 같다고 가정하지 마세요.",
+    "steps": [
+      "장식적인 hover 효과는 hover:hover와 pointer:fine 같은 입력 장치 조건에서만 적용할 수 있습니다. 작은 화면이라는 이유만으로 터치라고 판단하지 않습니다.",
+      "키보드 포커스는 hover의 대체가 아니라 별도 상태입니다. 포커스 표시를 제공하고 필수 정보와 기능은 모든 입력 방식에서 사용할 수 있어야 합니다."
+    ],
+    "pitfall": "하이브리드 기기에는 여러 포인터가 있을 수 있습니다. 실제 장치에서도 확인하세요.",
+    "patternId": "responsive-pointer"
+  },
+  {
+    "id": "tip-focus",
+    "title": "디자인 때문에 outline을 지워도 될까요",
+    "category": "상태 · 접근성",
+    "properties": [
+      ":focus-visible",
+      "outline-offset"
+    ],
+    "description": "현재 키보드 위치를 알 수 있는 표시가 필요합니다.",
+    "steps": [
+      "기본 outline을 없앨 때는 동등하게 분명한 대체를 제공해야 합니다. 색상만 조금 바꾸는 방식이 충분한지 실제 배경과 함께 확인하세요.",
+      "focus-visible로 키보드 상황에 맞는 외곽선을 주고 Tab과 Shift+Tab으로 순서를 확인합니다. 부모 overflow에 잘리는지도 점검하세요."
+    ],
+    "pitfall": "클릭 가능한 div를 만든 뒤 스타일만 버튼처럼 보이게 하지 마세요. 의미와 키보드 동작은 네이티브 요소부터 검토하세요.",
+    "patternId": "state-focus"
+  },
+  {
+    "id": "tip-aria-disabled",
+    "title": "회색 버튼인데 클릭이 돼요",
+    "category": "상태 · 접근성",
+    "properties": [
+      "disabled",
+      "aria-disabled",
+      "pointer-events"
+    ],
+    "description": "비활성처럼 보이게 하는 CSS는 실행을 막지 않습니다.",
+    "steps": [
+      "실제 disabled 속성과 aria-disabled의 차이를 구분합니다. aria-disabled는 상태 의미만 알리므로 앱에서 클릭과 키보드 실행을 별도로 차단해야 합니다.",
+      "opacity와 cursor는 시각적인 표현입니다. pointer-events:none도 키보드 실행까지 보장하지 않으므로 데이터나 동작의 보호 수단으로 삼지 마세요."
+    ],
+    "pitfall": "중복 제출 같은 문제는 UI 표시와 핸들러의 상태 검사를 함께 구현하세요.",
+    "patternId": "state-disabled"
+  },
+  {
+    "id": "tip-motion",
+    "title": "애니메이션을 줄이고 싶은 사용자도 있어요",
+    "category": "상태 · 접근성",
+    "properties": [
+      "prefers-reduced-motion",
+      "animation"
+    ],
+    "description": "사용자의 움직임 줄이기 환경 설정을 반영합니다.",
+    "steps": [
+      "반복 회전과 큰 이동에는 모션 감소 대체를 준비합니다. @media(prefers-reduced-motion:reduce)에서 애니메이션과 불필요한 전환을 제거할 수 있습니다.",
+      "움직임을 없애도 현재 상태를 이해할 수 있어야 합니다. 로딩 문구처럼 정적인 설명을 함께 제공하고 필수 정보를 애니메이션에만 담지 마세요."
+    ],
+    "pitfall": "효과를 무조건 빠르게 만드는 것보다 움직임 자체를 줄이는 대체가 적합한 경우가 있습니다.",
+    "patternId": "state-animation"
+  },
+  {
+    "id": "tip-vh",
+    "title": "100vh 화면이 모바일에서 잘려요",
+    "category": "반응형 · 환경",
+    "properties": [
+      "vh",
+      "svh",
+      "lvh",
+      "dvh"
+    ],
+    "description": "브라우저 UI 변화에 맞는 뷰포트 단위를 선택하세요.",
+    "steps": [
+      "모바일 주소창이 나타나거나 사라질 때 실제 사용 영역이 달라집니다. dvh는 동적 뷰포트를, svh와 lvh는 각각 작은·큰 기준을 고려할 때 사용합니다.",
+      "지원 대체와 실제 사용자 경험을 함께 검토합니다. 주소창 변화마다 높이가 바뀌면 불편한 화면도 있으므로 모든 페이지에 같은 단위를 강제하지 마세요."
+    ],
+    "pitfall": "프레임은 모바일 주소창을 재현하지 못합니다. 실제 기기와 확대 상태에서도 확인하세요.",
+    "patternId": "css-dynamic-viewport"
+  },
+  {
+    "id": "tip-rtl",
+    "title": "다국어인데 left/right를 계속 바꾸고 있어요",
+    "category": "이미지 · 텍스트",
+    "properties": [
+      "inline-start",
+      "block",
+      "text-align"
+    ],
+    "description": "내용의 흐름을 기준으로 논리 속성을 사용하세요.",
+    "steps": [
+      "padding-inline-start, margin-inline-end처럼 시작·끝 기준으로 작성하면 RTL에서도 구조를 재사용하기 쉽습니다.",
+      "로고·재생 아이콘·숫자처럼 뒤집으면 안 되는 요소도 있으므로 모든 transform을 일괄 반전시키지 마세요. 실제 번역 문구로 확인하세요."
+    ],
+    "pitfall": "시각적 순서 변경이 DOM의 읽기·키보드 순서까지 바꾸지는 않습니다.",
+    "patternId": "type-logical"
+  },
+  {
+    "id": "tip-wordwrap",
+    "title": "영어 파일명 하나 때문에 카드가 커져요",
+    "category": "이미지 · 텍스트",
+    "properties": [
+      "overflow-wrap",
+      "min-width",
+      "white-space"
+    ],
+    "description": "공백 없는 문자열과 가변 영역의 최소 크기를 함께 봅니다.",
+    "steps": [
+      "overflow-wrap:anywhere로 긴 문자열의 줄바꿈을 허용할 수 있습니다. 일반 문장을 모두 잘게 끊는 word-break:break-all과 차이가 있습니다.",
+      "줄어들어야 하는 Flex/Grid 자식에는 min-width:0도 확인합니다. 식별자나 코드는 줄바꿈보다 가로 스크롤과 복사가 나을 수 있습니다."
+    ],
+    "pitfall": "중요한 문자열의 원본을 CSS 처리와 함께 데이터에서 잘라 저장하지 마세요.",
+    "patternId": "type-longwords"
+  },
+  {
+    "id": "tip-performance",
+    "title": "애니메이션이 끊기는데 will-change를 줄까요",
+    "category": "성능 · 디버깅",
+    "properties": [
+      "transform",
+      "opacity",
+      "will-change"
+    ],
+    "description": "먼저 어떤 작업이 느린지 측정한 뒤 개선해야 합니다.",
+    "steps": [
+      "위치 이동에는 transform, 사라짐에는 opacity처럼 레이아웃을 덜 건드리는 속성을 검토할 수 있습니다. 그러나 모든 경우에 성능 향상이 보장되지는 않습니다.",
+      "will-change를 모든 요소에 상시 적용하면 메모리와 레이어 비용이 늘 수 있습니다. Performance 패널에서 병목을 확인한 뒤 필요한 대상과 시간에 제한하세요."
+    ],
+    "pitfall": "큰 그림자·필터·넓은 배경 이동 등 페인트 비용도 함께 측정하세요. 모션 감소 대체도 제공해야 합니다.",
+    "patternId": "state-hover"
+  },
+  {
+    "id": "tip-devtools",
+    "title": "CSS가 안 먹을 때 확인 순서",
+    "category": "성능 · 디버깅",
+    "properties": [
+      "Computed",
+      "Styles",
+      "box model"
+    ],
+    "description": "파일 로딩부터 실제 승리한 선언까지 차례로 확인하세요.",
+    "steps": [
+      "먼저 요소의 클래스와 선택자가 맞는지, CSS 파일이 로딩되었는지 확인합니다. Styles 패널의 취소선과 오류 표시, Computed의 최종 값을 함께 살펴보세요.",
+      "다음으로 상속, 레이어, 우선순위, 선언 순서, 미디어 조건, 부모 크기와 overflow를 확인합니다. 한 번에 여러 값을 바꾸지 말고 원인을 하나씩 좁히세요."
+    ],
+    "pitfall": "임시 디버깅 outline은 개발 중에만 사용하세요. 운영 CSS의 전역 스타일로 남기지 마세요.",
+    "html": "<section class=\"recipe-demo\">\n  <div class=\"debug-parent\">\n    <article class=\"debug-child\">\n      <h3>박스 범위 확인</h3>\n      <p>outline은 레이아웃 크기를 늘리지 않습니다.</p>\n    </article>\n  </div>\n</section>",
+    "css": ".recipe-demo {\n  display: grid;\n  gap: 16px;\n  min-width: 0;\n}\n.debug-parent {\n  padding: 24px;\n  outline: 2px dashed var(--primary);\n}\n.debug-child {\n  padding: 20px;\n  outline: 2px solid #0f766e;\n  background: var(--soft);\n}"
+  }
+]

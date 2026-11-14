@@ -68,6 +68,20 @@ export const menuGroups = [
     ]
   },
   {
+    title: 'CSS3',
+    icon: 'Palette',
+    direct: true,
+    children: [
+      {
+        path: '/css3/patterns',
+        title: 'CSS3 실무 가이드',
+        description: 'CSS 패턴 48종 · 실무 문제 해결 팁 20종',
+        folder: 'css3',
+        slug: 'patterns'
+      }
+    ]
+  },
+  {
     title: 'Vue.js 기본 문법',
     icon: 'CodeXml',
     children: [
