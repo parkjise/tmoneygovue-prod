@@ -1,0 +1,1 @@
+import{j as e}from"./index-iCiYnOkD.js";const r=e([{id:1,name:"Vue Atelier",description:"Vue 3 레퍼런스 대시보드",status:"In progress",progress:72},{id:2,name:"Brand refresh",description:"브랜드 디자인 시스템",status:"Completed",progress:100},{id:3,name:"Customer portal",description:"고객 포털 구축",status:"Planning",progress:15}]);function t(){return{projects:r}}export{t as u};
