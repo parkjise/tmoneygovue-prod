@@ -1,54 +1,47 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import {
-  vueExercises,
-  questionSource,
-  checkExercise,
-  normalizeExerciseAnswer
-} from '../src/composables/vueExercises.js';
+import { parse, compileScript, compileTemplate } from '@vue/compiler-sfc';
+const questions = JSON.parse(readFileSync('src/data/vuePracticeQuestions.json', 'utf8'));
 
-test('each Vue problem has real source blanks, checks, hints and a passing reference solution', () => {
-  assert.equal(vueExercises.length, 12);
-  assert.equal(new Set(vueExercises.map((exercise) => exercise.id)).size, 12);
-  for (const exercise of vueExercises) {
-    const source = readFileSync('src/views' + exercise.path + '.vue', 'utf8');
-    const question = questionSource(exercise, source);
-    exercise.blanks.forEach((field, index) => {
-      assert.ok(question.includes(`/* 빈칸 ${index + 1} */`));
-      assert.ok(field.hint && field.explanation && field.target);
-    });
-    assert.ok(exercise.checks.length >= 3);
-    assert.ok(checkExercise(exercise, []).every((item) => !item.correct));
-    assert.ok(
-      checkExercise(
-        exercise,
-        exercise.blanks.map((field) => field.target)
-      ).every((item) => item.correct)
+test('40 question prompts contain only static HTML and CSS across five categories', () => {
+  assert.equal(questions.length, 40);
+  assert.equal(new Set(questions.map((item) => item.id)).size, 40);
+  assert.equal(new Set(questions.map((item) => item.category)).size, 5);
+  for (const question of questions) {
+    assert.ok(question.html && question.css && question.question);
+    assert.doesNotMatch(
+      question.html,
+      /<\/?(?:script|style)\b|\bv-(?:if|for|show|model|bind|on|else)|\s(?:@|:)[\w-]+\s*=|\{\{|\bon\w+\s*=/i,
+      question.id
     );
+    assert.doesNotMatch(question.css, /@(?:use|include|mixin)|\$[\w-]+/);
+    assert.equal(question.steps.length, 3);
+    assert.ok(
+      question.steps.every((step) => step.length >= 65),
+      question.id
+    );
+    assert.ok(question.pitfall.length >= 50, question.id);
+    assert.equal(question.checks.length, 3);
   }
 });
-test('answer checks tolerate formatting but preserve string contents without executing input', () => {
-  assert.equal(
-    normalizeExerciseAnswer(`v-model = 'name'`),
-    normalizeExerciseAnswer('v-model="name"')
-  );
-  assert.equal(
-    normalizeExerciseAnswer('if (loading.value || finished.value) return;'),
-    normalizeExerciseAnswer('if(loading.value||finished.value)return')
-  );
-  assert.notEqual(normalizeExerciseAnswer(`ref('a b')`), normalizeExerciseAnswer(`ref('ab')`));
-  assert.equal(
-    normalizeExerciseAnswer(`v-if="status==='active'"`),
-    normalizeExerciseAnswer(`v-if="status === 'active'"`)
-  );
-  assert.notEqual(
-    normalizeExerciseAnswer(`v-if="name === 'a b'"`),
-    normalizeExerciseAnswer(`v-if="name === 'ab'"`)
-  );
-  const question = vueExercises[0];
-  assert.ok(
-    checkExercise(question, ['globalThis.__executed = true']).every((item) => !item.correct)
-  );
-  assert.equal(globalThis.__executed, undefined);
+test('every answer is a complete compilable Vue 3 script setup component', () => {
+  for (const question of questions) {
+    const filename = '.' + question.sourceFile;
+    const source = readFileSync(filename, 'utf8');
+    const { descriptor, errors } = parse(source, { filename });
+    assert.deepEqual(errors, [], question.id);
+    assert.ok(
+      descriptor.scriptSetup && descriptor.template && descriptor.styles[0].scoped,
+      question.id
+    );
+    const script = compileScript(descriptor, { id: question.id });
+    const template = compileTemplate({
+      source: descriptor.template.content,
+      filename,
+      id: question.id,
+      compilerOptions: { bindingMetadata: script.bindings }
+    });
+    assert.deepEqual(template.errors, [], question.id);
+  }
 });

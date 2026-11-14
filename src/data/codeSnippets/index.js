@@ -6,7 +6,10 @@ const sources = import.meta.glob(
     '/src/composables/*.js',
     '/src/data/people.js',
     '/src/assets/styles/**/*.scss',
-    '/src/data/*.json'
+    '/src/data/*.json',
+    '!/src/data/vuePracticeQuestions.json',
+    '!/src/components/practice/**/*.vue',
+    '!/src/views/vue-practice/**/*.vue'
   ],
   { query: '?raw', import: 'default', eager: true }
 );

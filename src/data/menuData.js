@@ -47,7 +47,7 @@ export const menuGroups = [
       {
         path: '/vue-practice/exercises',
         title: 'Vue 실무예제',
-        description: '직접 풀어보는 Vue 3 실무 문제 12종',
+        description: 'HTML·CSS 문제와 Vue 정답·상세 해설 40종',
         folder: 'vue-practice',
         slug: 'exercises'
       }
