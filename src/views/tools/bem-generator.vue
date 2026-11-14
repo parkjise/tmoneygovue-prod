@@ -13,6 +13,43 @@ import {
 } from 'lucide-vue-next';
 import { useClipboard } from '@/composables/useClipboard';
 import { buildBemScss, sampleMarkup, sampleResult } from '@/composables/bemOutput';
+import { bemPatterns, bemPatternCategories, createBemPattern } from '@/composables/bemPatterns';
+const patternQuery = ref('');
+const patternCategory = ref('전체');
+const patternBlock = ref('');
+const patternError = ref('');
+const selectedPattern = ref('');
+const patternGroups = computed(() =>
+  bemPatternCategories
+    .map((category) => ({
+      category,
+      items: bemPatterns.filter(
+        (item) =>
+          item.category === category &&
+          (patternCategory.value === '전체' || item.category === patternCategory.value) &&
+          `${item.id} ${item.label} ${item.description}`
+            .toLowerCase()
+            .includes(patternQuery.value.toLowerCase())
+      )
+    }))
+    .filter((group) => group.items.length)
+);
+function usePattern(id) {
+  if (busy.value) return;
+  try {
+    const generated = createBemPattern(id, patternBlock.value);
+    result.value = generated;
+    selectedPattern.value = id;
+    resultSource.value = 'preset';
+    generatedModel.value = '';
+    tab.value = 'html';
+    stale.value = false;
+    error.value = '';
+    patternError.value = '';
+  } catch (e) {
+    patternError.value = e.message;
+  }
+}
 const provider = ref('gemini');
 const providerInfo = {
   gemini: {
@@ -95,7 +132,7 @@ async function checkStatus() {
   }
 }
 function edit() {
-  if (result.value) stale.value = true;
+  if (result.value && resultSource.value !== 'preset') stale.value = true;
 }
 function loadExample() {
   markup.value = sampleMarkup;
@@ -164,7 +201,8 @@ function download() {
   const url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
   const link = document.createElement('a');
   link.href = url;
-  link.download = (blockName.value || 'bem-output') + '.vue';
+  link.download =
+    (result.value.classes.find((item) => item.type === 'block')?.name || 'bem-output') + '.vue';
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
@@ -179,10 +217,112 @@ onUnmounted(() => {
     <header class="bem-generator__intro">
       <span class="bem-generator__icon"><Sparkles :size="23" /></span>
       <section>
-        <h3>마크업을 붙여넣고, 이름을 정리하세요.</h3>
-        <p>HTML / Vue 템플릿 → BEM 클래스 제안 → 변환 HTML + SCSS 뼈대</p>
+        <h3>버튼으로 만들고, 마크업으로 확장하세요.</h3>
+        <p>54가지 로컬 UI 패턴 · HTML / Vue 템플릿 AI 분석 · BEM + SCSS</p>
       </section>
     </header>
+    <section class="bem-generator__patterns" aria-label="AI 없이 BEM 패턴 생성">
+      <header class="bem-generator__section-heading">
+        <section>
+          <h4>자주 쓰는 BEM 패턴 · {{ bemPatterns.length }}종</h4>
+          <p>
+            버튼을 누르면 HTML · SCSS 뼈대 · 클래스 목록을 즉시 생성합니다. API 키와 인터넷 연결
+            없이 사용할 수 있습니다.
+          </p>
+        </section>
+        <span class="bem-generator__type">로컬 생성</span>
+      </header>
+      <p class="demo__muted">
+        card, feature 등은 HTML 태그 이름이 아닌 UI 블록 이름입니다. 원본 마크업 입력과 관계없이
+        선택한 패턴의 새 코드를 만듭니다.
+      </p>
+      <div class="bem-generator__options">
+        <label class="demo__field">
+          패턴 검색
+          <input v-model="patternQuery" type="search" placeholder="card, feature, 폼, 메뉴…" />
+        </label>
+        <label class="demo__field">
+          패턴 블록 이름 (선택)
+          <input
+            v-model="patternBlock"
+            :disabled="busy"
+            maxlength="50"
+            placeholder="예: service-card · 비우면 패턴 이름 사용"
+          />
+          <small>이름 입력 후 패턴 버튼을 누르면 적용됩니다.</small>
+        </label>
+      </div>
+      <label class="bem-generator__provider">
+        패턴 분류
+        <select v-model="patternCategory">
+          <option>전체</option>
+          <option v-for="category in bemPatternCategories" :key="category">{{ category }}</option>
+        </select>
+      </label>
+      <section
+        v-for="group in patternGroups"
+        :key="group.category"
+        class="bem-generator__pattern-group"
+      >
+        <h5>{{ group.category }} · {{ group.items.length }}</h5>
+        <div class="bem-generator__pattern-buttons">
+          <button
+            v-for="item in group.items"
+            :key="item.id"
+            type="button"
+            :disabled="busy"
+            :aria-pressed="resultSource === 'preset' && selectedPattern === item.id"
+            :title="item.description"
+            @click="usePattern(item.id)"
+          >
+            <strong>{{ item.id }}</strong>
+            <span>{{ item.label }}</span>
+          </button>
+        </div>
+      </section>
+      <p v-if="!patternGroups.length" role="status">
+        일치하는 패턴이 없습니다. 검색어나 분류를 바꿔 주세요.
+      </p>
+      <p v-if="patternError" role="alert" class="demo__error">{{ patternError }}</p>
+      <p v-if="resultSource === 'preset'" role="status" class="bem-generator__pattern-status">
+        {{ result.summary }}
+        <a
+          href="#bem-result"
+          @click.prevent="$refs.resultPanel?.scrollIntoView({ behavior: 'smooth', block: 'start' })"
+        >
+          생성된 코드 보기 ↓
+        </a>
+      </p>
+      <details class="bem-generator__setup">
+        <summary>BEM 이름 작성법과 사용 순서</summary>
+        <ol>
+          <li>패턴 버튼을 선택합니다. 필요한 경우 먼저 블록 이름을 지정하세요.</li>
+          <li>
+            아래 생성 결과에서 HTML, SCSS, 클래스 목록을 선택해 복사하거나 .vue 초안을
+            다운로드하세요.
+          </li>
+          <li>
+            <code>card</code>
+            는 독립 블록,
+            <code>card__title</code>
+            은 블록의 요소,
+            <code>card__button--primary</code>
+            는 버튼의 변형입니다.
+          </li>
+          <li>
+            변형은
+            <code>class="card__button card__button--primary"</code>
+            처럼 기본 클래스와 함께 사용합니다. 요소를 중첩해도
+            <code>card__body__title</code>
+            처럼 연결하지 않습니다.
+          </li>
+          <li>
+            스타일, 이미지 경로, 링크, 버튼 이벤트는 프로젝트에 맞게 연결하세요. 아코디언은
+            details/summary의 기본 동작을 사용합니다.
+          </li>
+        </ol>
+      </details>
+    </section>
     <label class="bem-generator__provider">
       AI 공급자
       <select
@@ -218,7 +358,7 @@ onUnmounted(() => {
         <p v-if="status">
           {{
             staticDeployment
-              ? '이 배포에서는 화면과 샘플 결과를 제공합니다. 실제 생성은 로컬 서버에서 이용하세요.'
+              ? '패턴 버튼으로 BEM 코드를 바로 생성할 수 있습니다. AI를 이용한 원본 마크업 분석은 로컬 서버에서 이용하세요.'
               : ready
                 ? '서버 모델: ' + activeStatus.model + ' · 키는 브라우저에 전달되지 않습니다.'
                 : '.env.local에 ' +
@@ -315,8 +455,8 @@ onUnmounted(() => {
         </label>
       </div>
       <p v-if="staticDeployment" class="bem-generator__notice">
-        공개 데모에서는 개인 API를 호출하지 않습니다. ‘샘플 결과 보기’로 HTML 변환과 코드 복사
-        기능을 확인하세요.
+        공개 사이트에서도 위 패턴 버튼으로 BEM 코드를 생성할 수 있습니다. 원본 마크업의 AI 분석에는
+        로컬 API 서버가 필요합니다.
       </p>
       <p v-else class="bem-generator__notice">
         ‘{{ selectedProvider.label }}로 생성’을 누르면 입력한 마크업과 조건이
@@ -342,14 +482,22 @@ onUnmounted(() => {
         입력 구조를 분석하고 있습니다. 최대 45초 정도 소요될 수 있습니다.
       </p>
     </form>
-    <section v-if="result" class="bem-generator__result" aria-label="BEM 생성 결과">
+    <section
+      v-if="result"
+      id="bem-result"
+      ref="resultPanel"
+      class="bem-generator__result"
+      aria-label="BEM 생성 결과"
+    >
       <header class="bem-generator__section-heading">
         <section>
           <span class="bem-generator__result-label">
             {{
-              resultSource === 'sample'
-                ? 'LOCAL SAMPLE · 로컬 샘플'
-                : resultSource.toUpperCase() + ' RESULT · ' + generatedModel
+              resultSource === 'preset'
+                ? 'LOCAL PATTERN · AI 없이 생성'
+                : resultSource === 'sample'
+                  ? 'LOCAL SAMPLE · 로컬 샘플'
+                  : resultSource.toUpperCase() + ' RESULT · ' + generatedModel
             }}
           </span>
           <h4>{{ result.summary }}</h4>
@@ -417,8 +565,8 @@ onUnmounted(() => {
       <aside class="bem-generator__review">
         <h4>적용 전 확인하세요</h4>
         <p>
-          기존 CSS 선택자, JavaScript의 클래스 참조, 동적 :class 조건도 함께 검토하세요. AI
-          제안이므로 구조와 이벤트가 유지됐는지 원본과 비교해 주세요.
+          기존 CSS 선택자, JavaScript의 클래스 참조, 동적 :class 조건도 함께 검토하세요. 로컬 패턴은
+          새 코드 초안이며, AI 제안은 원본과 구조 및 이벤트를 비교해 주세요.
         </p>
         <ul>
           <li v-for="note in result.notes" :key="note">{{ note }}</li>
@@ -428,7 +576,7 @@ onUnmounted(() => {
     <section v-else class="bem-generator__empty">
       <Code2 :size="26" />
       <h4>이름이 정리되면 구조가 보입니다.</h4>
-      <p>마크업을 입력해 생성하거나 로컬 샘플로 결과 형식을 살펴보세요.</p>
+      <p>위 패턴 버튼을 눌러 바로 생성하거나, 원본 마크업을 입력해 AI로 분석하세요.</p>
       <code>block → block__element → block__element--modifier</code>
     </section>
   </section>
@@ -439,6 +587,54 @@ onUnmounted(() => {
   @include custom-scrollbar;
   gap: 24px;
   min-width: 0;
+  &__patterns {
+    display: grid;
+    gap: 18px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    min-width: 0;
+    p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+  }
+  &__pattern-group h5 {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  &__pattern-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(145px, 100%), 1fr));
+    gap: 8px;
+    button {
+      display: grid;
+      text-align: left;
+      gap: 4px;
+      min-width: 0;
+      padding: 10px 12px;
+      strong {
+        font-size: 12px;
+        overflow-wrap: anywhere;
+      }
+      span {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      &[aria-pressed='true'] {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: var(--soft);
+      }
+    }
+  }
+  &__pattern-status a {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--primary);
+    text-decoration: underline;
+  }
   &__provider {
     display: flex;
     gap: 12px;
@@ -586,6 +782,7 @@ onUnmounted(() => {
     border-radius: 0 8px 8px 0;
   }
   &__result {
+    scroll-margin-top: 100px;
     display: grid;
     gap: 16px;
     border-top: 1px solid var(--border);

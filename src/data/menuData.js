@@ -14,7 +14,9 @@ export const menuGroups = [
       {
         path: '/tools/bem-generator',
         title: 'BEM Generator',
-        description: 'Gemini / OpenAI API · HTML 마크업 클래스 변환',
+        description: 'AI 없이 패턴 생성 · Gemini / OpenAI 마크업 분석',
+        pageDescription:
+          '자주 쓰는 UI 패턴을 BEM 코드로 바로 생성하거나, Gemini / OpenAI로 원본 마크업을 분석하세요.',
         folder: 'tools',
         slug: 'bem-generator',
         badge: 'AI API'

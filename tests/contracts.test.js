@@ -5,7 +5,9 @@ import { parse, compileScript } from '@vue/compiler-sfc';
 import { menuGroups, menuItems } from '../src/data/menuData.js';
 import { extractBlock } from '../src/data/codeSnippets/blocks.js';
 test('Every menu has a unique route and a compilable script-setup SFC', () => {
-  assert.equal(menuGroups.length, 7);
+  assert.equal(new Set(menuGroups.map((group) => group.title)).size, menuGroups.length);
+  for (const group of menuGroups.filter((group) => group.direct))
+    assert.equal(group.children.length, 1);
   assert.equal(menuItems.length, 79);
   assert.equal(new Set(menuItems.map((i) => i.path)).size, 79);
   for (const item of menuItems) {
