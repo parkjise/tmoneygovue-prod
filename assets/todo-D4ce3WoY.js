@@ -1,1 +1,0 @@
-import{T as o}from"./TaskList-QouYSjSp.js";import{_ as t,o as e,a as s,d as a}from"./index-CtwjTTiC.js";const c={class:"demo"},_={__name:"todo",setup(r){return(n,d)=>(e(),s("section",c,[a(o,{title:"오늘의 할 일"})]))}},i=t(_,[["__scopeId","data-v-64f06eb7"]]);export{i as default};

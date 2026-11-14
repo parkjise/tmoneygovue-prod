@@ -1,0 +1,1 @@
+import{_ as s,o as t,a as n,Q as o,n as r}from"./index-BlzSCt5q.js";const c={__name:"BaseBadge",props:{tone:{type:String,default:"primary"}},setup(e){return(a,d)=>(t(),n("span",{class:r(["base-badge",`base-badge--${e.tone}`])},[o(a.$slots,"default",{},void 0)],2))}},l=s(c,[["__scopeId","data-v-29dc2eb5"]]);export{l as B};
