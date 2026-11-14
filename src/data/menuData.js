@@ -170,7 +170,8 @@ export const menuGroups = [
       {
         path: '/scss/mixins-source',
         title: '공통 Mixin 소스',
-        description: '@/assets/styles/mixins · _mixins.scss',
+        description: '공통 Mixin 40종 · 사용법·컴파일 결과·주석 소스',
+        badge: '40 MIXINS',
         folder: 'scss',
         slug: 'mixins-source',
         sourceFile: '/src/assets/styles/_mixins.scss'

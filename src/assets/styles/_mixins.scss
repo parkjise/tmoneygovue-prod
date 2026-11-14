@@ -1,8 +1,13 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+
 // [Common Mixins] 앱 전체의 레이아웃·카드·접근성 스타일을 공유합니다.
 // 가져오기: @use '@/assets/styles/mixins' as *;
 // Vue에서는 <style lang="scss" scoped>의 첫 부분에서 가져온 뒤 @include로 사용합니다.
 // 배경·색상·반경은 CSS 변수이므로 전역 main.scss를 앱 진입점에서 함께 불러오세요.
-// practice/mixins는 인자와 모듈 기반의 실무 예제이고, 이 파일은 현재 앱의 공통 스타일입니다.
+// 공통 모듈은 40종을 제공합니다. practice/mixins는 토큰 기반 설계를 별도로 연습하는 모듈입니다.
+// 권장: @use '@/assets/styles/mixins' as mix; 로 이름을 붙여 다른 모듈과 충돌을 피하세요.
 
 // flex-center: 자식 요소들을 가로·세로 중앙에 배치합니다.
 // 예: .avatar { width: 48px; height: 48px; @include flex-center; }
@@ -79,5 +84,432 @@
   &:focus-visible {
     outline: 3px solid var(--primary);
     outline-offset: 3px;
+  }
+}
+
+// ── 레이아웃 ──────────────────────────────────────────
+// flex-layout($direction, $align, $justify, $gap, $wrap): 다양한 Flex 배치의 기본형.
+// 예: .toolbar { @include mix.flex-layout($justify: space-between, $gap: 20px); }
+// $direction: row/column, $wrap: nowrap/wrap. 좁은 화면의 줄바꿈은 wrap을 전달하세요.
+@mixin flex-layout(
+  $direction: row,
+  $align: center,
+  $justify: flex-start,
+  $gap: 12px,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+  flex-wrap: $wrap;
+}
+
+// stack($gap, $align): 폼·카드 콘텐츠를 세로로 쌓습니다. 기본 간격 16px.
+// 예: .form { @include mix.stack(24px); } 자식 margin 대신 gap을 사용합니다.
+@mixin stack($gap: 16px, $align: stretch) {
+  @include flex-layout(column, $align, flex-start, $gap);
+}
+
+// cluster($gap, $align): 태그·액션 버튼을 가로로 배치하고 공간이 부족하면 줄바꿈.
+// 예: .tags { @include mix.cluster(8px); } 한 줄 고정 툴바라면 flex-layout을 사용하세요.
+@mixin cluster($gap: 12px, $align: center) {
+  @include flex-layout(row, $align, flex-start, $gap, wrap);
+}
+
+// grid-columns($columns, $gap): 고정 개수의 같은 너비 열을 만듭니다.
+// 예: .dashboard { @include mix.grid-columns(3, 20px); }
+// minmax(0, 1fr)은 긴 자식 내용이 열 너비를 밀어내는 것을 줄입니다.
+@mixin grid-columns($columns: 3, $gap: 16px) {
+  @if meta.type-of($columns) != number {
+    @error '$columns must be a positive integer.';
+  }
+  @if not math.is-unitless($columns) or $columns < 1 or math.floor($columns) != $columns {
+    @error '$columns must be a positive integer.';
+  }
+  display: grid;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  gap: $gap;
+}
+
+// auto-grid($min, $gap): 부모 너비에 따라 열 수가 자동으로 바뀌는 카드 목록.
+// 예: .products { @include mix.auto-grid(220px, 24px); }
+// min(100%, $min)으로 부모가 카드 최소 너비보다 좁을 때도 가로 넘침을 줄입니다.
+@mixin auto-grid($min: 220px, $gap: 16px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, $min), 1fr));
+  gap: $gap;
+}
+
+// container($max, $gutter): 페이지 최대 너비·중앙 정렬·좌우 안쪽 여백.
+// 예: .page { @include mix.container(1200px, 24px); }
+// border-box를 포함하므로 최대 너비에는 패딩도 포함됩니다.
+@mixin container($max: 1200px, $gutter: 24px) {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: $max;
+  margin-inline: auto;
+  padding-inline: $gutter;
+}
+
+// size($width, $height): 정사각형 또는 직사각형의 크기를 함께 지정합니다.
+// 예: .avatar { @include mix.size(48px); } .banner { @include mix.size(100%, 180px); }
+// 인자가 하나면 높이도 같은 값입니다. 크기만 지정하며 정렬은 별도입니다.
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// center-absolute($axis): positioned 조상을 기준으로 절대 위치 중앙 배치.
+// 예: .parent { position: relative; } .badge { @include mix.center-absolute; }
+// $axis: both/x/y. translate 속성을 사용하므로 같은 요소의 translate와 함께 덮어쓰지 마세요.
+@mixin center-absolute($axis: both) {
+  position: absolute;
+  @if $axis == both {
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+  } @else if $axis == x {
+    left: 50%;
+    translate: -50% 0;
+  } @else if $axis == y {
+    top: 50%;
+    translate: 0 -50%;
+  } @else {
+    @error '$axis must be both, x or y.';
+  }
+}
+
+// inset-fill($position, $inset): 오버레이를 부모 또는 뷰포트 전체에 채웁니다.
+// 예: .overlay { @include mix.inset-fill(fixed); background: #0008; }
+// absolute를 쓰면 기준 부모에 position: relative가 필요합니다. fixed는 뷰포트 기준입니다.
+@mixin inset-fill($position: absolute, $inset: 0) {
+  position: $position;
+  inset: $inset;
+}
+
+// sticky($top, $z-index): 스크롤되는 영역 상단에 붙는 헤더·필터.
+// 예: .filters { @include mix.sticky(80px, 5); background: var(--surface); }
+// 조상 overflow와 스크롤 컨테이너에 따라 기준이 달라집니다. 배경도 함께 지정하세요.
+@mixin sticky($top: 0, $z-index: 1) {
+  position: sticky;
+  inset-block-start: $top;
+  z-index: $z-index;
+}
+
+// aspect-frame($ratio): 썸네일·영상 영역의 비율을 유지합니다.
+// 예: .thumbnail { @include mix.aspect-frame(math.div(16, 9)); }
+// 호출 파일에서 math를 가져오기 싫다면 @include mix.aspect-frame(1.777778); 또는 기본값 사용.
+// 자식 이미지에 image-cover를 함께 적용하세요. 자식 콘텐츠가 잘릴 수 있습니다.
+@mixin aspect-frame($ratio: math.div(16, 9)) {
+  @if meta.type-of($ratio) != number {
+    @error '$ratio must be a positive unitless number.';
+  }
+  @if not math.is-unitless($ratio) or $ratio <= 0 {
+    @error '$ratio must be a positive unitless number.';
+  }
+  aspect-ratio: $ratio;
+  overflow: hidden;
+}
+
+// image-cover($width, $height, $position): 정해진 영역을 채우는 이미지.
+// 예: .thumbnail img { @include mix.image-cover; }
+// 부모의 높이나 aspect-ratio가 필요합니다. 전체 이미지를 보려면 object-fit: contain으로 변경.
+@mixin image-cover($width: 100%, $height: 100%, $position: center) {
+  display: block;
+  width: $width;
+  height: $height;
+  object-fit: cover;
+  object-position: $position;
+}
+
+// ── 반응형 · 컨테이너 ───────────────────────────────────
+// 이름 토큰은 @use ... with ($common-breakpoints: (...))로 프로젝트에 맞게 바꿀 수 있습니다.
+// 기존 responsive()의 mobile/tablet 기준은 기존 화면 호환을 위해 그대로 유지합니다.
+$common-breakpoints: (
+  mobile: 760px,
+  tablet: 1100px,
+  desktop: 1280px,
+  wide: 1536px
+) !default;
+// 모듈 내부 전용 함수: 이름 토큰 또는 0보다 큰 px/rem/em 길이만 허용합니다.
+@function _breakpoint($value) {
+  @if map.has-key($common-breakpoints, $value) {
+    $value: map.get($common-breakpoints, $value);
+  }
+  @if meta.type-of($value) != number {
+    @error 'Unknown breakpoint. Use mobile/tablet/desktop/wide or a positive px/rem/em length.';
+  }
+  @if not(math.unit($value) == 'px' or math.unit($value) == 'rem' or math.unit($value) == 'em') or
+    $value <= 0
+  {
+    @error 'Breakpoint must be a positive px/rem/em length.';
+  }
+  @return $value;
+}
+
+// media-up($min): 지정 너비 이상. 모바일 우선의 확장 스타일에 사용합니다.
+// 예: .grid { @include mix.media-up(768px) { grid-template-columns: 1fr 1fr; } }
+// common의 mobile 토큰은 760px입니다. practice의 md(768px)와 다른 토큰이므로 구분하세요.
+@mixin media-up($min) {
+  @media (min-width: _breakpoint($min)) {
+    @content;
+  }
+}
+
+// media-down($max): 지정 너비 이하. responsive()보다 잘못된 입력을 엄격하게 검사합니다.
+// 예: .sidebar { @include mix.media-down(tablet) { display: none; } }
+// 경계값은 포함됩니다. 같은 너비의 media-up과는 둘 다 적용될 수 있으므로 선언 순서도 확인하세요.
+@mixin media-down($max) {
+  @media (max-width: _breakpoint($max)) {
+    @content;
+  }
+}
+
+// media-between($min, $max): 최소·최대 너비 사이에만 @content 적용. 양 끝값 포함.
+// 예: .cards { @include mix.media-between(768px, 1099px) { grid-template-columns: 1fr 1fr; } }
+// 순서 검증을 위해 두 너비는 서로 비교할 수 있는 단위여야 합니다.
+@mixin media-between($min, $max) {
+  $lower: _breakpoint($min);
+  $upper: _breakpoint($max);
+  @if not math.compatible($lower, $upper) {
+    @error 'Use comparable units for both breakpoints.';
+  }
+  @if $lower > $upper {
+    @error 'Minimum breakpoint must not exceed maximum.';
+  }
+  @media (min-width: $lower) and (max-width: $upper) {
+    @content;
+  }
+}
+
+// container-context($name): 자손이 너비를 조회할 컨테이너를 준비합니다.
+// 예: .panel { @include mix.container-context(card); }
+// inline-size containment가 레이아웃에 영향을 줄 수 있으므로 실제 부모 너비를 확인하세요.
+@mixin container-context($name: card) {
+  container-type: inline-size;
+  container-name: $name;
+}
+
+// container-query($min, $name): 뷰포트가 아니라 이름이 일치하는 조상의 너비를 검사합니다.
+// 예: .child { @include mix.container-query(480px, card) { display: flex; } }
+// 부모에 container-context(card)를 적용해야 합니다. 자기 자신의 너비를 조회하는 용도가 아닙니다.
+@mixin container-query($min: 480px, $name: card) {
+  @container #{$name} (min-width: #{_breakpoint($min)}) {
+    @content;
+  }
+}
+
+// ── 텍스트 ─────────────────────────────────────────────
+// line-clamp($lines): 지정한 줄 수까지만 보이는 텍스트. 기본 2줄, 양의 정수만 허용.
+// 예: .description { @include mix.line-clamp(3); }
+// 원문은 DOM에 남습니다. 중요한 긴 정보는 더 보기 등으로 전체를 읽을 방법도 제공하세요.
+@mixin line-clamp($lines: 2) {
+  @if meta.type-of($lines) != number {
+    @error '$lines must be a positive integer.';
+  }
+  @if not math.is-unitless($lines) or $lines < 1 or math.floor($lines) != $lines {
+    @error '$lines must be a positive integer.';
+  }
+  @if $lines == 1 {
+    @include text-ellipsis;
+  } @else {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+    line-clamp: $lines;
+  }
+}
+
+// fluid-type($min, $preferred, $max): clamp로 최소·선호·최대 글자 크기를 제한합니다.
+// 예: .title { @include mix.fluid-type(1.25rem, calc(1rem + 1vw), 2rem); }
+// CSS 계산이므로 런타임 화면 너비에 반응합니다. rem과 vw를 함께 써 글자 확대도 고려하세요.
+@mixin fluid-type($min: 1rem, $preferred: calc(0.8rem + 1vw), $max: 2rem) {
+  @if meta.type-of($min) == number and meta.type-of($max) == number {
+    @if math.compatible($min, $max) and $min > $max {
+      @error 'Minimum font size must not exceed maximum.';
+    }
+  }
+  font-size: clamp($min, $preferred, $max);
+}
+
+// break-words: 긴 URL·파일명이 Flex/Grid 자식의 너비를 밀어내지 않게 합니다.
+// 예: .file-name { @include mix.break-words; }
+// 일반 문장의 띄어쓰기까지 모두 깨는 word-break: break-all과 구분하세요.
+@mixin break-words {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+// ── 접근성 · 컨트롤 ─────────────────────────────────────
+// visually-hidden: 화면에서만 감추고 보조 기술에는 텍스트를 남깁니다.
+// 예: .icon-button span { @include mix.visually-hidden; }
+// display:none과 다릅니다. 버튼 자체를 숨기지 말고 버튼의 설명 텍스트에 적용하세요.
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+// focus-only: 평소 숨기고 키보드 포커스/활성 상태에서 드러나는 본문 바로가기.
+// 예: .skip-link { @include mix.focus-only; @include mix.focus-ring; }
+// focus 상태의 위치·배경·패딩은 호출하는 쪽에서 지정하세요.
+@mixin focus-only {
+  &:not(:focus):not(:active) {
+    @include visually-hidden;
+  }
+}
+
+// touch-target($min): 작은 아이콘 버튼에도 누를 수 있는 최소 영역을 확보합니다.
+// 예: .icon-button { @include mix.touch-target(44px); }
+// 44px은 이 프로젝트 기본값입니다. 실제 제품의 접근성 목표와 주변 간격을 함께 확인하세요.
+@mixin touch-target($min: 44px) {
+  min-inline-size: $min;
+  min-block-size: $min;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// button-reset: 버튼의 기본 꾸밈만 초기화하고 폰트·색상을 상속합니다.
+// 예: .text-button { @include mix.button-reset; @include mix.focus-ring; }
+// outline을 제거하지 않습니다. 포커스 표시와 disabled 처리는 별도 믹스인을 함께 적용하세요.
+@mixin button-reset {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+// list-reset: 메뉴·태그 목록의 기본 여백과 마커를 제거합니다.
+// 예: .menu { @include mix.list-reset; }
+// ul/ol의 의미는 유지하세요. 일부 Safari+보조 기술 조합에서는 role="list"도 검토하세요.
+@mixin list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// field-base($height, $padding): input/select/textarea의 기본 표면과 크기.
+// 예: .input { @include mix.field-base; @include mix.focus-ring; }
+// label·오류 안내·aria 속성은 HTML에서 연결하며, textarea는 별도로 resize/높이를 정하세요.
+@mixin field-base($height: 40px, $padding: 10px 12px) {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: $height;
+  padding: $padding;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+// placeholder($color): placeholder의 색상과 불투명도를 통일합니다.
+// 예: .input { @include mix.placeholder(var(--muted)); }
+// placeholder는 label을 대체하지 않습니다. 입력 이름은 화면에 별도로 제공하세요.
+@mixin placeholder($color: var(--caption)) {
+  &::placeholder {
+    color: $color;
+    opacity: 1;
+  }
+}
+
+// hover-capable: 정밀 포인터와 hover를 지원하는 환경에만 hover 스타일 적용.
+// 예: .button { @include mix.hover-capable { background: var(--soft); } }
+// 키보드에는 focus-ring 등을 별도로 제공하고, 필수 기능을 hover에만 의존하지 마세요.
+@mixin hover-capable {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// reduced-motion: 움직임 줄이기 설정에서 대체 스타일을 적용합니다.
+// 예: .panel { @include mix.reduced-motion { animation: none; transition: none; } }
+// 애니메이션이 상태를 설명한다면 정적인 대체 표현도 함께 준비하세요.
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// disabled-state($opacity): 실제 disabled와 aria-disabled의 시각 상태를 통일합니다.
+// 예: .button { @include mix.disabled-state { box-shadow: none; } }
+// aria-disabled는 클릭을 막지 않습니다. 앱의 이벤트 핸들러에서 실행을 별도로 차단하세요.
+@mixin disabled-state($opacity: 0.5) {
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: $opacity;
+    cursor: not-allowed;
+    @content;
+  }
+}
+
+// ── 스크롤 · 피드백 ─────────────────────────────────────
+// scroll-area($max-height): 높이를 제한하는 세로 목록. 스크롤 체이닝을 줄입니다.
+// 예: .feed { @include mix.scroll-area(320px); }
+// 키보드로 스크롤할 영역에는 필요에 따라 tabindex와 접근 가능한 이름을 HTML에 제공하세요.
+@mixin scroll-area($max-height: 320px) {
+  max-height: $max-height;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  @include custom-scrollbar;
+}
+
+// horizontal-scroll($gap, $snap): 카드·탭의 가로 스크롤과 선택적인 스냅.
+// 예: .carousel { @include mix.horizontal-scroll(12px); }
+// 자식에 고정/최소 너비를 지정해야 스크롤이 생깁니다. 필수 기능에 스와이프만 요구하지 마세요.
+@mixin horizontal-scroll($gap: 12px, $snap: true) {
+  display: flex;
+  gap: $gap;
+  min-width: 0;
+  overflow-x: auto;
+  @if $snap {
+    scroll-snap-type: x proximity;
+  }
+  > * {
+    flex: 0 0 auto;
+    @if $snap {
+      scroll-snap-align: start;
+    }
+  }
+  @include custom-scrollbar;
+}
+
+// skeleton($duration): 로딩 자리표시자의 배경 애니메이션. 기본 1.4초.
+// 예: .loading-card { @include mix.skeleton; height: 80px; border-radius: 8px; }
+// 부모에 aria-busy를, 자리표시자 자체에는 aria-hidden을 HTML에서 지정하세요.
+// 전용 keyframes는 include할 때만 생성하며 reduced-motion에서는 애니메이션을 끕니다.
+@mixin skeleton($duration: 1.4s) {
+  background: linear-gradient(90deg, var(--canvas) 25%, var(--border) 50%, var(--canvas) 75%);
+  background-size: 200% 100%;
+  animation: common-skeleton-shimmer $duration ease-in-out infinite;
+  @at-root {
+    @keyframes common-skeleton-shimmer {
+      from {
+        background-position: 200% 0;
+      }
+      to {
+        background-position: -200% 0;
+      }
+    }
+  }
+  @include reduced-motion {
+    animation: none;
+    background: var(--border);
   }
 }
