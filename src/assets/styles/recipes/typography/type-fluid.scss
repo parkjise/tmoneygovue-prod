@@ -1,0 +1,28 @@
+// 확대도 고려한 유동 제목
+// 용도: rem과 viewport 단위를 섞어 최소·최대 크기를 제한합니다.
+// 1. clamp는 최소값, 선호값, 최대값 중 상황에 맞는 값을 브라우저가 계산합니다. 너무 작거나 과도하게 큰 제목을 제한할 수 있습니다.
+// 2. 선호값에 vw만 쓰면 브라우저 확대나 사용자 글자 설정과의 조합이 불편할 수 있어 rem을 섞었습니다. 화면 너비 변화와 글자 크기 변화를 함께 고려한 것입니다.
+// 3. 너비를 바꾸며 줄바꿈과 높이를 확인하세요. 제목을 한 줄로 고정하기보다 좁은 화면에서 자연스럽게 여러 줄이 될 수 있어야 합니다.
+// 주의: clamp를 썼다고 모든 접근성 확대 요구가 자동 충족되는 것은 아닙니다. 긴 제목과 큰 글자 설정도 실제로 확인하세요.
+@use '@/assets/styles/mixins' as mix;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-title {
+  @include mix.fluid-type(1.25rem, calc(1rem + 2vw), 2.25rem);
+  line-height: 1.3;
+}

@@ -1,0 +1,38 @@
+// 목록 안에서 고정되는 헤더
+// 용도: 스크롤 컨테이너의 헤더를 상단에 유지합니다.
+// 1. sticky는 가까운 스크롤 조상 안에서 동작합니다. 이 예제는 높이가 제한된 목록 안에 헤더를 배치해 페이지 전체가 아니라 목록 내부에서 고정되게 했습니다.
+// 2. 헤더에 top 기준과 배경을 함께 지정합니다. 배경이 투명하면 스크롤되는 내용이 겹쳐 보여 읽기 어려워질 수 있습니다.
+// 3. z-index는 같은 쌓임 맥락의 목록보다 앞에 오도록 작은 값만 사용합니다. 작동하지 않으면 숫자를 크게 하기 전에 조상 overflow와 높이를 확인하세요.
+// 주의: sticky가 움직일 공간이 없거나 조상 높이에 갇히면 기대처럼 보이지 않을 수 있습니다.
+@use '@/assets/styles/practice' as ui;
+@use '@/assets/styles/mixins' as mix;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-scroll {
+  @include ui.scroll-panel(240px);
+  padding: 0;
+}
+.sample-sticky {
+  @include mix.sticky(0, 1);
+  background: var(--surface);
+  padding: 12px;
+  border-block-end: 1px solid var(--border);
+}
+.sample-list {
+  padding: 16px;
+}

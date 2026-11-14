@@ -1,0 +1,34 @@
+// 글자 크기·굵기·행간 토큰
+// 용도: 제목과 본문의 계층을 함수로 읽어 적용합니다.
+// 1. 글자 크기, 굵기, 행간을 각각 독립 토큰으로 둡니다. 제목은 크게 하되 행간을 조금 줄이고, 긴 본문은 넉넉한 행간을 사용합니다.
+// 2. font-size는 rem, line-height는 단위 없는 값입니다. 브라우저의 글자 크기를 바꾸거나 자식 크기가 달라져도 상대적인 비례를 유지하는 데 도움이 됩니다.
+// 3. CSS에서 보기 좋은 모양과 HTML 제목 의미는 별개입니다. h2를 크게 꾸몄다고 h1 역할이 되지는 않으므로 문서 구조도 함께 맞추세요.
+// 주의: 실제 폰트 파일이 지원하는 굵기를 확인하세요. 브라우저의 가짜 굵기 합성은 디자인과 다를 수 있습니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-title {
+  font-size: ui.font-size(xl);
+  font-weight: ui.font-weight(bold);
+  line-height: ui.line-height(tight);
+}
+.sample-text {
+  font-size: ui.font-size(md);
+  font-weight: ui.font-weight(regular);
+  line-height: ui.line-height(relaxed);
+}

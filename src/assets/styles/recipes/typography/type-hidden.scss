@@ -1,0 +1,31 @@
+// 아이콘 버튼의 숨김 설명
+// 용도: 화면의 짧은 아이콘과 접근 가능한 이름을 함께 제공합니다.
+// 1. 아이콘 모양만으로 버튼 목적이 명확하지 않을 수 있어 텍스트 이름을 함께 제공합니다. 장식 아이콘은 aria-hidden으로 중복 읽기를 피합니다.
+// 2. visually-hidden은 크기와 clipping으로 화면에서만 텍스트를 숨깁니다. display:none이나 visibility:hidden처럼 보조 기술에서도 제거하는 방식과 다릅니다.
+// 3. 실제 버튼 자체에는 누를 수 있는 크기와 키보드 포커스 표시를 유지합니다. 숨김 규칙을 버튼 전체에 적용하면 조작하기 어려운 컨트롤이 될 수 있습니다.
+// 주의: 이 데모 버튼은 CSS 구조 확인용입니다. 실제 추가 동작은 Vue 이벤트에서 연결하세요.
+@use '@/assets/styles/practice' as ui;
+@use '@/assets/styles/mixins' as mix;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-button {
+  @include ui.icon-button;
+}
+.sample-sr {
+  @include mix.visually-hidden;
+}

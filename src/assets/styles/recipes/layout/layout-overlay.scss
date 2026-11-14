@@ -1,0 +1,38 @@
+// 오버레이와 로컬 데모 범위
+// 용도: 배경막과 중앙 패널의 CSS 구조를 분리합니다.
+// 1. overlay 믹스인은 fixed와 inset:0으로 뷰포트를 채우는 배경을 만듭니다. 중앙 정렬과 여백, 레이어 값도 토큰 정책을 재사용합니다.
+// 2. 이 데모에서는 position을 absolute로 덮어써 프레임 안의 stage만 덮게 했습니다. 실제 전체 화면 오버레이로 쓸 때는 이 데모용 덮어쓰기를 제거합니다.
+// 3. CSS만으로 모달의 포커스 이동이나 배경 상호작용 차단이 완성되지는 않습니다. 실제 대화상자는 dialog.showModal 또는 앱의 모달 로직과 결합하세요.
+// 주의: 이 미리보기에는 모달 역할을 부여하지 않았습니다. 단순히 가운데 보인다는 이유로 role=dialog만 추가하지 마세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-stage {
+  position: relative;
+  min-height: 260px;
+  isolation: isolate;
+}
+.sample-overlay {
+  @include ui.overlay(overlay);
+  position: absolute;
+  border-radius: ui.radius(md);
+}
+.sample-card {
+  @include ui.surface;
+  max-width: 320px;
+}

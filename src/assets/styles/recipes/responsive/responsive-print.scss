@@ -1,0 +1,38 @@
+// 인쇄 스타일과 인쇄 전용 안내
+// 용도: 화면 조작 UI를 감추고 인쇄에 필요한 정보만 남깁니다.
+// 1. 화면과 인쇄는 사용할 수 있는 배경색·크기·상호작용이 다릅니다. @media print에서 불필요한 버튼을 숨기고 본문의 읽기 순서를 유지합니다.
+// 2. print-only는 화면에서는 숨기고 인쇄에서만 보여줍니다. 날짜나 문서 상태처럼 출력물에서 필요한 보조 정보를 넣는 데 사용할 수 있습니다.
+// 3. break-inside:avoid는 카드가 페이지 중간에서 나뉘는 것을 줄이는 힌트입니다. 내용이 한 페이지보다 크면 완전히 피할 수는 없습니다.
+// 주의: 이 프레임은 화면 미리보기입니다. 인쇄 전용 문구와 페이지 나눔은 실제 인쇄 미리보기에서도 확인하세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-print-note {
+  @include ui.print-only;
+}
+@media print {
+  .sample-actions {
+    display: none;
+  }
+  .sample-card {
+    color: #000;
+    background: #fff;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}

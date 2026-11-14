@@ -1,4 +1,5 @@
 <script setup>
+import ScssRecipeCatalog from '@/components/examples/ScssRecipeCatalog.vue';
 import { ref } from 'vue';
 const accent = ref('#6366f1');
 const compact = ref(false);
@@ -6,6 +7,7 @@ const mode = ref('light');
 </script>
 <template>
   <section class="demo">
+    <ScssRecipeCatalog topic="tokens" />
     <aside class="demo__output">
       <strong>색상·간격을 토큰으로 통일하세요.</strong>
       <p>

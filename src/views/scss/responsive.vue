@@ -1,9 +1,11 @@
 <script setup>
+import ScssRecipeCatalog from '@/components/examples/ScssRecipeCatalog.vue';
 import { ref } from 'vue';
 const width = ref(720);
 </script>
 <template>
   <section class="demo">
+    <ScssRecipeCatalog topic="responsive" />
     <aside class="demo__output">
       <strong>페이지는 Media Query, 컴포넌트는 Container Query.</strong>
       <p>

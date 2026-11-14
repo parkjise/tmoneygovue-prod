@@ -1,0 +1,29 @@
+// disabled와 aria-disabled 차이
+// 용도: 시각 상태와 실제 동작 차단을 구분합니다.
+// 1. disabled는 네이티브 컨트롤의 조작을 막고 일반적인 Tab 순서에서도 제외합니다. 폼 제출에 포함되는지 같은 동작도 브라우저 규칙의 영향을 받습니다.
+// 2. aria-disabled는 비활성 상태라는 의미만 알려줍니다. 포커스나 클릭 처리를 자동으로 막지 않으므로 앱에서 이벤트 실행을 차단해야 합니다.
+// 3. 공통 disabled-state는 둘의 시각적 표현만 통일합니다. CSS의 역할과 HTML/JavaScript의 동작 제어를 분리해서 이해하세요.
+// 주의: pointer-events:none만으로 키보드 실행까지 막을 수는 없습니다. 실제 컨트롤의 의미와 이벤트 로직을 함께 처리하세요.
+@use '@/assets/styles/practice' as ui;
+@use '@/assets/styles/mixins' as mix;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-button {
+  @include ui.button;
+  @include mix.disabled-state(0.5);
+}

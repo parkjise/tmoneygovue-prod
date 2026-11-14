@@ -1,8 +1,9 @@
 <script setup>
+import ScssRecipeCatalog from '@/components/examples/ScssRecipeCatalog.vue';
 const module = {
   name: 'tokens',
   heading: '디자인 토큰',
-  summary: '$unit · $radius · $breakpoints · $tones',
+  summary: '기본 4종 + 간격·반경·글자·레이어·모션 등 토큰 15개 그룹',
   notes: [
     '빌드 시 사용하는 기본 간격·반경·브레이크포인트·상태 색상을 정의합니다.',
     '!default로 선언되어 첫 @use 시 with (…)로 설정할 수 있습니다.',
@@ -14,6 +15,7 @@ const usage = "@use '@/assets/styles/practice' as ui;";
 </script>
 <template>
   <section class="demo forward-source">
+    <ScssRecipeCatalog topic="practice-tokens" />
     <header>
       <h3>{{ module.heading }}</h3>
       <p>src/assets/styles/practice/_{{ module.name }}.scss</p>

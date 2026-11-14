@@ -1,0 +1,33 @@
+// 가로 카드와 스크롤 스냅
+// 용도: 넘치는 카드를 가로로 탐색하면서 가까운 카드에 맞춥니다.
+// 1. 가로 스크롤 컨테이너에는 overflow-x:auto를 주고 자식은 flex-shrink로 줄어들지 않게 합니다. 카드 너비가 전체보다 많아지면 내부 스크롤이 생깁니다.
+// 2. scroll-snap-type:x proximity는 스크롤이 멈출 때 가까운 스냅 지점에 맞추는 힌트입니다. mandatory보다 사용자의 중간 탐색을 덜 강하게 제한합니다.
+// 3. 키보드로도 영역에 진입할 수 있게 tabindex와 이름을 제공했습니다. 중요한 콘텐츠를 제스처로만 접근하도록 만들지 마세요.
+// 주의: 큰 카드가 화면을 넘을 때 읽을 수 있는지 확인하세요. 스냅과 부드러운 스크롤을 과하게 적용하면 탐색이 불편해질 수 있습니다.
+@use '@/assets/styles/practice' as ui;
+@use '@/assets/styles/mixins' as mix;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-scroll {
+  @include mix.horizontal-scroll(12px, true);
+  padding: 4px;
+}
+.sample-card {
+  @include ui.surface;
+  width: 220px;
+}

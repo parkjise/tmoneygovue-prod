@@ -1,0 +1,33 @@
+// 브레이크포인트 값과 규칙의 차이
+// 용도: 함수는 길이를 반환하고 믹스인은 @media 규칙을 만듭니다.
+// 1. breakpoint(md)는 768px라는 길이를 반환합니다. 이 길이를 @media 조건에 직접 넣으면 일반 CSS 미디어 쿼리를 만들 수 있습니다.
+// 2. respond(md)는 @media와 @content까지 묶은 믹스인입니다. 둘은 같은 토큰을 읽지만 값을 필요한 곳에 쓸지 규칙 전체를 재사용할지에 따라 선택합니다.
+// 3. 미리보기 프레임의 너비를 바꾸면 조건 적용 여부를 확인할 수 있습니다. 폰트나 간격이 아니라 뷰포트 너비에 반응하는 조건임을 기억하세요.
+// 주의: common의 tablet 토큰은 1100px이고 Practice의 md는 768px입니다. 서로 다른 토큰 체계의 이름을 섞지 마세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-grid {
+  display: grid;
+  gap: ui.space(3);
+}
+@media (min-width: ui.breakpoint(md)) {
+  .sample-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

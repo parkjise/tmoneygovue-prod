@@ -1,0 +1,2 @@
+// 외부에 필요한 변수·함수·믹스인만 공개합니다. 내부 의존성은 원래 모듈이 관리합니다.
+@forward '../../practice' show $radius, space, surface;

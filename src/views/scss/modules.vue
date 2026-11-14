@@ -1,9 +1,11 @@
 <script setup>
+import ScssRecipeCatalog from '@/components/examples/ScssRecipeCatalog.vue';
 import { ref } from 'vue';
 const compact = ref(false);
 </script>
 <template>
   <section class="demo">
+    <ScssRecipeCatalog topic="modules" />
     <aside class="demo__output">
       <strong>@use / @forward로 스타일 모듈을 설계하세요.</strong>
       <p>

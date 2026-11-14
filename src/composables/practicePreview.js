@@ -1,9 +1,9 @@
 // Trusted question HTML/CSS is displayed in a separate, script-free sandboxed document.
-export function createPracticePreview(html, css, dark = false) {
+export function createPracticePreview(html, css, dark = false, allowDataImages = false) {
   const colors = dark
     ? '--surface:#1a1e2e;--text:#f1f5f9;--muted:#b7c0d2;--border:#30364c;--soft:#29284c;--primary:#a5b4fc;'
     : '--surface:#ffffff;--text:#0f172a;--muted:#475569;--border:#e2e8f0;--soft:#eef2ff;--primary:#6366f1;';
-  return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; form-action 'none'; base-uri 'none'"><style>
+  return `<!doctype html><html lang="ko" data-theme="${dark ? 'dark' : 'light'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; ${allowDataImages ? 'img-src data:;' : ''} style-src 'unsafe-inline'; form-action 'none'; base-uri 'none'"><style>
 :root { ${colors} color-scheme:${dark ? 'dark' : 'light'}; }
 * { box-sizing:border-box; }
 body { margin:0; padding:16px; font:14px/1.7 system-ui,sans-serif; color:var(--text); background:var(--surface); }

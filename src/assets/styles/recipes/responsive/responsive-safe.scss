@@ -1,0 +1,32 @@
+// 모바일 안전 영역 여백
+// 용도: 기본 여백과 기기 안전 영역 중 큰 값을 사용합니다.
+// 1. safe-area는 노치나 홈 인디케이터 때문에 콘텐츠가 가려질 수 있는 물리 영역을 환경 변수로 읽습니다. 일반 데스크톱에서는 값이 0일 수 있습니다.
+// 2. max로 기본 16px와 환경값 중 큰 쪽을 고릅니다. 기기가 안전 영역을 제공하지 않아도 최소 여백이 유지됩니다.
+// 3. 실제 모바일 전체 화면을 구성할 때는 viewport 설정과 고정 하단 바의 높이, 본문에 확보할 여유 공간도 함께 확인해야 합니다.
+// 주의: env 값이 항상 0보다 크다고 가정하지 마세요. viewport-fit=cover 등 프로젝트의 viewport 설정에 따라 테스트하세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-bar {
+  @include ui.safe-area(bottom, 4);
+  padding-inline: ui.space(4);
+  padding-top: ui.space(4);
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: ui.radius(md);
+}

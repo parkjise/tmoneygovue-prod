@@ -1,4 +1,6 @@
 <script setup>
+import SyntaxCode from '@/components/common/SyntaxCode.vue';
+import ScssRecipeCatalog from '@/components/examples/ScssRecipeCatalog.vue';
 const files = [
   {
     name: '_index.scss',
@@ -8,18 +10,17 @@ const files = [
   {
     name: '_tokens.scss',
     path: '/scss/practice-tokens',
-    description: '$unit, $radius, $breakpoints, $tones 기본값'
+    description: '기본값과 간격·반경·폰트·레이어·모션 등 토큰 15개 그룹'
   },
   {
     name: '_functions.scss',
     path: '/scss/practice-functions',
-    description: 'space($step), rem($pixels, $base) 계산과 인자 검사'
+    description: '단위·토큰·색상·타입·모션 계산 함수 16종과 인자 검사'
   },
   {
     name: '_mixins.scss',
     path: '/scss/practice-mixins',
-    description:
-      'stack, cluster, surface, respond, container-up, truncate, focus-visible, auto-grid'
+    description: '레이아웃·반응형과 토큰 기반 UI를 구성하는 믹스인 24종'
   }
 ];
 const usage =
@@ -27,13 +28,14 @@ const usage =
 </script>
 <template>
   <section class="demo practice-source">
+    <ScssRecipeCatalog topic="practice-source" />
     <header>
       <h3>@/assets/styles/practice</h3>
       <p>실제 진입점: src/assets/styles/practice/_index.scss</p>
     </header>
     <p class="demo__muted">
       폴더 경로를 @use하면 _index.scss를 읽습니다. 아래 파일 선택에서 진입점과 @forward / @use 의존
-      파일 4개의 원본을 각각 확인·복사하세요.
+      파일과 추가 공통 의존성의 원본을 각각 확인·복사하세요.
     </p>
     <ul class="practice-source__files">
       <li v-for="file in files" :key="file.name">
@@ -45,7 +47,7 @@ const usage =
     </ul>
     <section>
       <h4>컴포넌트에서 사용하기</h4>
-      <pre class="demo__output"><code>{{ usage }}</code></pre>
+      <SyntaxCode :code="usage" language="scss" label="Practice 모듈 사용 예시" />
     </section>
     <p class="demo__muted">
       surface·색상 등 런타임 테마는 전역 main.scss의 CSS 변수를 사용합니다. Sass 모듈은 빌드 시

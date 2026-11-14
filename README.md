@@ -22,7 +22,7 @@ npx playwright test
 
 ## 구성
 
-- 기본 문법 6종, 실무 패턴 6종, 대시보드·위젯 5종, 앱 17종, UI Kit·Bonus UI 25종, Forms·Tables 5종, SCSS 실무 가이드 8종, SCSS 원본 소스 5종: BEM Generator 1종을 포함해 AI Q&A 1종을 추가해 총 79개 경로
+- 기본 문법 6종, 실무 패턴 6종, 대시보드·위젯 5종, 앱 17종, UI Kit·Bonus UI 25종, Forms·Tables 5종, SCSS 실무 가이드 8종, SCSS 원본 소스 5종: BEM Generator와 AI Q&A, Vue 실무예제, HTML5 메뉴를 포함해 총 81개 경로
 - `src/data/menuData.js`를 기준으로 사이드바와 라우터를 함께 생성합니다.
 - `src/views`의 실제 SFC를 `?raw`로 읽어 코드 뷰어에 표시합니다. 필요한 공통 컴포넌트와 Composable, 공통 Sass 파일도 파일 선택에서 볼 수 있습니다.
 - 코드 탭을 선택하면 해당 블록을 복사합니다. 처음에는 전체 `.vue` 코드가 선택됩니다.
@@ -40,19 +40,29 @@ npx playwright test
 
 ## SCSS 실무 가이드
 
-사이드바의 **SCSS 실무 가이드**에서 변수·디자인 토큰, Mixin 인자·@content, 반응형, 타이포그래피·말줄임, Flex·Grid, 상태·접근성, Map·반복문, 모듈·함수 설계의 8개 예제를 확인할 수 있습니다.
+사이드바의 **SCSS 실무 가이드**에는 공통 Mixin 40종과 나머지 11개 메뉴를 위한 **실무 레시피 76개**가 있습니다. 디자인 토큰, 함수, Media/Container Query, 타이포그래피, Flex/Grid, 상태·접근성, Map/List 반복문, 모듈 설계를 다룹니다.
 
-모든 예제의 스타일은 실제 Sass로 컴파일됩니다. 너비·색상·밀도·상태 조절은 미리 컴파일된 클래스나 CSS 변수를 전환하며, 브라우저에서 Sass를 재컴파일하지 않습니다. 코드 보기의 스타일 탭과 파일 선택에서 `src/assets/styles/practice`의 @use / @forward 의존 파일까지 복사할 수 있습니다. 반응형 미리보기는 실제 Container Query로 동작하며 화면 너비를 넘지 않습니다.
+각 레시피는 `src/assets/styles/recipes`의 실제 SCSS 파일입니다. 버튼으로 선택하면 설명·주의점, HTML, SCSS 사용 예시, 실제 Sass 컴파일 결과, 호출한 API 정의와 `@use`/`@forward` 의존 파일을 확인·복사할 수 있습니다. `@forward` 접두어가 있는 API도 원래 선언을 따라갑니다.
 
-공통 Sass 원본은 SCSS 메뉴의 **공통 Mixin 소스**(`/scss/mixins-source`)와 **Practice 모듈 소스**(`/scss/practice-source`)에서 바로 열립니다. 파일 선택으로 `_mixins.scss`, `_index.scss`, `_tokens.scss`, `_functions.scss` 원본을 확인·복사할 수 있습니다.
+**화면보기**는 샌드박스 iframe에서 실제 HTML과 컴파일된 CSS를 표시합니다. 프레임 너비(280~1440px)로 실제 미디어 쿼리를 확인하고 밝은/어두운 테마를 비교할 수 있습니다. 스크립트·서버 제출은 실행하지 않습니다. hover·인쇄·모션 감소 같은 환경 조건은 실제 브라우저 설정으로도 확인하세요.
 
-`@forward`로 공개한 하위 모듈도 **Tokens 소스**, **Functions 소스**, **Practice Mixins 소스** 메뉴로 각각 직접 열 수 있습니다. Practice 진입점의 파일 이름을 클릭해도 해당 원본 페이지로 이동합니다.
+Practice 진입점 `@use '@/assets/styles/practice' as ui;`는 토큰 15개 그룹, 계산 함수 16종, 토큰 기반 Mixin 24종을 공개합니다. 기존 `$unit`, `$radius`, `space()`, `rem()`과 기존 8개 믹스인 호출은 유지됩니다. 새 토큰과 함수의 인자·기본값·오류 조건은 원본 주석에 있습니다. 공통 Mixin 원본과 내부 호출을 보는 기존 메뉴도 유지합니다.
+
+레시피를 추가·수정하면 다음 명령으로 CSS 데이터를 재생성하고 검사하세요. `npm run build`도 먼저 레시피를 재컴파일합니다. 브라우저에서 Sass를 실행하지 않습니다.
+
+```bash
+npm run scss:recipes
+npm test
+npm run build
+```
+
+Sass 정의는 빌드 시점, CSS 변수는 브라우저 실행 시점에 동작합니다. 원본 파일을 복사할 때 디렉터리 구조와 의존 경로를 유지하고, 테마를 쓰는 컴포넌트에는 전역 `src/assets/styles/main.scss`의 CSS 변수도 제공하세요. 레시피의 `sample-*` 클래스는 프로젝트 BEM 이름으로 바꿔 적용할 수 있습니다.
 
 ## 개인 Gemini / OpenAI BEM Generator
 
 서버 API 실행에는 Node.js 20.12 이상을 사용하세요.
 
-사이드바 **SCSS 실무 가이드 → BEM Generator** (`/tools/bem-generator`)에서 HTML/Vue 템플릿을 붙여넣고 AI 공급자를 선택해 BEM 클래스 대응표, 변환 마크업, SCSS 구조를 생성합니다. 기존 태그·텍스트·이벤트를 유지하도록 요청하며, AI 결과는 직접 검토한 후 적용하세요. 기존 CSS/JS의 클래스 참조는 별도 수정해야 합니다. 동적 Vue 바인딩의 의미가 보존되는지도 확인하세요. 결과는 화면에 텍스트로만 표시하며 자동 실행·파일 수정은 하지 않습니다.
+사이드바 독립 메뉴 **BEM Generator** (`/tools/bem-generator`)에서 HTML/Vue 템플릿을 붙여넣고 AI 공급자를 선택해 BEM 클래스 대응표, 변환 마크업, SCSS 구조를 생성합니다. 기존 태그·텍스트·이벤트를 유지하도록 요청하며, AI 결과는 직접 검토한 후 적용하세요. 기존 CSS/JS의 클래스 참조는 별도 수정해야 합니다. 동적 Vue 바인딩의 의미가 보존되는지도 확인하세요. 결과는 화면에 텍스트로만 표시하며 자동 실행·파일 수정은 하지 않습니다.
 
 1. [Google AI Studio](https://aistudio.google.com/apikey)에서 개인 API 키를 발급합니다.
 2. 프로젝트 루트의 `.env.example`을 `.env.local`로 복사합니다.

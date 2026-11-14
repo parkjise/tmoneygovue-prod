@@ -5,6 +5,8 @@
 
 // math.div(): 나눗셈, math.is-unitless(): 단위 검사, math.compatible(): 호환 단위 검사.
 @use 'sass:math';
+@use 'sass:map';
+@use 'sass:color';
 // meta.type-of(): 입력값이 숫자인지 검사합니다.
 @use 'sass:meta';
 // 기본 간격 단위 tokens.$unit를 참조합니다.
@@ -28,8 +30,104 @@
 // $base는 계산 기준이며 실제 html 글자 크기를 바꾸지는 않습니다.
 // 브라우저의 글자 크기 설정을 따르는 타이포그래피·간격에 사용하세요.
 @function rem($pixels, $base: 16px) {
+  @if meta.type-of($pixels) != number or meta.type-of($base) != number {
+    @error 'rem() expects pixel lengths and a positive base.';
+  }
   @if not math.compatible($pixels, 1px) or not math.compatible($base, 1px) or $base <= 0px {
     @error 'rem() expects pixel lengths and a positive base.';
   }
   @return math.div($pixels, $base) * 1rem;
+}
+
+// em($pixels, $base): 요소의 기준 글자 크기에 대한 상대 길이입니다. 기준을 인자로 지정합니다.
+// 예: padding: ui.em(12px, 16px); → 0.75em. 루트 기준의 rem()과 구분하세요.
+@function em($pixels, $base: 16px) {
+  @if meta.type-of($pixels) != number or meta.type-of($base) != number {
+    @error 'em() expects pixel lengths and a positive base.';
+  }
+  @if not math.compatible($pixels, 1px) or not math.compatible($base, 1px) or $base <= 0px {
+    @error 'em() expects pixel lengths and a positive base.';
+  }
+  @return math.div($pixels, $base) * 1em;
+}
+
+// strip-unit($number): 숫자의 단위만 제거합니다. px→rem 변환 함수가 아닙니다.
+// 예: ui.strip-unit(24px) → 24. 문자열과 CSS var()/calc()는 Sass 숫자가 아니므로 거부합니다.
+@function strip-unit($number) {
+  @if meta.type-of($number) != number {
+    @error 'strip-unit() expects a number.';
+  }
+  @if math.is-unitless($number) {
+    @return $number;
+  }
+  @return math.div($number, $number * 0 + 1);
+}
+
+// token($map, $key): Map을 엄격하게 조회합니다. 누락된 키를 null CSS로 조용히 내보내지 않습니다.
+// 예: ui.token(ui.$spacing, section) → 64px. 중첩 Map은 조회 결과에 token()을 다시 적용하세요.
+@function token($map, $key) {
+  @if meta.type-of($map) != map {
+    @error 'token() expects a non-empty map.';
+  }
+  @if not map.has-key($map, $key) {
+    @error 'Unknown token key: #{$key}';
+  }
+  @return map.get($map, $key);
+}
+
+// tone($name): primary/success/warning/danger의 Sass 색상. CSS 변수에는 alpha()를 적용할 수 없습니다.
+// 예: border-color: ui.tone(primary); → #6366f1.
+@function tone($name: primary) {
+  @return token(tokens.$tones, $name);
+}
+// radius($name): none/sm/md/lg/pill 반경. 예: border-radius: ui.radius(lg); → 20px.
+@function radius($name: md) {
+  @return token(tokens.$radii, $name);
+}
+// font-size($name): xs/sm/md/lg/xl/display. 예: font-size: ui.font-size(lg); → 1.25rem.
+@function font-size($name: md) {
+  @return token(tokens.$font-sizes, $name);
+}
+// font-weight($name): regular/medium/semibold/bold. 예: font-weight: ui.font-weight(bold);
+@function font-weight($name: regular) {
+  @return token(tokens.$font-weights, $name);
+}
+// line-height($name): tight/normal/relaxed의 단위 없는 행간. 예: line-height: ui.line-height(relaxed);
+@function line-height($name: normal) {
+  @return token(tokens.$line-heights, $name);
+}
+// shadow($name): none/sm/md/lg. 예: box-shadow: ui.shadow(md); 테마 변경이 필요하면 CSS 변수로 매핑.
+@function shadow($name: md) {
+  @return token(tokens.$shadows, $name);
+}
+// z($name): base/sticky/dropdown/overlay/modal/toast. 예: z-index: ui.z(modal);
+@function z($name: base) {
+  @return token(tokens.$z-layers, $name);
+}
+// duration($name): instant/fast/normal/slow. 예: transition-duration: ui.duration(fast);
+@function duration($name: normal) {
+  @return token(tokens.$durations, $name);
+}
+// easing($name): standard/enter/exit. 예: transition-timing-function: ui.easing(enter);
+@function easing($name: standard) {
+  @return token(tokens.$easings, $name);
+}
+// breakpoint($name): sm/md/lg의 최소 너비. 예: @media (min-width: ui.breakpoint(md)) { ... }
+@function breakpoint($name: md) {
+  @return token(tokens.$breakpoints, $name);
+}
+
+// alpha($color, $opacity): Sass 색상의 알파를 0~1로 설정합니다.
+// 예: background: ui.alpha(ui.tone(primary), 0.12); CSS var(--primary)는 브라우저에서 color-mix 사용.
+@function alpha($color, $opacity: 1) {
+  @if meta.type-of($color) != color {
+    @error 'alpha() expects a Sass color, not a CSS variable.';
+  }
+  @if meta.type-of($opacity) != number {
+    @error 'alpha() expects opacity from 0 to 1.';
+  }
+  @if not math.is-unitless($opacity) or $opacity < 0 or $opacity > 1 {
+    @error 'alpha() expects opacity from 0 to 1.';
+  }
+  @return color.change($color, $alpha: $opacity);
 }

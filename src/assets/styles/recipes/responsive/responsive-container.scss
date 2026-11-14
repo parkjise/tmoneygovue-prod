@@ -1,0 +1,35 @@
+// 부모 너비로 카드 내부 전환
+// 용도: 사이드바 안에서도 알맞게 바뀌는 컴포넌트입니다.
+// 1. 부모에 container-type과 container-name을 설정합니다. 이 부모가 자식 스타일에서 조회할 수 있는 크기 기준이 됩니다.
+// 2. container-up은 뷰포트 대신 recipe라는 이름을 가진 조상의 너비를 검사합니다. 같은 카드가 넓은 본문과 좁은 사이드바에 놓여도 각각 다른 레이아웃을 가질 수 있습니다.
+// 3. 조회 대상은 자기 자신이 아닌 조상입니다. 이름이 맞지 않거나 부모 설정이 없으면 쿼리가 적용되지 않으므로 두 선언을 함께 확인하세요.
+// 주의: inline-size containment가 부모의 크기 계산에 영향을 줄 수 있습니다. 부모가 실제로 너비를 갖는 레이아웃 안에 배치하세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-parent {
+  container-type: inline-size;
+  container-name: recipe;
+}
+.sample-grid {
+  display: grid;
+  gap: ui.space(3);
+  @include ui.container-up(480px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

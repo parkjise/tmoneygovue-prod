@@ -1,0 +1,33 @@
+// 타이포그래피 함수 조합
+// 용도: 크기·굵기·행간 값을 목적에 맞게 가져옵니다.
+// 1. 크기 함수가 CSS 선언까지 만들지는 않습니다. font-size 속성에 ui.font-size(lg)의 반환값을 넣어야 실제 스타일이 됩니다.
+// 2. font-weight와 line-height도 각 토큰 Map의 키를 검사합니다. 잘못된 이름이 null로 사라지지 않고 오류가 나도록 엄격하게 설계했습니다.
+// 3. 제목과 본문은 서로 다른 읽기 목적을 가집니다. 토큰을 기계적으로 하나로 통일하기보다 일관된 계층을 만드는 데 사용하세요.
+// 주의: font-size 함수와 font-size CSS 속성은 이름이 같아도 역할이 다릅니다. ui 네임스페이스가 함수 호출임을 구분해 줍니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-card h3 {
+  font-size: ui.font-size(lg);
+  font-weight: ui.font-weight(semibold);
+  line-height: ui.line-height(tight);
+}
+.sample-card p {
+  font-size: ui.font-size(sm);
+  line-height: ui.line-height(relaxed);
+}

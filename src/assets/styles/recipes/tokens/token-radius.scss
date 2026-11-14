@@ -1,0 +1,33 @@
+// 반경 Map으로 카드와 칩 구분
+// 용도: 구성요소의 역할에 맞게 반경을 일관되게 적용합니다.
+// 1. radii Map은 none부터 pill까지 이름과 값을 연결합니다. 값 하나를 바꾸면 해당 토큰을 쓰는 모든 구성요소에 일관되게 반영됩니다.
+// 2. @each는 Map의 키와 값을 꺼내 radius-md 같은 클래스를 생성합니다. 클래스가 많아지지 않도록 필요한 토큰만 공개하는 것이 좋습니다.
+// 3. 카드에는 md나 lg, 짧은 상태 칩에는 pill을 적용할 수 있습니다. 이름은 예시이므로 제품 디자인 시스템의 용어와 맞추세요.
+// 주의: 기존 $radius는 기본 12px로 유지됩니다. ui.$radius와 ui.radius(md)는 설정을 별도로 바꾸면 달라질 수 있습니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+@each $name, $value in ui.$radii {
+  .radius-#{$name} {
+    border-radius: $value;
+  }
+}
+.sample-card {
+  padding: ui.space(4);
+  border: 1px solid var(--border);
+}

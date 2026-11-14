@@ -1,4 +1,5 @@
 <script setup>
+import ScssRecipeCatalog from '@/components/examples/ScssRecipeCatalog.vue';
 import { ref } from 'vue';
 const min = ref('180');
 const gap = ref('4');
@@ -6,6 +7,7 @@ const count = ref(4);
 </script>
 <template>
   <section class="demo">
+    <ScssRecipeCatalog topic="layout" />
     <aside class="demo__output">
       <strong>콘텐츠 수에 반응하는 레이아웃.</strong>
       <p>

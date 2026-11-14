@@ -1,0 +1,35 @@
+// 모바일 우선 1·2·3열
+// 용도: 기본 1열에서 넓은 화면만 단계적으로 확장합니다.
+// 1. 가장 좁은 화면에서 필요한 스타일을 기본으로 작성합니다. 미디어 쿼리가 없어도 내용이 정상적으로 표시되는 1열 구조에서 시작합니다.
+// 2. sm은 480px 이상, lg는 1024px 이상입니다. @content 블록 안에는 해당 너비부터 바꿀 속성만 작성해 기본 선언과 중복을 줄입니다.
+// 3. 미리보기 너비를 늘리면 1열에서 2열, 3열로 전환됩니다. 콘텐츠가 넘치는 지점을 기준으로 제품의 실제 브레이크포인트를 정하세요.
+// 주의: 기기 이름과 너비를 무조건 일치시키지 마세요. 분할 화면이나 브라우저 확대에 따라 사용 가능한 너비가 달라집니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-grid {
+  display: grid;
+  gap: ui.space(3);
+  grid-template-columns: minmax(0, 1fr);
+  @include ui.respond(sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include ui.respond(lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

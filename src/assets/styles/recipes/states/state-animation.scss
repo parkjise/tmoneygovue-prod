@@ -1,0 +1,41 @@
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+// 반복 애니메이션과 정적 대체
+// 용도: 회전 표시를 상태 문구와 함께 제공하고 모션 감소에서는 멈춥니다.
+// 1. 스피너는 한쪽 테두리 색을 다르게 한 원형 요소를 회전시킨 것입니다. 의미는 별도의 상태 문구로 제공하고 장식 요소는 aria-hidden으로 숨깁니다.
+// 2. keyframes 이름은 다른 컴포넌트와 충돌하지 않는 접두어로 정합니다. 전역 CSS에 반복 선언할 때는 관리 위치도 하나로 모으는 것이 좋습니다.
+// 3. 움직임 줄이기 설정에서는 애니메이션을 정지합니다. 텍스트가 남아 있으므로 회전하지 않아도 사용자는 처리 중임을 알 수 있습니다.
+// 주의: 회전이 멈춘 뒤에도 실제로 처리 중인지 완료인지 알 수 있도록 앱 상태를 연결하세요. 모양만으로 처리 결과를 표현하지 마세요.
+
+.sample-spinner {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--border);
+  border-inline-end-color: var(--primary);
+  border-radius: 50%;
+  animation: recipe-spin 900ms linear infinite;
+}
+@keyframes recipe-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sample-spinner {
+    animation: none;
+  }
+}

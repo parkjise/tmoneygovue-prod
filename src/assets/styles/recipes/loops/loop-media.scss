@@ -1,0 +1,35 @@
+// 브레이크포인트별 클래스 생성
+// 용도: Map과 @media를 함께 사용해 이름 있는 반응형 변형을 만듭니다.
+// 1. breakpoints Map을 반복하면서 각 너비를 @media 조건에 넣습니다. 클래스 접미어는 sm/md/lg처럼 팀에서 정한 이름을 사용합니다.
+// 2. 예제는 md 클래스만 붙였으므로 768px 이상에서 두 열이 됩니다. 같은 CSS 파일에 다른 크기의 변형이 생성되어도 적용할 클래스가 있어야 동작합니다.
+// 3. 여러 반응형 클래스를 함께 붙이면 CSS 선언 순서의 영향을 받을 수 있습니다. 단순한 규칙을 정하고 문서에서 조합 가능 범위를 명확히 안내하세요.
+// 주의: 모든 속성·모든 크기의 조합을 무작정 생성하지 마세요. 작은 명시적 API가 유지보수하기 쉬울 때가 많습니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-grid {
+  display: grid;
+  gap: ui.space(3);
+}
+@each $name, $width in ui.$breakpoints {
+  @media (min-width: $width) {
+    .sample-grid--#{$name} {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}

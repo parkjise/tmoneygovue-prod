@@ -1,0 +1,28 @@
+// @forward 접두어로 API 구분
+// 용도: 재공개하는 멤버 이름에 공통 접두어를 붙입니다.
+// 1. _brand.scss는 Practice를 brand-* 접두어로 재공개합니다. surface는 brand-surface, space는 brand-space, 변수 radius는 brand-radius가 됩니다.
+// 2. 사용처의 네임스페이스 brand와 공개 멤버의 brand- 접두어는 서로 다른 층위입니다. 이름이 길어질 수 있으므로 실제 API 설계에서 필요한지 판단하세요.
+// 3. 원본 파일 선택에서 _brand.scss의 @forward와 실제 Practice 정의를 함께 볼 수 있습니다. 접두어는 코드를 복사해 이름을 바꿔 만드는 것과 다릅니다.
+// 주의: 접두어를 바꾸면 공개 API 이름이 바뀝니다. 이미 사용하는 외부 컴포넌트가 있다면 호환성을 고려하세요.
+@use './brand' as brand;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-card {
+  @include brand.brand-surface(brand.brand-space(5));
+  border-radius: brand.$brand-radius;
+}

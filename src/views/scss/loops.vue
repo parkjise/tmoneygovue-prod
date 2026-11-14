@@ -1,4 +1,5 @@
 <script setup>
+import ScssRecipeCatalog from '@/components/examples/ScssRecipeCatalog.vue';
 import { ref } from 'vue';
 const tone = ref('primary');
 const size = ref('md');
@@ -6,6 +7,7 @@ const spacing = ref(3);
 </script>
 <template>
   <section class="demo">
+    <ScssRecipeCatalog topic="loops" />
     <aside class="demo__output">
       <strong>@each와 Map으로 변형을 생성하세요.</strong>
       <p>

@@ -1,0 +1,35 @@
+// container-up의 이름 있는 조상
+// 용도: recipe 컨테이너를 기준으로 자식 스타일을 확장합니다.
+// 1. container-up은 recipe라는 고정 이름의 컨테이너를 조회합니다. 부모에 같은 이름과 inline-size 타입을 선언하는 준비가 필요합니다.
+// 2. 미디어 쿼리가 브라우저 폭을 보는 것과 달리 이 규칙은 컴포넌트가 놓인 실제 조상 폭을 봅니다. 대시보드 카드처럼 재배치되는 UI에 유용합니다.
+// 3. 이름을 직접 바꾸고 싶다면 common.container-context와 common.container-query의 인자를 사용하세요. 두 API의 계약을 혼동하지 않는 것이 중요합니다.
+// 주의: 컨테이너는 자기 자신의 크기 조건으로 자기 스타일을 바꾸는 대상이 아니라 자손이 조회할 기준입니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-parent {
+  container-name: recipe;
+  container-type: inline-size;
+}
+.sample-grid {
+  display: grid;
+  gap: ui.space(3);
+  @include ui.container-up(480px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}

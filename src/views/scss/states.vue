@@ -1,4 +1,5 @@
 <script setup>
+import ScssRecipeCatalog from '@/components/examples/ScssRecipeCatalog.vue';
 import { ref } from 'vue';
 const disabled = ref(false);
 const busy = ref(false);
@@ -6,6 +7,7 @@ const count = ref(0);
 </script>
 <template>
   <section class="demo">
+    <ScssRecipeCatalog topic="states" />
     <aside class="demo__output">
       <strong>Hover뿐 아니라 Focus, Disabled, Reduced Motion까지.</strong>
       <p>

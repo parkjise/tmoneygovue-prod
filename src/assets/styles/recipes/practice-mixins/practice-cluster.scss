@@ -1,0 +1,30 @@
+// cluster로 필터와 태그 줄바꿈
+// 용도: 가로 묶음을 좁은 공간에서 자연스럽게 다음 줄로 보냅니다.
+// 1. cluster는 flex-wrap:wrap을 포함하므로 가로 공간이 부족하면 다음 줄로 이동합니다. 태그 개수가 고정되어 있지 않은 UI에 적합합니다.
+// 2. gap과 align을 인자로 받아 줄 사이 간격과 세로 정렬을 바꿉니다. 모든 자식에 좌우 margin을 붙이는 방식보다 처음·끝 여백을 관리하기 쉽습니다.
+// 3. 한 줄 고정과 가로 스크롤이 필요한 탭은 cluster와 요구가 다릅니다. 줄바꿈인지 스크롤인지 콘텐츠 탐색 방식을 먼저 정하세요.
+// 주의: 가변 자식의 최소 너비 때문에 줄바꿈이 생기지 않으면 해당 자식의 min-width와 긴 텍스트를 확인하세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-row {
+  @include ui.cluster(ui.space(2), flex-start);
+}
+.sample-badge {
+  @include ui.badge;
+}

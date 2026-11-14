@@ -1,0 +1,30 @@
+// 필요한 함수 모듈만 가져오기
+// 용도: 전체 진입점 대신 기능 모듈을 직접 사용합니다.
+// 1. functions 파일을 fn이라는 네임스페이스로 직접 가져옵니다. 이 파일이 쓰는 tokens 등의 의존성은 Sass 모듈 시스템이 다시 로드합니다.
+// 2. 작은 모듈을 직접 읽으면 어떤 기능이 필요한지 명확해집니다. 공통 진입점을 사용할지 개별 모듈을 사용할지는 팀의 공개 API 정책에 맞추세요.
+// 3. 소스 파일 보기에 functions와 tokens 원본을 함께 제공합니다. 함수 정의만 복사하면 내부 tokens 참조가 사라질 수 있으므로 경로와 의존 파일도 유지해야 합니다.
+// 주의: 직접 가져오는 내부 파일의 경로를 바꾸면 사용처가 영향을 받습니다. 외부 공개 라이브러리라면 안정적인 진입점 사용을 고려하세요.
+@use '@/assets/styles/practice/functions' as fn;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-card {
+  padding: fn.space(5);
+  font-size: fn.rem(16px);
+  border-radius: fn.radius(md);
+  border: 1px solid var(--border);
+}

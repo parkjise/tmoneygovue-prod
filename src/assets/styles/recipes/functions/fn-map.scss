@@ -1,0 +1,29 @@
+// 엄격한 Map 조회와 반경 함수
+// 용도: 일반 토큰 함수와 전용 함수를 구분해 선택합니다.
+// 1. token 함수는 Map과 키를 인자로 받아 다양한 토큰을 읽습니다. 사용처가 드문 토큰이나 중첩 구조에 유연하게 적용할 수 있습니다.
+// 2. radius 함수는 자주 쓰는 반경 Map을 내부에서 정해 둔 짧은 API입니다. 호출부가 ui.radius(lg)처럼 간단해지고 특정 Map 구조를 외부에 반복하지 않아도 됩니다.
+// 3. 없는 키를 조회하면 Unknown token key 오류가 발생합니다. CSS 속성이 조용히 누락되는 것보다 문제 위치를 빌드에서 바로 찾기 쉽습니다.
+// 주의: 키가 선택적인 데이터라면 기본값을 포함하는 별도 정책을 설계하세요. 이 함수는 오타를 숨기지 않는 엄격한 조회용입니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-card {
+  padding: ui.token(ui.$spacing, lg);
+  border-radius: ui.radius(lg);
+  border: 1px solid var(--border);
+}

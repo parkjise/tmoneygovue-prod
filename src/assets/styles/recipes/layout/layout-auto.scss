@@ -1,0 +1,31 @@
+// 콘텐츠 수에 반응하는 자동 그리드
+// 용도: 최소 카드 너비와 토큰 간격으로 열 수를 자동 계산합니다.
+// 1. card-grid는 공통 auto-grid와 Practice의 간격 함수를 조합합니다. 최소 너비 210px, 간격 단계 4를 전달하면 16px 간격의 자동 열이 만들어집니다.
+// 2. auto-fit은 빈 열을 접고 minmax는 남은 공간을 같은 비율로 나눕니다. min(100%, 최소값)으로 부모가 아주 좁아져도 최소 너비가 부모를 밀어내지 않게 합니다.
+// 3. 카드에 min-width:0을 주고 실제 긴 텍스트도 시험하세요. 열 수의 반응과 자식 콘텐츠의 넘침은 별개 문제입니다.
+// 주의: 최대 열 수를 엄격히 제한해야 한다면 컨테이너 최대 너비나 명시적 미디어 쿼리를 함께 사용하세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-grid {
+  @include ui.card-grid(210px, 4);
+}
+.sample-card {
+  @include ui.surface;
+  min-width: 0;
+}

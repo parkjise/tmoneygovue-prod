@@ -1,0 +1,28 @@
+// hover·포커스·모션 감소 조합
+// 용도: 한 번의 include로 작은 반응 효과와 대체 스타일을 구성합니다.
+// 1. interactive 믹스인은 hover 가능한 환경에서만 작은 세로 이동을 적용합니다. 터치 환경의 hover 상태를 화면 너비만으로 판단하지 않습니다.
+// 2. 키보드 사용자를 위해 focus-outline도 함께 적용합니다. 마우스 오버와 키보드 포커스가 같은 상황은 아니므로 둘을 각각 제공해야 합니다.
+// 3. 모션 감소 환경에서는 transition과 이동을 제거합니다. 움직임이 없어도 버튼의 이름과 기본 모양으로 사용 목적을 이해할 수 있게 유지합니다.
+// 주의: 이 예제 버튼은 스타일 반응 확인용입니다. 실제 처리 중·성공·오류 상태는 별도의 앱 상태와 연결하세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-button {
+  @include ui.button;
+  @include ui.interactive(-2px);
+}

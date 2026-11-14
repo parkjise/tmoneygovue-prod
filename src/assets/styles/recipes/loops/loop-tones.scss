@@ -1,0 +1,29 @@
+// 상태 Map으로 뱃지 생성
+// 용도: 상태 이름과 색상 정책을 하나의 Map에서 읽습니다.
+// 1. @each는 Map의 키와 값을 한 번씩 꺼냅니다. 키를 클래스 이름에 보간하면 상태가 늘어날 때 같은 CSS를 여러 번 복사하지 않아도 됩니다.
+// 2. badge 믹스인은 다시 같은 토큰의 색상과 글자 스타일을 사용합니다. Map은 가능한 변형을 정하고 믹스인은 각 변형의 모양을 만드는 역할입니다.
+// 3. 표시 문구는 성공·실패처럼 사용자가 이해할 이름으로 제공하세요. 내부 클래스 코드와 사용자에게 보이는 단어를 반드시 같게 할 필요는 없습니다.
+// 주의: 색상만으로 상태를 구분하지 말고 텍스트도 함께 제공합니다. Vue의 선택지와 Sass의 키 목록이 일치하는지도 확인하세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+@each $name, $color in ui.$tones {
+  .sample-badge--#{$name} {
+    @include ui.badge($name);
+  }
+}

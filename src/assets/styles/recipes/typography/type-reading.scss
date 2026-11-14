@@ -1,0 +1,33 @@
+// 긴 본문의 읽기 폭
+// 용도: 글줄 길이와 행간을 제한해 읽기 편한 본문을 만듭니다.
+// 1. 너무 긴 줄은 다음 줄의 시작을 찾기 어렵게 할 수 있어 본문 폭을 65ch로 제한했습니다. ch는 현재 폰트의 문자 폭을 기준으로 한 상대 단위입니다.
+// 2. 행간은 단위 없는 1.9를 사용해 글자 크기가 달라져도 비례하도록 했습니다. 실제 언어와 폰트에 맞춰 여유를 조정하세요.
+// 3. 문단 사이 간격은 인접 형제 선택자로 추가합니다. 모든 p에 큰 margin을 주는 대신 문단이 이어지는 관계에만 여백을 적용합니다.
+// 주의: 65ch는 시작점 예시이며 한국어·영어·모바일 폭에 같은 체감 길이를 보장하지 않습니다. 실제 콘텐츠로 조정하세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-text {
+  max-width: ui.token(ui.$layout-widths, reading);
+  margin-inline: auto;
+  font-size: ui.font-size(md);
+  line-height: ui.line-height(relaxed);
+}
+.sample-text p + p {
+  margin-block-start: ui.space(4);
+}

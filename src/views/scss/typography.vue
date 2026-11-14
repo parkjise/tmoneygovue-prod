@@ -1,4 +1,5 @@
 <script setup>
+import ScssRecipeCatalog from '@/components/examples/ScssRecipeCatalog.vue';
 import { ref } from 'vue';
 const lines = ref(2);
 const width = ref(440);
@@ -8,6 +9,7 @@ const text = ref(
 </script>
 <template>
   <section class="demo">
+    <ScssRecipeCatalog topic="typography" />
     <aside class="demo__output">
       <strong>긴 콘텐츠와 유연한 글자 크기에 대비하세요.</strong>
       <p>

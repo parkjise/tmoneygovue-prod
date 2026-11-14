@@ -29,3 +29,100 @@ $tones: (
   warning: #f59e0b,
   danger: #ef4444
 ) !default;
+
+// [확장 토큰] 기존 $unit/$radius/$breakpoints/$tones는 호환성을 위해 유지합니다.
+// 아래 Map은 fn.token() 또는 전용 함수로 읽습니다. 키 오타는 함수에서 컴파일 오류로 알려줍니다.
+// 예: border-radius: ui.radius(lg); font-size: ui.font-size(lg); z-index: ui.z(modal);
+// 모든 !default Map은 최초 @use ... with (...)에서 통째로 교체할 수 있습니다.
+
+// 이름을 가진 간격. 숫자 배수는 space(), 역할 이름은 token($spacing, key)를 사용하세요.
+$spacing: (
+  none: 0,
+  xs: 4px,
+  sm: 8px,
+  md: 16px,
+  lg: 24px,
+  xl: 32px,
+  section: 64px
+) !default;
+// 반경. pill은 뱃지·칩, md는 기본 카드에 사용할 수 있습니다.
+$radii: (
+  none: 0,
+  sm: 4px,
+  md: 12px,
+  lg: 20px,
+  pill: 9999px
+) !default;
+// rem 기반 글자 크기. 실제 보이는 크기는 루트 글자 크기와 브라우저 확대 설정을 따릅니다.
+$font-sizes: (
+  xs: 0.75rem,
+  sm: 0.875rem,
+  md: 1rem,
+  lg: 1.25rem,
+  xl: 1.75rem,
+  display: 2.5rem
+) !default;
+// 폰트 파일이 지원하는 굵기를 사용하세요. 없는 굵기는 브라우저가 합성할 수 있습니다.
+$font-weights: (
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700
+) !default;
+// 단위 없는 행간은 자식의 글자 크기에 비례합니다.
+$line-heights: (
+  tight: 1.25,
+  normal: 1.6,
+  relaxed: 1.9
+) !default;
+// 그림자는 빌드 시 고정됩니다. 런타임 테마를 바꾸려면 CSS 변수로 별도 매핑하세요.
+$shadows: (
+  none: none,
+  sm: 0 2px 6px #00000010,
+  md: 0 8px 24px #00000018,
+  lg: 0 20px 48px #00000024
+) !default;
+// 숫자가 커도 부모 stacking context를 벗어나지는 못합니다.
+$z-layers: (
+  base: 0,
+  sticky: 10,
+  dropdown: 20,
+  overlay: 90,
+  modal: 100,
+  toast: 120
+) !default;
+// UI 전환 시간. 스켈레톤처럼 반복하는 애니메이션 시간과는 별도로 사용합니다.
+$durations: (
+  instant: 0ms,
+  fast: 120ms,
+  normal: 200ms,
+  slow: 350ms
+) !default;
+// 표준·진입·퇴장 전환 곡선입니다. 숫자 4개는 cubic-bezier의 제어점입니다.
+$easings: (
+  standard: cubic-bezier(0.2, 0, 0, 1),
+  enter: ease-out,
+  exit: ease-in
+) !default;
+// 페이지·읽기 영역의 최대 너비. 패딩 포함 여부는 해당 컨테이너 스타일에서 결정합니다.
+$layout-widths: (
+  reading: 65ch,
+  narrow: 640px,
+  page: 1200px,
+  wide: 1440px
+) !default;
+// 버튼·입력 컨트롤의 높이·좌우 패딩. 실제 클릭 영역과 주변 간격도 함께 고려하세요.
+$control-sizes: (
+  sm: (
+    height: 32px,
+    padding: 10px
+  ),
+  md: (
+    height: 44px,
+    padding: 16px
+  ),
+  lg: (
+    height: 52px,
+    padding: 20px
+  )
+) !default;

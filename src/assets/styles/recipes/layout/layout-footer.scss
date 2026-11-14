@@ -1,0 +1,38 @@
+// 카드 하단에 액션 정렬
+// 용도: 본문 길이가 달라도 액션을 카드 아래에 둡니다.
+// 1. 카드를 column 방향 Flex로 만들고 최소 높이를 줍니다. 높이가 본문보다 크면 남는 세로 공간을 배분할 수 있습니다.
+// 2. footer의 margin-block-start:auto가 남는 공간을 받아 액션을 하단으로 밀어냅니다. 절대 위치를 사용하지 않아 본문이 길어져도 버튼과 겹치지 않습니다.
+// 3. 내용이 더 길면 카드는 최소 높이보다 커질 수 있습니다. 고정 높이로 자르지 말고 콘텐츠가 늘어날 때의 흐름도 확인하세요.
+// 주의: 같은 행 카드의 액션 정렬은 바깥 Grid의 stretch 동작도 영향을 줍니다. 가로와 세로 배치를 함께 확인하세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-grid {
+  @include ui.card-grid(210px, 3);
+}
+.sample-card {
+  @include ui.surface;
+  @include ui.stack(12px);
+  min-height: 240px;
+}
+.sample-card footer {
+  margin-block-start: auto;
+}
+.sample-button {
+  @include ui.button(primary, sm);
+}

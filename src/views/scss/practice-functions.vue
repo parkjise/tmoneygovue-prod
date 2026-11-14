@@ -1,12 +1,13 @@
 <script setup>
+import ScssRecipeCatalog from '@/components/examples/ScssRecipeCatalog.vue';
 const module = {
   name: 'functions',
   heading: '공통 계산 함수',
-  summary: 'space($step) · rem($pixels, $base)',
+  summary: '계산 함수 16종 · 간격·단위·색상·타입·반경·그림자·레이어·모션',
   notes: [
     'space($step)는 기본 간격 단위에 배수를 곱해 길이를 반환합니다.',
     'rem($pixels, $base: 16px)는 픽셀 길이를 rem 단위로 변환합니다.',
-    'sass:math, sass:meta와 tokens 모듈에 의존합니다. 파일 선택에서 tokens 원본도 확인할 수 있습니다.'
+    'sass:math, sass:map, sass:color, sass:meta와 tokens 모듈에 의존합니다. 파일 선택에서 tokens 원본도 확인할 수 있습니다.'
   ]
 };
 const forwardCode = "@forward 'functions';";
@@ -14,6 +15,7 @@ const usage = "@use '@/assets/styles/practice' as ui;";
 </script>
 <template>
   <section class="demo forward-source">
+    <ScssRecipeCatalog topic="practice-functions" />
     <header>
       <h3>{{ module.heading }}</h3>
       <p>src/assets/styles/practice/_{{ module.name }}.scss</p>

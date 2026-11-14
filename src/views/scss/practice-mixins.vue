@@ -1,9 +1,9 @@
 <script setup>
+import ScssRecipeCatalog from '@/components/examples/ScssRecipeCatalog.vue';
 const module = {
   name: 'mixins',
   heading: '실무 스타일 믹스인',
-  summary:
-    'stack · cluster · surface · respond · container-up · truncate · focus-visible · auto-grid',
+  summary: '기존 8종 + 토큰 기반 button · badge · input · overlay 등 총 24종',
   notes: [
     '레이아웃·표면·반응형·말줄임·포커스 스타일을 재사용하는 믹스인 모듈입니다.',
     'surface, respond, container-up은 @content 블록을 받아 스타일을 확장합니다.',
@@ -15,6 +15,7 @@ const usage = "@use '@/assets/styles/practice' as ui;";
 </script>
 <template>
   <section class="demo forward-source">
+    <ScssRecipeCatalog topic="practice-mixins" />
     <header>
       <h3>{{ module.heading }}</h3>
       <p>src/assets/styles/practice/_{{ module.name }}.scss</p>

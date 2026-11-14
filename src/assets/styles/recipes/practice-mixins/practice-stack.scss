@@ -1,0 +1,29 @@
+// stack의 간격과 정렬
+// 용도: 세로로 쌓는 콘텐츠의 관계를 gap으로 표현합니다.
+// 1. stack은 display:flex와 column 방향을 출력합니다. 자식 사이의 gap을 한 곳에서 관리해 요소별 margin이 겹치는 일을 줄입니다.
+// 2. 기본 간격은 space(4)인 16px이고 다른 간격이 필요하면 인자를 전달합니다. 토큰을 직접 숫자 길이로 바꿔 넣어도 되지만 팀의 간격 체계를 유지하는 편이 좋습니다.
+// 3. 자식이 인라인 요소인지 블록인지에 따라 기본 동작이 달라질 수 있습니다. 특정 자식만 가로 폭을 줄이려면 align-self 등을 사용하세요.
+// 주의: gap은 컨테이너 가장자리의 내부 여백을 만들지 않습니다. padding은 별도로 지정해야 합니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-card {
+  @include ui.stack(ui.space(4));
+  padding: ui.space(5);
+  border: 1px solid var(--border);
+}

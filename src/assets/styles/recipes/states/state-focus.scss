@@ -1,0 +1,32 @@
+// 키보드 포커스와 아이콘 크기
+// 용도: 작은 아이콘에도 누름 영역과 외곽선을 제공합니다.
+// 1. 시각적으로 작은 아이콘이라도 버튼의 실제 누름 영역을 확보합니다. 아이콘 크기와 클릭 가능한 크기를 같은 것으로 생각하지 않는 것이 중요합니다.
+// 2. focus-visible은 브라우저가 포커스 표시가 필요하다고 판단할 때 외곽선을 제공합니다. 주로 키보드 탐색에서 보이므로 마우스 클릭만으로 검사하지 마세요.
+// 3. outline-offset으로 테두리와 포커스 링 사이 간격을 둡니다. 부모 overflow에 잘리지 않는지와 주변 배경에서 잘 보이는지도 확인하세요.
+// 주의: outline:none만 적용해 포커스 표시를 없애지 마세요. 다른 방식으로 바꾼다면 동등하게 분명한 표시가 필요합니다.
+@use '@/assets/styles/practice' as ui;
+@use '@/assets/styles/mixins' as mix;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-button {
+  @include ui.icon-button(44px);
+  @include ui.focus-outline(var(--primary), 3px, 3px);
+}
+.sample-sr {
+  @include mix.visually-hidden;
+}

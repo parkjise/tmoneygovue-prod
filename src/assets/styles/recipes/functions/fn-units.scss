@@ -1,0 +1,31 @@
+// rem·em·단위 제거의 차이
+// 용도: 루트 기준, 요소 기준, 숫자 추출을 구분합니다.
+// 1. rem(20px)은 기본 16px로 나눠 1.25rem을 반환합니다. 루트 글자 크기가 바뀌면 실제 보이는 크기도 함께 바뀝니다.
+// 2. em(12px,20px)은 0.6em입니다. 이 값은 요소의 글자 크기를 기준으로 계산되므로 부모에서 글자 크기를 상속받는 방식도 영향을 줍니다.
+// 3. strip-unit은 단위 변환이 아니라 숫자만 꺼내는 함수입니다. 예제에서는 30과 20을 나눠 단위 없는 행간 1.5를 만들었습니다.
+// 주의: rem 함수의 base는 계산 기준이며 html의 글자 크기를 강제로 바꾸지 않습니다. em을 여러 단계 중첩하면 크기가 누적될 수 있습니다.
+@use '@/assets/styles/practice' as ui;
+@use 'sass:math';
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-card {
+  font-size: ui.rem(20px);
+  padding: ui.em(12px, 20px);
+  line-height: math.div(ui.strip-unit(30px), ui.strip-unit(20px));
+  border: 1px solid var(--border);
+}

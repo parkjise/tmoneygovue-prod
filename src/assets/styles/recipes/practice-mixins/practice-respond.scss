@@ -1,0 +1,31 @@
+// respond의 토큰 이름 검증
+// 용도: 이름 있는 최소 너비 규칙으로 확장 스타일을 출력합니다.
+// 1. respond는 tokens의 breakpoints Map에서 이름을 찾습니다. 존재하지 않는 이름은 @error로 알리므로 오타가 무시된 채 CSS가 빠지는 일을 줄입니다.
+// 2. md는 768px 이상을 뜻합니다. 기본 스타일에 없는 변경 사항만 @content 블록에 작성해 모바일 우선 구조를 유지합니다.
+// 3. 토큰을 바꿀 때는 프로젝트 전체의 같은 이름 기준이 바뀝니다. 한 페이지의 예외를 해결하려고 전역 토큰을 무작정 수정하지 마세요.
+// 주의: 직접 길이를 넣고 싶다면 common의 media-up 등을 사용하세요. respond는 이름 있는 Practice 토큰 전용입니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-grid {
+  display: grid;
+  gap: ui.space(3);
+  @include ui.respond(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,29 @@
+// @forward로 공개 API 묶기
+// 용도: 세부 파일을 하나의 진입점에서 재공개합니다.
+// 1. _index.scss는 tokens, functions, mixins를 @forward로 재공개합니다. 사용자는 폴더 경로 하나를 @use해 필요한 공개 멤버를 읽습니다.
+// 2. @forward가 있다고 진입점 파일 내부에서 그 이름을 바로 사용할 수 있는 것은 아닙니다. 진입점 안에서도 계산이 필요하면 별도의 @use를 추가해야 합니다.
+// 3. 하단 원본 파일 선택에서 실제 진입점과 하위 모듈을 확인하세요. 단순히 설명용 문자열을 보여주는 것이 아니라 컴파일에 사용된 파일을 그대로 표시합니다.
+// 주의: 스타일 규칙을 가진 모듈을 여러 곳에서 합칠 때 출력 순서와 전역 CSS의 영향을 함께 확인하세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-card {
+  @include ui.surface(ui.space(4));
+  font-size: ui.rem(18px);
+  border-radius: ui.$radius;
+}

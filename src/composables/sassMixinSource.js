@@ -130,3 +130,30 @@ export function getSassMixinSource(source, selectedName, usage = '') {
     bundle: [...setup, ...ordered.map((definition) => definition.code)].join('\n\n')
   };
 }
+
+// Read one real public declaration for the recipe viewer, retaining its adjacent comments.
+export function getSassDeclaration(source, kind, name) {
+  const masked = maskSass(source);
+  if (kind === 'variable') {
+    for (const match of masked.matchAll(/^\$([\w-]+)\s*:/gm)) {
+      if (normalize(match[1]) !== normalize(name)) continue;
+      const end = masked.indexOf(';', match.index) + 1;
+      return source.slice(commentStart(source, match.index), end);
+    }
+    return '';
+  }
+  for (const match of masked.matchAll(/^@(mixin|function)\s+([\w-]+)/gm)) {
+    if (match[1] !== kind || normalize(match[2]) !== normalize(name)) continue;
+    const opening = masked.indexOf('{', match.index);
+    let depth = 1,
+      end = opening + 1;
+    while (end < masked.length && depth) {
+      if (masked[end] === '{') depth++;
+      else if (masked[end] === '}') depth--;
+      end++;
+    }
+    if (depth) throw new Error(`Unclosed Sass declaration: ${name}`);
+    return source.slice(commentStart(source, match.index), end);
+  }
+  return '';
+}

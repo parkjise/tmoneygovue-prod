@@ -1,0 +1,32 @@
+// 사이드바와 본문 분할
+// 용도: 좁을 때 세로, 넓을 때 사이드바와 본문을 나란히 놓습니다.
+// 1. 기본은 1열로 두어 좁은 화면에서도 콘텐츠 순서가 자연스럽게 이어집니다. HTML에서는 사이드바와 본문의 의미를 aside와 article 등으로 구분합니다.
+// 2. lg인 1024px부터 220px 사이드바와 가변 본문으로 나뉩니다. 본문 열은 minmax(0,1fr)로 최소 크기 때문에 밀려나는 문제를 줄입니다.
+// 3. CSS의 order로 시각 순서만 바꾸면 키보드·읽기 순서가 다를 수 있습니다. 가능한 한 HTML 자체의 순서를 제품에서 원하는 흐름으로 정하세요.
+// 주의: 프레임 너비를 1024px 이상으로 볼 수 있는 화면에서 2열 전환을 확인하세요. 좁은 부모에서는 1열이 정상입니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-grid {
+  @include ui.split-layout(220px, 4);
+}
+.sample-side,
+.sample-card {
+  @include ui.surface;
+  min-width: 0;
+}

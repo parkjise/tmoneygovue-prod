@@ -1,0 +1,28 @@
+// show로 필요한 멤버만 공개
+// 용도: 외부 사용자가 의존할 공개 범위를 작게 유지합니다.
+// 1. _public.scss는 radius 변수와 space 함수, surface 믹스인만 show로 공개합니다. 내부 구현에 다른 함수가 있어도 외부에서 모두 사용할 필요는 없습니다.
+// 2. surface가 내부에서 사용하는 의존성은 원래 모듈 범위에서 해결됩니다. 공개 API를 줄인다고 내부 함수 정의를 잘라내는 것은 아닙니다.
+// 3. hide는 특정 멤버만 제외하고 나머지를 공개하는 방식입니다. 팀이나 라이브러리의 API 안정성 목표에 맞춰 allowlist인 show와 차이를 이해하세요.
+// 주의: 새로운 멤버가 추가될 때 자동으로 외부에 공개되면 곤란한 라이브러리에서는 show 방식이 더 명시적일 수 있습니다.
+@use './public' as public;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-card {
+  @include public.surface(public.space(5));
+  border-radius: public.$radius;
+}

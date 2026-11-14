@@ -1,0 +1,37 @@
+// 제한된 간격 유틸리티 생성
+// 용도: 필요한 단계만 @for로 만들어 CSS 수를 관리합니다.
+// 1. @for의 through는 마지막 값도 포함하므로 0부터 6까지 7개의 클래스를 만듭니다. to를 사용하면 마지막 값은 제외됩니다.
+// 2. 클래스 이름에는 단계 숫자를 넣고 실제 gap에는 space 함수를 사용합니다. 4단계가 몇 px인지 사용하는 곳마다 계산할 필요가 없습니다.
+// 3. 유틸리티는 편리하지만 변형을 너무 많이 생성하면 CSS와 API가 커집니다. 제품에서 실제 사용하는 범위를 정해 출력량을 제한하세요.
+// 주의: gap은 Grid나 Flex 같은 레이아웃 맥락에서 의미가 있습니다. 일반 block 요소에 클래스만 붙인다고 형제 간격이 생기는 것은 아닙니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+@for $step from 0 through 6 {
+  .u-gap-#{$step} {
+    gap: ui.space($step);
+  }
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sample-card {
+  padding: ui.space(3);
+  border: 1px solid var(--border);
+}

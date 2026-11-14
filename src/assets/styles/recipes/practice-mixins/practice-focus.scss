@@ -1,0 +1,30 @@
+// focus-visible을 버튼에 재사용
+// 용도: 키보드 탐색에서 보이는 공통 포커스 표시입니다.
+// 1. focus-visible은 브라우저가 포커스 표시를 요구하는 상황을 나타냅니다. 마우스 클릭만 검사하면 스타일이 안 보이는 것으로 오해할 수 있습니다.
+// 2. 버튼은 기본적으로 키보드 포커스를 받을 수 있는 요소입니다. 일반 div에 같은 CSS만 적용한다고 키보드 컨트롤이 되는 것은 아닙니다.
+// 3. Tab으로 이동하고 Shift+Tab으로 돌아와 외곽선이 주변에서 잘 보이는지 확인하세요. 부모가 잘라내는 overflow와 대비도 실제 화면에서 확인해야 합니다.
+// 주의: 디자인 때문에 기본 outline을 제거했다면 이처럼 분명한 대체를 제공하세요. 포커스 위치를 잃게 만들면 안 됩니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-button {
+  padding: ui.space(3) ui.space(4);
+  border: 1px solid var(--border);
+  border-radius: ui.radius(sm);
+  @include ui.focus-visible;
+}

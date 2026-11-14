@@ -1,0 +1,29 @@
+// Sass 색상과 투명 배경
+// 용도: 토큰 색상에 0~1의 알파 값을 설정합니다.
+// 1. tone(primary)은 Sass가 이해하는 색상 값을 반환합니다. alpha 함수는 그 색상의 알파 채널을 지정한 값으로 바꿉니다.
+// 2. 0은 완전 투명, 1은 불투명입니다. 반투명 배경은 뒤쪽 색과 섞이므로 실제 텍스트 대비는 배경과 함께 확인해야 합니다.
+// 3. CSS var(--primary)는 브라우저가 나중에 읽는 값이어서 Sass 색상 함수에 넣을 수 없습니다. 런타임 색 혼합이 필요하면 CSS color-mix 같은 방법을 따로 사용합니다.
+// 주의: alpha는 색을 밝게 만드는 함수가 아닙니다. 배경의 영향을 받지 않는 고정 색이 필요하면 불투명 색 토큰을 사용하세요.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-card {
+  border: 1px solid ui.tone(primary);
+  background: ui.alpha(ui.tone(primary), 0.12);
+  padding: ui.space(5);
+}

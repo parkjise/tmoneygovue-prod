@@ -1,0 +1,33 @@
+// truncate 한 줄과 여러 줄
+// 용도: 줄 수에 따라 필요한 CSS 선언을 분기합니다.
+// 1. 1줄은 white-space:nowrap과 ellipsis를 사용하고 여러 줄은 line-clamp 조합을 사용합니다. 한 함수처럼 보이는 API 안에서도 CSS 구현이 다를 수 있습니다.
+// 2. 폭이 정해져 있지 않으면 텍스트가 넘치지 않아 말줄임이 나타나지 않습니다. 실제 부모 크기와 폰트 크기를 함께 확인해야 합니다.
+// 3. 원문은 별도 details에서 읽을 수 있게 했습니다. 표시 공간을 줄였다고 원본 데이터를 잘라서 저장하는 방식으로 해결하지 마세요.
+// 주의: 줄 수는 1 이상의 정수를 사용하세요. 복잡한 HTML을 가진 본문 전체보다 단순한 요약 텍스트에 적합합니다.
+@use '@/assets/styles/practice' as ui;
+
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+
+.sample-one {
+  @include ui.truncate(1);
+  max-width: 260px;
+}
+.sample-three {
+  @include ui.truncate(3);
+  max-width: 34ch;
+  line-height: 1.8;
+}

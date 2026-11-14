@@ -1,0 +1,42 @@
+// 미리보기와 복사본에서 사용하는 최소 배치입니다. 프로젝트의 BEM 클래스 이름으로 바꿔 사용하세요.
+.recipe-demo {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sample-card {
+  min-width: 0;
+}
+// 기능 탐지와 Subgrid 대체
+// 용도: 기본 그리드를 먼저 제공하고 지원하는 기능만 확장합니다.
+// 1. 먼저 일반 Grid로 읽을 수 있는 기본 화면을 만듭니다. 지원 기능이 없어도 콘텐츠가 없어지지 않는 것이 점진적 향상의 출발점입니다.
+// 2. @supports는 브라우저가 선언을 이해하는지 검사합니다. 조건을 만족할 때만 카드가 부모의 행 트랙을 공유하도록 subgrid를 적용합니다.
+// 3. 부모의 행과 카드의 span을 함께 정의해야 제목과 본문의 정렬이 맞습니다. CSS 속성 하나만 바꾸는 대신 관련 레이아웃 구조를 함께 설계하세요.
+// 주의: 기능 지원은 올바른 콘텐츠 순서나 접근성을 자동 보장하지 않습니다. 대체 레이아웃과 확장 레이아웃을 둘 다 확인하세요.
+
+.sample-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.sample-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: 16px;
+  border: 1px solid var(--border);
+}
+@supports (grid-template-rows: subgrid) {
+  .sample-grid {
+    grid-auto-rows: auto;
+  }
+  .sample-card {
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+  }
+}
