@@ -35,6 +35,9 @@ const descriptions = {
         </CodeExampleCard>
       </details>
     </template>
+    <template v-else-if="route.meta.folder === 'vue-practice'">
+      <component :is="props.example" />
+    </template>
     <template v-else>
       <header class="reference-page__header">
         <section>

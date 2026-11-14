@@ -40,6 +40,20 @@ export const menuGroups = [
     ]
   },
   {
+    title: 'Vue 실무예제',
+    icon: 'Workflow',
+    direct: true,
+    children: [
+      {
+        path: '/vue-practice/exercises',
+        title: 'Vue 실무예제',
+        description: '직접 풀어보는 Vue 3 실무 문제 12종',
+        folder: 'vue-practice',
+        slug: 'exercises'
+      }
+    ]
+  },
+  {
     title: 'Vue.js 기본 문법',
     icon: 'CodeXml',
     children: [
