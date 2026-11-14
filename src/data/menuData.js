@@ -22,6 +22,22 @@ export const menuGroups = [
     ]
   },
   {
+    title: 'AI Q&A',
+    icon: 'Workflow',
+    direct: true,
+    children: [
+      {
+        path: '/tools/ai-assistant',
+        title: 'AI Q&A',
+        description: 'Gemini / OpenAI · 질문과 후속 대화',
+        folder: 'tools',
+        slug: 'ai-assistant',
+        badge: 'AI Chat',
+        pageDescription: '궁금한 것을 질문하고, 개인 Gemini / OpenAI API로 대화를 이어가세요.'
+      }
+    ]
+  },
+  {
     title: 'Vue.js 기본 문법',
     icon: 'CodeXml',
     children: [
@@ -264,15 +280,6 @@ export const menuGroups = [
     title: 'Applications',
     icon: 'Layers',
     children: [
-      {
-        path: '/tools/ai-assistant',
-        title: 'AI Q&A',
-        description: 'Gemini / OpenAI · 질문과 후속 대화',
-        folder: 'tools',
-        slug: 'ai-assistant',
-        badge: 'AI Chat',
-        pageDescription: '궁금한 것을 질문하고, 개인 Gemini / OpenAI API로 대화를 이어가세요.'
-      },
       {
         path: '/apps/bookmark',
         title: 'Bookmark',
