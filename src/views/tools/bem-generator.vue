@@ -14,6 +14,48 @@ import {
 import { useClipboard } from '@/composables/useClipboard';
 import { buildBemScss, sampleMarkup, sampleResult } from '@/composables/bemOutput';
 import { bemPatterns, bemPatternCategories, createBemPattern } from '@/composables/bemPatterns';
+const mode = ref('buttons');
+const modes = [
+  { id: 'buttons', label: '버튼으로 생성', description: '54가지 패턴 · API 없이 사용' },
+  { id: 'ai', label: 'AI로 생성', description: '원본 마크업 분석 · Gemini / OpenAI' }
+];
+function onModeKey(event) {
+  if (busy.value || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+  event.preventDefault();
+  const next =
+    event.key === 'Home'
+      ? 'buttons'
+      : event.key === 'End'
+        ? 'ai'
+        : mode.value === 'buttons'
+          ? 'ai'
+          : 'buttons';
+  mode.value = next;
+  event.currentTarget.parentElement.querySelector('#bem-mode-' + next)?.focus();
+}
+// 탭을 바꿔도 각 방식의 결과와 선택한 코드 형식을 별도로 유지합니다.
+const modeOutputs = ref(
+  Object.fromEntries(
+    modes.map(({ id }) => [
+      id,
+      {
+        result: null,
+        resultSource: '',
+        generatedModel: '',
+        tab: 'html',
+        stale: false
+      }
+    ])
+  )
+);
+function outputField(key) {
+  return computed({
+    get: () => modeOutputs.value[mode.value][key],
+    set: (value) => {
+      modeOutputs.value[mode.value][key] = value;
+    }
+  });
+}
 const patternQuery = ref('');
 const patternCategory = ref('전체');
 const patternBlock = ref('');
@@ -76,11 +118,11 @@ const busy = ref(false);
 const status = ref(null);
 const statusError = ref('');
 const error = ref('');
-const result = ref(null);
-const resultSource = ref('');
-const generatedModel = ref('');
-const tab = ref('html');
-const stale = ref(false);
+const result = outputField('result');
+const resultSource = outputField('resultSource');
+const generatedModel = outputField('generatedModel');
+const tab = outputField('tab');
+const stale = outputField('stale');
 const { copied, copy } = useClipboard();
 let controller, statusController;
 const tabs = [
@@ -221,7 +263,32 @@ onUnmounted(() => {
         <p>54가지 로컬 UI 패턴 · HTML / Vue 템플릿 AI 분석 · BEM + SCSS</p>
       </section>
     </header>
-    <section class="bem-generator__patterns" aria-label="AI 없이 BEM 패턴 생성">
+    <div class="bem-generator__modes" role="tablist" aria-label="BEM 생성 방식">
+      <button
+        v-for="item in modes"
+        :id="'bem-mode-' + item.id"
+        :key="item.id"
+        type="button"
+        role="tab"
+        :aria-selected="mode === item.id"
+        :aria-controls="'bem-panel-' + item.id"
+        :tabindex="mode === item.id ? 0 : -1"
+        :disabled="busy"
+        @click="mode = item.id"
+        @keydown="onModeKey"
+      >
+        <strong>{{ item.label }}</strong>
+        <small>{{ item.description }}</small>
+      </button>
+    </div>
+    <section
+      id="bem-panel-buttons"
+      v-show="mode === 'buttons'"
+      role="tabpanel"
+      aria-labelledby="bem-mode-buttons"
+      tabindex="0"
+      class="bem-generator__patterns"
+    >
       <header class="bem-generator__section-heading">
         <section>
           <h4>자주 쓰는 BEM 패턴 · {{ bemPatterns.length }}종</h4>
@@ -323,165 +390,174 @@ onUnmounted(() => {
         </ol>
       </details>
     </section>
-    <label class="bem-generator__provider">
-      AI 공급자
-      <select
-        v-model="provider"
-        aria-label="AI 공급자"
-        :disabled="busy"
-        @change="
-          error = '';
-          edit();
-        "
-      >
-        <option value="gemini">Gemini</option>
-        <option value="openai">OpenAI (GPT / ChatGPT API)</option>
-      </select>
-      <small>선택한 API 한 곳으로만 전송합니다.</small>
-    </label>
-    <aside class="bem-generator__connection" aria-live="polite">
-      <section>
-        <strong>
-          <ShieldCheck :size="15" />
-          {{
-            staticDeployment
-              ? '공개 데모 · AI 서버 미연결'
-              : statusError
-                ? '서버 확인 필요'
-                : status === null
-                  ? '연결 확인 중…'
-                  : ready
-                    ? selectedProvider.label + ' API 키 설정됨'
-                    : selectedProvider.label + ' API 키 미설정'
-          }}
-        </strong>
-        <p v-if="status">
-          {{
-            staticDeployment
-              ? '패턴 버튼으로 BEM 코드를 바로 생성할 수 있습니다. AI를 이용한 원본 마크업 분석은 로컬 서버에서 이용하세요.'
-              : ready
-                ? '서버 모델: ' + activeStatus.model + ' · 키는 브라우저에 전달되지 않습니다.'
-                : '.env.local에 ' +
-                  selectedProvider.key +
-                  '를 설정하면 실제 생성 버튼이 활성화됩니다.'
-          }}
-        </p>
-        <p v-if="statusError" class="demo__error">{{ statusError }}</p>
-      </section>
-      <button :disabled="busy" @click="checkStatus">
-        <RefreshCw :size="14" />
-        설정 확인
-      </button>
-    </aside>
-    <details
-      v-if="!staticDeployment"
-      class="bem-generator__setup"
-      :open="status !== null && !ready"
+    <section
+      id="bem-panel-ai"
+      v-show="mode === 'ai'"
+      role="tabpanel"
+      aria-labelledby="bem-mode-ai"
+      tabindex="0"
+      class="bem-generator__ai"
     >
-      <summary>개인 {{ selectedProvider.label }} API 연결 방법</summary>
-      <ol>
-        <li>
-          <a :href="selectedProvider.url" target="_blank" rel="noopener noreferrer">
-            {{ selectedProvider.portal }}
-          </a>
-          에서 API 키를 발급합니다.
-        </li>
-        <li>
-          프로젝트의
-          <code>.env.example</code>
-          을
-          <code>.env.local</code>
-          로 복사하고
-          <code>{{ selectedProvider.key }}</code>
-          에 키를 입력합니다.
-        </li>
-        <li>
-          <code>{{ selectedProvider.model }}</code>
-          에 계정에서 사용할 모델 ID를 지정합니다. 설정 후 개발 서버를 재시작하고 ‘설정 확인’을
-          누르세요.
-        </li>
-      </ol>
-      <p>
-        키는 이 화면이나 채팅에 입력하지 않습니다. 개인용 API는 로컬 컴퓨터에서만 접근할 수
-        있습니다.
-      </p>
-    </details>
-    <form class="bem-generator__form" @submit.prevent="generate" @input="edit">
-      <header class="bem-generator__section-heading">
-        <h4>
-          <Code2 :size="16" />
-          원본 마크업
-        </h4>
-        <button type="button" :disabled="busy" @click="loadExample">예시 마크업 넣기</button>
-      </header>
-      <label class="demo__field">
-        HTML / Vue 템플릿
-        <textarea
-          v-model="markup"
-          aria-label="원본 HTML 마크업"
+      <label class="bem-generator__provider">
+        AI 공급자
+        <select
+          v-model="provider"
+          aria-label="AI 공급자"
           :disabled="busy"
-          rows="13"
-          maxlength="12000"
-          spellcheck="false"
-          placeholder='<article class="card">…</article>'
-          required
-        />
+          @change="
+            error = '';
+            edit();
+          "
+        >
+          <option value="gemini">Gemini</option>
+          <option value="openai">OpenAI (GPT / ChatGPT API)</option>
+        </select>
+        <small>선택한 API 한 곳으로만 전송합니다.</small>
       </label>
-      <footer class="bem-generator__input-caption">
-        <span>태그·텍스트·이벤트를 유지하면서 클래스 이름을 제안합니다.</span>
-        <span>{{ markup.length.toLocaleString() }} / 12,000</span>
-      </footer>
-      <div class="bem-generator__options">
+      <aside class="bem-generator__connection" aria-live="polite">
+        <section>
+          <strong>
+            <ShieldCheck :size="15" />
+            {{
+              staticDeployment
+                ? '공개 데모 · AI 서버 미연결'
+                : statusError
+                  ? '서버 확인 필요'
+                  : status === null
+                    ? '연결 확인 중…'
+                    : ready
+                      ? selectedProvider.label + ' API 키 설정됨'
+                      : selectedProvider.label + ' API 키 미설정'
+            }}
+          </strong>
+          <p v-if="status">
+            {{
+              staticDeployment
+                ? '패턴 버튼으로 BEM 코드를 바로 생성할 수 있습니다. AI를 이용한 원본 마크업 분석은 로컬 서버에서 이용하세요.'
+                : ready
+                  ? '서버 모델: ' + activeStatus.model + ' · 키는 브라우저에 전달되지 않습니다.'
+                  : '.env.local에 ' +
+                    selectedProvider.key +
+                    '를 설정하면 실제 생성 버튼이 활성화됩니다.'
+            }}
+          </p>
+          <p v-if="statusError" class="demo__error">{{ statusError }}</p>
+        </section>
+        <button :disabled="busy" @click="checkStatus">
+          <RefreshCw :size="14" />
+          설정 확인
+        </button>
+      </aside>
+      <details
+        v-if="!staticDeployment"
+        class="bem-generator__setup"
+        :open="status !== null && !ready"
+      >
+        <summary>개인 {{ selectedProvider.label }} API 연결 방법</summary>
+        <ol>
+          <li>
+            <a :href="selectedProvider.url" target="_blank" rel="noopener noreferrer">
+              {{ selectedProvider.portal }}
+            </a>
+            에서 API 키를 발급합니다.
+          </li>
+          <li>
+            프로젝트의
+            <code>.env.example</code>
+            을
+            <code>.env.local</code>
+            로 복사하고
+            <code>{{ selectedProvider.key }}</code>
+            에 키를 입력합니다.
+          </li>
+          <li>
+            <code>{{ selectedProvider.model }}</code>
+            에 계정에서 사용할 모델 ID를 지정합니다. 설정 후 개발 서버를 재시작하고 ‘설정 확인’을
+            누르세요.
+          </li>
+        </ol>
+        <p>
+          키는 이 화면이나 채팅에 입력하지 않습니다. 개인용 API는 로컬 컴퓨터에서만 접근할 수
+          있습니다.
+        </p>
+      </details>
+      <form class="bem-generator__form" @submit.prevent="generate" @input="edit">
+        <header class="bem-generator__section-heading">
+          <h4>
+            <Code2 :size="16" />
+            원본 마크업
+          </h4>
+          <button type="button" :disabled="busy" @click="loadExample">예시 마크업 넣기</button>
+        </header>
         <label class="demo__field">
-          블록 이름 (선택)
-          <input
-            v-model.trim="blockName"
-            aria-label="블록 이름 (선택)"
+          HTML / Vue 템플릿
+          <textarea
+            v-model="markup"
+            aria-label="원본 HTML 마크업"
             :disabled="busy"
-            maxlength="50"
-            pattern="[a-z][a-z0-9]*(-[a-z0-9]+)*"
-            placeholder="예: product-card"
-          />
-          <small>비우면 마크업에 맞춰 제안합니다.</small>
-        </label>
-        <label class="demo__field">
-          추가 조건 (선택)
-          <input
-            v-model="context"
-            :disabled="busy"
-            maxlength="2000"
-            placeholder="예: 기존 유틸리티 클래스는 유지해줘"
+            rows="13"
+            maxlength="12000"
+            spellcheck="false"
+            placeholder='<article class="card">…</article>'
+            required
           />
         </label>
-      </div>
-      <p v-if="staticDeployment" class="bem-generator__notice">
-        공개 사이트에서도 위 패턴 버튼으로 BEM 코드를 생성할 수 있습니다. 원본 마크업의 AI 분석에는
-        로컬 API 서버가 필요합니다.
-      </p>
-      <p v-else class="bem-generator__notice">
-        ‘{{ selectedProvider.label }}로 생성’을 누르면 입력한 마크업과 조건이
-        {{ selectedProvider.label }} API로 전송됩니다. 선택한 계정의 API 사용 한도·과금 설정이
-        적용됩니다.
-      </p>
-      <div class="demo__row">
-        <button class="demo__primary" type="submit" :disabled="!valid || !ready || busy">
-          <Sparkles :size="15" />
-          {{ busy ? 'BEM 이름 생성 중…' : selectedProvider.label + '로 생성' }}
-          <ArrowRight v-if="!busy" :size="15" />
-        </button>
-        <button v-if="busy" type="button" @click="controller?.abort()">
-          <Square :size="13" />
-          취소
-        </button>
-        <button type="button" :disabled="busy" @click="showSample">
-          샘플 결과 보기 · API 호출 없음
-        </button>
-      </div>
-      <p v-if="error" class="demo__error" role="alert">{{ error }}</p>
-      <p v-if="busy" role="status" class="demo__muted">
-        입력 구조를 분석하고 있습니다. 최대 45초 정도 소요될 수 있습니다.
-      </p>
-    </form>
+        <footer class="bem-generator__input-caption">
+          <span>태그·텍스트·이벤트를 유지하면서 클래스 이름을 제안합니다.</span>
+          <span>{{ markup.length.toLocaleString() }} / 12,000</span>
+        </footer>
+        <div class="bem-generator__options">
+          <label class="demo__field">
+            블록 이름 (선택)
+            <input
+              v-model.trim="blockName"
+              aria-label="블록 이름 (선택)"
+              :disabled="busy"
+              maxlength="50"
+              pattern="[a-z][a-z0-9]*(-[a-z0-9]+)*"
+              placeholder="예: product-card"
+            />
+            <small>비우면 마크업에 맞춰 제안합니다.</small>
+          </label>
+          <label class="demo__field">
+            추가 조건 (선택)
+            <input
+              v-model="context"
+              :disabled="busy"
+              maxlength="2000"
+              placeholder="예: 기존 유틸리티 클래스는 유지해줘"
+            />
+          </label>
+        </div>
+        <p v-if="staticDeployment" class="bem-generator__notice">
+          공개 사이트에서도 위 패턴 버튼으로 BEM 코드를 생성할 수 있습니다. 원본 마크업의 AI
+          분석에는 로컬 API 서버가 필요합니다.
+        </p>
+        <p v-else class="bem-generator__notice">
+          ‘{{ selectedProvider.label }}로 생성’을 누르면 입력한 마크업과 조건이
+          {{ selectedProvider.label }} API로 전송됩니다. 선택한 계정의 API 사용 한도·과금 설정이
+          적용됩니다.
+        </p>
+        <div class="demo__row">
+          <button class="demo__primary" type="submit" :disabled="!valid || !ready || busy">
+            <Sparkles :size="15" />
+            {{ busy ? 'BEM 이름 생성 중…' : selectedProvider.label + '로 생성' }}
+            <ArrowRight v-if="!busy" :size="15" />
+          </button>
+          <button v-if="busy" type="button" @click="controller?.abort()">
+            <Square :size="13" />
+            취소
+          </button>
+          <button type="button" :disabled="busy" @click="showSample">
+            샘플 결과 보기 · API 호출 없음
+          </button>
+        </div>
+        <p v-if="error" class="demo__error" role="alert">{{ error }}</p>
+        <p v-if="busy" role="status" class="demo__muted">
+          입력 구조를 분석하고 있습니다. 최대 45초 정도 소요될 수 있습니다.
+        </p>
+      </form>
+    </section>
     <section
       v-if="result"
       id="bem-result"
@@ -576,7 +652,13 @@ onUnmounted(() => {
     <section v-else class="bem-generator__empty">
       <Code2 :size="26" />
       <h4>이름이 정리되면 구조가 보입니다.</h4>
-      <p>위 패턴 버튼을 눌러 바로 생성하거나, 원본 마크업을 입력해 AI로 분석하세요.</p>
+      <p>
+        {{
+          mode === 'buttons'
+            ? '위 패턴 버튼을 누르면 API 없이 BEM 코드가 생성됩니다.'
+            : '원본 마크업을 입력해 AI로 분석하거나 샘플 결과를 확인하세요.'
+        }}
+      </p>
       <code>block → block__element → block__element--modifier</code>
     </section>
   </section>
@@ -587,6 +669,42 @@ onUnmounted(() => {
   @include custom-scrollbar;
   gap: 24px;
   min-width: 0;
+  &__modes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 6px;
+    background: var(--canvas);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    button {
+      display: grid;
+      gap: 6px;
+      text-align: left;
+      padding: 14px;
+      border: 1px solid transparent;
+      background: transparent;
+      border-radius: 8px;
+      @include focus-ring;
+      strong {
+        font-size: 13px;
+      }
+      small {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      &[aria-selected='true'] {
+        background: var(--surface);
+        color: var(--primary);
+        border-color: var(--primary);
+      }
+    }
+  }
+  &__ai {
+    display: grid;
+    gap: 24px;
+    min-width: 0;
+  }
   &__patterns {
     display: grid;
     gap: 18px;
