@@ -1,0 +1,13 @@
+function x(i){let s="",c="",e="";for(let t=0;t<i.length;t++){const o=i[t],a=i[t+1];e==="line"?o===`
+`?(e="",s+=`
+`):s+=" ":e==="block"?o==="*"&&a==="/"?(s+="  ",t++,e=""):s+=o===`
+`?`
+`:" ":c?o==="\\"?(s+="  ",t++):(o===c&&(c=""),s+=o===`
+`?`
+`:" "):o==="/"&&a==="/"?(s+="  ",t++,e="line"):o==="/"&&a==="*"?(s+="  ",t++,e="block"):o==='"'||o==="'"?(c=o,s+=" "):s+=o}return s}const f=i=>i.replace(/_/g,"-");function g(i,s){let c=s;for(;c>0;){const e=c-1,t=i.lastIndexOf(`
+`,e-1)+1;if(!i.slice(t,e).trim().startsWith("//"))break;c=t}return c}function y(i,s,c=""){const e=x(i),t=new Map;for(const n of e.matchAll(/^@(mixin|function)\s+([\w-]+)/gm)){const d=e.indexOf("{",n.index);let l=1,m=d+1;for(;m<e.length&&l;)e[m]==="{"?l++:e[m]==="}"&&l--,m++;if(l)throw new Error(`Unclosed Sass definition: ${n[2]}`);t.set(`${n[1]}:${f(n[2])}`,{kind:n[1],name:n[2],code:i.slice(g(i,n.index),m),body:e.slice(n.index,m)})}const o=new Map;for(const n of e.matchAll(/^\$([\w-]+)\s*:/gm)){const d=e.indexOf(";",n.index)+1;o.set(f(n[1]),{name:n[1],code:i.slice(g(i,n.index),d)})}const a="mixin:"+f(s);if(!t.has(a))throw new Error(`Unknown mixin: ${s}`);const r=new Set,p=[];function h(n){if(r.has(n)||!t.has(n))return;r.add(n);const d=t.get(n);for(const l of d.body.matchAll(/@include\s+([\w-]+)\b/g))h("mixin:"+f(l[1]));for(const l of d.body.matchAll(/([\w-]+)\s*\(/g))h("function:"+f(l[1]));p.push(d)}h(a);for(const n of x(c).matchAll(/@include\s+(?:[\w-]+\.)?([\w-]+)\b/g))h("mixin:"+f(n[1]));const w=new Map;function u(n){for(const d of n.matchAll(/\$([\w-]+)/g)){const l=f(d[1]);o.has(l)&&!w.has(l)&&(w.set(l,o.get(l)),u(x(o.get(l).code)))}}p.forEach(n=>u(n.body));const v=p.map(n=>n.body).join(`
+`),b=[...i.matchAll(/^@use\s+(['"])([^'"]+)\1(?:\s+as\s+([\w-]+))?[^;]*;/gm)].filter(n=>{const d=n[3]||n[2].split(":").pop().split("/").pop();return new RegExp("\\b"+d+"\\.").test(v)}).map(n=>n[0]),A=t.get(a),$=p.filter(n=>n!==A),S=[...b,...[...w.values()].map(n=>n.code)];return{primary:A.code,dependencyNames:[...b,...[...w.values()].map(n=>"$"+n.name),...$.map(n=>"@"+n.kind+" "+n.name)],dependencyCode:[...S,...$.map(n=>n.code)].join(`
+
+`),bundle:[...S,...p.map(n=>n.code)].join(`
+
+`)}}function k(i,s,c){const e=x(i);if(s==="variable"){for(const t of e.matchAll(/^\$([\w-]+)\s*:/gm)){if(f(t[1])!==f(c))continue;const o=e.indexOf(";",t.index)+1;return i.slice(g(i,t.index),o)}return""}for(const t of e.matchAll(/^@(mixin|function)\s+([\w-]+)/gm)){if(t[1]!==s||f(t[2])!==f(c))continue;const o=e.indexOf("{",t.index);let a=1,r=o+1;for(;r<e.length&&a;)e[r]==="{"?a++:e[r]==="}"&&a--,r++;if(a)throw new Error(`Unclosed Sass declaration: ${c}`);return i.slice(g(i,t.index),r)}return""}export{y as a,k as g};
