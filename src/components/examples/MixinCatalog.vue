@@ -1,6 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue';
 import catalog from '@/data/commonMixins.json';
+import mixinSource from '@/assets/styles/_mixins.scss?raw';
+import { getSassMixinSource } from '@/composables/sassMixinSource';
 import SyntaxCode from '@/components/common/SyntaxCode.vue';
 import { useClipboard } from '@/composables/useClipboard';
 const query = ref('');
@@ -8,6 +10,9 @@ const category = ref('전체');
 const selectedName = ref('auto-grid');
 const categories = [...new Set(catalog.map((item) => item.category))];
 const selected = computed(() => catalog.find((item) => item.name === selectedName.value));
+const original = computed(() =>
+  getSassMixinSource(mixinSource, selected.value.name, selected.value.usage)
+);
 const groups = computed(() =>
   categories
     .map((name) => ({
@@ -29,7 +34,10 @@ const { copy } = useClipboard();
   <section class="mixin-catalog" aria-label="공통 믹스인 카탈로그">
     <header>
       <h3>공통 Mixin {{ catalog.length }}종</h3>
-      <p>용도별로 찾고 버튼을 선택하면 사용 예시와 실제 Sass 컴파일 결과를 확인할 수 있습니다.</p>
+      <p>
+        버튼을 선택하면 @include 사용 예시, 컴파일 결과, 실제 @mixin 원본과 내부 의존 정의를 함께
+        확인할 수 있습니다.
+      </p>
     </header>
     <div class="mixin-catalog__filters">
       <label>
@@ -84,9 +92,45 @@ const { copy } = useClipboard();
           <SyntaxCode :code="selected.css" language="css" label="믹스인 컴파일 결과" />
         </section>
       </div>
+      <section class="mixin-catalog__original" aria-label="선택한 믹스인 원본">
+        <header>
+          <h4>선택한 @mixin 원본 · {{ selected.name }}</h4>
+          <button type="button" @click="copy(original.bundle, 'SCSS 정의')">
+            필요한 정의 모두 복사
+          </button>
+        </header>
+        <p>
+          src/assets/styles/_mixins.scss의 실제 정의입니다. @include에 전달한 인자는 아래 매개변수로
+          들어갑니다.
+        </p>
+        <SyntaxCode :code="original.primary" language="scss" label="믹스인 원본 정의" />
+      </section>
+      <section
+        v-if="original.dependencyCode"
+        class="mixin-catalog__original"
+        aria-label="믹스인 의존 원본"
+      >
+        <header>
+          <h4>함께 필요한 원본 · 내부 호출과 사용 예시의 의존 항목</h4>
+          <button type="button" @click="copy(original.dependencyCode, 'SCSS 의존 정의')">
+            의존 원본 복사
+          </button>
+        </header>
+        <ul>
+          <li v-for="name in original.dependencyNames" :key="name">
+            <code>{{ name }}</code>
+          </li>
+        </ul>
+        <p>
+          선택한 믹스인이 내부에서 호출하거나 사용 예시가 함께 사용하는 믹스인·함수·전역 변수·Sass
+          모듈입니다.
+        </p>
+        <SyntaxCode :code="original.dependencyCode" language="scss" label="믹스인 의존 정의" />
+      </section>
       <p>
-        사용 예시는 공통 모듈을 가져오는 방식입니다. 정의 전체는 아래 원본 파일에서 복사하세요.
-        색상·배경 등 CSS 변수는 전역 테마 토큰이 필요합니다.
+        ‘사용 예시 복사’는 공통 파일을 @use로 가져오는 방식입니다. 프로젝트에 정의를 직접 옮길 때는
+        ‘필요한 정의 모두 복사’를 사용하고, 별도 SCSS 파일에 저장하세요. 색상·배경 등 CSS 변수는
+        전역 테마 토큰이 필요합니다. 전체 공통 파일은 아래 원본 파일에서 확인할 수 있습니다.
       </p>
     </section>
   </section>
@@ -162,6 +206,33 @@ const { copy } = useClipboard();
     min-width: 0;
     ul {
       padding-left: 18px;
+    }
+  }
+  &__original {
+    display: grid;
+    gap: 12px;
+    min-width: 0;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      h4 {
+        margin: 0;
+      }
+      button {
+        font-size: 11px;
+      }
+    }
+    p {
+      margin: 0;
+    }
+    code {
+      overflow-wrap: anywhere;
+    }
+    .syntax-code {
+      border-radius: 8px;
     }
   }
   &__code {
