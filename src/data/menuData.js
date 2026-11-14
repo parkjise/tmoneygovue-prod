@@ -54,6 +54,20 @@ export const menuGroups = [
     ]
   },
   {
+    title: 'HTML5',
+    icon: 'CodeXml',
+    direct: true,
+    children: [
+      {
+        path: '/html5/semantic',
+        title: 'HTML5 시멘틱 마크업',
+        description: '실무 시멘틱 마크업 36종 · 소스와 화면보기',
+        folder: 'html5',
+        slug: 'semantic'
+      }
+    ]
+  },
+  {
     title: 'Vue.js 기본 문법',
     icon: 'CodeXml',
     children: [

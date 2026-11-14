@@ -8,6 +8,8 @@ const sources = import.meta.glob(
     '/src/assets/styles/**/*.scss',
     '/src/data/*.json',
     '!/src/data/vuePracticeQuestions.json',
+    '!/src/data/htmlSemanticPatterns.json',
+    '!/src/views/html5/**/*.vue',
     '!/src/components/practice/**/*.vue',
     '!/src/views/vue-practice/**/*.vue'
   ],
