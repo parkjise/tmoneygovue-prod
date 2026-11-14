@@ -12,9 +12,10 @@ import {
   LayoutDashboard,
   Component,
   Table2,
+  ExternalLink,
   ArrowUpRight
 } from 'lucide-vue-next';
-import { menuGroups } from '@/data/menuData';
+import { menuGroups, sidebarLinks } from '@/data/menuData';
 const props = defineProps({ open: { type: Boolean, default: false } });
 const emit = defineEmits({ close: () => true });
 const route = useRoute();
@@ -35,6 +36,9 @@ watch(
   { immediate: true }
 );
 const icons = { Layers, CodeXml, Workflow, LayoutDashboard, Component, Table2, Palette };
+const externalLinks = computed(() =>
+  sidebarLinks.filter((item) => item.title.toLowerCase().includes(query.value.toLowerCase()))
+);
 const groups = computed(() =>
   menuGroups
     .map((g) => ({
@@ -74,8 +78,32 @@ function toggle(title) {
       <kbd>/</kbd>
     </label>
     <nav class="app-sidebar__nav" aria-label="전체 메뉴">
+      <a
+        v-for="item in externalLinks"
+        :key="item.href"
+        :href="item.href"
+        class="app-sidebar__category app-sidebar__category--direct"
+        target="_blank"
+        rel="noopener noreferrer"
+        :aria-label="item.title + ' (새 창)'"
+        @click="emit('close')"
+      >
+        <ExternalLink :size="17" />
+        <span>{{ item.title }}</span>
+        <ArrowUpRight :size="13" />
+      </a>
       <section v-for="group in groups" :key="group.title" class="app-sidebar__group">
+        <RouterLink
+          v-if="group.direct"
+          :to="group.children[0].path"
+          class="app-sidebar__category app-sidebar__category--direct"
+          @click="emit('close')"
+        >
+          <component :is="icons[group.icon]" :size="17" />
+          <span>{{ group.title }}</span>
+        </RouterLink>
         <button
+          v-else
           class="app-sidebar__category"
           :aria-expanded="!!query || !collapsed.has(group.title)"
           @click="toggle(group.title)"
@@ -84,7 +112,7 @@ function toggle(title) {
           <span>{{ group.title }}</span>
           <ChevronDown :size="13" />
         </button>
-        <ul v-show="query || !collapsed.has(group.title)">
+        <ul v-if="!group.direct" v-show="query || !collapsed.has(group.title)">
           <li v-for="item in group.children" :key="item.path">
             <RouterLink :to="item.path" class="app-sidebar__link" @click="emit('close')">
               <span class="app-sidebar__dot" />
@@ -94,7 +122,9 @@ function toggle(title) {
           </li>
         </ul>
       </section>
-      <p v-if="!groups.length" class="app-sidebar__empty">검색 결과가 없습니다.</p>
+      <p v-if="!groups.length && !externalLinks.length" class="app-sidebar__empty">
+        검색 결과가 없습니다.
+      </p>
     </nav>
     <footer class="app-sidebar__footer">
       <span class="app-sidebar__version">✦</span>
@@ -212,6 +242,17 @@ function toggle(title) {
     text-align: left;
     span {
       flex: 1;
+    }
+  }
+  &__category--direct {
+    border-radius: 8px;
+    @include focus-ring;
+    &:hover {
+      background: var(--canvas);
+    }
+    &.router-link-exact-active {
+      color: var(--primary);
+      background: var(--soft);
     }
   }
   ul {

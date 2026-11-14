@@ -41,7 +41,7 @@ const results = computed(() =>
         <li v-if="!results.length">검색 결과 없음</li>
       </ul>
     </section>
-    <nav class="app-header__actions" aria-label="설정">
+    <nav class="app-header__actions" aria-label="설정 및 바로가기">
       <button
         :aria-label="theme === 'light' ? '다크 모드로 전환' : '라이트 모드로 전환'"
         @click="toggle"
@@ -58,12 +58,6 @@ const results = computed(() =>
         <Bell :size="18" />
         <i />
       </button>
-      <span class="app-header__divider" />
-      <span class="app-header__avatar">JP</span>
-      <section class="app-header__profile">
-        <strong>Jise Park</strong>
-        <small>Frontend developer</small>
-      </section>
     </nav>
     <section v-if="notifications" class="app-header__notification">
       <strong>모든 준비가 끝났어요 ✨</strong>
@@ -171,33 +165,6 @@ const results = computed(() =>
       border-radius: 50%;
     }
   }
-  &__divider {
-    height: 24px;
-    border-left: 1px solid var(--border);
-    margin: 0 3px;
-  }
-  &__avatar {
-    @include flex-center;
-    width: 34px;
-    height: 34px;
-    background: #f1d8c7;
-    color: #845e4b;
-    font-size: 11px;
-    font-weight: 700;
-    border-radius: 50%;
-    border: 3px solid var(--surface);
-    outline: 1px solid var(--border);
-  }
-  &__profile {
-    display: grid;
-    strong {
-      font-size: 11px;
-    }
-    small {
-      font-size: 9px;
-      color: var(--caption);
-    }
-  }
   &__menu {
     display: none;
   }
@@ -231,9 +198,7 @@ const results = computed(() =>
     &__workspace {
       font-size: 10px;
     }
-    &__profile,
-    &__plan,
-    &__divider {
+    &__plan {
       display: none;
     }
     &__actions {

@@ -1,4 +1,26 @@
+export const sidebarLinks = [
+  {
+    title: 'Tmoney 가이드',
+    href: 'https://parkjise.github.io/tmoneygopublish-spa-pub/#/tmoney/Spa/DET/DET003.vue'
+  }
+];
+
 export const menuGroups = [
+  {
+    title: 'BEM Generator',
+    icon: 'CodeXml',
+    direct: true,
+    children: [
+      {
+        path: '/tools/bem-generator',
+        title: 'BEM Generator',
+        description: 'Gemini / OpenAI API · HTML 마크업 클래스 변환',
+        folder: 'tools',
+        slug: 'bem-generator',
+        badge: 'AI API'
+      }
+    ]
+  },
   {
     title: 'Vue.js 기본 문법',
     icon: 'CodeXml',
@@ -99,14 +121,6 @@ export const menuGroups = [
     title: 'SCSS 실무 가이드',
     icon: 'Palette',
     children: [
-      {
-        path: '/tools/bem-generator',
-        title: 'BEM Generator',
-        description: 'Gemini / OpenAI API · HTML 마크업 클래스 변환',
-        folder: 'tools',
-        slug: 'bem-generator',
-        badge: 'AI API'
-      },
       {
         path: '/scss/mixins-source',
         title: '공통 Mixin 소스',
