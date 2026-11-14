@@ -1,6 +1,8 @@
 <script setup>
 import { ref, computed, watch, defineAsyncComponent, markRaw } from 'vue';
 import { vueExercises, exerciseCategories } from '@/composables/vueExercises';
+import { createPracticePreview } from '@/composables/practicePreview';
+import { useTheme } from '@/composables/useTheme';
 import SyntaxCode from '@/components/common/SyntaxCode.vue';
 import CodeExampleCard from '@/components/common/CodeExampleCard.vue';
 const selected = ref(vueExercises[0].id);
@@ -8,7 +10,13 @@ const category = ref('전체');
 const level = ref('전체');
 const query = ref('');
 const answerOpen = ref(false);
+const previewOpen = ref(true);
+const previewMode = ref('html');
+const { theme } = useTheme();
 const active = computed(() => vueExercises.find((item) => item.id === selected.value));
+const previewDocument = computed(() =>
+  createPracticePreview(active.value.html, active.value.css, theme.value === 'dark')
+);
 const filtered = computed(() =>
   vueExercises.filter(
     (item) =>
@@ -25,6 +33,8 @@ watch(filtered, (items) => {
 });
 watch(selected, () => {
   answerOpen.value = false;
+  previewOpen.value = true;
+  previewMode.value = 'html';
 });
 const rawSources = import.meta.glob('/src/components/practice/*.vue', {
   query: '?raw',
@@ -53,8 +63,8 @@ function move(delta) {
         <small>문제 → 정답 → 상세 해설</small>
       </h1>
       <p>
-        HTML·CSS로 주어진 화면에 Vue 동작을 어떻게 연결할지 생각해 보세요. 정답을 열면 전체 Vue
-        코드와 단계별 설명, 직접 조작할 수 있는 동작 예시를 확인할 수 있습니다.
+        화면보기에서 HTML·CSS 문제 화면과 완성된 Vue 동작을 비교해 보세요. 정답을 열면 전체 Vue
+        코드와 단계별 설명을 확인할 수 있습니다.
       </p>
       <div class="practice__categories" aria-label="문제 분야 요약">
         <span v-for="name in exerciseCategories" :key="name">
@@ -116,6 +126,59 @@ function move(delta) {
           <ul>
             <li v-for="check in active.checks" :key="check">{{ check }}</li>
           </ul>
+        </section>
+        <section class="practice__preview" aria-label="화면보기">
+          <header class="practice__preview-heading">
+            <h3>화면보기</h3>
+            <button
+              type="button"
+              :aria-expanded="previewOpen"
+              aria-controls="practice-preview"
+              @click="previewOpen = !previewOpen"
+            >
+              {{ previewOpen ? '화면 접기' : '화면보기' }}
+            </button>
+          </header>
+          <div v-if="previewOpen" id="practice-preview">
+            <nav class="practice__preview-tabs" aria-label="미리보기 화면 선택">
+              <button
+                type="button"
+                :aria-pressed="previewMode === 'html'"
+                @click="previewMode = 'html'"
+              >
+                문제 화면 · HTML/CSS
+              </button>
+              <button
+                type="button"
+                :aria-pressed="previewMode === 'complete'"
+                @click="previewMode = 'complete'"
+              >
+                완성 화면 · Vue 동작
+              </button>
+            </nav>
+            <template v-if="previewMode === 'html'">
+              <p class="practice__muted">
+                주어진 HTML·CSS를 그대로 표시한 화면입니다. Vue 이벤트는 아직 연결되지 않았습니다.
+              </p>
+              <iframe
+                :key="active.id + theme"
+                class="practice__frame"
+                title="문제 화면 미리보기"
+                :srcdoc="previewDocument"
+                sandbox=""
+                referrerpolicy="no-referrer"
+              />
+            </template>
+            <template v-else>
+              <p class="practice__muted">
+                목표로 하는 완성 화면입니다. 버튼과 입력창을 직접 조작해 동작을 확인하세요. 정답
+                코드는 아래에서 따로 열 수 있습니다.
+              </p>
+              <div class="practice__live" aria-label="완성 화면 미리보기">
+                <component :is="examples[active.id]" :key="active.id" />
+              </div>
+            </template>
+          </div>
         </section>
         <section class="practice__starter" aria-label="문제 HTML과 CSS">
           <h3>주어진 HTML</h3>
@@ -209,19 +272,21 @@ function move(delta) {
           </details>
           <CodeExampleCard
             :key="active.id"
-            title="정답 · 동작 예시와 전체 Vue 코드"
+            title="정답 · 전체 Vue 코드"
             description="script setup · template · scoped SCSS가 포함된 완성 파일입니다."
             :files="answerFiles"
             :initially-expanded="true"
           >
-            <component :is="examples[active.id]" />
+            <p class="practice__muted">
+              문제 위의 ‘화면보기 → 완성 화면 · Vue 동작’에서 실행 결과를 확인하세요.
+            </p>
           </CodeExampleCard>
           <aside class="practice__note">
             <h4>이렇게 확인해 보세요</h4>
             <ol>
               <li v-for="check in active.checks" :key="check">{{ check }}</li>
             </ol>
-            <p>위 동작 예시에서 결과를 확인한 뒤 전체 코드를 복사해 내 프로젝트에서 바꿔 보세요.</p>
+            <p>위 화면보기에서 결과를 확인한 뒤 전체 코드를 복사해 내 프로젝트에서 바꿔 보세요.</p>
           </aside>
         </section>
         <footer class="practice__actions">
@@ -385,6 +450,51 @@ function move(delta) {
     padding: 20px;
     background: var(--soft);
     border-radius: 10px;
+  }
+  &__preview {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    min-width: 0;
+  }
+  &__preview-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    h3 {
+      margin: 0;
+    }
+    button {
+      font-size: 12px;
+    }
+  }
+  &__preview-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 12px;
+    button {
+      font-size: 12px;
+      &[aria-pressed='true'] {
+        color: var(--primary);
+        background: var(--soft);
+        border-color: var(--primary);
+      }
+    }
+  }
+  &__frame {
+    display: block;
+    width: 100%;
+    height: 340px;
+    margin-top: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+  }
+  &__live {
+    margin-top: 12px;
+    min-width: 0;
   }
   &__starter {
     display: grid;
