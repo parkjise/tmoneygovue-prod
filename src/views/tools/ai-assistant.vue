@@ -1,4 +1,5 @@
 <script setup>
+import SyntaxCode from '@/components/common/SyntaxCode.vue';
 import { staticDeployment, staticAiStatus } from '@/composables/aiDeployment';
 import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue';
 import {
@@ -259,7 +260,7 @@ onUnmounted(() => {
             <template v-for="(block, i) in answerBlocks(message.content)" :key="i">
               <section v-if="block.type === 'code'" class="ai-assistant__code">
                 <small>{{ block.language || 'code' }}</small>
-                <pre tabindex="0"><code>{{ block.text }}</code></pre>
+                <SyntaxCode :code="block.text" :language="block.language" label="답변 코드" />
               </section>
               <p v-else>{{ block.text }}</p>
             </template>
@@ -507,8 +508,8 @@ onUnmounted(() => {
     }
   }
   &__code {
-    background: var(--code);
-    color: #dbeafe;
+    background: #1e1e1e;
+    color: #d4d4d4;
     border-radius: 8px;
     margin: 12px 0;
     overflow: hidden;
@@ -518,7 +519,7 @@ onUnmounted(() => {
       padding: 7px 14px;
       border-bottom: 1px solid #334155;
     }
-    pre {
+    :deep(.syntax-code) {
       @include custom-scrollbar;
       overflow: auto;
       padding: 14px;

@@ -16,7 +16,7 @@ export function buildConversation(messages, question) {
   }
   return history;
 }
-// Render code fences through Vue text bindings, never v-html or untrusted Markdown HTML.
+// Split fenced code from prose; SyntaxCode highlights escaped source, prose uses Vue text bindings.
 export function answerBlocks(text) {
   const blocks = [];
   let end = 0;

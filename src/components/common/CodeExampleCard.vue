@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed, useId } from 'vue';
+import { ref, computed, useId, defineAsyncComponent } from 'vue';
+const SyntaxCode = defineAsyncComponent(() => import('@/components/common/SyntaxCode.vue'));
 import { Code2, Copy, Check, ChevronDown, FileCode2 } from 'lucide-vue-next';
 import { extractBlock } from '@/data/codeSnippets/blocks';
 import { useClipboard } from '@/composables/useClipboard';
@@ -40,6 +41,15 @@ const code = computed(() => {
     '이 파일에는 선택한 블록이 없습니다. 전체 코드 탭을 확인하세요.'
   );
 });
+const codeLanguage = computed(() =>
+  selectedTab.value === 'template'
+    ? 'html'
+    : selectedTab.value === 'script'
+      ? 'javascript'
+      : selectedTab.value === 'style'
+        ? 'scss'
+        : selectedFile.value.split('.').pop()
+);
 const { copied, copy } = useClipboard();
 </script>
 <template>
@@ -92,7 +102,7 @@ const { copied, copy } = useClipboard();
           {{ tab.label }}
         </button>
       </nav>
-      <pre tabindex="0" aria-label="소스 코드"><code>{{ code }}</code></pre>
+      <SyntaxCode :code="code" :language="codeLanguage" label="소스 코드" />
     </section>
   </article>
 </template>
@@ -153,15 +163,16 @@ const { copied, copy } = useClipboard();
     font-size: 11px;
   }
   &__source {
-    background: var(--code);
-    color: #d5e0f5;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    color-scheme: dark;
   }
   &__file {
     display: flex;
     padding: 14px 20px;
     gap: 10px;
     select {
-      background: #1e293b;
+      background: #252526;
       color: #e2e8f0;
       max-width: 85%;
     }
@@ -170,7 +181,7 @@ const { copied, copy } = useClipboard();
     display: flex;
     overflow: auto;
     padding: 0 14px;
-    border-bottom: 1px solid #334155;
+    border-bottom: 1px solid #3c3c3c;
     button {
       background: none;
       color: #94a3b8;
@@ -183,15 +194,6 @@ const { copied, copy } = useClipboard();
         border-bottom: 2px solid #818cf8;
       }
     }
-  }
-  pre {
-    @include custom-scrollbar;
-    overflow: auto;
-    max-height: 600px;
-    padding: 24px;
-    margin: 0;
-    font-size: 12px;
-    line-height: 1.8;
   }
   &__chevron--open {
     transform: rotate(180deg);

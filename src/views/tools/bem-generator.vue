@@ -1,4 +1,5 @@
 <script setup>
+import SyntaxCode from '@/components/common/SyntaxCode.vue';
 import { staticDeployment, staticAiStatus } from '@/composables/aiDeployment';
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import {
@@ -602,11 +603,12 @@ onUnmounted(() => {
           {{ copied ? '복사됨 ✓' : '복사' }}
         </button>
       </nav>
-      <pre
+      <SyntaxCode
         class="bem-generator__output"
-        tabindex="0"
-        aria-label="생성된 코드"
-      ><code>{{ output }}</code></pre>
+        :code="output"
+        :language="tab === 'html' ? 'html' : tab === 'scss' ? 'scss' : 'plaintext'"
+        label="생성된 코드"
+      />
       <p class="demo__muted">
         SCSS는 클래스 구조만 제공하는 뼈대입니다. 결과 코드는 실행하거나 프로젝트 파일에 자동
         적용하지 않습니다.
@@ -934,16 +936,7 @@ onUnmounted(() => {
     margin-left: auto;
   }
   &__output {
-    @include custom-scrollbar;
-    margin: 0;
-    background: var(--code);
-    color: #dbeafe;
-    white-space: pre;
-    overflow: auto;
     border-radius: 12px;
-    padding: 24px;
-    font-size: 12px;
-    line-height: 1.8;
     max-height: 500px;
   }
   &__type {
@@ -1025,9 +1018,6 @@ onUnmounted(() => {
     }
     &__options {
       grid-template-columns: 1fr;
-    }
-    &__output {
-      padding: 16px;
     }
     &__input-caption {
       flex-wrap: wrap;
