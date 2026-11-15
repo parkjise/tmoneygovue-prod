@@ -8,11 +8,10 @@ import {
   Menu,
   PanelLeftClose,
   PanelLeftOpen,
-  ChevronDown,
-  Command
+  ChevronDown
 } from 'lucide-vue-next';
 import { useTheme } from '@/composables/useTheme';
-import { menuItems } from '@/data/menuData';
+import { menuItems, tmoneyGuide } from '@/data/menuData';
 const props = defineProps({
   mobile: { type: Boolean, default: false },
   sidebarOpen: { type: Boolean, default: true }
@@ -63,8 +62,6 @@ const results = computed(() =>
       <label>
         <Search :size="16" />
         <input v-model="query" aria-label="페이지 빠른 검색" placeholder="무엇을 찾고 있나요?" />
-        <Command :size="12" />
-        <kbd>K</kbd>
       </label>
       <ul v-if="query">
         <li v-for="item in results" :key="item.path">
@@ -76,6 +73,16 @@ const results = computed(() =>
         <li v-if="!results.length">검색 결과 없음</li>
       </ul>
     </section>
+    <a
+      class="app-header__guide"
+      :href="tmoneyGuide.href"
+      target="_blank"
+      rel="noopener noreferrer"
+      :aria-label="tmoneyGuide.title + ' (새 창)'"
+      :title="tmoneyGuide.title + ' (새 창)'"
+    >
+      T
+    </a>
     <nav class="app-header__actions" aria-label="설정 및 바로가기">
       <button
         :aria-label="theme === 'light' ? '다크 모드로 전환' : '라이트 모드로 전환'"
@@ -151,9 +158,6 @@ const results = computed(() =>
       padding: 6px !important;
       width: 170px;
     }
-    kbd {
-      font-size: 10px;
-    }
     ul {
       @include card-surface;
       position: absolute;
@@ -174,6 +178,24 @@ const results = computed(() =>
       small {
         color: var(--caption);
       }
+    }
+  }
+  &__guide {
+    @include flex-center;
+    @include focus-ring;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--soft);
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: none;
+    &:hover {
+      background: var(--primary);
+      color: #fff;
     }
   }
   &__actions {
@@ -228,6 +250,9 @@ const results = computed(() =>
     }
   }
   @include responsive(tablet) {
+    &__guide {
+      margin-left: auto;
+    }
     &__search {
       display: none;
     }

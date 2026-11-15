@@ -1,9 +1,7 @@
-export const sidebarLinks = [
-  {
-    title: 'Tmoney 가이드',
-    href: 'https://parkjise.github.io/tmoneygopublish-spa-pub/#/tmoney/Spa/DET/DET003.vue'
-  }
-];
+export const tmoneyGuide = {
+  title: 'Tmoney 가이드',
+  href: 'https://parkjise.github.io/tmoneygopublish-spa-pub/#/tmoney/Spa/DET/DET003.vue'
+};
 
 export const menuGroups = [
   {

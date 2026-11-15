@@ -12,10 +12,9 @@ import {
   LayoutDashboard,
   Component,
   Table2,
-  ExternalLink,
   ArrowUpRight
 } from 'lucide-vue-next';
-import { menuGroups, sidebarLinks } from '@/data/menuData';
+import { menuGroups } from '@/data/menuData';
 const props = defineProps({
   open: { type: Boolean, default: false },
   visible: { type: Boolean, default: true }
@@ -39,9 +38,6 @@ watch(
   { immediate: true }
 );
 const icons = { Layers, CodeXml, Workflow, LayoutDashboard, Component, Table2, Palette };
-const externalLinks = computed(() =>
-  sidebarLinks.filter((item) => item.title.toLowerCase().includes(query.value.toLowerCase()))
-);
 const groups = computed(() =>
   menuGroups
     .map((g) => ({
@@ -117,9 +113,7 @@ function toggle(title) {
           </li>
         </ul>
       </section>
-      <p v-if="!groups.length && !externalLinks.length" class="app-sidebar__empty">
-        검색 결과가 없습니다.
-      </p>
+      <p v-if="!groups.length" class="app-sidebar__empty">검색 결과가 없습니다.</p>
     </nav>
     <footer class="app-sidebar__footer">
       <div class="app-sidebar__footer-info">
@@ -132,20 +126,6 @@ function toggle(title) {
           <ArrowUpRight :size="16" />
         </RouterLink>
       </div>
-      <a
-        v-for="item in externalLinks"
-        :key="item.href"
-        :href="item.href"
-        class="app-sidebar__external"
-        target="_blank"
-        rel="noopener noreferrer"
-        :aria-label="item.title + ' (새 창)'"
-        @click="emit('close')"
-      >
-        <ExternalLink :size="17" />
-        <span>{{ item.title }}</span>
-        <ArrowUpRight :size="13" />
-      </a>
     </footer>
   </aside>
 </template>
@@ -326,24 +306,6 @@ function toggle(title) {
   }
   &__footer-info {
     @include flex-between;
-  }
-  &__external {
-    @include focus-ring;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 11px 10px;
-    font-size: 12px;
-    font-weight: 600;
-    border-radius: 8px;
-    color: var(--primary);
-    background: var(--soft);
-    span {
-      flex: 1;
-    }
-    &:hover {
-      background: var(--canvas);
-    }
   }
   &__version {
     @include flex-center;
