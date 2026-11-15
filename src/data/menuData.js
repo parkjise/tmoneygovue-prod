@@ -51,6 +51,109 @@ export const menuGroups = [
     ]
   },
   {
+    title: 'SCSS 실무 가이드',
+    icon: 'Palette',
+    children: [
+      {
+        path: '/scss/mixins-source',
+        title: '공통 Mixin 소스',
+        description: '공통 Mixin 40종 · 사용법·컴파일 결과·주석 소스',
+        badge: '40 MIXINS',
+        folder: 'scss',
+        slug: 'mixins-source',
+        sourceFile: '/src/assets/styles/_mixins.scss'
+      },
+      {
+        path: '/scss/practice-source',
+        title: 'Practice 모듈 소스',
+        description: 'Practice 공개 API · 토큰 15그룹 / 함수 16종 / Mixin 24종',
+        folder: 'scss',
+        slug: 'practice-source',
+        sourceFile: '/src/assets/styles/practice/_index.scss'
+      },
+      {
+        path: '/scss/practice-tokens',
+        title: 'Tokens 소스',
+        description: '토큰 15개 그룹 · 사용법·원본·컴파일 결과',
+        folder: 'scss',
+        slug: 'practice-tokens',
+        sourceFile: '/src/assets/styles/practice/_tokens.scss'
+      },
+      {
+        path: '/scss/practice-functions',
+        title: 'Functions 소스',
+        description: '계산 함수 16종 · 사용법·인자 검사·의존 원본',
+        folder: 'scss',
+        slug: 'practice-functions',
+        sourceFile: '/src/assets/styles/practice/_functions.scss'
+      },
+      {
+        path: '/scss/practice-mixins',
+        title: 'Practice Mixins 소스',
+        description: '토큰 기반 Mixin 24종 · 실무 레시피와 원본',
+        folder: 'scss',
+        slug: 'practice-mixins',
+        sourceFile: '/src/assets/styles/practice/_mixins.scss'
+      },
+      {
+        path: '/scss/tokens',
+        title: '변수 & 디자인 토큰',
+        description: 'Sass 토큰 · CSS 변수 · 브랜드 테마와 스케일',
+        folder: 'scss',
+        slug: 'tokens'
+      },
+      {
+        path: '/scss/mixins',
+        title: 'Mixin 실무 패턴',
+        description: '@mixin · @include · @content',
+        folder: 'scss',
+        slug: 'mixins'
+      },
+      {
+        path: '/scss/responsive',
+        title: '반응형 & 브레이크포인트',
+        description: 'Media/Container Query · 입력장치 · 인쇄 · 안전 영역',
+        folder: 'scss',
+        slug: 'responsive'
+      },
+      {
+        path: '/scss/typography',
+        title: '타이포그래피 & 말줄임',
+        description: 'rem · clamp · 말줄임 · 긴 문자열 · RTL',
+        folder: 'scss',
+        slug: 'typography'
+      },
+      {
+        path: '/scss/layout',
+        title: 'Flex & Grid 레이아웃',
+        description: 'Flex/Grid · 사이드바 · sticky · 이미지 · 오버레이',
+        folder: 'scss',
+        slug: 'layout'
+      },
+      {
+        path: '/scss/states',
+        title: '상태 & 인터랙션',
+        description: '버튼·입력·포커스·네이티브 상태·모션',
+        folder: 'scss',
+        slug: 'states'
+      },
+      {
+        path: '/scss/loops',
+        title: 'Map & 반복문',
+        description: 'Map/List · @each/@for · 조건과 변형 생성',
+        folder: 'scss',
+        slug: 'loops'
+      },
+      {
+        path: '/scss/modules',
+        title: '모듈 & 함수 설계',
+        description: '@use/@forward · with · 접두어 · 공개 API',
+        folder: 'scss',
+        slug: 'modules'
+      }
+    ]
+  },
+  {
     title: 'CSS3',
     icon: 'Palette',
     direct: true,
@@ -191,109 +294,7 @@ export const menuGroups = [
       }
     ]
   },
-  {
-    title: 'SCSS 실무 가이드',
-    icon: 'Palette',
-    children: [
-      {
-        path: '/scss/mixins-source',
-        title: '공통 Mixin 소스',
-        description: '공통 Mixin 40종 · 사용법·컴파일 결과·주석 소스',
-        badge: '40 MIXINS',
-        folder: 'scss',
-        slug: 'mixins-source',
-        sourceFile: '/src/assets/styles/_mixins.scss'
-      },
-      {
-        path: '/scss/practice-source',
-        title: 'Practice 모듈 소스',
-        description: 'Practice 공개 API · 토큰 15그룹 / 함수 16종 / Mixin 24종',
-        folder: 'scss',
-        slug: 'practice-source',
-        sourceFile: '/src/assets/styles/practice/_index.scss'
-      },
-      {
-        path: '/scss/practice-tokens',
-        title: 'Tokens 소스',
-        description: '토큰 15개 그룹 · 사용법·원본·컴파일 결과',
-        folder: 'scss',
-        slug: 'practice-tokens',
-        sourceFile: '/src/assets/styles/practice/_tokens.scss'
-      },
-      {
-        path: '/scss/practice-functions',
-        title: 'Functions 소스',
-        description: '계산 함수 16종 · 사용법·인자 검사·의존 원본',
-        folder: 'scss',
-        slug: 'practice-functions',
-        sourceFile: '/src/assets/styles/practice/_functions.scss'
-      },
-      {
-        path: '/scss/practice-mixins',
-        title: 'Practice Mixins 소스',
-        description: '토큰 기반 Mixin 24종 · 실무 레시피와 원본',
-        folder: 'scss',
-        slug: 'practice-mixins',
-        sourceFile: '/src/assets/styles/practice/_mixins.scss'
-      },
-      {
-        path: '/scss/tokens',
-        title: '변수 & 디자인 토큰',
-        description: 'Sass 토큰 · CSS 변수 · 브랜드 테마와 스케일',
-        folder: 'scss',
-        slug: 'tokens'
-      },
-      {
-        path: '/scss/mixins',
-        title: 'Mixin 실무 패턴',
-        description: '@mixin · @include · @content',
-        folder: 'scss',
-        slug: 'mixins'
-      },
-      {
-        path: '/scss/responsive',
-        title: '반응형 & 브레이크포인트',
-        description: 'Media/Container Query · 입력장치 · 인쇄 · 안전 영역',
-        folder: 'scss',
-        slug: 'responsive'
-      },
-      {
-        path: '/scss/typography',
-        title: '타이포그래피 & 말줄임',
-        description: 'rem · clamp · 말줄임 · 긴 문자열 · RTL',
-        folder: 'scss',
-        slug: 'typography'
-      },
-      {
-        path: '/scss/layout',
-        title: 'Flex & Grid 레이아웃',
-        description: 'Flex/Grid · 사이드바 · sticky · 이미지 · 오버레이',
-        folder: 'scss',
-        slug: 'layout'
-      },
-      {
-        path: '/scss/states',
-        title: '상태 & 인터랙션',
-        description: '버튼·입력·포커스·네이티브 상태·모션',
-        folder: 'scss',
-        slug: 'states'
-      },
-      {
-        path: '/scss/loops',
-        title: 'Map & 반복문',
-        description: 'Map/List · @each/@for · 조건과 변형 생성',
-        folder: 'scss',
-        slug: 'loops'
-      },
-      {
-        path: '/scss/modules',
-        title: '모듈 & 함수 설계',
-        description: '@use/@forward · with · 접두어 · 공개 API',
-        folder: 'scss',
-        slug: 'modules'
-      }
-    ]
-  },
+
   {
     title: 'General',
     icon: 'LayoutDashboard',
