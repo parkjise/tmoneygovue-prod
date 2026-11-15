@@ -1,0 +1,16 @@
+import{c as l,_ as d,o as s,a as n,b as a,e as m,t as r,w as p,v as u,F as v,r as y,j as h,m as _,J as k,a4 as x,a5 as f,a6 as g,N as M}from"./index-BnlUdgg-.js";import{S}from"./star-ByEEmB1C.js";/**
+ * @license lucide-vue-next v0.468.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const z=l("CalendarIcon",[["path",{d:"M8 2v4",key:"1cmpym"}],["path",{d:"M16 2v4",key:"4m81vk"}],["rect",{width:"18",height:"18",x:"3",y:"4",rx:"2",key:"1hopcy"}],["path",{d:"M3 10h18",key:"8toen8"}]]);/**
+ * @license lucide-vue-next v0.468.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const B=l("HeartIcon",[["path",{d:"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z",key:"c3ymky"}]]);/**
+ * @license lucide-vue-next v0.468.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const C=l("SettingsIcon",[["path",{d:"M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z",key:"1qme2f"}],["circle",{cx:"12",cy:"12",r:"3",key:"1v7zrd"}]]),I={class:"demo"},V={class:"icons-demo"},b={__name:"icons",setup(w){const e=h(24),i={Heart:B,Star:S,Settings:C,Code2:M,Search:g,Bell:f,Calendar:z,Layers:x};return(D,o)=>(s(),n("section",I,[a("label",null,[m(" 아이콘 크기 "+r(e.value)+"px ",1),p(a("input",{"onUpdate:modelValue":o[0]||(o[0]=t=>e.value=t),type:"range",min:"16",max:"40"},null,512),[[u,e.value,void 0,{number:!0}]])]),a("section",V,[(s(),n(v,null,y(i,(t,c)=>a("article",{key:c},[(s(),_(k(t),{size:e.value},null,8,["size"])),a("code",null,r(c),1)])),64))])]))}},A=d(b,[["__scopeId","data-v-159f3526"]]);export{A as default};
