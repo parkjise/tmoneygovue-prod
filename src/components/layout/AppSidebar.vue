@@ -16,7 +16,10 @@ import {
   ArrowUpRight
 } from 'lucide-vue-next';
 import { menuGroups, sidebarLinks } from '@/data/menuData';
-const props = defineProps({ open: { type: Boolean, default: false } });
+const props = defineProps({
+  open: { type: Boolean, default: false },
+  visible: { type: Boolean, default: true }
+});
 const emit = defineEmits({ close: () => true });
 const route = useRoute();
 const query = ref('');
@@ -58,7 +61,13 @@ function toggle(title) {
 }
 </script>
 <template>
-  <aside class="app-sidebar" :class="{ 'app-sidebar--open': props.open }">
+  <aside
+    id="app-sidebar"
+    class="app-sidebar"
+    :class="{ 'app-sidebar--open': props.open, 'app-sidebar--hidden': !props.visible }"
+    :inert="!props.visible"
+    :aria-hidden="!props.visible"
+  >
     <RouterLink to="/" class="app-sidebar__brand" @click="emit('close')">
       <span class="app-sidebar__logo">
         v
@@ -78,20 +87,6 @@ function toggle(title) {
       <kbd>/</kbd>
     </label>
     <nav class="app-sidebar__nav" aria-label="전체 메뉴">
-      <a
-        v-for="item in externalLinks"
-        :key="item.href"
-        :href="item.href"
-        class="app-sidebar__category app-sidebar__category--direct"
-        target="_blank"
-        rel="noopener noreferrer"
-        :aria-label="item.title + ' (새 창)'"
-        @click="emit('close')"
-      >
-        <ExternalLink :size="17" />
-        <span>{{ item.title }}</span>
-        <ArrowUpRight :size="13" />
-      </a>
       <section v-for="group in groups" :key="group.title" class="app-sidebar__group">
         <RouterLink
           v-if="group.direct"
@@ -127,14 +122,30 @@ function toggle(title) {
       </p>
     </nav>
     <footer class="app-sidebar__footer">
-      <span class="app-sidebar__version">✦</span>
-      <section>
-        <strong>Build something great.</strong>
-        <p>Vue 3 실무 레퍼런스</p>
-      </section>
-      <RouterLink to="/vue-syntax/conditional" aria-label="가이드 시작">
-        <ArrowUpRight :size="16" />
-      </RouterLink>
+      <div class="app-sidebar__footer-info">
+        <span class="app-sidebar__version">✦</span>
+        <section>
+          <strong>Build something great.</strong>
+          <p>Vue 3 실무 레퍼런스</p>
+        </section>
+        <RouterLink to="/vue-syntax/conditional" aria-label="가이드 시작">
+          <ArrowUpRight :size="16" />
+        </RouterLink>
+      </div>
+      <a
+        v-for="item in externalLinks"
+        :key="item.href"
+        :href="item.href"
+        class="app-sidebar__external"
+        target="_blank"
+        rel="noopener noreferrer"
+        :aria-label="item.title + ' (새 창)'"
+        @click="emit('close')"
+      >
+        <ExternalLink :size="17" />
+        <span>{{ item.title }}</span>
+        <ArrowUpRight :size="13" />
+      </a>
     </footer>
   </aside>
 </template>
@@ -149,6 +160,14 @@ function toggle(title) {
   z-index: 50;
   display: flex;
   flex-direction: column;
+  transition:
+    transform 0.2s ease,
+    visibility 0.2s;
+  &--hidden {
+    transform: translateX(-100%);
+    visibility: hidden;
+    pointer-events: none;
+  }
   &__brand {
     display: flex;
     align-items: center;
@@ -223,6 +242,7 @@ function toggle(title) {
     @include custom-scrollbar;
     overflow: auto;
     flex: 1;
+    min-height: 0;
     padding: 0 13px;
   }
   &__group {
@@ -291,7 +311,9 @@ function toggle(title) {
     opacity: 0.6;
   }
   &__footer {
-    @include flex-between;
+    flex-shrink: 0;
+    display: grid;
+    gap: 14px;
     padding: 18px 16px;
     border-top: 1px solid var(--border);
     strong {
@@ -300,6 +322,27 @@ function toggle(title) {
     p {
       font-size: 9px;
       color: var(--caption);
+    }
+  }
+  &__footer-info {
+    @include flex-between;
+  }
+  &__external {
+    @include focus-ring;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 8px;
+    color: var(--primary);
+    background: var(--soft);
+    span {
+      flex: 1;
+    }
+    &:hover {
+      background: var(--canvas);
     }
   }
   &__version {
@@ -317,9 +360,10 @@ function toggle(title) {
     padding: 16px;
     color: var(--muted);
   }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
   @include responsive(mobile) {
-    transform: translateX(-100%);
-    transition: transform 0.2s;
     &--open {
       transform: translateX(0);
     }

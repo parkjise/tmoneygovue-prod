@@ -1,9 +1,34 @@
 <script setup>
 import { ref, computed } from 'vue';
-import { Search, Moon, Sun, Bell, Menu, ChevronDown, Command } from 'lucide-vue-next';
+import {
+  Search,
+  Moon,
+  Sun,
+  Bell,
+  Menu,
+  PanelLeftClose,
+  PanelLeftOpen,
+  ChevronDown,
+  Command
+} from 'lucide-vue-next';
 import { useTheme } from '@/composables/useTheme';
 import { menuItems } from '@/data/menuData';
+const props = defineProps({
+  mobile: { type: Boolean, default: false },
+  sidebarOpen: { type: Boolean, default: true }
+});
 const emit = defineEmits({ menu: () => true });
+const menuButton = ref(null);
+const menuLabel = computed(() =>
+  props.mobile
+    ? props.sidebarOpen
+      ? '전체 메뉴 닫기'
+      : '전체 메뉴 열기'
+    : props.sidebarOpen
+      ? '사이드바 접기'
+      : '사이드바 펼치기'
+);
+defineExpose({ focusMenu: () => menuButton.value?.focus() });
 const { theme, toggle } = useTheme();
 const query = ref('');
 const notifications = ref(false);
@@ -15,8 +40,18 @@ const results = computed(() =>
 </script>
 <template>
   <header class="app-header">
-    <button class="app-header__menu" aria-label="전체 메뉴 열기" @click="emit('menu')">
-      <Menu :size="20" />
+    <button
+      ref="menuButton"
+      class="app-header__menu"
+      :aria-label="menuLabel"
+      :title="menuLabel"
+      :aria-expanded="sidebarOpen"
+      aria-controls="app-sidebar"
+      @click="emit('menu')"
+    >
+      <Menu v-if="mobile" :size="20" />
+      <PanelLeftClose v-else-if="sidebarOpen" :size="20" />
+      <PanelLeftOpen v-else :size="20" />
     </button>
     <section class="app-header__workspace">
       <span class="app-header__workspace-icon">✦</span>
@@ -166,7 +201,16 @@ const results = computed(() =>
     }
   }
   &__menu {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 14px;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--muted);
   }
   &__notification {
     @include card-surface;
@@ -194,6 +238,7 @@ const results = computed(() =>
     &__menu {
       display: flex;
       padding: 5px;
+      margin-right: 0;
     }
     &__workspace {
       font-size: 10px;

@@ -7,23 +7,6 @@ export const sidebarLinks = [
 
 export const menuGroups = [
   {
-    title: 'BEM Generator',
-    icon: 'CodeXml',
-    direct: true,
-    children: [
-      {
-        path: '/tools/bem-generator',
-        title: 'BEM Generator',
-        description: 'AI 없이 패턴 생성 · Gemini / OpenAI 마크업 분석',
-        pageDescription:
-          '자주 쓰는 UI 패턴을 BEM 코드로 바로 생성하거나, Gemini / OpenAI로 원본 마크업을 분석하세요.',
-        folder: 'tools',
-        slug: 'bem-generator',
-        badge: 'AI API'
-      }
-    ]
-  },
-  {
     title: 'AI Q&A',
     icon: 'Workflow',
     direct: true,
@@ -36,20 +19,6 @@ export const menuGroups = [
         slug: 'ai-assistant',
         badge: 'AI Chat',
         pageDescription: '궁금한 것을 질문하고, 개인 Gemini / OpenAI API로 대화를 이어가세요.'
-      }
-    ]
-  },
-  {
-    title: 'Vue 실무예제',
-    icon: 'Workflow',
-    direct: true,
-    children: [
-      {
-        path: '/vue-practice/exercises',
-        title: 'Vue 실무예제',
-        description: 'HTML·CSS 문제와 Vue 정답·상세 해설 40종',
-        folder: 'vue-practice',
-        slug: 'exercises'
       }
     ]
   },
@@ -78,6 +47,37 @@ export const menuGroups = [
         description: 'CSS 패턴 48종 · 실무 문제 해결 팁 20종',
         folder: 'css3',
         slug: 'patterns'
+      }
+    ]
+  },
+  {
+    title: 'BEM Generator',
+    icon: 'CodeXml',
+    direct: true,
+    children: [
+      {
+        path: '/tools/bem-generator',
+        title: 'BEM Generator',
+        description: 'AI 없이 패턴 생성 · Gemini / OpenAI 마크업 분석',
+        pageDescription:
+          '자주 쓰는 UI 패턴을 BEM 코드로 바로 생성하거나, Gemini / OpenAI로 원본 마크업을 분석하세요.',
+        folder: 'tools',
+        slug: 'bem-generator',
+        badge: 'AI API'
+      }
+    ]
+  },
+  {
+    title: 'Vue 실무예제',
+    icon: 'Workflow',
+    direct: true,
+    children: [
+      {
+        path: '/vue-practice/exercises',
+        title: 'Vue 실무예제',
+        description: 'HTML·CSS 문제와 Vue 정답·상세 해설 40종',
+        folder: 'vue-practice',
+        slug: 'exercises'
       }
     ]
   },
