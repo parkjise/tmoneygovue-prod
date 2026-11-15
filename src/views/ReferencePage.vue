@@ -35,6 +35,21 @@ const descriptions = {
         </CodeExampleCard>
       </details>
     </template>
+    <template v-else-if="route.meta.folder === 'sm'">
+      <component :is="props.example" />
+      <details class="reference-page__dashboard-code">
+        <summary>SM Vue · SCSS · Mixin 전체 소스 보기</summary>
+        <CodeExampleCard
+          title="SM implementation"
+          description="Vue 컴포넌트 · 대화 상태 · SCSS · mixin 원본"
+          :files="files"
+        >
+          <p class="demo__muted">
+            위 화면에 사용한 전체 소스입니다. Tailwind 없이 SCSS와 mixin으로 구성했습니다.
+          </p>
+        </CodeExampleCard>
+      </details>
+    </template>
     <template v-else-if="['vue-practice', 'html5', 'css3'].includes(route.meta.folder)">
       <component :is="props.example" />
     </template>
@@ -100,6 +115,7 @@ const descriptions = {
 @use '@/assets/styles/mixins' as *;
 .reference-page {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
   &__header {
     @include flex-between;

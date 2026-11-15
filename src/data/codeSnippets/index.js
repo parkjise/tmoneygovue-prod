@@ -5,6 +5,7 @@ const sources = import.meta.glob(
     '/src/**/*.vue',
     '/src/composables/*.js',
     '/src/data/people.js',
+    '/src/data/smDemo.js',
     '/src/assets/styles/**/*.scss',
     '/src/data/*.json',
     '!/src/data/vuePracticeQuestions.json',

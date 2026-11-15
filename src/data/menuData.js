@@ -23,6 +23,20 @@ export const menuGroups = [
     ]
   },
   {
+    title: 'SM',
+    icon: 'Component',
+    direct: true,
+    children: [
+      {
+        path: '/sm/portal',
+        title: 'SM',
+        description: 'Samsung Gauss Enterprise · Vue UI 데모',
+        folder: 'sm',
+        slug: 'portal'
+      }
+    ]
+  },
+  {
     title: 'HTML5',
     icon: 'CodeXml',
     direct: true,

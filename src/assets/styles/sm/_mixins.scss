@@ -1,0 +1,37 @@
+@use '../mixins' as common;
+
+// SM 전용 조합입니다. 테마 색은 portal.scss의 --sm-* 변수를 사용합니다.
+// 사용: @use '@/assets/styles/sm/mixins' as sm;
+// @include sm.row(12px): 세로 중앙 정렬과 간격을 적용합니다.
+@mixin row($gap: 8px) {
+  display: flex;
+  align-items: center;
+  gap: $gap;
+}
+// 공통 flex-center를 조합합니다. 아바타와 아이콘 버튼에 사용합니다.
+@mixin center {
+  @include common.flex-center;
+}
+// 패딩은 사용처에서 지정하여 카드, 응답, 배지를 함께 구성합니다.
+@mixin panel($radius: 14px) {
+  background: var(--sm-surface);
+  border: 1px solid var(--sm-border);
+  border-radius: $radius;
+}
+// 전역 버튼 스타일보다 SM 테마가 우선하도록 컴포넌트에서 포함합니다.
+@mixin flat-button {
+  background: transparent;
+  border: 0;
+  border-radius: 9px;
+  color: inherit;
+  cursor: pointer;
+  &:hover:not(:disabled) {
+    background: var(--sm-soft);
+  }
+}
+// 앱 사이드바가 있는 콘텐츠 너비도 고려한 모바일·태블릿 전환입니다.
+@mixin compact {
+  @include common.responsive(1200px) {
+    @content;
+  }
+}

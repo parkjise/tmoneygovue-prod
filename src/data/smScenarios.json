@@ -1,0 +1,54 @@
+{
+  "hbm": {
+    "userPrompt": "차세대 HBM3E 12단 패키징 공정에서 발생한 TC-NCF 본딩 보이드(Void) 이슈의 주요 원인과 주간 공정 회의에서 도출된 개선 Action Item을 임원 보고용으로 요약해줘.",
+    "aiResponse": "<p>📊 [임원 보고용] HBM3E 12단 TC-NCF 본딩 보이드(Void) 개선 현황 요약</p>\n                    <p>최근 DS부문 패키징기술팀 주간 공정 회의록 및 설비 로그 분석 결과, 본딩 보이드 발생률(기존 1.8% → 목표 0.3% 이하) 저감을 위한 핵심 원인과 조치 계획은 다음과 같습니다.</p>\n                    <div>\n                        <div>\n                            <div>1. 주요 병목 원인 (Root Cause)</div>\n                            <ul>\n                                <li><strong>열압착(TC) 프로파일 편차:</strong> 적층 단수 증가(8단→12단)에 따른 최하단 칩 열전달 지연으로 NCF 필름 유동성 불균형 발생</li>\n                                <li><strong>필름 흡습 관리 한계:</strong> 대기 노출 시간(Q-Time) 4시간 초과 로트에서 미세 기포 트랩 현상 확인</li>\n                            </ul>\n                        </div>\n                        <div>\n                            <div>2. 핵심 개선 Action Item</div>\n                            <ul>\n                                <li><strong>[설비/공정]</strong> 다단 펄스 히팅(Multi-step Pulse Heating) 레시피 적용 및 헤드 평탄도 캘리브레이션 주기 단축 (담당: PKG공정기술그룹, ~11/22)</li>\n                                <li><strong>[소재/물류]</strong> NCF 자재 Q-Time 인터락 기준 강화(4h → 2.5h) 및 질소 퍼지 스토커 증설 (담당: 소재개발팀, ~11/29)</li>\n                            </ul>\n                        </div>\n                    </div>\n                    <p>※ 추가적으로 라인별(평택 P3 vs 천안) 설비 편차 비교 데이터가 필요하시면 말씀해 주세요.</p>",
+    "sources": [
+      {
+        "title": "Confluence: [DS-PKG] 2026년 11월 2주차 HBM3E 수율 개선 회의록",
+        "tag": "사내 위키"
+      },
+      {
+        "title": "기술표준문서: TC-NCF Bonding Process Spec (Rev. 4.2)",
+        "tag": "표준 문서"
+      }
+    ]
+  },
+  "security_code": {
+    "userPrompt": "사내 MES 설비 데이터 조회 API(Spring Boot) 코드를 작성했는데, 삼성 시큐어 코딩 가이드 기준으로 보안 취약점과 개선 코드를 제안해줘.\n\n```java\n@GetMapping(\"/api/v1/eqp/status\")\npublic List<EqpDto> getEqpStatus(@RequestParam String lineId) {\n    String sql = \"SELECT * FROM TB_EQP_INFO WHERE LINE_ID = '\" + lineId + \"'\";\n    return jdbcTemplate.query(sql, new EqpRowMapper());\n}\n```",
+    "aiResponse": "<p>🛡️ [Gauss Code 보안 진단] 시큐어 코딩 점검 결과</p>\n                    <p>제출하신 코드에서 <strong>심각도 상(High)</strong> 수준의 보안 취약점 2건이 탐지되었습니다. 사내 SW 개발 보안 표준에 따라 아래와 같이 수정이 필요합니다.</p>\n                    <ul>\n                        <li><span>[취약점 1] SQL Injection 위험:</span> 사용자 입력값(<code>lineId</code>)을 문자열 결합(<code>+</code>)으로 쿼리에 직접 삽입하고 있습니다.</li>\n                        <li><span>[취약점 2] 접근 제어(Knox 권한) 누락:</span> 요청자의 해당 라인(FAB) 조회 권한 검증 어노테이션이 누락되었습니다.</li>\n                    </ul>\n                    <div>\n                        <div>// ✅ 시큐어 코딩 적용 예시 (Parameterized Query & 권한 검증)</div>\n<pre>@PreAuthorize(\"@fabAuthService.hasLineAccess(authentication, #lineId)\")\n@GetMapping(\"/api/v1/eqp/status\")\npublic List&lt;EqpDto&gt; getEqpStatus(@RequestParam @Pattern(regexp = \"^[A-Z0-9_]{2,10}$\") String lineId) {\n    String sql = \"SELECT EQP_ID, STATUS, UPDATED_AT FROM TB_EQP_INFO WHERE LINE_ID = ?\";\n    return jdbcTemplate.query(sql, new EqpRowMapper(), lineId);\n}</pre>\n                    </div>",
+    "sources": [
+      {
+        "title": "Confluence: 삼성전자 시큐어 코딩 표준 가이드 (Java/Spring v3.1)",
+        "tag": "보안 표준"
+      },
+      {
+        "title": "사내 GitHub: MES-Common-Security-Starter 연동 매뉴얼",
+        "tag": "개발 가이드"
+      }
+    ]
+  },
+  "welfare": {
+    "userPrompt": "다음 달 미국 산호세(DSA) 법인으로 2주간 기술 협의를 위해 해외 출장을 갑니다. CL3 직급 기준 숙박비 상한액과 일비 정산 규정을 알려줘.",
+    "aiResponse": "<p>✈️ 미주 지역(미국 산호세) 해외 출장 경비 지원 기준 안내</p>\n                    <p>사내 인사/총무 포털(Knox Portal)의 최신 <strong>해외출장 관리지침</strong>을 조회한 결과, CL3 직급 기준 미국 캘리포니아(산호세/실리콘밸리) 지역 지원 기준은 다음과 같습니다.</p>\n                    <div>\n                        <table>\n                            <thead>\n                                <tr>\n                                    <th>구분</th>\n                                    <th>지원 한도 (1일 기준)</th>\n                                    <th>정산 방식 및 유의사항</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <td>숙박비</td>\n                                    <td>최대 $320 / 박 (세금 별도)</td>\n                                    <td>사내 출장 예약 시스템(BTMS) 제휴 호텔 이용 권장, 법인카드 실비 정산</td>\n                                </tr>\n                                <tr>\n                                    <td>일비 (식비·잡비)</td>\n                                    <td>$95 / 일 (정액 지급)</td>\n                                    <td>출국일부터 귀국일까지 일수 산정 (별도 영수증 증빙 불필요)</td>\n                                </tr>\n                                <tr>\n                                    <td>현지 교통비</td>\n                                    <td>실비 전액 인정</td>\n                                    <td>업무 목적 Uber/렌터카 이용 시 법인카드 결제 및 영수증 첨부</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <p>💡 <strong>Tip:</strong> 산호세 지역 성수기(컨퍼런스 기간 등)로 상한액 초과 시, 부서장(그룹장) 사전 품의를 통해 최대 20%까지 예외 승인이 가능합니다.</p>",
+    "sources": [
+      {
+        "title": "Confluence HR: 2026년 해외출장 여비 지급 기준표 (특수지역 포함)",
+        "tag": "인사 규정"
+      },
+      {
+        "title": "Knox BTMS: 미주 법인(DSA) 출장자 가이드북",
+        "tag": "총무 안내"
+      }
+    ]
+  },
+  "global_mail": {
+    "userPrompt": "해외 주요 고객사(Qualcomm 담당자)에게 차세대 모바일 AP용 샘플 칩 납품 일정이 내부 신뢰성 테스트 강화로 인해 2주 순연된다는 내용을 정중하게 안내하는 영문 비즈니스 메일을 작성해줘.",
+    "aiResponse": "<p>✉️ 글로벌 고객사 일정 조율 영문 비즈니스 메일 초안</p>\n                    <p>고객사와의 신뢰 관계를 유지하면서 품질 최우선 원칙을 강조한 비즈니스 톤앤매너로 작성되었습니다.</p>\n                    <div>\n                        <div><strong>Subject:</strong> [Samsung Electronics] Schedule Update regarding Engineering Sample (ES) Delivery for Next-Gen AP</div>\n                        <hr>\n                        <p>Dear [Customer Name],</p>\n                        <p>I hope this email finds you well and that your team is having a productive week.</p>\n                        <p>I am writing to provide a transparent update regarding the delivery schedule for the upcoming Engineering Samples (ES). As part of our unwavering commitment to delivering the highest product quality, we have decided to implement an additional round of rigorous reliability stress testing prior to shipment.</p>\n                        <p>Consequently, our estimated delivery date will be adjusted by two weeks, moving from <strong>[Original Date]</strong> to <strong>[New Date]</strong>. Please rest assured that this proactive measure is designed to ensure seamless integration and optimal performance during your upcoming validation phase.</p>\n                        <p>To minimize any impact on your development timeline, we can share the preliminary characterization data ahead of the physical shipment. Please let me know your availability this week if you would like to discuss this further.</p>\n                        <p>Thank you very much for your continued partnership and understanding.</p>\n                        <p>Best regards,<br><strong>Samsung Kim</strong><br>Principal Engineer, DS Division<br>Samsung Electronics Co., Ltd.</p>\n                    </div>",
+    "sources": [
+      {
+        "title": "사내 글로벌 커뮤니케이션 가이드: 고객사 일정 변경 대응 표준 템플릿",
+        "tag": "업무 표준"
+      }
+    ]
+  }
+}
